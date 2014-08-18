@@ -1,0 +1,70 @@
+@CHARSET "ISO-8859-1";
+
+#paginas {
+	bottom: 0;
+	clear: both;
+	background-color:#E6E8FA;
+	float: left;
+	width: 36%;
+	margin-left: 13.2%;
+	margin-top:2%;
+}
+#paginas a{
+	text-decoration:none;
+	color: #000;
+	font-size: 120%;
+}
+#paginas a:hover{
+	background-color: #333333;
+	color: #f8f8ff;
+	-moz-box-shadow: 0 3px 10px 0 #333333;
+	-webkit-box-shadow: 0 3px 10px 0 #333333;
+	text-shadow: 0px 0px 5px #fff;
+}
+
+#principal h2{
+	background-color:#E6E8FA;
+	margin-left: 3.2%;
+	font-family: "Century Gothic";
+	color: #000;
+	
+}
+
+#principal a { 
+	text-decoration:none;
+	color: #000;
+	margin-left: 3.2%;
+}
+
+#principal h1{
+	background-color:#E6E8FA;
+	width: 180px;
+}
+
+#principal a:hover{
+	background-color: #333333;
+	color: #f8f8ff;
+	-moz-box-shadow: 0 3px 10px 0 #333333;
+	-webkit-box-shadow: 0 3px 10px 0 #333333;
+	text-shadow: 0px 0px 5px #fff;
+}
+
+#principal{
+	width: 40%;
+}
+
+#datas{
+	margin-left: 10px;
+}
+
+#principal h3{
+	font-size: 25px;
+}
+
+#lupa{
+	width: 18px;
+}
+
+#principal p{
+	margin-left: 20px;
+}

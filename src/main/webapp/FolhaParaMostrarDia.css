@@ -1,0 +1,29 @@
+@CHARSET "ISO-8859-1";
+
+#tudo h1{
+	background-color:#E6E8FA;
+	margin-left: 150px;
+	margin-top: 80px;
+	width: 300px;
+}
+
+#tudo h2{
+	background-color:#E6E8FA;
+	margin-left: 150px;
+	width: 100px;
+}
+
+#mostra a{
+	text-decoration:none;
+	color: #000;
+	margin-left: 150px;
+	width: 100px;
+}
+
+#mostra a:hover{
+	background-color: #333333;
+	color: #f8f8ff;
+	-moz-box-shadow: 0 3px 10px 0 #333333;
+	-webkit-box-shadow: 0 3px 10px 0 #333333;
+	text-shadow: 0px 0px 5px #fff;
+}

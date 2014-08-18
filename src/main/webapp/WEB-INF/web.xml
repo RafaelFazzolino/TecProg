@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee     
+http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	version="2.4">
+
+	<servlet>
+		<servlet-name>Parlamentar Recebido</servlet-name>
+		<servlet-class>br.com.MDSGPP.ChamadaParlamentar.servlets.ParlamentarRecebido</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Parlamentar Recebido</servlet-name>
+		<url-pattern>/parlamentarRecebido</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Partido Recebido</servlet-name>
+		<servlet-class>br.com.MDSGPP.ChamadaParlamentar.servlets.PartidoRecebidoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Partido Recebido</servlet-name>
+		<url-pattern>/partidoRecebido</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Partido AutoComplete</servlet-name>
+		<servlet-class>br.com.MDSGPP.ChamadaParlamentar.servlets.PartidoAutoCompleteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Partido AutoComplete</servlet-name>
+		<url-pattern>/autoCompletePartido</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Arrumar nome do sessaoPorNome</servlet-name>
+		<servlet-class>br.com.MDSGPP.ChamadaParlamentar.servlets.ArrumarNomeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Arrumar nome do sessaoPorNome</servlet-name>
+		<url-pattern>/arrumarNome</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Sessoes por Data</servlet-name>
+		<servlet-class>br.com.MDSGPP.ChamadaParlamentar.servlets.SessoesPorData</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Sessoes por Data</servlet-name>
+		<url-pattern>/sessaoPorData</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Segundo Parlamentar</servlet-name>
+		<servlet-class>br.com.MDSGPP.ChamadaParlamentar.servlets.SegundoParlamentarServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Segundo Parlamentar</servlet-name>
+		<url-pattern>/segundoParlamentar</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>Acompanhar Parlamentar</servlet-name>
+		<servlet-class>br.com.MDSGPP.ChamadaParlamentar.servlets.PegarListaDeputados</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Acompanhar Parlamentar</servlet-name>
+		<url-pattern>/acompanharParlamentar</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Sessao Por Nome</servlet-name>
+		<servlet-class>br.com.MDSGPP.ChamadaParlamentar.servlets.SessaoPorNomeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Sessao Por Nome</servlet-name>
+		<url-pattern>/sessaoPorNome</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Ranking</servlet-name>
+		<servlet-class>br.com.MDSGPP.ChamadaParlamentar.servlets.RankingServ</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Ranking</servlet-name>
+		<url-pattern>/ranking</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Ranking Completo</servlet-name>
+		<servlet-class>br.com.MDSGPP.ChamadaParlamentar.servlets.RankingCompleto</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Ranking Completo</servlet-name>
+		<url-pattern>/rankingCompleto</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>Acompanhar Sessao</servlet-name>
+		<servlet-class>br.com.MDSGPP.ChamadaParlamentar.servlets.SessoesEReunioesServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Acompanhar Sessao</servlet-name>
+		<url-pattern>/acompanharSessao</url-pattern>
+	</servlet-mapping>
+
+</web-app>
