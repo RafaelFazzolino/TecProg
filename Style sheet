@@ -1,6 +1,6 @@
 Folha de Estilo
 
-Nesta folha serão apresentados todos os padrões utilizados no projeto, como forma de utilização de variáveis, chaves, métodos e etc.
+Neste documento serão apresentados todos os padrões utilizados no projeto, como forma de utilização de variáveis, chaves, métodos e etc.
 
 -Todas as chaves deverão ser abertas com um espaço do fim do método e na mesma linha. Ex:
 	"int soma() {"
@@ -15,7 +15,7 @@ Nesta folha serão apresentados todos os padrões utilizados no projeto, como fo
 	"if ( x < 2 ) {"
 
 -Todas as funções deverão ter chaves, mesmo aquelas que seu bloco só possui uma linha. Ex:
-	"if (x < 2 ) { 
+	"if ( x < 2 ) { 
 		x++;
 	}"
 
@@ -34,4 +34,9 @@ Nesta folha serão apresentados todos os padrões utilizados no projeto, como fo
 -Em todos os comentários, cada item deverá ser separado por espaço, nada poderá ficar colado. E todo fim de comentário deve terminar com um ponto final. Ex:
 	"int x; /* variável para alguma coisa. */"
 
+-A identação deve seguir o padrão java. Utilizando TAB para o espaçamento de identação.
+
+-Todas as variáveis, os métodos e as classes deverão conter nomes significativos em ingles para melhor entendimento de terceiros.
+
+-Toda classe deverá conter documentação javaDoc.
 
