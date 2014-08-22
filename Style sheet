@@ -1,14 +1,33 @@
-﻿Folha de Estilo
+	Documento de definição de estilo e design para o projeto
+	
+FGA- Universidade de Brasília
+Técnicas de Programação
+Prof: Mauricio Serrano
+
+Grupo:  João Henrique 11/0149278
+	Rafael Fazzolino
+	Rudmar	Rodrigues			
+	Thabata Granja	
+	
+Projeto trabalhado: Chamada Parlamentar.
+Reporitório: https://github.com/RafaelFazzolino/TecProg
+
+
 Índice:
-	1. Objetivo do documento
+	1. Informações
+		1.1 - Objetivo do documeto
+		1.2 - Tamanho do software
 	2. Sobre organização do código
 		2.1 - Atribuições de variáveis
 		2.2 - Métodos e chaves
 		2.3 - Identação If/Else
 		2.4 - Limite de escrita
-	3. A respeito da identação padrão
+	3. A respeito da identação 
+		3.1 -  Comprimento de linha
+		3.2 -  Quebra de linha
+		3.3 -  Início do texto 	
 	4. Funções
-	4.1 - Funções e chaves
+		4.1 - Funções e chaves
 	5. Variáveis no código
 		5.1 - Padrão de escrita das variáveis
 		5.2 - Inicialização de variáveis
@@ -20,10 +39,29 @@
 	7. Classes
 		7.1 - Classes e javaDoc
 		7.2 - Padrão de escrita de classes
+	8. Exemplificando o código
 
 __________________________________________________________________________________________________________________________________________________________
 
-1. Neste documento serão apresentados todos os padrões utilizados no projeto, como forma de utilização de variáveis, chaves, métodos e etc.
+1.Informações 
+
+	1.1 Objetivo do documento
+		Neste documento serão apresentados todos os padrões utilizados no projeto, como forma de utilização de variáveis, chaves, métodos e etc.
+	
+	1.2 - Tamanho do Software
+		-------------------------------------------------------------------------------
+		Language                     files          blank        comment           code
+		-------------------------------------------------------------------------------
+		Javascript                      35           5596           6763          27254
+		Java                           100           1734            955           6950
+		JSP                             19            225             10            970
+		CSS                             20            113              0            597
+		Maven                            1             25              0            105
+		XML                              1             15              0             94
+		HTML                             2             10              0             36
+		-------------------------------------------------------------------------------
+		SUM:                           178           7718           7728          36006
+		-------------------------------------------------------------------------------
 
 2. Sobre a Organização do Codigo:
 	
@@ -36,7 +74,7 @@ ________________________________________________________________________________
 	2.3- Em casos de comparações, os itens deverão ser separados por espaço, nada poderá ficar colado. Ex:
 	"if ( x < 2 ) {"
 
-	2.4- Em casos de switch, os intens serão separados a medida que se troca de caso, por uma linha de espaço após o break e devem estar no mesmo nível. Ex:
+	2.4- Em casos de switch, os intens serão separados a medida que se troca de caso, por uma linha de espaço 		após o break e devem estar no mesmo nível. Ex:
 	"switch (diaDaSemana) {
             case 1:
                 System.out.println("Domingo");
@@ -55,19 +93,33 @@ ________________________________________________________________________________
 	"for (int i = 0; i < listaPedidos; i++) {
 		}"
 
-	2.6- Estrutura while, deve seguir o seguinte padrão, um espaço depois do while, e sua declaração vem um nível a direita. Ex:
+	2.6- Estrutura while, deve seguir o seguinte padrão, um espaço depois do while, e sua declaração vem um 	nível a direita. Ex:
 	"while (contador < 50) {
 		System.out.println("Repetição numero: " + contador);
 		contador++;
 		}
 	
-	2.7- O código não deve sair nunca da vista de quem escreve, em termos das linhas verticais do ambiente de programação, em caso de necessidade de ultrapassar
-	o limite vertical, deve-se obedecer as seguintes regras:
-		2.4.1- Quebrar a linha depois da vírgula;
+	2.7- O código não deve sair nunca da vista de quem escreve, em termos das linhas verticais do ambiente de 		programação, em caso de necessidade de ultrapassar o limite vertical, deve-se obedecer as seguintes regras:
+		2.7.1- Quebrar a linha depois da vírgula;
 		       Qebrar a linha antes do operador;
 	 	       A linha deve começar no mesmo nível do sua expressão de origem
 
 3. A identação deve seguir o padrão java. Utilizando TAB para o espaçamento de identação.
+	3.1 Comprimento de cada Linha
+	 
+		Linha de no máximo 140 caracteres, incluindo espaços em branco 
+	
+	3.2 Quebra de Linha
+ 
+		Caso a expressão seja maior que a linha, o critério de quebra de linha será: 
+­		Quebrar linha depois da vírgula; 
+­ 		Quebrar linha antes do operador; 
+­		A nova linha deve começar no mesmo nível da linha da expressão de origem. 
+
+	3.3 Início do Texto
+ 
+­ 		Cada nova função/método deve ser iniciada junto ao canto da tela; 
+­   		Para   cada   nova   estrutura   dentro   de   uma   função/método,   essa   deve   possuir   um   			(1)espaçamento de tabulação a mais que o elemento anterior a ele. 
 
 4. Sobre as Funções no código
 
@@ -79,28 +131,25 @@ ________________________________________________________________________________
 
 5. Sobre as variáveis no codigo:
 
-	5.1- Todas as variáveis deverão ser escritas seguindo o padrão CamelCase mais precisamente lowerCamelCase,onde a palavra é iniciada com letra 
-	minúsculas e unidas sem espaços, exceto quando for a união de duas palavras, neste caso a primeira letra da segunda palavra
-	deverá ser maiúscula Ex:
-	"calcularValor() {
-	}
+	5.1- Todas as variáveis deverão ser escritas seguindo o padrão CamelCase mais precisamente lowerCamelCase,onde a palavra é 		iniciada com letra minúsculas e unidas sem espaços, exceto quando for a união de duas palavras, neste caso a primeira letra da 		segunda palavra deverá ser maiúscula Ex:
+		"calcularValor() {
+		}
 
 	5.2- Toda variável deverá ser inicializada antes de usada. Ex:
-	"int x;
-	x = 0;"
+		"int x;
+		x = 0;"
 
-	5.3- Cada variável deverá ser declarada em uma linha, para que possam ser feitos comentários únicos para cada variável de forma organizada. Ex:
-	"int x;
-	 int y;
-	 int x;"
+	5.3- Cada variável deverá ser declarada em uma linha, para que possam ser feitos comentários únicos para cada variável de forma 	organizada. Ex:
+		"int x;
+	 	int y;
+		int x;"
 	
 	5.4- As variáveis devem levar nomes que se relacionem com suas funções. Ex:
-	"String nomeAluno;
-	 String nomeProfessor;
-	 String nomeMonitor;"
+		"String nomeAluno;
+		 String nomeProfessor;
+	 	 String nomeMonitor;"
 
 		5.4.1- -Todas as variáveis deverão conter nomes significativos em inglês para melhor entendimento de terceiros..
-
 
 
 6. Sobre os Comentários 
@@ -108,21 +157,22 @@ ________________________________________________________________________________
 	6.1- Todos os comentários deverão ser criados utilizando "/*" e "*/", não poderão ser feitos com "//". Ex:
 	"int x; /* Variável para alguma coisa. */"
 
-	6.2- Em todos os comentários, cada item deverá ser separado por espaço, nada poderá ficar colado. E todo fim de comentário deve terminar
-	com um ponto final. Ex:
-	"int x; /* Variável para alguma coisa. */"
+	6.2- Em todos os comentários, cada item deverá ser separado por espaço, nada poderá ficar colado. E todo fim de comentário deve 	terminar com um ponto final. Ex:
+		"int x; /* Variável para alguma coisa. */"
 
 
 7. Sobre as classes 
 
 	7.1- Toda classe deverá conter documentação javaDoc.
 
-	7.2- Todas as classes deverão ser escritas seguindo o padrão CamelCase mais precisamente UpperCamelCase,onde a palavra é iniciada com Maiúsculas e
-	unidas sem espaços. Ex:
-	"Aluno() {
-	}
+	7.2- Todas as classes deverão ser escritas seguindo o padrão CamelCase mais precisamente UpperCamelCase,onde a palavra é iniciada 		com Maiúsculas e unidas sem espaços. Ex:
+		"Aluno() {
+		}
 
--Exemplificando em código.
+
+
+
+8. Exemplificando em código.
 
 public class Aluno extends Pessoa {
 
