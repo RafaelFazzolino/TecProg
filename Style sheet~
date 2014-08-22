@@ -61,7 +61,7 @@ Neste documento serão apresentados todos os padrões utilizados no projeto, com
 
 -Toda classe deverá conter documentação javaDoc.
 
--Todas as classes deverão ser escritas seguindo o padrão CamelCase mais precisamente UpperCamelCase,onde a palavra é iniciada com Maiúsculas e unidas sem espaços. Ex:
+-Todas as classes deverão ser escritas seguindo o padrão CamelCase mais precisamente UpperCamelCase,onde cada palavra é iniciada com Maiúsculas e unidas sem espaços. Ex:
 	"CalcularValor() {
 	}
 
