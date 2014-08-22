@@ -14,7 +14,6 @@
 		5.2 - Inicialização de variáveis
 		5.3 - Declaração de variáveis
 		5.4 - Sobre nome de variáveis
-		5.5 - Padrão de escrita de variáveis
 	6. Comentários
 		6.1 - Como criar um comentário
 		6.2 - Padrão de comentário
@@ -77,11 +76,14 @@ ________________________________________________________________________________
 		x++;
 	}"
 
+
 5. Sobre as variáveis no codigo:
 
-	5.1- Todas as variáveis deverão ser com letras minúsculas, exceto quando for a união de duas palavras, neste caso a primeira letra da segunda palavra
-	deverá ser maiúscula. Ex:
-	"resultado" ou "resultadoTotal"
+	5.1- Todas as variáveis deverão ser escritas seguindo o padrão CamelCase mais precisamente lowerCamelCase,onde a palavra é iniciada com letra 
+	minúsculas e unidas sem espaços, exceto quando for a união de duas palavras, neste caso a primeira letra da segunda palavra
+	deverá ser maiúscula Ex:
+	"calcularValor() {
+	}
 
 	5.2- Toda variável deverá ser inicializada antes de usada. Ex:
 	"int x;
@@ -97,12 +99,9 @@ ________________________________________________________________________________
 	 String nomeProfessor;
 	 String nomeMonitor;"
 
-		5.4.1- Todas as variáveis, os métodos e as classes deverão conter nomes significativos para melhor entendimento de terceiros.
+		5.4.1- -Todas as variáveis deverão conter nomes significativos em inglês para melhor entendimento de terceiros..
 
-	5.5- Todas as variáveis deverão ser escritas seguindo o padrão CamelCase mais precisamente lowerCamelCase,onde a palavra é iniciada
-	com letra minúsculas e unidas sem espaços. Ex:
-	"calcularValor() {
-	}
+
 
 6. Sobre os Comentários 
 
