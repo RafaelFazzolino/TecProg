@@ -1,67 +1,239 @@
-Folha de Estilo
+﻿Folha de Estilo
+Índice:
+	1. Objetivo do documento
+	2. Sobre organização do código
+		2.1 - Atribuições de variáveis
+		2.2 - Métodos e chaves
+		2.3 - Identação If/Else
+		2.4 - Limite de escrita
+	3. A respeito da identação padrão
+	4. Funções
+	4.1 - Funções e chaves
+	5. Variáveis no código
+		5.1 - Padrão de escrita das variáveis
+		5.2 - Inicialização de variáveis
+		5.3 - Declaração de variáveis
+		5.4 - Sobre nome de variáveis
+		5.5 - Padrão de escrita de variáveis
+	6. Comentários
+		6.1 - Como criar um comentário
+		6.2 - Padrão de comentário
+	7. Classes
+		7.1 - Classes e javaDoc
+		7.2 - Padrão de escrita de classes
 
-Neste documento serão apresentados todos os padrões utilizados no projeto, como forma de utilização de variáveis, chaves, métodos e etc.
+__________________________________________________________________________________________________________________________________________________________
 
-  Sobre a Organização do Codigo:
+1. Neste documento serão apresentados todos os padrões utilizados no projeto, como forma de utilização de variáveis, chaves, métodos e etc.
+
+2. Sobre a Organização do Codigo:
 	
--Em casos de atribuições, os ítens deverão ser separados por espaço, nada poderá ficar colado. Ex:
+	2.1- Em casos de atribuições, os ítens deverão ser separados por espaço, nada poderá ficar colado. Ex:
 	"x = 2"
 	
--Todas as chaves deverão ser abertas com um espaço do fim do método e na mesma linha. Ex:
+	2.2- Todas as chaves deverão ser abertas com um espaço do fim do método e na mesma linha. Ex:
 	"int soma() {"
 
--Em casos de comparações, os ítens deverão ser separados por espaço, nada poderá ficar colado. Ex:
+	2.3- Em casos de comparações, os itens deverão ser separados por espaço, nada poderá ficar colado. Ex:
 	"if ( x < 2 ) {"
 
+	2.4- Em casos de switch, os intens serão separados a medida que se troca de caso, por uma linha de espaço após o break e devem estar no mesmo nível. Ex:
+	"switch (diaDaSemana) {
+            case 1:
+                System.out.println("Domingo");
+                break;
 
--A identação deve seguir o padrão java. Utilizando TAB para o espaçamento de identação.
+            case 2:
+                System.out.println("Segunda-feira");
+                break;
 
-  Sobre as Funções no código
+            default:
+                 System.out.println("Outro dia\n");
 
--Todas as funções deverão ter chaves, mesmo aquelas que seu bloco só possui uma linha. Ex:
+         }"
+	
+	2.5- Estrutura for deve seguir o seguinte modelo, um espaço entre suas condições. Ex:
+	"for (int i = 0; i < listaPedidos; i++) {
+		}"
+
+	2.6- Estrutura while, deve seguir o seguinte padrão, um espaço depois do while, e sua declaração vem um nível a direita. Ex:
+	"while (contador < 50) {
+		System.out.println("Repetição numero: " + contador);
+		contador++;
+		}
+	
+	2.7- O código não deve sair nunca da vista de quem escreve, em termos das linhas verticais do ambiente de programação, em caso de necessidade de ultrapassar
+	o limite vertical, deve-se obedecer as seguintes regras:
+		2.4.1- Quebrar a linha depois da vírgula;
+		       Qebrar a linha antes do operador;
+	 	       A linha deve começar no mesmo nível do sua expressão de origem
+
+3. A identação deve seguir o padrão java. Utilizando TAB para o espaçamento de identação.
+
+4. Sobre as Funções no código
+
+	4.1- Todas as funções deverão ter chaves, mesmo aquelas que seu bloco só possui uma linha. Ex:
 	"if ( x < 2 ) { 
 		x++;
 	}"
-	
 
-  Sobre as variáveis no codigo:
+5. Sobre as variáveis no codigo:
 
-
--Todas as variáveis deverão ser com letras minúsculas, exceto quando for a união de duas palavras, neste caso a primeira letra da segunda palavra deverá ser maiúscula. Ex:
+	5.1- Todas as variáveis deverão ser com letras minúsculas, exceto quando for a união de duas palavras, neste caso a primeira letra da segunda palavra
+	deverá ser maiúscula. Ex:
 	"resultado" ou "resultadoTotal"
 
--Toda variável deverá ser inicializada antes de usada. Ex:
+	5.2- Toda variável deverá ser inicializada antes de usada. Ex:
 	"int x;
 	x = 0;"
 
--Cada variável deverá ser declarada em uma linha, para que possam ser feitos comentários únicos para cada variável de forma organizada. Ex:
+	5.3- Cada variável deverá ser declarada em uma linha, para que possam ser feitos comentários únicos para cada variável de forma organizada. Ex:
 	"int x;
 	 int y;
 	 int x;"
+	
+	5.4- As variáveis devem levar nomes que se relacionem com suas funções. Ex:
+	"String nomeAluno;
+	 String nomeProfessor;
+	 String nomeMonitor;"
 
--Todas as variáveis, os métodos e as classes deverão conter nomes significativos em ingles para melhor entendimento de terceiros.
+		5.4.1- Todas as variáveis, os métodos e as classes deverão conter nomes significativos para melhor entendimento de terceiros.
 
--Todas as variáveis deverão ser escritas seguindo o padrão CamelCase mais precisamente lowerCamelCase,onde a palavra é iniciada com letra minúsculas e unidas sem espaços. Ex:
+	5.5- Todas as variáveis deverão ser escritas seguindo o padrão CamelCase mais precisamente lowerCamelCase,onde a palavra é iniciada
+	com letra minúsculas e unidas sem espaços. Ex:
 	"calcularValor() {
 	}
 
+6. Sobre os Comentários 
+
+	6.1- Todos os comentários deverão ser criados utilizando "/*" e "*/", não poderão ser feitos com "//". Ex:
+	"int x; /* Variável para alguma coisa. */"
+
+	6.2- Em todos os comentários, cada item deverá ser separado por espaço, nada poderá ficar colado. E todo fim de comentário deve terminar
+	com um ponto final. Ex:
+	"int x; /* Variável para alguma coisa. */"
 
 
+7. Sobre as classes 
 
- Sobre os Comentários 
+	7.1- Toda classe deverá conter documentação javaDoc.
 
--Todos os comentários deverão ser criados utilizando "/*" e "*/", não poderão ser feitos com "//". Ex:
-	"int x; /* variável para alguma coisa. */"
-
--Em todos os comentários, cada item deverá ser separado por espaço, nada poderá ficar colado. E todo fim de comentário deve terminar com um ponto final. Ex:
-	"int x; /* variável para alguma coisa. */"
-
-
-  Sobre as classes 
-
--Toda classe deverá conter documentação javaDoc.
-
--Todas as classes deverão ser escritas seguindo o padrão CamelCase mais precisamente UpperCamelCase,onde a palavra é iniciada com Maiúsculas e unidas sem espaços. Ex:
-	"CalcularValor() {
+	7.2- Todas as classes deverão ser escritas seguindo o padrão CamelCase mais precisamente UpperCamelCase,onde a palavra é iniciada com Maiúsculas e
+	unidas sem espaços. Ex:
+	"Aluno() {
 	}
+
+-Exemplificando em código.
+
+public class Aluno extends Pessoa {
+
+	/* Atributos */
+	private String matricula;
+	private String ingresso;
+	private String periodo;
+	private String formaDeIngresso;
+	private String portadorDeNecessidades;
+	private Nota[] notas;
+	private Disciplina[] disciplinas;
+	
+	/* Construtores */
+	public Aluno() {
+	}
+	
+	public Aluno(String novoNome, String novoPeriodo) {
+		this.setNome(novoNome);
+		this.setPeriodo(novoPeriodo);
+		this.setPortadorDeNecessidades(necEsp);
+		
+	}
+
+	/* Getters and Setters */
+	public String getMatricula() {
+		return matricula;
+	}
+	
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
+	
+	public String getIngresso() {
+		return ingresso;
+	}
+	
+	public void setIngresso(String ingresso) {
+		this.ingresso = ingresso;
+	}
+	
+	public String getPeriodo() {
+		return periodo;
+	}
+	
+	public void setPeriodo(String periodo) {
+		this.periodo = periodo;
+	}
+	
+	public String getFormaDeIngresso() {
+		return formaDeIngresso;
+	}
+	
+	public void setFormaDeIngresso(String formaDeIngresso) {
+		this.formaDeIngresso = formaDeIngresso;
+	}
+	
+	public String getPortadorDeNecessidades() {
+		return portadorDeNecessidades;
+	}
+	
+	public void setPortadorDeNecessidades(String portadorDeNecessidades) {
+		this.portadorDeNecessidades = portadorDeNecessidades;
+	}
+	
+	public Nota[] getNotas() {
+		return notas;
+	}
+	
+	public void setNotas(Nota[] notas) {
+		this.notas = notas;
+	}
+	
+	public Disciplina[] getDisciplinas() {
+		return disciplinas;
+	}
+	
+	public void setDisciplinas(Disciplina[] disciplinas) {
+		this.disciplinas = disciplinas;
+	}
+	
+	/* Métodos */
+	public void adicionarNota(Nota nota){
+		
+		int tamanhoAntigo = this.notas.length;
+		
+		Nota[] novasNotas = new Nota[tamanhoAntigo+1];
+		
+		for(int i=0; i<tamanhoAntigo; i++) {
+			novasNotas[i] = this.notas[i];
+		}
+		
+		novasNotas[novasNotas.length-1] = nota;
+		
+		this.setNotas(novasNotas);
+	}
+
+	public void adicionarDisciplina(Disciplina disciplina) {
+		
+		int tamanhoAntigo = this.disciplinas.length;
+		
+		Disciplina[] novasDisciplinas = new Disciplina[tamanhoAntigo+1];
+		
+		for(int i=0; i<tamanhoAntigo; i++){
+			novasDisciplinas[i] = this.disciplinas[i];
+		}
+		
+		novasDisciplinas[novasDisciplinas.length-1] = disciplina;
+		
+		this.setDisciplinas(novasDisciplinas);
+	}
+
+}
 
