@@ -7,10 +7,11 @@ Prof: Mauricio Serrano
 Grupo:  João Henrique 11/0149278
 	Rafael Fazzolino
 	Rudmar	Rodrigues			
-	Thabata Granja	
+	Thabata Granja	09//0139658
 	
 Projeto trabalhado: Chamada Parlamentar.
-Reporitório: https://github.com/RafaelFazzolino/TecProg
+Repositório: https://github.com/RafaelFazzolino/TecProg
+Repositório original: https://github.com/Thiagokairala/ChamadaParlamentar2
 
 
 Índice:
@@ -22,6 +23,9 @@ Reporitório: https://github.com/RafaelFazzolino/TecProg
 		2.2 - Métodos e chaves
 		2.3 - Identação If/Else
 		2.4 - Limite de escrita
+		2.5 - Estrutura for
+		2.6- Estrutura while
+		2.7 - Biblioteca
 	3. A respeito da identação 
 		3.1 -  Comprimento de linha
 		3.2 -  Quebra de linha
@@ -103,6 +107,9 @@ ________________________________________________________________________________
 		2.7.1- Quebrar a linha depois da vírgula;
 		       Qebrar a linha antes do operador;
 	 	       A linha deve começar no mesmo nível do sua expressão de origem
+	
+	2.8 - As bibliotecas serão escritas separadas por espaçamento entre os termos
+	
 
 3. A identação deve seguir o padrão java. Utilizando TAB para o espaçamento de identação.
 	3.1 Comprimento de cada Linha
@@ -168,8 +175,6 @@ ________________________________________________________________________________
 	7.2- Todas as classes deverão ser escritas seguindo o padrão CamelCase mais precisamente UpperCamelCase,onde a palavra é iniciada 		com Maiúsculas e unidas sem espaços. Ex:
 		"Aluno() {
 		}
-
-
 
 
 8. Exemplificando em código.
