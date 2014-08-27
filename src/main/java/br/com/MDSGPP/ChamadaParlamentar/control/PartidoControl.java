@@ -20,13 +20,17 @@ import br.com.MDSGPP.ChamadaParlamentar.model.Partidos;
 import br.com.MDSGPP.ChamadaParlamentar.util.LimparLista;
 
 public final class PartidoControl {
-
+	/**
+	 * This method is to pass a list of existing parties.
+	 */
 	public static ArrayList<ArrayList<String>> passarListaPartidos() 
 			throws ClassNotFoundException, SQLException {
 		ArrayList<ArrayList<String>> lista = new PartidoDao().pegarPartidos();	
 		return lista;
 	}
-
+	/**
+	 * This method is to verify existing to all parties.
+	 */
 	public static ArrayList<String> verificaExistencia(String partido)
 			throws ClassNotFoundException, SQLException {
 
@@ -41,6 +45,10 @@ public final class PartidoControl {
 		return null;
 	}
 
+	/**
+	 * This method is to pass all parties already with all Members of each party.
+	 */
+	 
 	public static Partidos passarPartido(String nomePartido) 
 			throws ClassNotFoundException, SQLException {
 		Partidos partido = new Partidos();
@@ -67,6 +75,10 @@ public final class PartidoControl {
 		return partido;
 	}
 
+	/**
+	 * This method is to generate the statistical presence of each party, analyzing all the Members present in each partico.
+	 */
+	 
 	public static Partidos gerarEstatisticaDoPartido(String nome) 
 			throws ClassNotFoundException, SQLException, ListaVaziaException {
 		Partidos partido = passarPartido(nome);
@@ -93,6 +105,10 @@ public final class PartidoControl {
 		return partido;		
 	}
 
+	/**
+	 * This method is to pass only the parties with complete data.
+	 */
+	 
 	public static Partidos passarPartidoComDadosCompletos(String nome) 
 			throws ClassNotFoundException, SQLException, ListaVaziaException {
 
