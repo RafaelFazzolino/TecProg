@@ -20,7 +20,9 @@ import br.com.MDSGPP.ChamadaParlamentar.model.Deputados;
 import br.com.MDSGPP.ChamadaParlamentar.model.Estatistica;
 
 public final class DeputadosControl {
-	
+	/**
+	 * This method will catch the names of all deputies.
+	 */
 	public static ArrayList<String> getDeputados() throws ClassNotFoundException, SQLException {
 
 		DeputadoDao deputado;
@@ -28,7 +30,10 @@ public final class DeputadosControl {
 
 		return deputado.getNomesDeputados();
 	}
-
+	/**
+	 * This method will verify existence of the deputy.
+	 */
+	 
 	public static Deputados verificaExistencia(String nome) throws ClassNotFoundException, SQLException {
 		Deputados deputado = null;
 
