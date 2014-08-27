@@ -23,7 +23,8 @@ import br.com.MDSGPP.ChamadaParlamentar.model.Ranking;
 public class AtualizarBanco {
 	Timer timer;
 	/**
-	 * Método para iniciar a execução das tarefas.
+	 * Method to start the execution of tasks.
+	 * From this method will update the database with new information from the WebService.
 	 */
 	public AtualizarBanco() {
 
@@ -57,13 +58,13 @@ public class AtualizarBanco {
     }
 	
 	/**
-	 * Método para interromper a execução das tarefas.
+	 * Method to stop the execution of tasks.
 	 */
 	public void parar() {
 		timer.cancel();
 	}
 	/**
-	 * Método que contém as tarefas agendadas que serão executadas.
+	 * Method that contains the scheduled tasks that will be performed.
 	 */
 	class tarefasDiarias extends TimerTask {
 		public void run() {
