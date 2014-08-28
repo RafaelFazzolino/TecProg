@@ -17,7 +17,6 @@ Repositório original: https://github.com/Thiagokairala/ChamadaParlamentar2
 Índice:
 	1. Informações
 		1.1 - Objetivo do documeto
-		1.2 - Tamanho do software
 	2. Sobre organização do código
 		2.1 - Atribuições de variáveis
 		2.2 - Métodos e chaves
@@ -52,20 +51,6 @@ ________________________________________________________________________________
 	1.1 Objetivo do documento
 		Neste documento serão apresentados todos os padrões utilizados no projeto, como forma de utilização de variáveis, chaves, métodos e etc.
 	
-	1.2 - Tamanho do Software
-		-------------------------------------------------------------------------------
-		Language                     files          blank        comment           code
-		-------------------------------------------------------------------------------
-		Javascript                      35           5596           6763          27254
-		Java                           100           1734            955           6950
-		JSP                             19            225             10            970
-		CSS                             20            113              0            597
-		Maven                            1             25              0            105
-		XML                              1             15              0             94
-		HTML                             2             10              0             36
-		-------------------------------------------------------------------------------
-		SUM:                           178           7718           7728          36006
-		-------------------------------------------------------------------------------
 
 2. Sobre a Organização do Codigo:
 	
