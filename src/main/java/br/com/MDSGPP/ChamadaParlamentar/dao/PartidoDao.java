@@ -16,6 +16,11 @@ public class PartidoDao extends ConnectionFactory {
 		new ConnectionFactory().getConnection();
 	}
 
+	/**
+	 * This method is to add all parties of the table.
+	 * @param lista is a Array containing all parties.
+	 * @throws SQLException is for case some SQL exceptions happen.
+	 */
 	public void adicionarPartidoNaTable (ArrayList<Partidos> lista)
 			throws SQLException {
 		String sql = "insert into partido(sigla, nomePartido)values(?, ?)";
@@ -31,7 +36,11 @@ public class PartidoDao extends ConnectionFactory {
 
 		stmt.close();
 	}
-	
+	/**
+	 * This method is to get a specific party in database.
+	 * @return listaPassar what is an Array with all the desired parties.
+	 * @throws SQLException is for case some SQL exceptions happen.
+	 */
 	public ArrayList<ArrayList<String>> pegarPartidos() throws SQLException {
 		
 		ArrayList<ArrayList<String>> listaPassar = new ArrayList<ArrayList<String>>();
