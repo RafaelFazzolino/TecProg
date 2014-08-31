@@ -57,12 +57,25 @@ public class ConexaoComWsSessoesEReunioes {
 		return service;
 	}
 
+/**
+	 * Method that lists the presence of the Deputy.
+	 * 
+	 * @param service
+	 *            is the variable created in last method.
+	 * @param inicio
+	 *            is the start of the session.
+	 * @param fim
+	 *            is the finish of the session.
+	 * @param matricula
+	 *            is the ID of the Deputy.
+	 * @return the sessions.
+	 */
+
 	public static
 	ListarPresencasParlamentarResponseListarPresencasParlamentarResult
 	receberElementPresenca (SessoesReunioesSoapStub service, String inicio,
 			String fim, String matricula) {
 
-		//conexao criada, agora chamaremos a classe do ws
 		try {
 			ListarPresencasParlamentarResponseListarPresencasParlamentarResult 
 			sessoes = service.listarPresencasParlamentar(inicio, fim, matricula);
@@ -75,6 +88,22 @@ public class ConexaoComWsSessoesEReunioes {
 			return null;
 		}	
 	}
+
+	/**
+	 * Method that adds the sessions in the database.
+	 * 
+	 * @param data
+	 *            is the date of the session
+	 * @return the variable 'foi', to know if the goal has been completed.
+	 * @throws SQLException
+	 *             if miss spelled SQL is entered.
+	 * @throws ClassNotFoundException
+	 *             if the database is off.
+	 * @throws MalformedURLException
+	 *             if the URL has a problem.
+	 * @throws ServiceException
+	 *             if there is a problem with the connection.
+	 */
 
 	public static ArrayList<String> adcionarSessaoNaTable(String data)
 			throws SQLException, ClassNotFoundException, MalformedURLException, ServiceException {
@@ -130,6 +159,22 @@ public class ConexaoComWsSessoesEReunioes {
 		}
 		return foi;
 	}
+
+/**
+	 * Method that adds the dates in the database.
+	 * 
+	 * @param data
+	 *            , is the date of the session.
+	 * @param matricula
+	 *            , is the ID of the Deputy.
+	 * @return passar, to know if the goal has been completed.
+	 * @throws SQLException
+	 *             if miss spelled SQL is entered.
+	 * @throws MalformedURLException
+	 *             if the URL has a problem.
+	 * @throws ServiceException
+	 *             if there is a problem with the connection.
+	 */
 
 	public static ArrayList<String> adcionarDataNaTable(String data, String matricula) 
 			throws SQLException, MalformedURLException, ServiceException {			 
