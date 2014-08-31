@@ -122,12 +122,35 @@ public final class EstatisticaControl {
 		return estatistica;
 	}
 
+/**
+	 * This method puts the name of the deputy on the right format for search on
+	 * the database.
+	 * 
+	 * @param deputado
+	 *            {@link Deputados}, its the deputy object.
+	 * @return returns a String with the name based on the data base pattern.
+	 */
 
 	public static String arrumarNomePesquisa(Deputados deputado) {
 		String montar = deputado.getNomeDeTratamentoDoParlamentar() +
 				"-" + deputado.getPartido() + "/" + deputado.getUf();
 		return montar.toUpperCase();
 	}
+
+/**
+	 * This method is to control the number of sessions that is going to be
+	 * shown at the screen.
+	 * 
+	 * @param pagina
+	 *            Integer, its the number of the actual page.
+	 * @param sessoesPorPagina
+	 *            Integer, its the total number of sessions for page.
+	 * @param listaPassada
+	 *            {@link ArrayList} of {@link String} containing all the
+	 *            sessions.
+	 * @return returns an {@link ArrayList} of {@link String} containing the
+	 *         sessions that must be on the page.
+	 */
 
 	public static ArrayList<String> passarListaCerta(int pagina, int sessoesPorPagina, ArrayList<String> listaPassada ) {
 		ArrayList<String> listaPassar = new ArrayList<String>();
@@ -147,6 +170,16 @@ public final class EstatisticaControl {
 		}		
 		return listaPassar;
 	}
+	/**
+	 * This method put the list on the order from most recent to older.
+	 * 
+	 * @param lista
+	 *            {@link ArrayList} of {@link String} its the list containing
+	 *            all the sessions, but it must be sorted.
+	 * @return {@link ArrayList} of {@link String} contains the list on the
+	 *         correct order.
+	 */
+
 
 	public static ArrayList<String> ordenarLista(ArrayList<String> lista) {
 		ArrayList<String> ordenada = new ArrayList<String>();
