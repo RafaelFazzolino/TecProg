@@ -1,15 +1,3 @@
-/**
- * Class: StatisticsControl
- * Date: march 26 2014.
- * 
- * License: This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * 
- * Class to interact with DAO and view and process the data to provide the functionalities of the system. 
- */
-
 package br.com.MDSGPP.ChamadaParlamentar.control;
 
 import java.sql.SQLException;
@@ -26,17 +14,7 @@ public final class EstatisticaControl {
 
 	public static final double PASSAR_PORCENTAGEM = 100.0;
 
-    	/**
-	 * This method is to generate statistics based on the name of the deputy.
-	 * 
-	 * @param nome
-	 *            String, its the name of deputy.
-	 * @return returns the {@link Estatistica} of the {@link Deputados}
-	 * @throws ClassNotFoundException
-	 * @throws SQLException
-	 * @throws ListaVaziaException
-	 */
-    
+
 	public static Estatistica gerarEstatisticas(String nome)
 			throws ClassNotFoundException, SQLException, ListaVaziaException {
 		Estatistica estatistica = new Estatistica();
@@ -55,20 +33,7 @@ public final class EstatisticaControl {
 		return estatistica;
 	}
 
-/**
-	 * This method generates the statistics based on the name and the total
-	 * number of sessions.
-	 * 
-	 * @param nome
-	 *            String, name of the {@link Deputados}.
-	 * @param numeroTotalSessao
-	 *            Integer, total number of sessions.
-	 * @return returns {@link Estatistica}.
-	 * @throws ClassNotFoundException
-	 * @throws SQLException
-	 * @throws ListaVaziaException
-	 */
-
+	//esse metodo nao possui o throws pois é realizado dentro de um for
 	public static Estatistica gerarEstatisticas(String nome, int numeroTotalSessao) 
 			throws ClassNotFoundException, SQLException, ListaVaziaException {
 
@@ -88,21 +53,6 @@ public final class EstatisticaControl {
 		return estatistica;
 
 	}
-
-	/**
-	 * This method actualy calculate the {@link Estatistica}.
-	 * 
-	 * @param estatistica
-	 *            {@link Estatistica}, its the {@link Estatistica} but without
-	 *            the numbers, have only data of the number of sessions.
-	 * @param sessoes
-	 *            {@link SessoesEReunioesDao}, its the connection to the data
-	 *            base.
-	 * @param numeroTotalSessao
-	 *            Integer, its the total number of sessions.
-	 * @return returns an {@link Estatistica} but now with actual numbers.
-	 * @throws ListaVaziaException
-	 */
 
 
 	public static Estatistica calcularEstatistica
