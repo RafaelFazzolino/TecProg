@@ -19,7 +19,9 @@ import br.com.MDSGPP.ChamadaParlamentar.model.Dia;
 public class SessoesPorData extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-
+	/**
+	 * This method is to create a link between the view and the control of sessoePor dia.
+	 */
 	protected void service (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = null;
 
