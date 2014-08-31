@@ -14,7 +14,9 @@ import br.com.MDSGPP.ChamadaParlamentar.control.PartidoControl;
 public class PartidoAutoCompleteServlet extends javax.servlet.http.HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-
+	/**
+	 * This method is to create the auto-complete of parties.
+	 */
 	protected void service (HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		RequestDispatcher rd = null;
