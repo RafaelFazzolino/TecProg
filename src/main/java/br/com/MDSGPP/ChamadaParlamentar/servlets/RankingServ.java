@@ -17,7 +17,9 @@ import br.com.MDSGPP.ChamadaParlamentar.model.Ranking;
 public class RankingServ extends javax.servlet.http.HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-
+	/**
+	 * This method is to create a link between the view and the control.
+	 */
 	protected void service (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Ranking ranking = null;
 		RequestDispatcher rd = null;
