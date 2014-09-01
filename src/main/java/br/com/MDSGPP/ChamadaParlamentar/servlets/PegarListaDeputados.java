@@ -15,6 +15,13 @@ import br.com.MDSGPP.ChamadaParlamentar.control.DeputadosControl;
 public class PegarListaDeputados extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
+	
+	/**
+	 * This is the only method on the servlet, its responsibility is to retrieve
+	 * all the deputies name and sends it to the jsp page on an
+	 * {@link ArrayList} of {@link String}, so there can be an auto complete on
+	 * it.
+	 */
 
 	protected void service (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = null;
