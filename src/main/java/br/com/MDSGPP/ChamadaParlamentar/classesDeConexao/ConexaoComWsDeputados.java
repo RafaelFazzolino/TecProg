@@ -19,11 +19,26 @@ import br.gov.camara.www.SitCamaraWS.Deputados.ObterDeputadosResponseObterDeputa
 import br.gov.camara.www.SitCamaraWS.Deputados.ObterPartidosCDResponseObterPartidosCDResult;
 
 public class ConexaoComWsDeputados {
+	
+	/**
+	 * Empty constructor.
+	 */
 
 	public ConexaoComWsDeputados() {
 
 
 	}
+	
+	/**
+	 * This method is supposed to start connective to the webService and return
+	 * it.
+	 * 
+	 * @return
+	 * @throws MalformedURLException
+	 * @throws ServiceException
+	 * @throws Un
+	 *             knownHostException
+	 */
 
 
 	public static DeputadosSoapStub obterConexao()
@@ -35,7 +50,15 @@ public class ConexaoComWsDeputados {
 
 		return service;
 	}
-
+	
+	/**
+	 * This method is only to open the connectivity to the classes from the
+	 * webService.
+	 * 
+	 * @param service
+	 *            it's the connection to the service.
+	 * @return returns the connection to the classes of the webService
+	 */
 
 	public static ObterDeputadosResponseObterDeputadosResult 
 	receberElementDeputados(DeputadosSoapStub service) {
@@ -52,6 +75,15 @@ public class ConexaoComWsDeputados {
 			return null;
 		}	
 	}
+	
+	/**
+	 * This method is only to open the connectivity to the classes from the
+	 * webService.
+	 * 
+	 * @param service
+	 *            it's the connection to the service.
+	 * @return returns the connection to the classes of the webService
+	 */
 
 	public static ArrayList<Deputados> criaLista() throws MalformedURLException,
 	UnknownHostException, ServiceException {
@@ -123,6 +155,14 @@ public class ConexaoComWsDeputados {
 		}
 		return lista;
 	}
+	
+	/**
+	 * This method is to receive the message element from the webService.
+	 * 
+	 * @param service
+	 *            It's the connection to the webService.
+	 * @return
+	 */
 
 	public static ObterPartidosCDResponseObterPartidosCDResult 
 	receberElementPartido(DeputadosSoapStub service) {			
@@ -138,6 +178,17 @@ public class ConexaoComWsDeputados {
 			return null;
 		}	
 	}
+	
+	/**
+	 * Method to get all the political party from the webService and return then
+	 * as an {@link ArrayList} of {@link Partidos}.
+	 * 
+	 * @return an {@link ArrayList} of {@link Partidos} containing all the
+	 *         political party.
+	 * @throws MalformedURLException
+	 * @throws UnknownHostException
+	 * @throws ServiceException
+	 */
 
 	public static ArrayList<Partidos> criaListaPartidos() 
 			throws MalformedURLException, UnknownHostException, ServiceException {
