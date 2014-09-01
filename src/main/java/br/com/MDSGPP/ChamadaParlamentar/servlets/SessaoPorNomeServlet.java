@@ -17,6 +17,12 @@ import br.com.MDSGPP.ChamadaParlamentar.model.SessoesEReunioes;
 public class SessaoPorNomeServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
+	
+	/**
+	 * This method is the only method of the servlet, it's responsible to get
+	 * the session asked for the user and send the request to the right jsp
+	 * page.
+	 */
 
 	protected void service (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = null;
