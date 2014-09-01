@@ -1,0 +1,9 @@
+br.com.MDSGPP.ChamadaParlamentar.atualizacaoBanco,,,
+Atualizar Banco,,,
+Método,Variável,Tipo,Funcionalidade
+Atualizar Banco,timer,Timer,Variável usada para controlar o horário da atualização do banco.
+getAmanha6Am,tomorrow,GregorianCalendar,Variável usada para salvar o dia que a atualização deve ser feita.
+getAmanha6Am,result,GregorianCalendar,Salva o horário em que o método deve atualizar o sistema.
+TimerTask,sessoesDao,SessoesEReunioes,"Esta variável controla a conexão com o Banco de dados, específico para a tabela sessões e reuniões"
+TimerTask,rankingDao,RankingDao,"Esta variável controla a conexão com o Banco de dados, específico para a tabela ranking"
+TimerTask,ranking,Ranking,Nesta variável se encontra o ranking pronto.
