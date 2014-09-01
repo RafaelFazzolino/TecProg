@@ -12,6 +12,17 @@ public class ConnectionFactory {
 	public ConnectionFactory() {
 
 	}
+	
+	/**
+	 * Method that checks if the database connection exists, if not it creates
+	 * the connection and returns it.
+	 * 
+	 * @returns the connection with the database.
+	 * @throws ClassNotFoundException
+	 *             if the database is off.
+	 * @throws SQLException
+	 *             if miss spelled SQL is entered.
+	 */
 
 	public Connection getConnection() throws ClassNotFoundException, SQLException {
 		if(ConnectionFactory.conexao == null) {
@@ -21,6 +32,12 @@ public class ConnectionFactory {
 		}
 		return ConnectionFactory.conexao;
 	}
+	
+	/**
+	 * Getter of connection, <b>deprecated</b>.
+	 * 
+	 * @return connection
+	 */
 
 	public static Connection getConexao() {
 		return conexao;
