@@ -6,6 +6,14 @@ import java.util.Date;
 
 
 public final class VerificarData {
+	
+	/**
+	 * This method is to validate a date, if it's not in the in the format it
+	 * should be, it returns false, otherwise it returns true.
+	 * 
+	 * @param data
+	 * @return false if give parse error in, and true if not.
+	 */
 
 	public static boolean verificaData(String data) {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY");
