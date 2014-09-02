@@ -7,3 +7,7 @@ getAmanha6Am,result,GregorianCalendar,Salva o horário em que o método deve atu
 TimerTask,sessoesDao,SessoesEReunioes,"Esta variável controla a conexão com o Banco de dados, específico para a tabela sessões e reuniões"
 TimerTask,rankingDao,RankingDao,"Esta variável controla a conexão com o Banco de dados, específico para a tabela ranking"
 TimerTask,ranking,Ranking,Nesta variável se encontra o ranking pronto.
+Atualizar Banco,delayDiario,long,Variável usada para converter o valor para o tempo diário.
+Atualizar Banco,fONE_DAY,int,"Variável usada para guardar o valor 0, constante."
+Atualizar Banco,fFOUR_AM,int,"Variável usada para guardar o valor 18, constante."
+Atualizar Banco,fZERO_MINUTES,int,"Variável usada para guardar o valor 17, constante."
