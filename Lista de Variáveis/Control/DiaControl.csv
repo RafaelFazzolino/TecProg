@@ -1,0 +1,12 @@
+br.com.MDSGPP.ChamadaParlamentar.control,,,
+Dia Control,,,
+Método,Variável,Tipo,Funcionalidade
+getDias,lista,ArrayList<Dia>,Variável que recebe todas as descrições de todas as sessoes do dia.
+getDias,diaDao,DiaDao,Variável que faz a conexão com o banco de dados na tabela Dia.
+getDias,listaInverter,ArrayList<Dia>,Variável que irá criar a inversão da variável Dia.
+getListaCerta,pagina,int,Variável usada para reconhecer em que página estamos no site.
+getListaCerta,datasPorPagina,int,Variável usada para contar quantas datas temos por página.
+getListaCerta,dia,ArrayList<Dia>,Variável usada para passar todas as sessões realizadas neste dia.
+getListaCerta,listaPassar,ArrayList<Dia>,Variável usada para passar todas as sessoes.
+passarData,data,String,Variável usada para passar a data do dia.
+passarData,dia,Dia,Variável usada para salvar o dia.
