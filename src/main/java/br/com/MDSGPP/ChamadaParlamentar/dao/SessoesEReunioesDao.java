@@ -17,7 +17,15 @@ public class SessoesEReunioesDao extends ConnectionFactory {
 	public SessoesEReunioesDao() throws ClassNotFoundException, SQLException {
 		new ConnectionFactory().getConnection();
 	}
-
+	
+	/**
+	 * This method add a date in the DB table
+	 * @param insert
+	 * @throws SQLException
+	 * @throws MalformedURLException
+	 * @throws ServiceException
+	 */
+	
 	public void adcionarDataNaTable(ArrayList<String> insert) 
 			throws SQLException, MalformedURLException, ServiceException {			     
 
@@ -34,6 +42,15 @@ public class SessoesEReunioesDao extends ConnectionFactory {
 			stmt.close();
 		}
 	}
+	
+	/**
+	 * This method add a session on a DB table
+	 * @param insert
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 * @throws MalformedURLException
+	 * @throws ServiceException
+	 */
 
 	public void adcionarSessaoNaTable(ArrayList<String> insert)
 			throws SQLException, ClassNotFoundException, MalformedURLException, ServiceException {
@@ -49,6 +66,12 @@ public class SessoesEReunioesDao extends ConnectionFactory {
 		}
 		stmt.close();
 	}
+	
+	/**
+	 * This method return the number of sessions that some deputy was present
+	 * @return
+	 * @throws SQLException
+	 */
 
 	public int passarNumeroDeSessoes() throws SQLException
 	{
@@ -67,6 +90,12 @@ public class SessoesEReunioesDao extends ConnectionFactory {
 		return i;		
 	}
 	
+	/**
+	 * This method creates a list of sessions and reunions that a deputy was present
+	 * @return
+	 * @throws SQLException
+	 * @throws DataFormatoErradoException
+	 */
 	public ArrayList<SessoesEReunioes> pegarSessoes() throws SQLException, DataFormatoErradoException {
 		String sql = "Select * from datas";
 		
@@ -84,6 +113,13 @@ public class SessoesEReunioesDao extends ConnectionFactory {
 		
 		return lista;		
 	}
+	
+	/**
+	 * This method search a session based in its ID in the DB
+	 * @param descricao
+	 * @return
+	 * @throws SQLException
+	 */
 
 	public ArrayList<String> procurarSessao(String descricao) throws SQLException {
 		String sql = "select * from sessao where idSessoes LIKE ?";
@@ -102,6 +138,13 @@ public class SessoesEReunioesDao extends ConnectionFactory {
 		rs.close();
 		return lista;
 	}
+	
+	/**
+	 * This method search a session based on a date
+	 * @param data
+	 * @return
+	 * @throws SQLException
+	 */
 	
 	public Dia procuraDia(String data) throws SQLException{
 		Dia dia = new Dia();
