@@ -16,6 +16,13 @@ public class DiaDao extends ConnectionFactory {
 	public DiaDao() throws ClassNotFoundException, SQLException {
 		new ConnectionFactory().getConnection();
 	}
+	
+	/**
+	 * This method search all the descriptions based on a day
+	 * @return
+	 * @throws SQLException
+	 * @throws DataFormatoErradoException
+	 */
 
 	public ArrayList<Dia> buscarTodasDescricoes() throws SQLException, DataFormatoErradoException {
 		ArrayList<Dia> lista = new ArrayList<Dia>();
@@ -34,6 +41,13 @@ public class DiaDao extends ConnectionFactory {
 		return lista;
 	}
 
+	/**
+	 * This method populates the DB based on a day
+	 * @param rs
+	 * @param lista
+	 * @return
+	 * @throws SQLException
+	 */
 	public static ArrayList<Dia> popularListaDia(ResultSet rs, 
 			ArrayList<Dia> lista) throws SQLException {
 		int cont = 0;
@@ -45,7 +59,6 @@ public class DiaDao extends ConnectionFactory {
 
 			boolean teste = lista.get(cont).getData().equalsIgnoreCase(rs.getString(DATAS));
 
-			//esse if é igual if(teste == false)
 			if(!teste) {
 				cont++;
 			}
@@ -59,6 +72,14 @@ public class DiaDao extends ConnectionFactory {
 		return lista;
 	}
 
+	/**
+	 * This method create the Dia in the DB
+	 * @param rs
+	 * @return
+	 * @throws SQLException
+	 * @throws DataFormatoErradoException
+	 */
+	
 	public static ArrayList<Dia> criarDias(ResultSet rs) 
 			throws SQLException, DataFormatoErradoException {
 		ArrayList<Dia> lista = new ArrayList<Dia>();
@@ -73,7 +94,6 @@ public class DiaDao extends ConnectionFactory {
 			}
 			else {
 				boolean teste = lista.get(controle).getData().equals(rs.getString(DATAS));
-				//esse if é equivalente if(teste == false)
 				if(!teste) {
 					Dia diaAux = new Dia();
 					diaAux.setData(rs.getString(DATAS));
