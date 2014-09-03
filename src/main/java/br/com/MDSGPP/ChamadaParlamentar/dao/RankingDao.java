@@ -15,7 +15,13 @@ public class RankingDao extends ConnectionFactory {
 	public RankingDao() throws ClassNotFoundException, SQLException {
 		new ConnectionFactory().getConnection();
 	}
-
+	
+	/**
+	 * This method add the Ranking in the DB table
+	 * @param ranking
+	 * @throws SQLException
+	 */
+	
 	public void adicionarRankingNaTable(Ranking ranking) throws SQLException {
 		String sql =  "insert into ranking(nomeParlamentar, porcentagem, numeroSessoes)values (?, ?, ?)";
 		PreparedStatement stmt = ConnectionFactory.getConexao().prepareStatement(sql);
@@ -40,6 +46,11 @@ public class RankingDao extends ConnectionFactory {
 		stmt.close();
 	}
 	
+	/**
+	 * This method returns a refreshed status of the Ranking
+	 * @return
+	 * @throws SQLException
+	 */
 	public Ranking retornaRanking () throws SQLException {
 		Ranking ranking = new Ranking();
 		ArrayList<Estatistica> removidos = new ArrayList<Estatistica>();
