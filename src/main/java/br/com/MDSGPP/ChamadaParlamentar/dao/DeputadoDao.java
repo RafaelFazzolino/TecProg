@@ -25,7 +25,13 @@ public class DeputadoDao extends ConnectionFactory {
 	public DeputadoDao() throws ClassNotFoundException, SQLException {
 		new ConnectionFactory().getConnection();
 	}
-
+	
+	/**
+	 * This method add a deputy in the list Deputados
+	 * @param deputados
+	 * @throws SQLException
+	 */
+	
 	public void adicionaDeputado(ArrayList<Deputados> deputados) throws SQLException {
 		String sql = "insert into deputado(idParlamentar, matricula, ideCadastro, "
 				+ "nomeCivil, nomeDeTratamento, sexo, uf, partido"
@@ -53,7 +59,13 @@ public class DeputadoDao extends ConnectionFactory {
 		}
 		stmt.close();	
 	}
-	//esse método será utilizado para o autocomplete
+	
+	/**
+	 * This method is used in the autocomplete in the search of a name
+	 * @return
+	 * @throws SQLException
+	 */
+	
 	public ArrayList<String> getNomesDeputados() throws SQLException {
 		String sql = "Select * from deputado"; 
 
@@ -78,14 +90,25 @@ public class DeputadoDao extends ConnectionFactory {
 	}
 
 	public ArrayList<Integer> getMatriculaDeputados() throws SQLException {
-		//criando o comando sql, procura como buscar uma linha especifica...
+		
+		/**
+		 * Creates the SQL command search how to look for an specific line
+		 */
+		
 		String sql = "Select * from deputado";
 
 		ArrayList<Integer> lista = new ArrayList<Integer>();
 
-		//criando o prepared statement q é o que vai conetar com o banco
+		/**
+		 * Creates the prepared statement that is what is going to connect with the DB
+		 */
+		
 		PreparedStatement stmt= ConnectionFactory.getConexao().prepareStatement(sql);
-		//executando o stmt para buscar os dados
+		
+		/**
+		 * Execute the STMT to search the data
+		 */
+		
 		ResultSet rs = stmt.executeQuery();
 
 		while(rs.next()) {
@@ -96,6 +119,12 @@ public class DeputadoDao extends ConnectionFactory {
 		rs.close();
 		return lista;
 	}
+	
+	/**
+	 * Refresh the list Deputados
+	 * @return
+	 * @throws SQLException
+	 */
 
 	public ArrayList<Deputados> getDeputados() throws SQLException {
 		String sql = "Select * from deputado";
