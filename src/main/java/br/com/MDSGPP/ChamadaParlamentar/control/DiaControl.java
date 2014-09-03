@@ -10,6 +10,15 @@ import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Dia;
 
 public final class DiaControl {
+	
+	/**
+	 * This method creates a list and returns the days that the deputy 
+	 * was in a session
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 * @throws DataFormatoErradoException
+	 */
 
 	public static ArrayList<Dia> getDias() 
 			throws ClassNotFoundException, SQLException, DataFormatoErradoException {
@@ -27,6 +36,15 @@ public final class DiaControl {
 		return listaInverter;
 	}
 
+	/**
+	 * This method creates a list based on the days and dates per pages
+	 * and returns a list
+	 * @param pagina
+	 * @param datasPorPagina
+	 * @param dia
+	 * @return
+	 */
+	
 	public static ArrayList<Dia> getListaCerta(int pagina, int datasPorPagina,
 			ArrayList<Dia> dia) {
 		ArrayList<Dia> listaPassar = new ArrayList<Dia>();
