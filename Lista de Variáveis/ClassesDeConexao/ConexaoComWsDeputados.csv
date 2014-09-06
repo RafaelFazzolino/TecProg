@@ -15,3 +15,26 @@ criaLista(),gabinete,NodeList,Recebe o gabinete atual do deputado
 criaLista(),anexo,NodeList,Recebe o anexo do deputado
 criaLista(),fone,NodeList,Recebe o telefone de contato do Deputado
 criaLista(),email,NodeList,Recebe o email de contato do Deputado
+criaLista(),nomeTratamentoTemp,MessageElement,Variavel temporaria para mensagem do nome de tratamento
+criaLista(),idTemp,MessageElement,Variavel temporaria para mensagem sobre id
+criaLista(),matriculaTemp,MessageElement,Variavel  temporaria para mensagem de  matricula
+criaLista(),idParlamentarTemp,MessageElement,Variavel temporaria para mensagem sobre o idParlamentar
+criaLista(),sexoTemp,MessageElement,Variavel temporaria para mensagem sobre sexo
+criaLista(),ufTemp,MessageElement,Variavel temporaria para mensagem sobre UF
+criaLista(),partidoTemp,MessageElement,Variavel temporaria para mensagem do partido
+criaLista(),gabineteTemp,MessageElement,Variavel temporaria para mensagem do gabinete do deputado
+criaLista(),anexoTemp,MessageElement,Variavel temporaria para mensagem sobre o anexo
+criaLista(),foneTemp,MessageElement,Variavel temporaria para mensagem para telefone de contato
+criaLista(),emailTemp,MessageElement,Variavel temporaria para mensagem sobre email do deputado
+criaLista(),idInt,int,
+criaLista(),matriculaInt,int,
+criaLista(),idParlamentarInt,int,
+criaLista(),nomeText,String,
+criaLista(),nomeTratamentoText,String,
+criaLista(),sexoText,String,
+criaLista(),ufText,String,
+criaLista(),partidoText,String,
+criaLista(),gabienteText,String,
+criaLista(),anexoText,String,
+criaLista(),foneText,String,
+criaListaPartidos(),lsita,ArrayList<Partidos>,Recebe uma lista de partidos
