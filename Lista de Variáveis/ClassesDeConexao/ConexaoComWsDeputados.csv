@@ -5,9 +5,9 @@ obterConexao(),url,URL,Variavel usada para receber o site do webservice
 criarLista(),lista,ArrayList<Deputados>,Recebe uma lista com os deputados 
 criaLista(),nome,NodeList,Recebe o atributo nome do deputado
 criaLista(),nomeTratamento,NodeList,Recebe o nome de tratamento de um deputado
-criaLista(),id,NodeList,Recebe o numero de identifica�ao do deputado
+criaLista(),id,NodeList,Recebe o numero de identifica�ao do deputado
 criaLista(),matricula,NodeList,Recebe a matricula do deputado
-criaLista(),idParlamentar,NodeList,Recebe o numero de identifica�ao parlamentar do deputado
+criaLista(),idParlamentar,NodeList,Recebe o numero de identifica�ao parlamentar do deputado
 criaLista(),sexo,NodeList,Recebe o sexo do deputado
 criaLista(),uf,NodeList,Recebe a sigla da Unidade Federativa que o Deputado representa
 criaLista(),partido,NodeList,Recebe o partido do deputado
@@ -38,3 +38,11 @@ criaLista(),gabienteText,String,
 criaLista(),anexoText,String,
 criaLista(),foneText,String,
 criaListaPartidos(),lsita,ArrayList<Partidos>,Recebe uma lista de partidos
+criaListaPartidos(),nomePartido,NodeList,Variavel recebe valor para a lista do nome Partido 
+criaListaPartidos(),siglaPartido,NodeList,Recebe a sigla do partido para montar a list
+criaListaPartidos(),dataExtincao,NodeList,Recebe a data de extinção do partido 
+criaListaPartidos(),nomePartidoTemp,MessageElement,Variavel tempopara nome do partido
+criaListaPartidos(),siglaPartidoTemp,MessageElement,Variavel temporaria para segla do partido
+criaListaPartidos(),dataExtincaoTemp,MessageElement,variavel temporaria para a data de extinção
+criaListaPartidos(),nomePartidoText,String,Nome do partido
+criaListaPartidos(),siglaPartidoText,String,Sigla do partido 
