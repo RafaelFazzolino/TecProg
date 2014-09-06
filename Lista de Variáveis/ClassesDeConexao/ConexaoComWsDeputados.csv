@@ -1,0 +1,17 @@
+br.com.MDSGPP.ChamadaParlamentar.atualizacaoBanco,,,
+ConexaoComWsDeputados,,,
+Metodo,Variavel,Tipo,Funcionalidade
+obterConexao(),url,URL,Variavel usada para receber o site do webservice
+criarLista(),lista,ArrayList<Deputados>,Recebe uma lista com os deputados 
+criaLista(),nome,NodeList,Recebe o atributo nome do deputado
+criaLista(),nomeTratamento,NodeList,Recebe o nome de tratamento de um deputado
+criaLista(),id,NodeList,Recebe o numero de identificaçao do deputado
+criaLista(),matricula,NodeList,Recebe a matricula do deputado
+criaLista(),idParlamentar,NodeList,Recebe o numero de identificaçao parlamentar do deputado
+criaLista(),sexo,NodeList,Recebe o sexo do deputado
+criaLista(),uf,NodeList,Recebe a sigla da Unidade Federativa que o Deputado representa
+criaLista(),partido,NodeList,Recebe o partido do deputado
+criaLista(),gabinete,NodeList,Recebe o gabinete atual do deputado
+criaLista(),anexo,NodeList,Recebe o anexo do deputado
+criaLista(),fone,NodeList,Recebe o telefone de contato do Deputado
+criaLista(),email,NodeList,Recebe o email de contato do Deputado
