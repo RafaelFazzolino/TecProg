@@ -9,8 +9,8 @@ gerarEstatisticas(String nome),numeroTotalSessao,int,Recebe o numero de sessoes
 "gerarEstatisticas(String nome, int numeroTotalSessao) ",estatistica ,Estatistica,Recebe um novo objeto Estatistica
 "gerarEstatisticas(String nome, int numeroTotalSessao) ",dao,EstatisticaDao ,Recebe uma objeto EstatisticaDao
 "gerarEstatisticas(String nome, int numeroTotalSessao) ",sesoes,SessoesEReunioesDao,Recebe uma objeto SesoesEReunioesDao
-"calcularEstatistica (Estatistica estatistica, SessoesEReunioesDao sessoes, int numeroTotalSessao) ",	df,	DecimalFormat	Variavel recebe a mascara que formata o campo decimal
-"arrumarNomePesquisa(Deputados deputado)",	montar,	String	Variavel monta a estrutura Nome. Partido / UF
+"calcularEstatistica (Estatistica estatistica, SessoesEReunioesDao sessoes, int numeroTotalSessao)", df, DecimalFormat,	Variavel recebe a mascara que formata o campo decimal
+"arrumarNomePesquisa(Deputados deputado)",	montar,	String,	Variavel monta a estrutura Nome. Partido / UF
 "passarListaCerta(int pagina, int sessoesPorPagina, ArrayList<String> listaPassada )",	listarPassar, 	ArrayList<String> ,	Recebe um arraylist
-"passarListaCerta(int pagina, int sessoesPorPagina, ArrayList<String> listaPassada )",	listar	ArrayList<String>	Recebe o retorno do metodo ordenarLista()
+"passarListaCerta(int pagina, int sessoesPorPagina, ArrayList<String> listaPassada )",	listar	ArrayList<String>,	Recebe o retorno do metodo ordenarLista()
 "ordenarLista(ArrayList<String> lista)",	ordenada	,ArrayList<String>,	Recebe uma lista ordenada
