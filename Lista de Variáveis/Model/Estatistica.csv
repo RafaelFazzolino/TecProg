@@ -1,0 +1,13 @@
+br.com.MDSGPP.ChamadaParlamentar.model;;;;
+;Estatistica;;;
+;M‚todo;Vari vel;Tipo;funcionalidade
+;getNumeroSessao;numeroSessao;String;Pega o numero da sessao.
+;setNumeroSessao;numeroSessao;String;Altera o conte£do da vari vel numeroSessao
+;getTotalSessao;totalSessao;String;Pega o numero total de sessoes.
+;setTotalSessao;totalSessao;String;Altera o conte£do da vari vel totalSessao
+;getNome;nome;String;Pega o nome da sessao.
+;setNome;nome;String;Altera o nome da sessao.
+;getPorcentagem;porcentagem;String;Pega a porcentagem do deputado.
+;setPorcentagem;porcentagem;String;Altera o conte£do da vari vel porcentagem.
+;getLista;lista;ArrayList<String>;Pega todas as sessoes.
+;setLista;lista;ArrayList<String>;Altera o conte£do da vari vel lista.
