@@ -1,0 +1,11 @@
+br.com.MDSGPP.ChamadaParlamentar.atualizacaoBanco,,,
+EstatisticaControl,,,
+Metodo,Variavel,Tipo,Funcionalidade
+, PASSAR_PORCENTAGEM,double,Constante que recebe 100.0
+gerarEstatisticas(String nome),estatistica ,Estatistica,Recebe um novo objeto Estatistica
+gerarEstatisticas(String nome),dao,EstatisticaDao ,Recebe uma objeto EstatisticaDao
+gerarEstatisticas(String nome),sesoes,SessoesEReunioesDao,Recebe uma objeto SesoesEReunioesDao
+gerarEstatisticas(String nome),numeroTotalSessao,int,Recebe o numero de sessoes
+"gerarEstatisticas(String nome, int numeroTotalSessao) ",estatistica ,Estatistica,Recebe um novo objeto Estatistica
+"gerarEstatisticas(String nome, int numeroTotalSessao) ",dao,EstatisticaDao ,Recebe uma objeto EstatisticaDao
+"gerarEstatisticas(String nome, int numeroTotalSessao) ",sesoes,SessoesEReunioesDao,Recebe uma objeto SesoesEReunioesDao
