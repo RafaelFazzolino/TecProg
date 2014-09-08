@@ -88,7 +88,11 @@ public class DeputadoDao extends ConnectionFactory {
 		return lista;
 
 	}
-
+	/**
+	 * This method is to get the enrolls deputy.
+	 * @return lista what is the Array contains all enrolls of deputies.
+	 * @throws SQLException is case occurs an error with dataBase.
+	 */
 	public ArrayList<Integer> getMatriculaDeputados() throws SQLException {
 		
 		/**
@@ -121,9 +125,9 @@ public class DeputadoDao extends ConnectionFactory {
 	}
 	
 	/**
-	 * Refresh the list Deputados
-	 * @return
-	 * @throws SQLException
+	 * This method is to get all deputies in dataBase.
+	 * @return lista what is an array contains all deputies.
+	 * @throws SQLException is case occurs an error with dataBase.
 	 */
 
 	public ArrayList<Deputados> getDeputados() throws SQLException {

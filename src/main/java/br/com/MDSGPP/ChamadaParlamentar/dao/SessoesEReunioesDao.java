@@ -19,11 +19,11 @@ public class SessoesEReunioesDao extends ConnectionFactory {
 	}
 	
 	/**
-	 * This method add a date in the DB table
+	 * This method add a date in the DB table.
 	 * @param insert
-	 * @throws SQLException
-	 * @throws MalformedURLException
-	 * @throws ServiceException
+	 * @throws SQLException is case occurs an error with DataBase.
+	 * @throws MalformedURLException is case occurs an error with the URL.
+	 * @throws ServiceException is case occurs an error with the service.
 	 */
 	
 	public void adcionarDataNaTable(ArrayList<String> insert) 
@@ -44,12 +44,12 @@ public class SessoesEReunioesDao extends ConnectionFactory {
 	}
 	
 	/**
-	 * This method add a session on a DB table
+	 * This method add a session on a DB table.
 	 * @param insert
-	 * @throws SQLException
-	 * @throws ClassNotFoundException
-	 * @throws MalformedURLException
-	 * @throws ServiceException
+	 * @throws SQLException is case occurs an error with dataBase.
+	 * @throws ClassNotFoundException is case occurs an error with the class.
+	 * @throws MalformedURLException is case occurs an error with the URL.
+	 * @throws ServiceException is case occurs an error with the service.
 	 */
 
 	public void adcionarSessaoNaTable(ArrayList<String> insert)
@@ -68,9 +68,9 @@ public class SessoesEReunioesDao extends ConnectionFactory {
 	}
 	
 	/**
-	 * This method return the number of sessions that some deputy was present
-	 * @return
-	 * @throws SQLException
+	 * This method return the number of sessions that some deputy was present.
+	 * @return i what is the number of dates.
+	 * @throws SQLException is case occurs an error with Database.
 	 */
 
 	public int passarNumeroDeSessoes() throws SQLException
@@ -91,10 +91,10 @@ public class SessoesEReunioesDao extends ConnectionFactory {
 	}
 	
 	/**
-	 * This method creates a list of sessions and reunions that a deputy was present
-	 * @return
-	 * @throws SQLException
-	 * @throws DataFormatoErradoException
+	 * This method creates a list of sessions and reunions that a deputy was present.
+	 * @return lista what is an Array contains all sessions.
+	 * @throws SQLException is case occurs an error with dataBase.
+	 * @throws DataFormatoErradoException is case occurs an error with the Date.
 	 */
 	public ArrayList<SessoesEReunioes> pegarSessoes() throws SQLException, DataFormatoErradoException {
 		String sql = "Select * from datas";
@@ -115,10 +115,10 @@ public class SessoesEReunioesDao extends ConnectionFactory {
 	}
 	
 	/**
-	 * This method search a session based in its ID in the DB
+	 * This method search a session based in its ID in the DB.
 	 * @param descricao
-	 * @return
-	 * @throws SQLException
+	 * @return lista what is an Array contains all present deputies.
+	 * @throws SQLException is case occurs an error with dataBase.
 	 */
 
 	public ArrayList<String> procurarSessao(String descricao) throws SQLException {
@@ -140,10 +140,10 @@ public class SessoesEReunioesDao extends ConnectionFactory {
 	}
 	
 	/**
-	 * This method search a session based on a date
+	 * This method search a session based on a date.
 	 * @param data
-	 * @return
-	 * @throws SQLException
+	 * @return dia what is a variable contains the date.
+	 * @throws SQLException is case occurs an error with dataBase.
 	 */
 	
 	public Dia procuraDia(String data) throws SQLException{
