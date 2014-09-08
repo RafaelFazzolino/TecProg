@@ -62,7 +62,15 @@ public final class DiaControl {
 
 		return listaPassar;
 	}
-
+	/**
+	 * This method is to pass the date.
+	 * @param data is a variable what contains the date.
+	 * @return dia what is a variable what contains all features of the date.
+	 * @throws ClassNotFoundException is case occur an error.
+	 * @throws SQLException is case occurs an error with dataBase.
+	 * @throws DataFormatoErradoException is case occurs an error with the date.
+	 * @throws ListaVaziaException is case the list came empty.
+	 */
 	public static Dia passarData(String data) 
 			throws ClassNotFoundException, SQLException, 
 			DataFormatoErradoException, ListaVaziaException{
