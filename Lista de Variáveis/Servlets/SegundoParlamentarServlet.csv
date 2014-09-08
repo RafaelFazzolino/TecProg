@@ -1,0 +1,15 @@
+br.com.MDSGPP.ChamadaParlamentar.servlets,,,
+SegundoParlamentarServlet.java,,,
+Método,Variável,Tipo,Funcionalidade
+service,nomePrimeiroParlamentar,String,Variável que recebe o nome do primeiro parlamentar.
+service,nomeSegundoParlamentar,String,Variável que recebe o nome do segundo parlamentar.
+service,primeiroDeputado,Deputados,Variável que recebe as características do primeiro deputado.
+service,segundoDeputado,Deputados,Variável que recebe as características do segundo deputado.
+service,estatisticaPrimeiro,Estatística,Variável que recebe a estatística do primeiro deputado.
+service,estatisticaSegundo,Estatística,Variável que recebe a estatística do segundo deputado.
+service,lista,ArrayList,Array que recebe a lista de estatísticas tanto do primeiro quanto do segundo deputado.
+service,presencaPrimeiro,double,Variável que recebe a porcentagem de presença do primeiro deputado.
+service,presencaSegundo,double,Variável que recebe a porcentagem de presença do segundo deputado.
+service,presencaPassar1,String,Variável que recebe a porcentagem de presença do primeiro em forma de String;
+service,presencaPassar2,String,Variável que recebe a porcentagem de presença do segundo em forma de String.
+service,listaNomes,ArrayList,Array que recebe a lista de nomes dos dois deputados.
