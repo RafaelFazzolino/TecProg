@@ -1,0 +1,6 @@
+br.com.MDSGPP.ChamadaParlamentar.util,,,
+LimparLista.java,,,
+Método,Variável,Tipo,Funcionalidade
+limparLista,passar,ArrayList,Array que recebe toda a lista que será passada.
+limparLista,removidos,ArrayList,Array que recebe todos os dados que foram removidos da lista original.
+limparLista,i,int,Variável usada para a contagem do for.
