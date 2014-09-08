@@ -1,0 +1,15 @@
+br.com.MDSGPP.ChamadaParlamentar.model,,,
+Estatística,,,
+Método,Variável,Tipo,Funcionalidade
+Deputados,idDoParlamentar,int,Variável que recebe a identidade do parlamentar
+Deputados,matricula,int,Variável que recebe a matrícula do parlamentar.
+Deputados,ideCadastro,int,Variável que recebe a identidade de cadastro do parlamentar.
+Deputados,nomeCivilDoParlamentar,String,Variável que recebe o nome civil do parlamentar.
+Deputados,nomeDeTratamentoDoParlamentar,String,Variável que recebe o nome de tratamento do parlamentar.
+Deputados,sexo,String,Variável que recebe o sexo do parlamentar.
+Deputados,uf,String,Variável que recebe a UF do parlamentar.
+Deputados,partido,String,Variável que recebe o partido do parlamentar.
+Deputados,numeroDoGabinete,String,Variável que recebe o número do gabinete do parlamentar. 
+Deputados,anexo,String,Variável que recebe o anexo do parlamentar.
+Deputados,telefone,String,Variável que recebe o telefone do parlamentar.
+Deputados,email,String,Variável que recebe o e-mail do parlamentar.
