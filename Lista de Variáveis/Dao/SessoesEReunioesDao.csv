@@ -1,0 +1,19 @@
+br.com.MDSGPP.ChamadaParlamentar.dao;;;;
+;SessoesEReunioesDao;;;
+;MÇtodo;Vari†vel;Tipo;funcionalidade
+;adcionarDataNaTable;insert;ArrayList<String>;ê a lista com as datas que ser∆o inseridas na tabela, recebe como parÉmetro.
+;adcionarDataNaTable;sql;String;Vari†vel que recebe o c¢digo sql armazenado.
+;adcionarDataNaTable;i;Integer;contador do for.
+;adcionarDataNaTable;stmt;PreparedStatement;vari†vel que cria a conex∆o com o banco de dados.
+;adcionarSessaoNaTable;insert;ArrayList<String>;ê a lista com as datas que ser∆o inseridas na tabela, recebe como parÉmetro.
+;adcionarSessaoNaTable;sql;String;Vari†vel que recebe o c¢digo sql armazenado.
+;adcionarSessaoNaTable;stmt;PreparedStatement;vari†vel que cria a conex∆o com o banco de dados.
+;adcionarSessaoNaTable;i;Integer;contador do for.
+;passarNumeroDeSessoes;sql;String;Vari†vel que recebe o c¢digo sql armazenado.
+;passarNumeroDeSessoes;stmt;PreparedStatement;vari†vel que cria a conex∆o com o banco de dados.
+;passarNumeroDeSessoes;rs;ResultSet;Vari†vel que recebe o resultado da conex∆o com o banco.
+;pegarSessoes;sql;String;Vari†vel que recebe o c¢digo sql armazenado.
+;pegarSessoes;stmt;PreparedStatement;vari†vel que cria a conex∆o com o banco de dados.
+;pegarSessoes;lista;ArrayList<SessoesEReunioes>;ArrayList que vai receber as sessoes
+;pegarSessoes;sessao;SessoesEReunioes;objeto de sessoesEReunioes que far† o setData.
+;pegarSessoes;rs;ResultSet;Vari†vel que recebe o resultado da conex∆o com o banco.

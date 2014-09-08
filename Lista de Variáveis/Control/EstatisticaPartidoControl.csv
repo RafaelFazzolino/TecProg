@@ -1,0 +1,13 @@
+br.com.MDSGPP.ChamadaParlamentar.control,,,
+EstatisticaPartidoControl.java,,,
+Método,Variável,Tipo,Funcionalidade
+gerarEstatisticaPartido,nome,String,Variável que recebe o nome do partido.
+gerarEstatisticaPartido,estatistica,EstatisticaPartido,Recebe a estatística do partido.
+gerarEstatisticaPartido,partido,Partidos,Recebe todas as características do partido.
+gerarEstatisticaPartido,totalDeSessoes,Int,Recebe o total de sessoes realizadas.
+gerarEstatisticaPartido,totalDeSessoesAssistidas,int,Recebe o total de sessoes assistidas pelo partido
+gerarEstatisticaPartido,i,int,Variável usada para contar os loops do for.
+gerarEstatisticaPartido,porcentagem,double,Variável que irá receber a porcentagem de presença do partido.
+gerarEstatisticaPartido,porcentagemPassar,String,Variável que recebe a porcentagem de presença em forma de String.
+formatarNumeroDouble,numero,Double,Variável que recebe o número a ser formatado.
+formatarNumeroDouble,formatarDouble,String,Variável que recebe o número já formatado. 
