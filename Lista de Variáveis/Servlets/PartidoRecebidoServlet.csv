@@ -1,0 +1,8 @@
+br.com.MDSGPP.ChamadaParlamentar.servlets,,,
+PartidoRecebidoServlet.java,,,
+Método,Variável,Tipo,Funcionalidade
+service,nomePartido,String,Variável que irá receber o nome do partido.
+service,estatistica,EstatisticaPartido,Variável que irá receber a estatística do partido.
+service,semDados,ArrayList,Array que recebe todos os deputados que estão sem dados.
+service,partido,Partidos,variável que receba as características do partido.
+service,quantosSemDados,int,Variável usada para saber quantos deputados estão sem dados.
