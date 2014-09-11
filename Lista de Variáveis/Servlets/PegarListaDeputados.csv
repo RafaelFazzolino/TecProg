@@ -1,0 +1,9 @@
+"br.com.MDSGPP.ChamadaParlamentar.servlet;;;;";
+;"PegarListaDeputados;;;;"
+;"M‚todo;Vari vel;Tipo;funcionalidade;"
+;"atributo;serialVersionUID;long;variavel que possui o serial;"
+;"service;request;HttpServletRequest;variavel que possui o request do servlet;"
+;"service;response;HttpServletResponse;variavel que contem o response do servlet;"
+;"service;rd;RequestDispatcher;variavel que direciona a pagina jsp a ser chamada;"
+;"service;lista;ArrayList<String>;variavel que contem o nome de todos os deputados, civil e de tratamento ;"
+;"service;;;;"
