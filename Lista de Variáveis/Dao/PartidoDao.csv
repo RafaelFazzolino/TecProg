@@ -1,0 +1,5 @@
+br.com.MDSGPP.ChamadaParlamentar.dao,,,,
+PartidoDao.java,,,,
+Método,Variável,Tipo,Funcionalidade,Nome sugerido
+PartidoDao,UM,int,Inicializa variável UM,one
+PartidoDao,DOIS,int,Inicializa variável DOIS,two
