@@ -114,7 +114,7 @@ public class ConexaoComWsSessoesEReunioes {
 
 		lista = conexaoDeputado.getMatriculaDeputados();
 
-		for(int i = 0; i<lista.size(); i++) {
+		for( int i = 0; i<lista.size(); i++ ) {
 			double porcentagem = (((double)(i)/(double)lista.size())*100.0);
 
 			System.out.println(i+"- " + porcentagem+"%");
@@ -131,22 +131,20 @@ public class ConexaoComWsSessoesEReunioes {
 
 				NodeList dias = sessao.get_any()[0].getElementsByTagName("dia");
 
-				for(int j = 0; j<dias.getLength(); j++) {
+				for( int j = 0; j < dias.getLength(); j++ ) {
 
 					MessageElement diasTemp = (MessageElement) dias.item(j);				
 					NodeList descricaoTemp = diasTemp.getElementsByTagName("descricao");
 					NodeList presencaTemp = diasTemp.getElementsByTagName("frequencia");
 
 
-					for(int k = 0; k<descricaoTemp.getLength(); k++) {
+					for( int k = 0; k < descricaoTemp.getLength(); k++ ) {
 						MessageElement descricaoText = (MessageElement) descricaoTemp.item(k);
 						NodeList nomeTemp = sessao.get_any()[0].getElementsByTagName("nomeParlamentar");
 						MessageElement nomeText = (MessageElement) nomeTemp.item(0);
 						MessageElement presencaText = (MessageElement) presencaTemp.item(k);
 
-						if(presencaText.getFirstChild().getNodeValue().equals("Presença"))
-						{
-
+						if( presencaText.getFirstChild().getNodeValue().equals("Presença") ) {
 
 							foi.add(descricaoText.getFirstChild().getNodeValue());
 							foi.add(nomeText.getFirstChild().getNodeValue());
@@ -193,7 +191,7 @@ public class ConexaoComWsSessoesEReunioes {
 
 		NodeList dias = sessao.get_any()[0].getElementsByTagName("dia");
 
-		for(int i= 0; i<dias.getLength(); i++) {				
+		for( int i= 0; i < dias.getLength(); i++ ) {				
 			MessageElement diaTemp = (MessageElement) dias.item(i);
 
 			NodeList dataTemp = diaTemp.getElementsByTagName("data");
@@ -201,7 +199,7 @@ public class ConexaoComWsSessoesEReunioes {
 
 			MessageElement dataText = (MessageElement) dataTemp.item(0);
 
-			for(int j = 0; j<descricaoTemp.getLength(); j++) {
+			for( int j = 0; j < descricaoTemp.getLength(); j++ ) {
 				MessageElement descricaoText = (MessageElement) descricaoTemp.item(j);
 
 				System.out.println(dataText.getFirstChild().getNodeValue());

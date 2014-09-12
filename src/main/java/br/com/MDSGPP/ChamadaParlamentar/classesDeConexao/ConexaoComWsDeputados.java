@@ -33,7 +33,7 @@ public class ConexaoComWsDeputados {
 	 * This method is supposed to start connective to the webService and return
 	 * it.
 	 * 
-	 * @return
+	 * @return service what is the connection with webService.
 	 * @throws MalformedURLException
 	 * @throws ServiceException
 	 * @throws Un
@@ -63,7 +63,7 @@ public class ConexaoComWsDeputados {
 	public static ObterDeputadosResponseObterDeputadosResult 
 	receberElementDeputados(DeputadosSoapStub service) {
 
-		//conexao criada, agora chamaremos a classe do ws
+		/*conexao criada, agora chamaremos a classe do ws.*/
 		try {
 			ObterDeputadosResponseObterDeputadosResult deputados =
 					service.obterDeputados();
@@ -82,7 +82,7 @@ public class ConexaoComWsDeputados {
 	 * 
 	 * @param service
 	 *            it's the connection to the service.
-	 * @return returns the connection to the classes of the webService
+	 * @return returns the connection to the classes of the webService.
 	 */
 
 	public static ArrayList<Deputados> criaLista() throws MalformedURLException,
@@ -105,7 +105,7 @@ public class ConexaoComWsDeputados {
 		NodeList fone = deputados.get_any()[0].getElementsByTagName("fone");
 		NodeList email = deputados.get_any()[0].getElementsByTagName("email");
 
-		for(int i = 0; i<nome.getLength(); i++) {
+		for( int i = 0; i<nome.getLength(); i++ ) {
 			MessageElement nomeTratamentoTemp = (MessageElement) nomeTratamento.item(i);
 			MessageElement nomeTemp = (MessageElement) nome.item(i);
 			MessageElement idTemp = (MessageElement) id.item(i);
@@ -131,8 +131,8 @@ public class ConexaoComWsDeputados {
 			String anexoText;
 			String foneText;
 
-			try {//esse try catch esta aqui por causa de um erro oriundo do webservice no qual
-				//a tag nao vem completa para o devido tratamento.
+			try {/* Esse try catch esta aqui por causa de um erro oriundo do webservice no qual
+				a tag nao vem completa para o devido tratamento.*/
 				gabineteText = gabineteTemp.getFirstChild().getNodeValue();
 				anexoText = anexoTemp.getFirstChild().getNodeValue();
 				foneText = foneTemp.getFirstChild().getNodeValue();
@@ -166,7 +166,7 @@ public class ConexaoComWsDeputados {
 
 	public static ObterPartidosCDResponseObterPartidosCDResult 
 	receberElementPartido(DeputadosSoapStub service) {			
-		//conexao criada, agora chamaremos a classe do ws
+		/*conexao criada, agora chamaremos a classe do ws.*/
 		try {
 			ObterPartidosCDResponseObterPartidosCDResult partidos =
 					service.obterPartidosCD();
@@ -202,7 +202,7 @@ public class ConexaoComWsDeputados {
 		NodeList siglaPartido = partidos.get_any()[0].getElementsByTagName("siglaPartido");
 		NodeList dataExtincao = partidos.get_any()[0].getElementsByTagName("dataExtincao");
 
-		for(int i = 0; i<nomePartido.getLength(); i++) {
+		for( int i = 0; i<nomePartido.getLength(); i++ ) {
 			MessageElement nomePartidoTemp = (MessageElement) nomePartido.item(i);
 			MessageElement siglaPartidoTemp = (MessageElement) siglaPartido.item(i);
 			MessageElement dataExtincaoTemp = (MessageElement) dataExtincao.item(i);
@@ -210,8 +210,8 @@ public class ConexaoComWsDeputados {
 			String nomePartidoText = nomePartidoTemp.getFirstChild().getNodeValue();
 			String siglaPartidoText = siglaPartidoTemp.getFirstChild().getNodeValue();
 
-			//esse try catch é para retirar os partidos que já nao
-			//existem mais
+			/*esse try catch é para retirar os partidos que já nao
+			existem mais.*/
 			try {
 				String dataExtincaoText = dataExtincaoTemp.getFirstChild().getNodeValue();
 			} catch(NullPointerException e) {
@@ -219,8 +219,8 @@ public class ConexaoComWsDeputados {
 				partidoAdicionar.setSigla(siglaPartidoText);
 				partidoAdicionar.setNomePartido(nomePartidoText);
 
-				//se essa expressao for falsa
-				if(!nomePartidoText.equalsIgnoreCase("sem partido")) {
+				/* Se essa expressao for falsa.*/
+				if( !nomePartidoText.equalsIgnoreCase("sem partido") ) {
 					lista.add(partidoAdicionar);
 				}
 			}

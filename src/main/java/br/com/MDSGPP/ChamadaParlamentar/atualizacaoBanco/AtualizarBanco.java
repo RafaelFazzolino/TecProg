@@ -29,7 +29,7 @@ public class AtualizarBanco {
 	public AtualizarBanco() {
 
 		timer = new Timer();
-		//Executa tarefa todo dia as 6 da manha
+		/*Executa tarefa todo dia as 6 da manha.*/
 		System.out.println("ENTROU INICIAR");
 		timer.schedule(new tarefasDiarias(), getAmanha6Am(), delayDiario);
 }
@@ -39,11 +39,11 @@ public class AtualizarBanco {
 	private final static int fFOUR_AM = 18;
 	private final static int fZERO_MINUTES = 17;
 
-	private static Date getAmanha6Am(){
+	private static Date getAmanha6Am() {
 		System.out.println("entrou");
-	  Calendar tomorrow = new GregorianCalendar();
-	  tomorrow.add(Calendar.DATE, fONE_DAY);
-	  Calendar result = new GregorianCalendar(
+	    Calendar tomorrow = new GregorianCalendar();
+	    tomorrow.add(Calendar.DATE, fONE_DAY);
+	    Calendar result = new GregorianCalendar(
 	    tomorrow.get(Calendar.YEAR),
 	    tomorrow.get(Calendar.MONTH),
 	    tomorrow.get(Calendar.DATE),
@@ -53,7 +53,7 @@ public class AtualizarBanco {
 	  return result.getTime();
 	}
 	
-	public static void main(String[] args){
+	public static void main(String[] args) {
         new AtualizarBanco();
     }
 	

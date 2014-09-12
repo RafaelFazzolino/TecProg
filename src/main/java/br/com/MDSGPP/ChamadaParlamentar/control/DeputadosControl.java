@@ -21,7 +21,10 @@ import br.com.MDSGPP.ChamadaParlamentar.model.Estatistica;
 
 public final class DeputadosControl {
 	/**
-	 * This method will catch the names of all deputies.
+	 * This method is to get deputies. 
+	 * @return deputado.getNomesDeputados what is the name of all deputies.
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
 	 */
 	public static ArrayList<String> getDeputados() throws ClassNotFoundException, SQLException {
 
@@ -31,7 +34,11 @@ public final class DeputadosControl {
 		return deputado.getNomesDeputados();
 	}
 	/**
-	 * This method will verify existence of the deputy.
+	 * This method is to check the deputy.
+	 * @param nome is a variable what contains the name of deputy.
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
 	 */
 	 
 	public static Deputados verificaExistencia(String nome) throws ClassNotFoundException, SQLException {
@@ -40,11 +47,11 @@ public final class DeputadosControl {
 		DeputadoDao deputadoDao = new DeputadoDao();			
 		ArrayList<Deputados> lista = deputadoDao.getDeputados();
 
-		for(int i = 0; i<lista.size(); i++) {
-			if((lista.get(i).getNomeCivilDoParlamentar().
+		for( int i = 0; i < lista.size(); i++ ) {
+			if(( lista.get(i).getNomeCivilDoParlamentar().
 					equalsIgnoreCase(nome)) ||
 					lista.get(i).getNomeDeTratamentoDoParlamentar()
-					.equalsIgnoreCase(nome)) {
+					.equalsIgnoreCase(nome) ) {
 
 				deputado = lista.get(i);
 			}
