@@ -1,0 +1,4 @@
+br.com.MDSGPP.ChamadaParlamentar.dao,,,,
+Dao.java,,,,
+Método,Variável,Tipo,Funcionalidade,Nome sugerido
+getEstatisticasDeputados,rs,Statement,Aplica o resultado ao statement,resultSet
