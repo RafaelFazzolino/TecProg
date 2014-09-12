@@ -1,0 +1,7 @@
+br.com.MDSGPP.ChamadaParlamentar.model,,,,
+Ranking.java,,,,
+Método,Variável,Tipo,Funcionalidade,Nome sugerido
+Ranking,lista,ArrayList,lista com as estatísticas,estatisticsList
+Ranking,removidos,ArrayList,lista com os deputados removidos,removedList
+Ranking,melhores,ArrayList,lista com os melhores baseados na presença,betterPerformanceList
+Ranking,piores,ArrayList,lista com a estatistica dos deputados de determinado partido,worstPerformanceList
