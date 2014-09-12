@@ -1,0 +1,6 @@
+br.com.MDSGPP.ChamadaParlamentar.dao,,,,
+Dao.java,,,,
+Método,Variável,Tipo,Funcionalidade,Nome sugerido
+truncateTables,stmt1,Statement,Declaração 1 para a ConnectionFactory,statement1
+truncateTables,stmt2,Statement,Declaração 2 para a ConnectionFactory,statement2
+truncateTables,stmt3,Statement,Declaração 3 para a ConnectionFactory,statement3
