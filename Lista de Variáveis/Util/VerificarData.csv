@@ -1,0 +1,4 @@
+br.com.MDSGPP.ChamadaParlamentar.util,,,,
+VerificarData.java,,,,
+Método,Variável,Tipo,Funcionalidade,Nome sugerido
+verificarData,sdf,Date,Transforma a data para formato simples,simpleDateFormat
