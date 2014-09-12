@@ -1,0 +1,5 @@
+br.com.MDSGPP.ChamadaParlamentar.control,,,,
+DeputadosControl.java,,,,
+Método,Variável,Tipo,Funcionalidade,Nome sugerido
+verificaExistencia,lista,ArrayList,verifica se a lista contem dados,listWithDeputyData
+verificaExistencia,i,int,contador para um for,countingAuxiliarVariable
