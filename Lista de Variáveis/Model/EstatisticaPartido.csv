@@ -1,0 +1,6 @@
+br.com.MDSGPP.ChamadaParlamentar.model,,,,
+EstatisticaPartido.java,,,,
+Método,Variável,Tipo,Funcionalidade,Nome sugerido
+EstatisticaPartido,quantidadeDeSessoes,int,recebe a quantidade de sessões,sessionsQuantity
+EstatisticaPartido,sessoesAssistidas,int,recebe a quantidade de sessões que determinado parlamentar assistiu,sessionsWatched
+EstatisticaPartido,porcentagem,String,"recebe a porcentagem, trasforma em String",sessionsPercentage
