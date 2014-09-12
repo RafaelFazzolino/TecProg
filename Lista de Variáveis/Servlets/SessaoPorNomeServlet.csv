@@ -1,0 +1,8 @@
+br.com.MDSGPP.ChamadaParlamentar.model;;;;
+;SessaoPorNomeServlet;;;
+;M?todo;Variÿvel;Tipo;funcionalidade
+;service;rd;RequestDispatcher;
+;service;int;pagina;numero da pagina
+;service;int;deputadoPorPagina;quantidade de deputado por pagina
+;service;int;numeroDeoutados;numeor de deputados por sessao
+;service;int;noDePaginas;numero total de paginas
