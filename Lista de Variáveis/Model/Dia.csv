@@ -1,0 +1,6 @@
+br.com.MDSGPP.ChamadaParlamentar.model,,,,
+Dia.java,,,,
+Método,Variável,Tipo,Funcionalidade,Nome sugerido
+Dia,data,String,recebe data em formato de String,date
+Dia,listaSessoes,ArrayList,ArrayList com a lista das sessões,sessionList
+Dia,numeroSessoes,int,recebe o numero das sessões,sessionNumber
