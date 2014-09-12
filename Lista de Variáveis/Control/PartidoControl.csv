@@ -1,0 +1,7 @@
+br.com.MDSGPP.ChamadaParlamentar.control,,,,
+PartidoControl.java,,,,
+Método,Variável,Tipo,Funcionalidade,Nome sugerido
+passarListaPartidos,lista,ArrayList,lista com os partidos recebidos,receivedPartyList
+verificaExistencia,listaComDados,ArrayList,verifica se a lista contem dados,listWithExistentData
+passarPartido,nomePartidoCerto,ArrayList,verifica a existência do partido pelo nome,correctPartyName
+gerarEstatisticaDoPartido,estatistica,ArrayList,gera as estatísticas de determinado partido,partyStatistics
