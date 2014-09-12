@@ -1,0 +1,8 @@
+ br.com.MDSGPP.ChamadaParlamentar.servlets,,,
+PartidoRecebido,,,
+Função,Tipo,Variavel,Comentario
+"service(HttpServletRequest request, HttpServletResponse response)",Strinf,nomePartido,A variavel recebe o parametro vindo do html
+"service(HttpServletRequest request, HttpServletResponse response)",EstatisticaPartido,estatistica,A variavel recebe o parametro vindo do html
+"service(HttpServletRequest request, HttpServletResponse response)",ArrayList<Estatistica>,semDados,
+"service(HttpServletRequest request, HttpServletResponse response)",Partidos,partido,
+"service(HttpServletRequest request, HttpServletResponse response)",int,quantosSemDados,
