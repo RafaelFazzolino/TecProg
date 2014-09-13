@@ -1,4 +1,0 @@
-br.com.MDSGPP.ChamadaParlamentar.servlets,,,
-PegarListaDeputado,,,
-Função,Tipo,Variavel,Comentario
-"service (HttpServletRequest request, HttpServletResponse response)",ArrayList<String>,lista,Variaável recebe um array de uma busca da função getDeputados
