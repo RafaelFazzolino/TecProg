@@ -1,0 +1,13 @@
+"br.com.MDSGPP.ChamadaParlamentar.servlet;;;;";
+;"SessoesEReunioesServlet;;;;"
+;"Método;Variável;Tipo;funcionalidade;"
+;"atributo;serialVersionUID;long;variavel que contem serial da classe;"
+;"service;request;HttpServletRequest;variavel que contem request do servlet;"
+;"service;response;HttpServletResponse;variavel que ocntem o response do servlet;"
+;"service;pagina;int;variavel que controla em qual pagina do servlet esta;"
+;"service;datasPorPagina;int;variavel que controla quantas datas serão colocadas em cada pagina;"
+;"service;dia;ArrayList<Dia>;variavel que contem todos os dias;"
+;"service;numeroDatas;int;variavel que controla quantas datas existem;"
+;"service;noDePaginas;int;variavel que contem o numero de paginas totais que terao;"
+;"service;diaPassar;ArrayList<Dia>;variavel que contem os dias que estao na pagina solicitada;"
+;"service;;;;"
