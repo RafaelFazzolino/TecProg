@@ -13,13 +13,12 @@ public final class DiaControl {
 	
 	/**
 	 * This method creates a list and returns the days that the deputy 
-	 * was in a session
-	 * @return
-	 * @throws ClassNotFoundException
-	 * @throws SQLException
-	 * @throws DataFormatoErradoException
+	 * was in a session.
+	 * @return listaInverter what is the new list of days.
+	 * @throws ClassNotFoundException if the class is not found.
+	 * @throws SQLException if an error occurs with dataBase.
+	 * @throws DataFormatoErradoException case to come up with wrong date format.
 	 */
-
 	public static ArrayList<Dia> getDias() 
 			throws ClassNotFoundException, SQLException, DataFormatoErradoException {
 		ArrayList<Dia> lista;
@@ -38,11 +37,11 @@ public final class DiaControl {
 
 	/**
 	 * This method creates a list based on the days and dates per pages
-	 * and returns a list
-	 * @param pagina
+	 * and returns a list.
+	 * @param pagina is the number of pages.
 	 * @param datasPorPagina
-	 * @param dia
-	 * @return
+	 * @param dia is the day that is being analyzed.
+	 * @return listaPassar is the arrayList contains all days.
 	 */
 	
 	public static ArrayList<Dia> getListaCerta(int pagina, int datasPorPagina,

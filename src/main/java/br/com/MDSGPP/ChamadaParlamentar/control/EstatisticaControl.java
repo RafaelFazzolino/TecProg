@@ -32,9 +32,9 @@ public final class EstatisticaControl {
 	 * @param nome
 	 *            String, its the name of deputy.
 	 * @return returns the {@link Estatistica} of the {@link Deputados}
-	 * @throws ClassNotFoundException
-	 * @throws SQLException
-	 * @throws ListaVaziaException
+	 * @throws ClassNotFoundException case the class is not found.
+	 * @throws SQLException case an error occurs with dataBase.
+	 * @throws ListaVaziaException is case an error occurs with the list.
 	 */
     
 	public static Estatistica gerarEstatisticas(String nome)
@@ -64,9 +64,9 @@ public final class EstatisticaControl {
 	 * @param numeroTotalSessao
 	 *            Integer, total number of sessions.
 	 * @return returns {@link Estatistica}.
-	 * @throws ClassNotFoundException
-	 * @throws SQLException
-	 * @throws ListaVaziaException
+	 * @throws ClassNotFoundException case the class is not found.
+	 * @throws SQLException case an error occurs with dataBase.
+	 * @throws ListaVaziaException is case an error occurs with the list.
 	 */
 
 	public static Estatistica gerarEstatisticas(String nome, int numeroTotalSessao) 
