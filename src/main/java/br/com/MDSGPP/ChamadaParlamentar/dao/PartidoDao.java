@@ -27,7 +27,7 @@ public class PartidoDao extends ConnectionFactory {
 
 		PreparedStatement stmt = getConexao().prepareStatement(sql);
 
-		for(int i = 0; i<lista.size(); i++) {
+		for( int i = 0; i < lista.size(); i++ ) {
 			stmt.setString(UM, lista.get(i).getSigla());
 			stmt.setString(DOIS, lista.get(i).getNomePartido());
 
@@ -36,6 +36,7 @@ public class PartidoDao extends ConnectionFactory {
 
 		stmt.close();
 	}
+	
 	/**
 	 * This method is to get a specific party in database.
 	 * @return listaPassar what is an Array with all the desired parties.
@@ -51,7 +52,7 @@ public class PartidoDao extends ConnectionFactory {
 		
 		ResultSet rs = stmt.executeQuery();
 		
-		while(rs.next()) {
+		while( rs.next() ) {
 			ArrayList<String> adicionar = new ArrayList<String>();
 			adicionar.add(rs.getString("sigla"));
 			adicionar.add(rs.getString("nomePartido"));

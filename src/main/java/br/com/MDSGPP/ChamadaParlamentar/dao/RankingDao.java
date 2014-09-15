@@ -17,16 +17,16 @@ public class RankingDao extends ConnectionFactory {
 	}
 	
 	/**
-	 * This method add the Ranking in the DB table
-	 * @param ranking
-	 * @throws SQLException
+	 * This method add the Ranking in the DB table.
+	 * @param ranking is a Ranking contains all features of the ranking.
+	 * @throws SQLException case the dataBase is off.
 	 */
 	
 	public void adicionarRankingNaTable(Ranking ranking) throws SQLException {
 		String sql =  "insert into ranking(nomeParlamentar, porcentagem, numeroSessoes)values (?, ?, ?)";
 		PreparedStatement stmt = ConnectionFactory.getConexao().prepareStatement(sql);
 
-		for(int i = 0; i < ranking.getLista().size(); i++) {
+		for( int i = 0; i < ranking.getLista().size(); i++ ) {
 			try {
 				stmt.setString(1, ranking.getLista().get(i).getNome());
 				stmt.setString(2, ranking.getLista().get(i).getPorcentagem());
@@ -37,7 +37,7 @@ public class RankingDao extends ConnectionFactory {
 				System.out.println(ranking.getLista().get(i).getNome());
 			}
 		}
-		for(int i = 0; i<ranking.getRemovidos().size(); i++) {
+		for( int i = 0; i < ranking.getRemovidos().size(); i++ ) {
 			stmt.setString(1, ranking.getRemovidos().get(i).getNome());
 			stmt.setString(2, "semDados");
 			stmt.execute();
@@ -48,8 +48,8 @@ public class RankingDao extends ConnectionFactory {
 	
 	/**
 	 * This method returns a refreshed status of the Ranking
-	 * @return
-	 * @throws SQLException
+	 * @return ranking complete.
+	 * @throws SQLException case the dataBase is off.
 	 */
 	public Ranking retornaRanking () throws SQLException {
 		Ranking ranking = new Ranking();
@@ -61,10 +61,10 @@ public class RankingDao extends ConnectionFactory {
 		PreparedStatement stmt = ConnectionFactory.getConexao().prepareStatement(sql);
 		ResultSet rs = stmt.executeQuery();
 		
-		while(rs.next()) {
+		while( rs.next() ) {
 			Estatistica estatistica = new Estatistica();
 			estatistica.setNome(rs.getString("nomeParlamentar"));
-			if(rs.getString("porcentagem").equalsIgnoreCase("semDados")) {
+			if( rs.getString("porcentagem").equalsIgnoreCase("semDados") ) {
 				removidos.add(estatistica);
 			} 
 			else {

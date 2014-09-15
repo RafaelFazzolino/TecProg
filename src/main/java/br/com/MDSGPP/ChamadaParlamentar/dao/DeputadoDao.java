@@ -27,9 +27,9 @@ public class DeputadoDao extends ConnectionFactory {
 	}
 	
 	/**
-	 * This method add a deputy in the list Deputados
-	 * @param deputados
-	 * @throws SQLException
+	 * This method add a deputy in the list Deputados.
+	 * @param deputados is an ArrayList contains all deputies.
+	 * @throws SQLException case the dataBase is off.
 	 */
 	
 	public void adicionaDeputado(ArrayList<Deputados> deputados) throws SQLException {
@@ -39,7 +39,7 @@ public class DeputadoDao extends ConnectionFactory {
 				"values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		PreparedStatement stmt = getConexao().prepareStatement(sql);
-		for(int i = 0; i<deputados.size(); i++) {
+		for( int i = 0; i < deputados.size(); i++ ) {
 
 			stmt.setInt(UM, deputados.get(i).getIdDoParlamentar());
 			stmt.setInt(DOIS, deputados.get(i).getMatricula());
@@ -61,9 +61,9 @@ public class DeputadoDao extends ConnectionFactory {
 	}
 	
 	/**
-	 * This method is used in the autocomplete in the search of a name
-	 * @return
-	 * @throws SQLException
+	 * This method is used in the auto-complete in the search of a name.
+	 * @return lista contains the name of all deputies.
+	 * @throws SQLException case the dataBase is off.
 	 */
 	
 	public ArrayList<String> getNomesDeputados() throws SQLException {
@@ -74,7 +74,7 @@ public class DeputadoDao extends ConnectionFactory {
 		PreparedStatement stmt= ConnectionFactory.getConexao().prepareStatement(sql);
 		ResultSet rs = stmt.executeQuery();
 
-		while(rs.next()) {
+		while( rs.next() ) {
 			String nomeCivil = rs.getString("nomeCivil");
 			String nomeTratamento = rs.getString("nomeDeTratamento");
 			lista.add(nomeCivil);
@@ -96,7 +96,7 @@ public class DeputadoDao extends ConnectionFactory {
 	public ArrayList<Integer> getMatriculaDeputados() throws SQLException {
 		
 		/**
-		 * Creates the SQL command search how to look for an specific line
+		 * Creates the SQL command search how to look for an specific line.
 		 */
 		
 		String sql = "Select * from deputado";
@@ -104,18 +104,18 @@ public class DeputadoDao extends ConnectionFactory {
 		ArrayList<Integer> lista = new ArrayList<Integer>();
 
 		/**
-		 * Creates the prepared statement that is what is going to connect with the DB
+		 * Creates the prepared statement that is what is going to connect with the DB.
 		 */
 		
 		PreparedStatement stmt= ConnectionFactory.getConexao().prepareStatement(sql);
 		
 		/**
-		 * Execute the STMT to search the data
+		 * Execute the STMT to search the data.
 		 */
 		
 		ResultSet rs = stmt.executeQuery();
 
-		while(rs.next()) {
+		while( rs.next() ) {
 			lista.add(rs.getInt("matricula"));
 		}
 
@@ -138,7 +138,7 @@ public class DeputadoDao extends ConnectionFactory {
 
 		ResultSet rs = stmt.executeQuery();
 
-		while(rs.next()) {
+		while( rs.next() ) {
 			Deputados deputado = new Deputados();
 
 			deputado.setIdDoParlamentar(rs.getInt("idParlamentar"));

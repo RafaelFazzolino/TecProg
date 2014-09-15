@@ -29,7 +29,7 @@ public class SessoesEReunioesDao extends ConnectionFactory {
 	public void adcionarDataNaTable(ArrayList<String> insert) 
 			throws SQLException, MalformedURLException, ServiceException {			     
 
-		for(int i = 0; i <insert.size(); i= i+2) {
+		for( int i = 0; i < insert.size(); i= i + 2 ) {
 			String sql = "insert into datas(datas, sessao) values(?, ?)";
 
 			PreparedStatement stmt;
@@ -58,7 +58,7 @@ public class SessoesEReunioesDao extends ConnectionFactory {
 		String sql = "insert into sessao(idSessoes, deputadoPresente)values(?,?)";
 		PreparedStatement stmt = getConexao().prepareStatement(sql);
 
-		for(int i = 0; i<insert.size(); i=i+2) {
+		for( int i = 0; i < insert.size(); i = i + 2 ) {
 			stmt.setString(1, insert.get(i));
 			stmt.setString(2, insert.get(i+1));
 
@@ -73,16 +73,14 @@ public class SessoesEReunioesDao extends ConnectionFactory {
 	 * @throws SQLException is case occurs an error with Database.
 	 */
 
-	public int passarNumeroDeSessoes() throws SQLException
-	{
+	public int passarNumeroDeSessoes() throws SQLException {
 		String sql = "select * from datas";
 
 		PreparedStatement stmt= ConnectionFactory.getConexao().prepareStatement(sql);
 		ResultSet rs = stmt.executeQuery(); 
 		int i = 0;
 
-		while(rs.next())
-		{
+		while( rs.next() ) {
 			i++;
 		}
 

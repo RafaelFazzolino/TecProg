@@ -18,10 +18,10 @@ public class DiaDao extends ConnectionFactory {
 	}
 	
 	/**
-	 * This method search all the descriptions based on a day
-	 * @return
-	 * @throws SQLException
-	 * @throws DataFormatoErradoException
+	 * This method search all the descriptions based on a day.
+	 * @return lista contains all days.
+	 * @throws SQLException case the dataBase is off.
+	 * @throws DataFormatoErradoException case the date is wrong.
 	 */
 
 	public ArrayList<Dia> buscarTodasDescricoes() throws SQLException, DataFormatoErradoException {
@@ -42,24 +42,24 @@ public class DiaDao extends ConnectionFactory {
 	}
 
 	/**
-	 * This method populates the DB based on a day
+	 * This method populates the DB based on a day.
 	 * @param rs
 	 * @param lista
-	 * @return
-	 * @throws SQLException
+	 * @return lista contains all days.
+	 * @throws SQLException case the dataBase is off.
 	 */
 	public static ArrayList<Dia> popularListaDia(ResultSet rs, 
 			ArrayList<Dia> lista) throws SQLException {
 		int cont = 0;
 
-		while(rs.next()) {
+		while( rs.next() ) {
 			String descricao = rs.getString("sessao");
 			String descAux = descricao;
 			descricao = descricao.split(" -")[0];
 
 			boolean teste = lista.get(cont).getData().equalsIgnoreCase(rs.getString(DATAS));
 
-			if(!teste) {
+			if( !teste ) {
 				cont++;
 			}
 			SessoesEReunioes passar = new SessoesEReunioes();
@@ -73,11 +73,11 @@ public class DiaDao extends ConnectionFactory {
 	}
 
 	/**
-	 * This method create the Dia in the DB
+	 * This method create the Dia in the DB.
 	 * @param rs
-	 * @return
-	 * @throws SQLException
-	 * @throws DataFormatoErradoException
+	 * @return lista contains the new days.
+	 * @throws SQLException case the dataBase is off.
+	 * @throws DataFormatoErradoException case the date is wrong.
 	 */
 	
 	public static ArrayList<Dia> criarDias(ResultSet rs) 
@@ -86,15 +86,15 @@ public class DiaDao extends ConnectionFactory {
 
 		int controle = 0;
 
-		while(rs.next()) {
-			if(lista.size() == 0) {
+		while( rs.next() ) {
+			if( lista.size() == 0 ) {
 				Dia dia = new Dia();
 				dia.setData(rs.getString(DATAS));
 				lista.add(dia);
 			}
 			else {
 				boolean teste = lista.get(controle).getData().equals(rs.getString(DATAS));
-				if(!teste) {
+				if( !teste ) {
 					Dia diaAux = new Dia();
 					diaAux.setData(rs.getString(DATAS));
 					lista.add(diaAux);
