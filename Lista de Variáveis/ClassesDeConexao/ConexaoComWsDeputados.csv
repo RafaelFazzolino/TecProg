@@ -1,48 +1,48 @@
-br.com.MDSGPP.ChamadaParlamentar.atualizacaoBanco,,,
-ConexaoComWsDeputados,,,
-Metodo,Variavel,Tipo,Funcionalidade
-obterConexao(),url,URL,Variavel usada para receber o site do webservice
-criarLista(),lista,ArrayList<Deputados>,Recebe uma lista com os deputados 
-criaLista(),nome,NodeList,Recebe o atributo nome do deputado
-criaLista(),nomeTratamento,NodeList,Recebe o nome de tratamento de um deputado
-criaLista(),id,NodeList,Recebe o numero de identifica�ao do deputado
-criaLista(),matricula,NodeList,Recebe a matricula do deputado
-criaLista(),idParlamentar,NodeList,Recebe o numero de identifica�ao parlamentar do deputado
-criaLista(),sexo,NodeList,Recebe o sexo do deputado
-criaLista(),uf,NodeList,Recebe a sigla da Unidade Federativa que o Deputado representa
-criaLista(),partido,NodeList,Recebe o partido do deputado
-criaLista(),gabinete,NodeList,Recebe o gabinete atual do deputado
-criaLista(),anexo,NodeList,Recebe o anexo do deputado
-criaLista(),fone,NodeList,Recebe o telefone de contato do Deputado
-criaLista(),email,NodeList,Recebe o email de contato do Deputado
-criaLista(),nomeTratamentoTemp,MessageElement,Variavel temporaria para mensagem do nome de tratamento
-criaLista(),idTemp,MessageElement,Variavel temporaria para mensagem sobre id
-criaLista(),matriculaTemp,MessageElement,Variavel  temporaria para mensagem de  matricula
-criaLista(),idParlamentarTemp,MessageElement,Variavel temporaria para mensagem sobre o idParlamentar
-criaLista(),sexoTemp,MessageElement,Variavel temporaria para mensagem sobre sexo
-criaLista(),ufTemp,MessageElement,Variavel temporaria para mensagem sobre UF
-criaLista(),partidoTemp,MessageElement,Variavel temporaria para mensagem do partido
-criaLista(),gabineteTemp,MessageElement,Variavel temporaria para mensagem do gabinete do deputado
-criaLista(),anexoTemp,MessageElement,Variavel temporaria para mensagem sobre o anexo
-criaLista(),foneTemp,MessageElement,Variavel temporaria para mensagem para telefone de contato
-criaLista(),emailTemp,MessageElement,Variavel temporaria para mensagem sobre email do deputado
-criaLista(),idInt,int,
-criaLista(),matriculaInt,int,
-criaLista(),idParlamentarInt,int,
-criaLista(),nomeText,String,
-criaLista(),nomeTratamentoText,String,
-criaLista(),sexoText,String,
-criaLista(),ufText,String,
-criaLista(),partidoText,String,
-criaLista(),gabienteText,String,
-criaLista(),anexoText,String,
-criaLista(),foneText,String,
-criaListaPartidos(),lsita,ArrayList<Partidos>,Recebe uma lista de partidos
-criaListaPartidos(),nomePartido,NodeList,Variavel recebe valor para a lista do nome Partido 
-criaListaPartidos(),siglaPartido,NodeList,Recebe a sigla do partido para montar a list
-criaListaPartidos(),dataExtincao,NodeList,Recebe a data de extinção do partido 
-criaListaPartidos(),nomePartidoTemp,MessageElement,Variavel tempopara nome do partido
-criaListaPartidos(),siglaPartidoTemp,MessageElement,Variavel temporaria para segla do partido
-criaListaPartidos(),dataExtincaoTemp,MessageElement,variavel temporaria para a data de extinção
-criaListaPartidos(),nomePartidoText,String,Nome do partido
-criaListaPartidos(),siglaPartidoText,String,Sigla do partido 
+br.com.MDSGPP.ChamadaParlamentar.atualizacaoBanco,,,,
+ConexaoComWsDeputados,,,,
+Metodo,Variavel,Tipo,Funcionalidade,novo nome
+obterConexao(),url,URL,Variavel usada para receber o site do webservice,url
+criarLista(),lista,ArrayList<Deputados>,Recebe uma lista com os deputados ,list
+criaLista(),nome,NodeList,Recebe o atributo nome do deputado,name
+criaLista(),nomeTratamento,NodeList,Recebe o nome de tratamento de um deputado,treatmentName
+criaLista(),id,NodeList,Recebe o numero de identifica�ao do deputado,id
+criaLista(),matricula,NodeList,Recebe a matricula do deputado,matricula
+criaLista(),idParlamentar,NodeList,Recebe o numero de identifica�ao parlamentar do deputado,idParlamentar
+criaLista(),sexo,NodeList,Recebe o sexo do deputado,sexo
+criaLista(),uf,NodeList,Recebe a sigla da Unidade Federativa que o Deputado representa,uf
+criaLista(),partido,NodeList,Recebe o partido do deputado,politicalParty
+criaLista(),gabinete,NodeList,Recebe o gabinete atual do deputado,cabinet
+criaLista(),anexo,NodeList,Recebe o anexo do deputado,annex
+criaLista(),fone,NodeList,Recebe o telefone de contato do Deputado,phone
+criaLista(),email,NodeList,Recebe o email de contato do Deputado,email
+criaLista(),nomeTratamentoTemp,MessageElement,Variavel temporaria para mensagem do nome de tratamento,treatmentNameAux
+criaLista(),idTemp,MessageElement,Variavel temporaria para mensagem sobre id,idAux
+criaLista(),matriculaTemp,MessageElement,Variavel  temporaria para mensagem de  matricula,matriculaAux
+criaLista(),idParlamentarTemp,MessageElement,Variavel temporaria para mensagem sobre o idParlamentar,idParlamentarAux
+criaLista(),sexoTemp,MessageElement,Variavel temporaria para mensagem sobre sexo,sexoAux
+criaLista(),ufTemp,MessageElement,Variavel temporaria para mensagem sobre UF,ufAux
+criaLista(),partidoTemp,MessageElement,Variavel temporaria para mensagem do partido,politicalPartyAux
+criaLista(),gabineteTemp,MessageElement,Variavel temporaria para mensagem do gabinete do deputado,cabinetAux
+criaLista(),anexoTemp,MessageElement,Variavel temporaria para mensagem sobre o anexo,annexAux
+criaLista(),foneTemp,MessageElement,Variavel temporaria para mensagem para telefone de contato,phoneAux
+criaLista(),emailTemp,MessageElement,Variavel temporaria para mensagem sobre email do deputado,emailAux
+criaLista(),idInt,int,Variável id no formato integer.,idInteger
+criaLista(),matriculaInt,int,matricula no formato integer.,matriculaInteger
+criaLista(),idParlamentarInt,int,id do parlamentar no formado integer.,idParlamentarInteger
+criaLista(),nomeText,String,Variável que recebe o nome do deputado no formato String,nameText
+criaLista(),nomeTratamentoText,String,Variável que recebe o nome de tratamento do deputado no formato String,treatmentNameText
+criaLista(),sexoText,String,Variável que recebe o sexo do deputado no formato String,sexoText
+criaLista(),ufText,String,Variável que recebe o UF do deputado.,ufText
+criaLista(),partidoText,String,Variável que recebe o partido do deputado.,politicalPartyText
+criaLista(),gabienteText,String,Variável que recebe o gabinete do deputado.,cabinetText
+criaLista(),anexoText,String,Variável que recebe o anexo que o deputado se encontra.,annexText
+criaLista(),foneText,String,Variável que recebe o telefone do gabinete do deputado.,phoneText
+criaListaPartidos(),lista,ArrayList<Partidos>,Recebe uma lista de partidos,list
+criaListaPartidos(),nomePartido,NodeList,Variavel recebe valor para a lista do nome Partido ,partyName
+criaListaPartidos(),siglaPartido,NodeList,Recebe a sigla do partido para montar a list,abbreviationParty
+criaListaPartidos(),dataExtincao,NodeList,Recebe a data de extinção do partido ,dateExtinction
+criaListaPartidos(),nomePartidoTemp,MessageElement,Variavel tempopara nome do partido,partyNameAux
+criaListaPartidos(),siglaPartidoTemp,MessageElement,Variavel temporaria para segla do partido,abbreviationPartyAux
+criaListaPartidos(),dataExtincaoTemp,MessageElement,variavel temporaria para a data de extinção,dateExtinctionAux
+criaListaPartidos(),nomePartidoText,String,Nome do partido,partyNameText
+criaListaPartidos(),siglaPartidoText,String,Sigla do partido ,abbreviationPartyText

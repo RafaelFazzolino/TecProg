@@ -1,13 +1,13 @@
-br.com.MDSGPP.ChamadaParlamentar.atualizacaoBanco,,,
-Atualizar Banco,,,
-Método,Variável,Tipo,Funcionalidade
-Atualizar Banco,timer,Timer,Variável usada para controlar o horário da atualização do banco.
-getAmanha6Am,tomorrow,GregorianCalendar,Variável usada para salvar o dia que a atualização deve ser feita.
-getAmanha6Am,result,GregorianCalendar,Salva o horário em que o método deve atualizar o sistema.
-TimerTask,sessoesDao,SessoesEReunioes,"Esta variável controla a conexão com o Banco de dados, específico para a tabela sessões e reuniões"
-TimerTask,rankingDao,RankingDao,"Esta variável controla a conexão com o Banco de dados, específico para a tabela ranking"
-TimerTask,ranking,Ranking,Nesta variável se encontra o ranking pronto.
-Atualizar Banco,delayDiario,long,Variável usada para converter o valor para o tempo diário.
-Atualizar Banco,fONE_DAY,int,"Variável usada para guardar o valor 0, constante."
-Atualizar Banco,fFOUR_AM,int,"Variável usada para guardar o valor 18, constante."
-Atualizar Banco,fZERO_MINUTES,int,"Variável usada para guardar o valor 17, constante."
+br.com.MDSGPP.ChamadaParlamentar.atualizacaoBanco,,,,
+Atualizar Banco,,,,
+Método,Variável,Tipo,Funcionalidade,novo nome
+Atualizar Banco,timer,Timer,Variável usada para controlar o horário da atualização do banco.,timer
+getAmanha6Am,tomorrow,GregorianCalendar,Variável usada para salvar o dia que a atualização deve ser feita.,tomorrow
+getAmanha6Am,result,GregorianCalendar,Salva o horário em que o método deve atualizar o sistema.,result
+TimerTask,sessoesDao,SessoesEReunioes,"Esta variável controla a conexão com o Banco de dados, específico para a tabela sessões e reuniões",sessionsDao
+TimerTask,rankingDao,RankingDao,"Esta variável controla a conexão com o Banco de dados, específico para a tabela ranking",rankingDao
+TimerTask,ranking,Ranking,Nesta variável se encontra o ranking pronto.,ranking
+Atualizar Banco,delayDiario,long,Variável usada para converter o valor para o tempo diário.,delayDaily
+Atualizar Banco,fONE_DAY,int,"Variável usada para guardar o valor 0, constante.",fONE_DAY
+Atualizar Banco,fFOUR_AM,int,"Variável usada para guardar o valor 18, constante.",fFOUR_AM
+Atualizar Banco,fZERO_MINUTES,int,"Variável usada para guardar o valor 17, constante.",fZERO_MINUTES
