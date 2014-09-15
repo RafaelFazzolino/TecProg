@@ -8,11 +8,10 @@ public class EstatisticaPartido {
 	private String porcentagem;
 	
 	/**
-	 * Getter of the political party
+	 * Getter of the political party.
 	 * 
 	 * @return an name of {@link partido} containing the name of the political
 	 *         party.
-	 * 
 	 */
 	
 	public Partidos getPartido() {
@@ -20,12 +19,10 @@ public class EstatisticaPartido {
 	}
 	
 	/**
-	 * Setter of the political party
-	 * 
+	 * Setter of the political party.
 	 * @param partido
 	 *            an variable of {@link partido} containing the name of the
 	 *            political party.
-	 * 
 	 */
 	
 	public void setPartido(Partidos partido) {
@@ -33,11 +30,9 @@ public class EstatisticaPartido {
 	}
 	
 	/**
-	 * Getter of number of sessions
-	 * 
+	 * Getter of number of sessions.
 	 * @return an variable of {@link partido} containing the number of the
 	 *         sessions.
-	 * 
 	 */
 	
 	public int getQuantidadeDeSessoes() {
@@ -45,12 +40,10 @@ public class EstatisticaPartido {
 	}
 	
 	/**
-	 * Setter of number of sessions
-	 * 
+	 * Setter of number of sessions.
 	 * @param quantidadeDeSessoes
 	 *            an variable of {@link sessoes} containing the number of the
 	 *            sessions.
-	 * 
 	 */
 	
 	public void setQuantidadeDeSessoes(int quantidadeDeSessoes) {
@@ -58,11 +51,9 @@ public class EstatisticaPartido {
 	}
 	
 	/**
-	 * Getter of assisted sessions
-	 * 
+	 * Getter of assisted sessions.
 	 * @return an variable of {@link partido} containing the number of the
 	 *         sessions assisted.
-	 * 
 	 */
 	
 	public int getSessoesAssistidas() {
@@ -70,12 +61,10 @@ public class EstatisticaPartido {
 	}
 	
 	/**
-	 * Setter of assisted sessions
-	 * 
+	 * Setter of assisted sessions.
 	 * @param sessoesAssistidas
 	 *            an variable of {@link partido} containing the number of the
 	 *            sessions assisted.
-	 * 
 	 */
 	
 	public void setSessoesAssistidas(int sessoesAssistidas) {
@@ -83,11 +72,9 @@ public class EstatisticaPartido {
 	}
 	
 	/**
-	 * Getter of percentage
-	 * 
+	 * Getter of percentage.
 	 * @return an variable of {@link partido} containing the percentage of the
 	 *         sessions assisted.
-	 * 
 	 */
 	
 	public String getPorcentagem() {
@@ -95,12 +82,10 @@ public class EstatisticaPartido {
 	}
 	
 	/**
-	 * Setter of percentage
-	 * 
+	 * Setter of percentage.
 	 * @param porcentagem
 	 *            an variable of {@link partido} containing the percentage of
 	 *            the sessions assisted.
-	 * 
 	 */
 	
 	public void setPorcentagem(String porcentagem) {

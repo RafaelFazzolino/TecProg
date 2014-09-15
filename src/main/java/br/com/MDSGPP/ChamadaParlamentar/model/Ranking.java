@@ -10,7 +10,6 @@ public class Ranking {
 	private ArrayList<Estatistica> piores = new ArrayList<Estatistica>();
 	
 	public Ranking() {
-		// TODO Auto-generated constructor stub
 	}
 	/**
 	 * This method is to get the statistic of deturies.

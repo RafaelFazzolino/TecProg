@@ -21,7 +21,7 @@ public class SessoesEReunioes {
 			String descricao, ArrayList<Deputados> deputados,
 			String descricaoCompleta) throws DataFormatoErradoException {
 
-		if(!VerificarData.verificaData(data)) {
+		if( !VerificarData.verificaData(data) ) {
 			throw new DataFormatoErradoException();
 		}
 

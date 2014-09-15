@@ -22,12 +22,12 @@ public class Dia {
 	}
 	
 	/**
-	 * this method is to change the value of the variable data.
+	 * This method is to change the value of the variable data.
 	 * @param data is to new value to be added.
 	 * @throws DataFormatoErradoException if the date is in formed unknown.
 	 */
 	public void setData(String data) throws DataFormatoErradoException {
-		if(!VerificarData.verificaData(data)) {
+		if( !VerificarData.verificaData(data) ) {
 			throw new DataFormatoErradoException();
 		}
 		
@@ -46,7 +46,7 @@ public class Dia {
 	 */
 	public void setListaSessoes(ArrayList<SessoesEReunioes> listaSessoes) {
 		this.listaSessoes = listaSessoes;
-		if(listaSessoes != null) {
+		if( listaSessoes != null ) {
 			this.numeroSessoes = listaSessoes.size();
 		}
 		else {
@@ -54,7 +54,7 @@ public class Dia {
 		}
 	}
 	/**
-	 * this method is to get the number of sessions.
+	 * This method is to get the number of sessions.
 	 * @return numeroSessoes what is a variable containing the number of sessions.
 	 */
 	public int getNumeroSessoes() {

@@ -2,7 +2,7 @@ package br.com.MDSGPP.ChamadaParlamentar.model;
 
 public class Deputados {
 	
-	//atributs to our class
+	/*Atributs to our class.*/
 	private int idDoParlamentar;
 	private int matricula;
 	private int ideCadastro;
@@ -16,7 +16,7 @@ public class Deputados {
 	private String telefone;
 	private String email;
 
-	//constructor to our class
+	/*Constructor to our class.*/
 	public Deputados() {
 		
 	}
@@ -39,7 +39,7 @@ public class Deputados {
 		this.email = email;
 	}
 
-	//geters and setters
+	/*Geters and setters.*/
 	public int getIdDoParlamentar() {
 		return idDoParlamentar;
 	}
@@ -136,6 +136,4 @@ public class Deputados {
 	public void setIdeCadastro(int ideCadastro) {
 		this.ideCadastro = ideCadastro;
 	}
-	//and of the getters and setters
-	
 }

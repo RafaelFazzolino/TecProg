@@ -9,13 +9,9 @@ public class Estatistica {
 	private String totalSessao;
 	private String porcentagem;
 	private ArrayList<String> lista = new ArrayList<String>(); 
-
-//construtor
 	
-	public Estatistica(){
-		
+	public Estatistica(){		
 	}
-
 
 	public String getNumeroSessao() {
 		return numeroSessao;
