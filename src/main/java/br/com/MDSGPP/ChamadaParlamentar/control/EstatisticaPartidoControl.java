@@ -16,9 +16,9 @@ public final class EstatisticaPartidoControl {
 	 * @param nome
 	 *            String, name of the political party.
 	 * @return
-	 * @throws ClassNotFoundException
-	 * @throws SQLException
-	 * @throws ListaVaziaException
+	 * @throws ClassNotFoundException case the class is not found.
+	 * @throws SQLException case an error occurs with dataBase.
+	 * @throws ListaVaziaException is case an error occurs with the list.
 	 */
 	
 	public static EstatisticaPartido gerarEstatisticaPartido(String nome) 
@@ -30,7 +30,7 @@ public final class EstatisticaPartidoControl {
 		
 		int totalDeSessoes = 0;
 		int totalDeSessoesAssistidas = 0;
-		for(int i = 0; i<partido.getEstatisticaDosDeputados().size(); i++) {
+		for(int i = 0; i < partido.getEstatisticaDosDeputados().size(); i++) {
 			totalDeSessoes += Integer.parseInt(partido.getEstatisticaDosDeputados().get(i).getTotalSessao());
 			totalDeSessoesAssistidas += Integer.parseInt(partido.getEstatisticaDosDeputados().get(i).getNumeroSessao());
 		}
