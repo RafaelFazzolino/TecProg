@@ -1,31 +1,31 @@
-;;;;;
-br.com.MDSGPP.ChamadaParlamentar;;;;;
-;conexaoComWsSessoesEReunioes;;;;
-;Metodo;Variavel;Tipo;Funcionalidade;
-;obterConexao;url;URL;passar o endpoint do Webservice;
-;obterConexao;service;SessoesReunioesSoapStub;Variÿvel que conecta com o Webservice;
-;receberElementPresenca;sessoes;ListarPresencasParlamentarResponseListarPresencasParlamentarResult;Variÿvel que vem com as sess„es do Webservice;
-;adcionarSessaoNaTable;foi;ArrayList<String>;Variÿvel que cont?m a lista dia das sess„es frequentadas pelos parlamentares;
-;adcionarSessaoNaTable;lista;ArrayList<Integer>;Variÿvel que cont?m a lista de matricula dos deputados;
-;adcionarSessaoNaTable;i;int;Variÿvel de contagem do for;
-;adcionarSessaoNaTable;hoje;Calendar;Variÿvel que cont?m a data de hoje;
-;adcionarSessaoNaTable;dias;NodeList;Variÿvel que cont?m os MessageElements que cont?m os dias;
-;adcionarSessaoNaTable;j;int;Variÿvel de contagem do for;
-;adcionarSessaoNaTable;diasTemp;MessageElement;Variÿvel temporaria intermediaria do dia entre o WebService e o elemento java;
-;adcionarSessaoNaTable;descricaoTemp;NodeList;Variÿvel temporaria intermediaria da descri?’o entre o WebService e o elemento java;
-;adcionarSessaoNaTable;presencaTemp;NodeList;Variÿvel temporaria intermediaria da presen?a entre o WebService e o elemento java;
-;adcionarSessaoNaTable;k;int;Variÿvel de contagem do for;
-;adcionarSessaoNaTable;descricaoText;MessageElement;Variÿvel intermediaria da descri?’o entre o WebService e o elemento java;
-;adcionarSessaoNaTable;nomeTemp;NodeList;Variÿvel temporaria intermediaria do nome entre o WebService e o elemento java;
-;adcionarSessaoNaTable;nomeText;MessageElement;Variÿvel intermediaria da presen?a entre o WebService e o elemento java;
-;adcionarSessaoNaTable;presencaText;MessageElement;Variÿvel intermediaria da presen?a entre o WebService e o elemento java;
-;adcionarDataNaTable;passar;ArrayList<String>;Variÿvel que cont?m a lista dos dias das sessoes;
-;adcionarDataNaTable;sessao;ListarPresencasParlamentarResponseListarPresencasParlamentarResult;Variÿvel que vem com as sess„es do Webservice;
-;adcionarDataNaTable;hoje;Calendar;Variÿvel que cont?m a data de hoje;
-;adcionarDataNaTable;dias;NodeList;Variÿvel que cont?m os MessageElements que cont?m os dias;
-;adcionarDataNaTable;i;int;Variÿvel de contagem do for;
-;adcionarDataNaTable;dataTemp;NodeList;Variÿvel temporaria intermediaria da data entre o WebService e o elemento java;
-;adcionarDataNaTable;descricaoTemp;NodeList;Variÿvel temporaria intermediaria da descri?’o entre o WebService e o elemento java;
-;adcionarDataNaTable;dataText;MessageElement;Variÿvel intermediario da data entre o WebService e o elemento java;
-;adcionarDataNaTable;j;int;Variÿvel de contagem do for;
-;adcionarDataNaTable;descricaoText;MessageElement;;
+,,,,,
+br.com.MDSGPP.ChamadaParlamentar,,,,,
+,conexaoComWsSessoesEReunioes,,,,
+,Metodo,Variavel,Tipo,Funcionalidade,Novo nome
+,obterConexao,url,URL,passar o endpoint do Webservice,url
+,obterConexao,service,SessoesReunioesSoapStub,Vari?vel que conecta com o Webservice,service
+,receberElementPresenca,sessoes,ListarPresencasParlamentarResponseListarPresencasParlamentarResult,Vari?vel que vem com as sessï¾„es do Webservice,sessions
+,adcionarSessaoNaTable,foi,ArrayList<String>,Vari?vel que cont?m a lista dia das sessï¾„es frequentadas pelos parlamentares,wasPresent
+,adcionarSessaoNaTable,lista,ArrayList<Integer>,Vari?vel que cont?m a lista de matricula dos deputados,list
+,adcionarSessaoNaTable,i,int,Vari?vel de contagem do for,i
+,adcionarSessaoNaTable,hoje,Calendar,Vari?vel que cont?m a data de hoje,toDay
+,adcionarSessaoNaTable,dias,NodeList,Vari?vel que cont?m os MessageElements que cont?m os dias,days
+,adcionarSessaoNaTable,j,int,Vari?vel de contagem do for,j
+,adcionarSessaoNaTable,diasTemp,MessageElement,Vari?vel temporaria intermediaria do dia entre o WebService e o elemento java,daysAux
+,adcionarSessaoNaTable,descricaoTemp,NodeList,Vari?vel temporaria intermediaria da descri?ï¾’o entre o WebService e o elemento java,descriptionAux
+,adcionarSessaoNaTable,presencaTemp,NodeList,Vari?vel temporaria intermediaria da presen?a entre o WebService e o elemento java,presentAux
+,adcionarSessaoNaTable,k,int,Vari?vel de contagem do for,k
+,adcionarSessaoNaTable,descricaoText,MessageElement,Vari?vel intermediaria da descri?ï¾’o entre o WebService e o elemento java,descriptionText
+,adcionarSessaoNaTable,nomeTemp,NodeList,Vari?vel temporaria intermediaria do nome entre o WebService e o elemento java,nameAux
+,adcionarSessaoNaTable,nomeText,MessageElement,Vari?vel intermediaria da presen?a entre o WebService e o elemento java,nameText
+,adcionarSessaoNaTable,presencaText,MessageElement,Vari?vel intermediaria da presen?a entre o WebService e o elemento java,presenceText
+,adcionarDataNaTable,passar,ArrayList<String>,Vari?vel que cont?m a lista dos dias das sessoes,passTheDays
+,adcionarDataNaTable,sessao,ListarPresencasParlamentarResponseListarPresencasParlamentarResult,Vari?vel que vem com as sessï¾„es do Webservice,session
+,adcionarDataNaTable,hoje,Calendar,Vari?vel que cont?m a data de hoje,toDay
+,adcionarDataNaTable,dias,NodeList,Vari?vel que cont?m os MessageElements que cont?m os dias,days
+,adcionarDataNaTable,i,int,Vari?vel de contagem do for,i
+,adcionarDataNaTable,dataTemp,NodeList,Vari?vel temporaria intermediaria da data entre o WebService e o elemento java,dateAux
+,adcionarDataNaTable,descricaoTemp,NodeList,Vari?vel temporaria intermediaria da descri?ï¾’o entre o WebService e o elemento java,descriptionAux
+,adcionarDataNaTable,dataText,MessageElement,Vari?vel intermediario da data entre o WebService e o elemento java,dateText
+,adcionarDataNaTable,j,int,Vari?vel de contagem do for,j
+,adcionarDataNaTable,descricaoText,MessageElement,,descriptionText
