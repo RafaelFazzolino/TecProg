@@ -20,14 +20,14 @@ public class SessoesPorData extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	/**
-	 * This method is to create a link between the view and the control of sessoePor dia.
+	 * This method is to create a link between the view and the control of sessoePorDia.
 	 */
 	protected void service (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = null;
 
 
 		String data = request.getParameter("datas");
-		if(ExceptionSqlInjection.testeSqlInjection(data)) {
+		if( ExceptionSqlInjection.testeSqlInjection(data) ) {
 			try {
 				new DiaControl();
 				Dia dia = DiaControl.passarData(data);

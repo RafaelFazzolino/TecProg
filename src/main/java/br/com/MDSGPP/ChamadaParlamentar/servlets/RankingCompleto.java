@@ -18,6 +18,9 @@ import br.com.MDSGPP.ChamadaParlamentar.model.Ranking;
 public class RankingCompleto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * This method is to get the complete ranking.
+	 */
 	protected void service (HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Ranking ranking = null;

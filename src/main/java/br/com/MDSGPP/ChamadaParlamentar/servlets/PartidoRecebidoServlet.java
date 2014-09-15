@@ -22,12 +22,15 @@ public class PartidoRecebidoServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * This method is to get the political party.
+	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = null;
 
 		String nomePartido = request.getParameter("nome");
 
-		if(ExceptionSqlInjection.testeSqlInjection(nomePartido)) {
+		if( ExceptionSqlInjection.testeSqlInjection(nomePartido) ) {
 			try {
 				EstatisticaPartido estatistica = 
 						EstatisticaPartidoControl.gerarEstatisticaPartido(nomePartido);

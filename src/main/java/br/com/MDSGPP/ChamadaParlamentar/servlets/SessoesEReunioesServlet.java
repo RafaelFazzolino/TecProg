@@ -18,6 +18,9 @@ public class SessoesEReunioesServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * This method is to get the sessions.
+	 */
 	protected void service (HttpServletRequest request, HttpServletResponse response) {
 		RequestDispatcher rd = null;
 		
@@ -26,7 +29,7 @@ public class SessoesEReunioesServlet extends HttpServlet {
 			int datasPorPagina = 10;
 			
 			
-			if(request.getParameter("pagina") != null) {
+			if( request.getParameter("pagina") != null ) {
 				pagina = Integer.parseInt(request.getParameter("pagina"));
 			}
 			

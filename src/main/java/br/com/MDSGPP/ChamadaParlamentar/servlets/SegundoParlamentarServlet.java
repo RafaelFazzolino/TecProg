@@ -21,6 +21,9 @@ public class SegundoParlamentarServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * This method is to get the second deputy.
+	 */
 	protected void service (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nomePrimeiroParlamentar = request.getParameter("primeiroParlamentar");
 		nomePrimeiroParlamentar = nomePrimeiroParlamentar.split("-")[0];
@@ -30,13 +33,13 @@ public class SegundoParlamentarServlet extends HttpServlet {
 		Deputados segundoDeputado = null;
 		RequestDispatcher rd = null;
 
-		if(ExceptionSqlInjection.testeSqlInjection(nomeSegundoParlamentar)) {
+		if( ExceptionSqlInjection.testeSqlInjection(nomeSegundoParlamentar) ) {
 			try {
 				primeiroDeputado = DeputadosControl.verificaExistencia(nomePrimeiroParlamentar);
 				segundoDeputado = DeputadosControl.verificaExistencia(nomeSegundoParlamentar);
 
 
-				if(segundoDeputado != null) {
+				if( segundoDeputado != null ) {
 					Estatistica estatisticaPrimeiro = EstatisticaControl.
 							gerarEstatisticas(EstatisticaControl.
 									arrumarNomePesquisa(primeiroDeputado));

@@ -16,7 +16,6 @@ public class ArrumarNomeServlet extends HttpServlet {
 	 * This is the only method of the servlet, its suppose to correct the name,
 	 * so it can be used to make search on the database.
 	 */
-
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = null;
 		

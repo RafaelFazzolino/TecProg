@@ -22,7 +22,6 @@ public class PegarListaDeputados extends HttpServlet {
 	 * {@link ArrayList} of {@link String}, so there can be an auto complete on
 	 * it.
 	 */
-
 	protected void service (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = null;
 		try {

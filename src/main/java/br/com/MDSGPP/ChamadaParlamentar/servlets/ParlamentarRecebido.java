@@ -20,24 +20,27 @@ import br.com.MDSGPP.ChamadaParlamentar.model.Estatistica;
 public class ParlamentarRecebido extends javax.servlet.http.HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * This method is to get the deputy.
+	 */
 	protected void service (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nome = request.getParameter("nome");
 
 		Deputados deputado = null;
 		RequestDispatcher rd = null;
 
-		if(ExceptionSqlInjection.testeSqlInjection(nome)) {
+		if( ExceptionSqlInjection.testeSqlInjection(nome) ) {
 			try {
 				int pagina = 1;
 				int sessoesPorPagina = 15;
 
-				if(request.getParameter("pagina") != null) {
+				if( request.getParameter("pagina") != null ) {
 					pagina = Integer.parseInt(request.getParameter("pagina"));
 					nome = nome.split("-")[0];
 				}
 				deputado = DeputadosControl.verificaExistencia(nome);
 
-				if(deputado != null) {
+				if( deputado != null ) {
 					ArrayList<String> lista = DeputadosControl.getDeputados();
 					Estatistica estatistica = EstatisticaControl.
 							gerarEstatisticas(EstatisticaControl.

@@ -17,6 +17,7 @@ import br.com.MDSGPP.ChamadaParlamentar.model.Ranking;
 public class RankingServ extends javax.servlet.http.HttpServlet {
 
 	private static final long serialVersionUID = 1L;
+	
 	/**
 	 * This method is to create a link between the view and the control.
 	 */
@@ -34,7 +35,6 @@ public class RankingServ extends javax.servlet.http.HttpServlet {
 		} catch (SQLException e) {
 			rd= request.getRequestDispatcher("/Erro.jsp");
 		}
-		
 		
 		rd.forward(request, response);
 	}

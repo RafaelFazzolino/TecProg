@@ -33,12 +33,12 @@ public class SessaoPorNomeServlet extends HttpServlet{
 			int pagina = 1;
 			int deputadosPorPagina = 20;
 			
-			if(request.getParameter("pagina") != null) {
+			if( request.getParameter("pagina") != null ) {
 				pagina = Integer.parseInt(request.getParameter("pagina"));
 			}
 			sessao = SessoesEReunioesControl.passarSessao(descricao);
 			
-			if(sessao.getDeputadosPresentes().size() != 0) {
+			if( sessao.getDeputadosPresentes().size() != 0 ) {
 								
 				int numeroDeputados = sessao.getDeputadosPresentes().size();
 				int noDePaginas = ((int) Math.ceil(numeroDeputados * 1.0 / deputadosPorPagina))-1;
