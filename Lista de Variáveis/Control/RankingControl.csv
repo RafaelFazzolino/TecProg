@@ -1,30 +1,30 @@
-br.com.MDSGPP.ChamadaParlamentar.control,,,
-RankingControl,,,
-Método,Variável,Tipo,Funcionalidade
-RankingControl,TAMANHO_RANKINGS,int,Variável usada para guardar o valor da quantidade de integrantes do ranking.
-gerarRanking,ranking,Ranking,Variável que irá guardar o ranking.
-gerarRanking,recebido,ArrayList,É um array que recebe todas as estatísticas de cada deputado.
-gerarRanking,removidos,ArrayList,É um array que recebe todos os deputados removidos por erro no webService.
-gerarRanking,melhores,ArrayList,É um array que recebe os melhores deputados levando em consideração sua estatística de presença.
-gerarRanking,piores,ArrayList,É um array que recebe os piores deputados levando em consideração sua estatística de presença.
-gerarRanking,listaRecebida,ArrayList,É um array que recebe a lista de estatísticas.
-gerarRanking,listaOrdenada,ArrayList,É um array que recebe toda a lista de estatísticas ordenadas.
-gerarRanking,i,int,É um contador para a utilização do for.
-gerarListaEstatistica,lista,ArrayList,"É a lista de todas as estatísticas, recebe como parâmetro."
-gerarListaEstatistica,devolver,ArrayList,Variável que irá devolver o resultado do método.
-gerarListaEstatistica,nome,String,Variável que irá armazenar o nome do deputado.
-gerarListaEstatistica,totalSessao,int,Variável que recebe o total de sessoes realizadas durante todo o período analisado.
-gerarListaEstatistica,i,int ,Variável usada para realizar a contagem do for.
-gerarListaEstatistica,estatistica,Estatistica,Variável que irá armazenar a estatística do deputado.
-passarRankingTop5,rankingDao,RankingDao,"Variável que fará a conexão com o banco de dados, na tabela Ranking."
-passarRankingTop5,melhores,ArrayList,"Variável usada para armazenar os melhores deputados, levando em consideração sua estatística de presença."
-passarRankingTop5,piores,ArrayList,"Variável usada para armazenar os piores deputados, levando em consideração sua estatística de presença."
-passarRankingTop5,i,int,Variável usada para realizar a contagem do for.
-passarRankingTop5,ranking,Ranking,"Variável que fará o retorno do método, retornando o ranking criado."
-ordenacao,lista,ArrayList,Variável que recebe o total de estatísticas.
-ordenacao,i,int,Variável usada para realizar a contagem do while.
-ordenacao,j,int,Variável usada para realizar a contagem do while.
-ordenacao,primeiro,int,"Variável que armazena o menor número, para a ordenação."
-ordenacao,segundo,int,"Variável que armazena o maior numero, para a ordenação."
-passarRankingCompleto,rankingDao,RankingDao,"Variável que fará a conexão com o banco de dados, na tabela Ranking."
-passarRankingCompleto,ranking,Ranking,Variável que recebe o ranking.
+br.com.MDSGPP.ChamadaParlamentar.control,,,,
+RankingControl,,,,
+Método,Variável,Tipo,Funcionalidade,Nome sugerido
+RankingControl,TAMANHO_RANKINGS,int,Variável usada para guardar o valor da quantidade de integrantes do ranking.,SIZE_RANKINGS
+gerarRanking,ranking,Ranking,Variável que irá guardar o ranking.,ranking
+gerarRanking,recebido,ArrayList,É um array que recebe todas as estatísticas de cada deputado.,received
+gerarRanking,removidos,ArrayList,É um array que recebe todos os deputados removidos por erro no webService.,deleted
+gerarRanking,melhores,ArrayList,É um array que recebe os melhores deputados levando em consideração sua estatística de presença.,bests
+gerarRanking,piores,ArrayList,É um array que recebe os piores deputados levando em consideração sua estatística de presença.,worst
+gerarRanking,listaRecebida,ArrayList,É um array que recebe a lista de estatísticas.,receivedList
+gerarRanking,listaOrdenada,ArrayList,É um array que recebe toda a lista de estatísticas ordenadas.,orderedList
+gerarRanking,i,int,É um contador para a utilização do for.,i
+gerarListaEstatistica,lista,ArrayList,"É a lista de todas as estatísticas, recebe como parâmetro.",list
+gerarListaEstatistica,devolver,ArrayList,Variável que irá devolver o resultado do método.,backList
+gerarListaEstatistica,nome,String,Variável que irá armazenar o nome do deputado.,name
+gerarListaEstatistica,totalSessao,int,Variável que recebe o total de sessoes realizadas durante todo o período analisado.,allSessions
+gerarListaEstatistica,i,int ,Variável usada para realizar a contagem do for.,i
+gerarListaEstatistica,estatistica,Estatistica,Variável que irá armazenar a estatística do deputado.,estatistica
+passarRankingTop5,rankingDao,RankingDao,"Variável que fará a conexão com o banco de dados, na tabela Ranking.",rankingDao
+passarRankingTop5,melhores,ArrayList,"Variável usada para armazenar os melhores deputados, levando em consideração sua estatística de presença.",bests
+passarRankingTop5,piores,ArrayList,"Variável usada para armazenar os piores deputados, levando em consideração sua estatística de presença.",worst
+passarRankingTop5,i,int,Variável usada para realizar a contagem do for.,i
+passarRankingTop5,ranking,Ranking,"Variável que fará o retorno do método, retornando o ranking criado.",ranking
+ordenacao,lista,ArrayList,Variável que recebe o total de estatísticas.,list
+ordenacao,i,int,Variável usada para realizar a contagem do while.,i
+ordenacao,j,int,Variável usada para realizar a contagem do while.,j
+ordenacao,primeiro,int,"Variável que armazena o menor número, para a ordenação.",first
+ordenacao,segundo,int,"Variável que armazena o maior numero, para a ordenação.",second
+passarRankingCompleto,rankingDao,RankingDao,"Variável que fará a conexão com o banco de dados, na tabela Ranking.",rankingDao
+passarRankingCompleto,ranking,Ranking,Variável que recebe o ranking.,ranking
