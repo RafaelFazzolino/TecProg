@@ -25,7 +25,7 @@ public class ConnectionFactory {
 	 */
 
 	public Connection getConnection() throws ClassNotFoundException, SQLException {
-		if(ConnectionFactory.conexao == null) {
+		if( ConnectionFactory.conexao == null ) {
 			Class.forName("com.mysql.jdbc.Driver");
 			ConnectionFactory.conexao = DriverManager.getConnection
 					("jdbc:mysql://localhost/chamada", "root", "12345");

@@ -27,14 +27,14 @@ import br.com.MDSGPP.ChamadaParlamentar.util.LimparLista;
 public final class RankingControl {
 	private static final int TAMANHO_RANKINGS = 5;
 	
-	/**
+	/**	
 	 * This method is to generate the ranking.
 	 * 
 	 * @param lista
 	 *            {@link ArrayList} of {@link Estatistica}, is the list of the
 	 *            statistics of all the deputies, having data or not.
 	 * @return returns the ranking.
-	 * @throws ListaRankingException
+	 * @throws ListaRankingException case an error occurs with the list.
 	 */
 
 	public static Ranking gerarRanking(ArrayList<Estatistica> lista) 
@@ -55,7 +55,7 @@ public final class RankingControl {
 			}
 			ArrayList<Estatistica> listaOrdenada = ordenacao(listaRecebida);
 
-			for(int i = 0; i<TAMANHO_RANKINGS; i++) {
+			for(int i = 0; i < TAMANHO_RANKINGS; i++) {
 				melhores.add(lista.get(i));
 				piores.add(lista.get(lista.size() -1 -i));
 			}
@@ -82,10 +82,10 @@ public final class RankingControl {
 	 *            the deputies.
 	 * @return returns an {@link ArrayList} of {@link Estatistica} from de
 	 *         calculations.
-	 * @throws ClassNotFoundException
-	 * @throws SQLException
-	 * @throws ListaRankingException
-	 * @throws ListaVaziaException
+	 * @throws ClassNotFoundException case the class is not found.
+	 * @throws SQLException case an error occurs with dataBase.
+	 * @throws ListaRankingException case an error occurs with the list.
+	 * @throws ListaVaziaException case an error occurs with the list.
 	 */
 	
 	public static ArrayList<Estatistica> gerarListaEstatistica(ArrayList<Deputados> lista)
@@ -101,7 +101,7 @@ public final class RankingControl {
 
 			int totalSessao = Integer.parseInt(devolver.get(0).getTotalSessao());
 
-			for(int i = 0; i< lista.size(); i++) {
+			for(int i = 0; i < lista.size(); i++) {
 				nome = EstatisticaControl.arrumarNomePesquisa(lista.get(i));
 
 				try {
@@ -123,8 +123,8 @@ public final class RankingControl {
 	 * This method generates the ranking top 5, taking the best and the worst.
 	 * 
 	 * @return returns an {@link Ranking} with the 5 top and 5 worst.
-	 * @throws ClassNotFoundException
-	 * @throws SQLException
+	 * @throws ClassNotFoundException case the class is not found.
+	 * @throws SQLException case an error occurs with database.
 	 */
 	
 	
@@ -136,7 +136,7 @@ public final class RankingControl {
 		
 		ranking.setLista(ordenacao(ranking.getLista()));
 		
-		for(int i = 0; i<5; i++) {
+		for(int i = 0; i < 5; i++) {
 			melhores.add(ranking.getLista().get(i));
 			piores.add(ranking.getLista().get(ranking.getLista().size() -1 -i));
 		}
@@ -156,15 +156,15 @@ public final class RankingControl {
 	 */
 	
 	public static ArrayList<Estatistica> ordenacao(ArrayList<Estatistica> lista) {
-		//Insertion Sort
+		/*Insertion Sort.*/
 		
 		int i = 1, j = 1;
 		if(lista.size() > 0)
 		{
-			while(j<lista.size())
+			while( j < lista.size() )
 			{
 				i=j;
-				while(i>0)
+				while( i > 0 )
 				{
 					int primeiro = Integer.parseInt(lista.get(i-1).getNumeroSessao());
 					int segundo = Integer.parseInt(lista.get(i).getNumeroSessao());
@@ -193,8 +193,8 @@ public final class RankingControl {
 	 * This method generates the full ranking.
 	 * 
 	 * @return returns a {@link Ranking} object having all the deputies.
-	 * @throws SQLException
-	 * @throws ClassNotFoundException
+	 * @throws SQLException case an error occurs with dataBase.
+	 * @throws ClassNotFoundException case the class is not found.
 	 */
 	
 	public static Ranking passarRankingCompleto() 

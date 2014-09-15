@@ -9,9 +9,11 @@ public class Dao extends ConnectionFactory {
 		new ConnectionFactory().getConnection();
 	}
 	/**
-	 * Method to create the connection to the database with the tables Ranking, sessoes and datas.
+	 * Method to create the connection to the database with the tables Ranking,
+	 * sessoes and datas. 
+	 * @throws SQLException case the dataBase is off.
+	 * @throws ClassNotFoundException case the class is not found.
 	 */
-	 
 	public static void truncateTables() throws SQLException, ClassNotFoundException{
 		Dao dao = new Dao();
 		

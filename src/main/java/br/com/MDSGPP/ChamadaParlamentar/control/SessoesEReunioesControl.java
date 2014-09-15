@@ -46,12 +46,12 @@ public final class SessoesEReunioesControl {
 			int deputadosPorPagina, ArrayList<String> deputadosPresentes) {
 		ArrayList<String> listaPassar = new ArrayList<String>();
 
-		for(int i = 0; i< deputadosPorPagina; i++) {
-			if(pagina == 0) {
+		for(int i = 0; i < deputadosPorPagina; i++) {
+			if( pagina == 0 ) {
 				listaPassar.add(deputadosPresentes.get(i));
 			}
 			else {
-				if(i+(pagina*deputadosPorPagina) < deputadosPresentes.size()) {
+				if( i + (pagina*deputadosPorPagina) < deputadosPresentes.size() ) {
 					listaPassar.add(deputadosPresentes.get(i+ (pagina*deputadosPorPagina)));
 				}
 			}
