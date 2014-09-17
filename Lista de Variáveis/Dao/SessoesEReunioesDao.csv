@@ -1,19 +1,19 @@
-br.com.MDSGPP.ChamadaParlamentar.dao;;;;
-;SessoesEReunioesDao;;;
-;M‚todo;Vari vel;Tipo;funcionalidade
-;adcionarDataNaTable;insert;ArrayList<String>; a lista com as datas que serÆo inseridas na tabela, recebe como parƒmetro.
-;adcionarDataNaTable;sql;String;Vari vel que recebe o c¢digo sql armazenado.
-;adcionarDataNaTable;i;Integer;contador do for.
-;adcionarDataNaTable;stmt;PreparedStatement;vari vel que cria a conexÆo com o banco de dados.
-;adcionarSessaoNaTable;insert;ArrayList<String>; a lista com as datas que serÆo inseridas na tabela, recebe como parƒmetro.
-;adcionarSessaoNaTable;sql;String;Vari vel que recebe o c¢digo sql armazenado.
-;adcionarSessaoNaTable;stmt;PreparedStatement;vari vel que cria a conexÆo com o banco de dados.
-;adcionarSessaoNaTable;i;Integer;contador do for.
-;passarNumeroDeSessoes;sql;String;Vari vel que recebe o c¢digo sql armazenado.
-;passarNumeroDeSessoes;stmt;PreparedStatement;vari vel que cria a conexÆo com o banco de dados.
-;passarNumeroDeSessoes;rs;ResultSet;Vari vel que recebe o resultado da conexÆo com o banco.
-;pegarSessoes;sql;String;Vari vel que recebe o c¢digo sql armazenado.
-;pegarSessoes;stmt;PreparedStatement;vari vel que cria a conexÆo com o banco de dados.
-;pegarSessoes;lista;ArrayList<SessoesEReunioes>;ArrayList que vai receber as sessoes
-;pegarSessoes;sessao;SessoesEReunioes;objeto de sessoesEReunioes que far  o setData.
-;pegarSessoes;rs;ResultSet;Vari vel que recebe o resultado da conexÆo com o banco.
+br.com.MDSGPP.ChamadaParlamentar.dao,,,,,
+,SessoesEReunioesDao,,,,
+,Mï¾‚todo,Variï¾ vel,Tipo,funcionalidade,Nome sugerido
+,adcionarDataNaTable,insert,ArrayList<String>,ï¿½ a lista com as datas que serï¿½o inseridas na tabela,insert
+,adcionarDataNaTable,sql,String,Variï¾ vel que recebe o cï¾¢digo sql armazenado.,sql
+,adcionarDataNaTable,i,Integer,contador do for.,i
+,adcionarDataNaTable,stmt,PreparedStatement,variï¿½vel que cria a conexï¿½o com o banco de dados.,stmt
+,adcionarSessaoNaTable,insert,ArrayList<String>,ï¿½ a lista com as datas que serï¿½o inseridas na tabela,insert
+,adcionarSessaoNaTable,sql,String,Variï¾ vel que recebe o cï¾¢digo sql armazenado.,sql
+,adcionarSessaoNaTable,stmt,PreparedStatement,variï¿½vel que cria a conexï¿½o com o banco de dados.,stmt
+,adcionarSessaoNaTable,i,Integer,contador do for.,i
+,passarNumeroDeSessoes,sql,String,Variï¾ vel que recebe o cï¾¢digo sql armazenado.,sql
+,passarNumeroDeSessoes,stmt,PreparedStatement,variï¿½vel que cria a conexï¿½o com o banco de dados.,stmt
+,passarNumeroDeSessoes,rs,ResultSet,Variï¿½vel que recebe o resultado da conexï¿½o com o banco.,rs
+,pegarSessoes,sql,String,Variï¾ vel que recebe o cï¾¢digo sql armazenado.,sql
+,pegarSessoes,stmt,PreparedStatement,variï¿½vel que cria a conexï¿½o com o banco de dados.,stmt
+,pegarSessoes,lista,ArrayList<SessoesEReunioes>,ArrayList que vai receber as sessoes,list
+,pegarSessoes,sessao,SessoesEReunioes,objeto de sessoesEReunioes que farï¾  o setData.,session
+,pegarSessoes,rs,ResultSet,Variï¿½vel que recebe o resultado da conexï¿½o com o banco.,rs

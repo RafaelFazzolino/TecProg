@@ -1,14 +1,13 @@
-"br.com.MDSGPP.ChamadaParlamentar.Dao;;;;";
-;"RankingDao;;;;"
-;"M�todo;Vari�vel;Tipo;funcionalidade;"
-;"adicionarRankingNaTabela;ranking;Ranking;variavel que possui o ranking a ser adicionado no banco de dados;"
-;"adicionarRankingNaTabela;sql;String;variavel que contem o comando sql a ser adicionado no banco de dados.;"
-;"adicionarRankingNaTabela;stmt;PreparedStatement;variavel que comanda a conexao com o banco de dados.;"
-;"adicionarRankingNaTabela;i;int;variavel que comanda o la�o for;"
-;"retornaRanking;ranking;Ranking;variavel que ira conter o ranking a ser retornado.;"
-;"retornaRanking;removidos;ArrayList<Estatistica>;lista que contem os deputados removidos por dados corrompidos.;"
-;"retornaRanking;lista;ArrayList<Estatistica>;lista que contem os deputados que possuem dados validos.;"
-;"retornaRanking;sql;String;variavel que contem o comando sql a ser adicionado no banco de dados.;"
-;"retornaRanking;stmt;PreparedStatement;variavel que ira controlar a conexao com o banco de dados.;"
-;"retornaRanking;res;ResultSet;variavel que possui o retorno da consulta no banco de dados.;"
-;"retornaRanking;estatistica;Estatistica;variavel que contem a estatistica de cada deputado para colocar no ranking.;"
+br.com.MDSGPP.ChamadaParlamentar.Dao;;;;,RaningDao,,,
+Método,Variável,Tipo,Funcionalidade,Nome Sugerido
+adicionarRankingNaTabela,ranking,Ranking,variavel que possui o ranking a ser adicionado no banco de dados.,ranking
+adicionarRankingNaTabela,sql,String,variavel que contem o comando sql a ser adicionado no banco de dados.,sql
+adicionarRankingNaTabela,stmt,PreparedStatement,Variavel que comanda a conexão com o banco de dados,stmt
+adicionarRankingNaTabela,i,int,variável que fará a contagem do for.,i
+retornaRanking,ranking,Ranking,variavel que ira contem o ranking a ser retornado.,rankng
+retornaRanking,removidos,ArrayList,lista que contem os deputados que possuem dados invalidos.,deleted
+retornaRanking,lista,ArrayList,lista que contem os deputados que possuem dados válidos.,list
+retornaRanking,sql,String,variavel que contem o comando sql a ser adicionado no banco de dados.,sql
+retornaRanking,stmt,PreparedStatement,variavel que controla a conexão com o banco de dados.,stmt
+retornaRanking,res,ResultSet,variavel que possui o retorno da consulta do banco de dados.,result
+retornaRanking,estatistica,Estatistica,variavel que contem a estatistica de cada deputado para colocar o no ranking.,estatistic
