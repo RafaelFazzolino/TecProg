@@ -1,4 +1,4 @@
-br.com.MDSGPP.ChamadaParlamentar;;;;
-;connectionFactory;;;
-;Metodo;Variavel;Tipo;Funcionalidade
-;getConnection;conexao;Connection;Cria conexao com banco de dados
+br.com.MDSGPP.ChamadaParlamentar,,,,,
+,connectionFactory,,,,
+,Metodo,Variavel,Tipo,Funcionalidade,Sugestão nome
+,getConnection,conexao,Connection,Cria conexao com banco de dados,connection

@@ -1,33 +1,33 @@
-br.com.MDSGPP.ChamadaParlamentar.dao,,,
-DeputadoDao,,,
-Método,Variável,Tipo,Funcionalidade
-DeputadoDao,UM,int,Constante para que não exita números mágicos.
-DeputadoDao,DOIS,int,Constante para que não exita números mágicos.
-DeputadoDao,TRES,int,Constante para que não exita números mágicos.
-DeputadoDao,QUATRO,int,Constante para que não exita números mágicos.
-DeputadoDao,CINCO,int,Constante para que não exita números mágicos.
-DeputadoDao,SEIS,int,Constante para que não exita números mágicos.
-DeputadoDao,SETE,int,Constante para que não exita números mágicos.
-DeputadoDao,OITO,int,Constante para que não exita números mágicos.
-DeputadoDao,NOVE,int,Constante para que não exita números mágicos.
-DeputadoDao,DEZ,int,Constante para que não exita números mágicos.
-DeputadoDao,ONZE,int,Constante para que não exita números mágicos.
-DeputadoDao,DOZE,int,Constante para que não exita números mágicos.
-adicionaDeputado,sql,String,Variável que recebe o código sql para adicionar o deputado em sua tabela no banco de dados.
-adicionaDeputado,stmt,PreparedStatement,Variável que faz a conexão com o banco de dados.
-adicionaDeputado,i,int,variável usada para a contagem do For.
-getNomesDeputados,sql,String,variável que recebe o código sql para procurar apenas na tabela deputado.
-getNomesDeputados,lista,ArrayList,Lista que recebe o nome de todos os deputados da tabela.
-getNomesDeputados,stmt,PreparedStatement,Variável que faz a conexão com o banco de dados.
-getNomesDeputados,rs,ResultSet,Variável que contem todos os resultados da busca no banco de dados.
-getNomesDeputados,nomeCivil,String,Variável que irá guardar o nome civil do deputado.
-getNomesDeputados,nomeTratamento,String,Variável que irá guardar o nome de tratamento do deputado.
-getMatriculaDeputados,sql,String,variável que recebe o código sql para procurar apenas na tabela deputado.
-getMatriculaDeputados,lista,ArrayList,Lista que irá receber as matrículas de todos os deputados.
-getMatriculaDeputados,stmt,PreparedStatement,Variável que faz a conexão com o banco de dados.
-getMatriculaDeputados,rs,ResultSet,Variável que contem todos os resultados da busca no banco de dados.
-getDeputados,sql,String,variável que recebe o código sql para procurar apenas na tabela deputado.
-getDeputados,lista,ArrayList,Lista que irá receber todos os deputados.
-getDeputados,stmt,PreparedStatement,Variável que faz a conexão com o banco de dados.
-getDeputados,rs,ResultSet,Variável que contem todos os resultados da busca no banco de dados.
-getDeputados,deputado,Deputados,Variável que guarda todas os atributos do deputado encontrado.
+br.com.MDSGPP.ChamadaParlamentar.dao,,,,
+DeputadoDao,,,,
+Método,Variável,Tipo,Funcionalidade,Sugestão de nome
+DeputadoDao,UM,int,Constante para que não exita números mágicos.,ONE
+DeputadoDao,DOIS,int,Constante para que não exita números mágicos.,TWO
+DeputadoDao,TRES,int,Constante para que não exita números mágicos.,THREE
+DeputadoDao,QUATRO,int,Constante para que não exita números mágicos.,FOUR
+DeputadoDao,CINCO,int,Constante para que não exita números mágicos.,FIVE
+DeputadoDao,SEIS,int,Constante para que não exita números mágicos.,SIX
+DeputadoDao,SETE,int,Constante para que não exita números mágicos.,SEVEN
+DeputadoDao,OITO,int,Constante para que não exita números mágicos.,EIGHT
+DeputadoDao,NOVE,int,Constante para que não exita números mágicos.,NINE
+DeputadoDao,DEZ,int,Constante para que não exita números mágicos.,TEN
+DeputadoDao,ONZE,int,Constante para que não exita números mágicos.,ELEVEN
+DeputadoDao,DOZE,int,Constante para que não exita números mágicos.,TWELVE
+adicionaDeputado,sql,String,Variável que recebe o código sql para adicionar o deputado em sua tabela no banco de dados.,sql
+adicionaDeputado,stmt,PreparedStatement,Variável que faz a conexão com o banco de dados.,stmt
+adicionaDeputado,i,int,variável usada para a contagem do For.,i
+getNomesDeputados,sql,String,variável que recebe o código sql para procurar apenas na tabela deputado.,sql
+getNomesDeputados,lista,ArrayList,Lista que recebe o nome de todos os deputados da tabela.,list
+getNomesDeputados,stmt,PreparedStatement,Variável que faz a conexão com o banco de dados.,stmt
+getNomesDeputados,rs,ResultSet,Variável que contem todos os resultados da busca no banco de dados.,rs
+getNomesDeputados,nomeCivil,String,Variável que irá guardar o nome civil do deputado.,civilName
+getNomesDeputados,nomeTratamento,String,Variável que irá guardar o nome de tratamento do deputado.,tratmentName
+getMatriculaDeputados,sql,String,variável que recebe o código sql para procurar apenas na tabela deputado.,sql
+getMatriculaDeputados,lista,ArrayList,Lista que irá receber as matrículas de todos os deputados.,list
+getMatriculaDeputados,stmt,PreparedStatement,Variável que faz a conexão com o banco de dados.,stmt
+getMatriculaDeputados,rs,ResultSet,Variável que contem todos os resultados da busca no banco de dados.,rs
+getDeputados,sql,String,variável que recebe o código sql para procurar apenas na tabela deputado.,sql
+getDeputados,lista,ArrayList,Lista que irá receber todos os deputados.,list
+getDeputados,stmt,PreparedStatement,Variável que faz a conexão com o banco de dados.,stmt
+getDeputados,rs,ResultSet,Variável que contem todos os resultados da busca no banco de dados.,rs
+getDeputados,deputado,Deputados,Variável que guarda todas os atributos do deputado encontrado.,deputy

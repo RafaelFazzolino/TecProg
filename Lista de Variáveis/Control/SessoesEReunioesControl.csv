@@ -1,8 +1,8 @@
-br.com.MDSGPP.ChamadaParlamentar.control,,,
-SessoesEReunioesControl,,,
-Função,Tipo,Variável,Comentario
-passarSessao(String descricao),SessoesEReunioesDao,dao,Recebe uma instanca da conexão do banco
-passarSessao(String descricao),ArrayList<String>,lista,"Recebe uma lista, e o retorno da função procurarSessao"
-passarSessao(String descricao),SessoesEReunioes,passar,
+br.com.MDSGPP.ChamadaParlamentar.control,,,,
+SessoesEReunioesControl,,,,
+Função,Tipo,Variável,Comentario,Sugestão de nome
+passarSessao(String descricao),SessoesEReunioesDao,dao,Recebe uma instanca da conexão do banco,dao
+passarSessao(String descricao),ArrayList<String>,lista,"Recebe uma lista, e o retorno da função procurarSessao",list
+passarSessao(String descricao),SessoesEReunioes,passar,,pass
 "arrumarListaDeputados(int pagina, 
-			int deputadosPorPagina, ArrayList<String> deputadosPresentes)",ArrayList<String>,listaPassar,Recebe um novo array
+			int deputadosPorPagina, ArrayList<String> deputadosPresentes)",ArrayList<String>,listaPassar,Recebe um novo array,passList

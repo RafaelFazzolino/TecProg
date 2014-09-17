@@ -72,10 +72,10 @@ public class AtualizarBanco {
 				System.out.println("teste");
 				Dao.truncateTables();
 				
-				SessoesEReunioesDao sessoesDao = new SessoesEReunioesDao();
+				SessoesEReunioesDao sessionsDao = new SessoesEReunioesDao();
 				
-				sessoesDao.adcionarDataNaTable(ConexaoComWsSessoesEReunioes.adcionarDataNaTable("20/11/2011", "440"));
-				sessoesDao.adcionarSessaoNaTable(ConexaoComWsSessoesEReunioes.adcionarSessaoNaTable("20/11/2011"));
+				sessionsDao.adcionarDataNaTable(ConexaoComWsSessoesEReunioes.adcionarDataNaTable("20/11/2011", "440"));
+				sessionsDao.adcionarSessaoNaTable(ConexaoComWsSessoesEReunioes.adcionarSessaoNaTable("20/11/2011"));
 				RankingDao rankingDao = new RankingDao();
 				Ranking ranking =  RankingControl.gerarRanking
 						(RankingControl.gerarListaEstatistica(new DeputadoDao().getDeputados()));
