@@ -1,8 +1,9 @@
-"br.com.MDSGPP.ChamadaParlamentar.servlet;;;;";
-;"ArrumarNomeServlet;;;;"
-;"M�todo;Vari�vel;Tipo;funcionalidade;"
-;"atributo;serialVersionUID;long;variavel que contem serial default;"
-;"service;request;HttpServletRequest;variavel que contem o request do servlet;"
-;"service;response;HttpServletResponse;variavel que contem o response do servlet;"
-;"service;rd;RequestDispatcher;variavel que direciona para que pagina jsp o usuario sera redirecionado;"
-;"service;nome;String;variavel que contem o nome a ser arrumado;"
+br.com.MDSGPP.ChamadaParlamentar.servlets,,,,
+ArrumarNomeServlet.java,,,,
+,,,,
+Método,Variável,Tipo,Funcionalidade,Nome sugerido
+ArrumarNomeServlet.java,serialVersion,long,Criar uma constante com o valor 1L.,serialVersion
+service,request,HttpServletRequest,Variável que recebe o retorno da conexão.,request
+service,response,HttpServletRequest,Variável que fará a conexão.,response
+service,rd,RequestDispatcher,Variável que puxa a conexão com o servlet.,rd
+service,nome,String,Variável que recebe o nome do deputado.,nameDeputy
