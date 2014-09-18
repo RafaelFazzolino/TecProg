@@ -1,8 +1,8 @@
-br.com.MDSGPP.ChamadaParlamentar.model,,,
-SessoesEReunioes.java,,,
-Método,Variável,Tipo,Funcionalidade
-SessoesEReunioes,data,String,Variável que irá receber a data da sessão ou reunião.
-SessoesEReunioes,descricao,String,Variável que irá receber a descrição da sessão ou reunião.
-SessoesEReunioes,descricaoCompleta,String,Variável que irá receber a descrição completa da sessão ou reunião.
-SessoesEReunioes,deputadosPresentes,ArrayList,Array que recebe todos os deputados presentes na sessão.
-SessoesEReunioes,deputados,ArrayList,Array que recebe todos os deputados.
+br.com.MDSGPP.ChamadaParlamentar.model,,,,
+SessoesEReunioes.java,,,,
+Método,Variável,Tipo,Funcionalidade,Nome Sugerido
+SessoesEReunioes,data,String,Variável que irá receber a data da sessão ou reunião.,date
+SessoesEReunioes,descricao,String,Variável que irá receber a descrição da sessão ou reunião.,description
+SessoesEReunioes,descricaoCompleta,String,Variável que irá receber a descrição completa da sessão ou reunião.,fullDescription
+SessoesEReunioes,deputadosPresentes,ArrayList,Array que recebe todos os deputados presentes na sessão.,presentDeputies
+SessoesEReunioes,deputados,ArrayList,Array que recebe todos os deputados.,deputies
