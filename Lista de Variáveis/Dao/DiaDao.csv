@@ -1,21 +1,21 @@
-br.com.MDSGPP.ChamadaParlamentar.Dao,,,,;
-;DiaDao,,,,
-;M‚todo,Vari vel,Tipo,funcionalidade,
-;"atributo,Datas,String,""constante com a palavra """"datas"""""","
-;buscarTodasDescricoes,lista,ArrayList<Dia>,possui todas as descri‡äes das sessäes.,
-;buscarTodasDescricoes,stmt,PreparedStatement,Statement que controla a conexao com o banco de dados, para fazer um select.,
-;buscarTodasDescricoes,sql,String,variavel que possui qual o comando sql a ser executado,
-;buscarTodasDescricoes,rs,ResultSet,variavel que possui os resultados da busca do select.,
-;buscarTodasDescricoes,rs2,ResultSet,variavel que possui os resultados da busca do select.,
-;popularListaDia,rs,ResultSet,conjunto de dados vindo do banco, passados por parametro,
-;popularListaDia,lista,ArrayList<Dia>,variavel que contem os dias que houve sessao.,
-;popularListaDia,cont,int,variavel que controla o dia no qual sera inserida a data.,
-;popularListaDia,descricao,String,variavel que contem a descricao parcial de uma dada sessao.,
-;popularListaDia,descricao,String,variavel que contem a descricao completa de uma dada sessao,
-;popularListaDia,teste,boolean,variavel que verifica se o dia ‚ o mesmo do que est  sendo guardado.,
-;criarDias,rs,ResultSet,conjunto de dados vindo do banco, passados por parametro,
-;criarDias,lista,ArrayList<Dia>,variavel que contem todos os dias das sessoes.,
-;criarDias,controle,int,variavel que controla quantos dias ja foram registrados.,
-;criarDias,dia,Dia,variavel que contem o dia a ser colocado na lista,
-;criarDias,teste,boolean,variavel que verifica se o dia ja esta na lista ou nÆo.,
-;criarDias,diaAux,Dia,variavel que armazena o dia que sera armazenado.,
+br.com.MDSGPP.ChamadaParlamentar.Dao,,,,,
+,DiaDao,,,,
+,Mï¾‚todo,Variï¾ vel,Tipo,funcionalidade,SugestÃ£o de nome
+,,,,,
+,buscarTodasDescricoes,lista,ArrayList<Dia>,possui todas as descriï¿½ï¿½es das sessï¿½es.,list
+,buscarTodasDescricoes,stmt,PreparedStatement,Statement que controla a conexao com o banco de dados,stmt
+,buscarTodasDescricoes,sql,String,variavel que possui qual o comando sql a ser executado,sql
+,buscarTodasDescricoes,rs,ResultSet,variavel que possui os resultados da busca do select.,rs
+,buscarTodasDescricoes,rs2,ResultSet,variavel que possui os resultados da busca do select.,rs2
+,popularListaDia,rs,ResultSet,conjunto de dados vindo do banco,rs
+,popularListaDia,lista,ArrayList<Dia>,variavel que contem os dias que houve sessao.,list
+,popularListaDia,cont,int,variavel que controla o dia no qual sera inserida a data.,cont
+,popularListaDia,descricao,String,variavel que contem a descricao parcial de uma dada sessao.,description
+,popularListaDia,descricao,String,variavel que contem a descricao completa de uma dada sessao,description
+,popularListaDia,teste,boolean,variavel que verifica se o dia ï¾‚ o mesmo do que estï¾  sendo guardado.,test
+,criarDias,rs,ResultSet,conjunto de dados vindo do banco,rs
+,criarDias,lista,ArrayList<Dia>,variavel que contem todos os dias das sessoes.,list
+,criarDias,controle,int,variavel que controla quantos dias ja foram registrados.,control
+,criarDias,dia,Dia,variavel que contem o dia a ser colocado na lista,day
+,criarDias,teste,boolean,variavel que verifica se o dia ja esta na lista ou nï¿½o.,test
+,criarDias,diaAux,Dia,variavel que armazena o dia que sera armazenado.,dayAux
