@@ -53,8 +53,8 @@ public class RankingDao extends ConnectionFactory {
 	 */
 	public Ranking retornaRanking () throws SQLException {
 		Ranking ranking = new Ranking();
-		ArrayList<Estatistica> removidos = new ArrayList<Estatistica>();
-		ArrayList<Estatistica> lista = new ArrayList<Estatistica>();
+		ArrayList<Estatistica> deleted = new ArrayList<Estatistica>();
+		ArrayList<Estatistica> list = new ArrayList<Estatistica>();
 		
 		String sql = "Select * from ranking";
 		
@@ -62,20 +62,20 @@ public class RankingDao extends ConnectionFactory {
 		ResultSet rs = stmt.executeQuery();
 		
 		while( rs.next() ) {
-			Estatistica estatistica = new Estatistica();
-			estatistica.setNome(rs.getString("nomeParlamentar"));
+			Estatistica statistic = new Estatistica();
+			statistic.setNome(rs.getString("nomeParlamentar"));
 			if( rs.getString("porcentagem").equalsIgnoreCase("semDados") ) {
-				removidos.add(estatistica);
+				deleted.add(estatistica);
 			} 
 			else {
-				estatistica.setPorcentagem(rs.getString("porcentagem"));
-				estatistica.setNumeroSessao(rs.getString("numeroSessoes"));
-				lista.add(estatistica);
+				statistic.setPorcentagem(rs.getString("porcentagem"));
+				statistic.setNumeroSessao(rs.getString("numeroSessoes"));
+				list.add(estatistica);
 			}
 		}
 		
-		ranking.setLista(lista);
-		ranking.setRemovidos(removidos);
+		ranking.setLista(list);
+		ranking.setRemovidos(deleted);
 		return ranking;
 	}
 
