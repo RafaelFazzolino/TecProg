@@ -4,21 +4,21 @@ import java.util.ArrayList;
 
 public class Estatistica {
 
-	private String nome;
-	private String numeroSessao;
+	private String name;
+	private String numberOfSession;
 	private String totalSessao;
-	private String porcentagem;
+	private String percentage;
 	private ArrayList<String> lista = new ArrayList<String>(); 
 	
 	public Estatistica(){		
 	}
 
 	public String getNumeroSessao() {
-		return numeroSessao;
+		return numberOfSession;
 	}
 
-	public void setNumeroSessao(String numeroSessao) {
-		this.numeroSessao = numeroSessao;
+	public void setNumeroSessao(String numberOfSession) {
+		this.numberOfSession = numberOfSession;
 	}
 
 	public String getTotalSessao() {
@@ -30,27 +30,27 @@ public class Estatistica {
 	}
 
 	public String getNome() {
-		return nome;
+		return name;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setNome(String name) {
+		this.name = name;
 	}
 
 	public String getPorcentagem() {
-		return porcentagem;
+		return percentage;
 	}
 
-	public void setPorcentagem(String porcentagem) {
-		this.porcentagem = porcentagem;
+	public void setPorcentagem(String percentage) {
+		this.percentage = percentage;
 	}
 
 	public ArrayList<String> getLista() {
-		return lista;
+		return list;
 	}
 
-	public void setLista(ArrayList<String> lista) {
-		this.lista = lista;
+	public void setLista(ArrayList<String> list) {
+		this.list = list;
 	}
 }
 
