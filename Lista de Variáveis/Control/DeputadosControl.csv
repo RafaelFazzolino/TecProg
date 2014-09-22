@@ -3,3 +3,4 @@ DeputadosControl.java,,,,
 Método,Variável,Tipo,Funcionalidade,Nome sugerido
 verificaExistencia,lista,ArrayList,verifica se a lista contem dados,listWithDeputyData
 verificaExistencia,i,int,contador para um for,countingAuxiliarVariable
+getDeputados,deputado,Deputado,recebe uma nova instancia de deputado,Deputy
