@@ -11,15 +11,15 @@ import br.com.MDSGPP.ChamadaParlamentar.util.VerificarData;
 public class SessoesEReunioes {
 
 	private String data;
-	private String descricao;
-	private String descricaoCompleta;
-	private ArrayList<String> deputadosPresentes = new ArrayList<String>();
+	private String description;
+	private String fullDescription;
+	private ArrayList<String> presentDeputies = new ArrayList<String>();
 
-	private ArrayList<Deputados> deputados = new ArrayList<Deputados>();
+	private ArrayList<Deputados> deputies = new ArrayList<Deputados>();
 
 	public SessoesEReunioes(String data, 
-			String descricao, ArrayList<Deputados> deputados,
-			String descricaoCompleta) throws DataFormatoErradoException {
+			String description, ArrayList<Deputados> deputies,
+			String fullDescription) throws DataFormatoErradoException {
 
 		if( !VerificarData.verificaData(data) ) {
 			throw new DataFormatoErradoException();
@@ -27,9 +27,9 @@ public class SessoesEReunioes {
 
 
 		this.data = data;
-		this.descricao = descricao;
-		this.deputados = deputados;
-		this.descricaoCompleta = descricaoCompleta;
+		this.description = description;
+		this.deputies = deputies;
+		this.fullDescripton = fullDescription;
 
 	}
 
@@ -50,34 +50,34 @@ public class SessoesEReunioes {
 	}
 
 	public String getDescricao() {
-		return descricao;
+		return description;
 	}
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setDescricao(String description) {
+		this.description = description;
 	}
 
 	public ArrayList<Deputados> getDeputados() {
-		return deputados;
+		return deputies;
 	}
 
-	public void setDeputados(ArrayList<Deputados> deputados) {
-		this.deputados = deputados;
+	public void setDeputados(ArrayList<Deputados> deputies) {
+		this.deputies = deputies;
 	}
 
 	public String getDescricaoCompleta() {
-		return descricaoCompleta;
+		return fullDescription;
 	}
 
-	public void setDescricaoCompleta(String descricaoCompleta) {
-		this.descricaoCompleta = descricaoCompleta;
+	public void setDescricaoCompleta(String fullDescription;) {
+		this.fullDescription = fullDescription;
 	}
 
 	public ArrayList<String> getDeputadosPresentes() {
-		return deputadosPresentes;
+		return presentDeputies;
 	}
 
-	public void setDeputadosPresentes(ArrayList<String> deputadosPresentes) {
-		this.deputadosPresentes = deputadosPresentes;
+	public void setDeputadosPresentes(ArrayList<String> presentDeputies) {
+		this.presentDeputies = presentDeputies;
 	}
 }
