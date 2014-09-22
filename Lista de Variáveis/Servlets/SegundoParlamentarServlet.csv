@@ -10,6 +10,6 @@ service,estatisticaSegundo,Estatística,Variável que recebe a estatística do s
 service,lista,ArrayList,Array que recebe a lista de estatísticas tanto do primeiro quanto do segundo deputado.,list
 service,presencaPrimeiro,double,Variável que recebe a porcentagem de presença do primeiro deputado.,presenceFirst
 service,presencaSegundo,double,Variável que recebe a porcentagem de presença do segundo deputado.,presenceSecond
-service,presencaPassar1,String,Variável que recebe a porcentagem de presença do primeiro em forma de String,presenceStep1
-service,presencaPassar2,String,Variável que recebe a porcentagem de presença do segundo em forma de String.,presenceStep2
+service,presencaPassar1,String,Variável que recebe a porcentagem de presença do primeiro em forma de String,presenceNext1
+service,presencaPassar2,String,Variável que recebe a porcentagem de presença do segundo em forma de String.,presenceNext2
 service,listaNomes,ArrayList,Array que recebe a lista de nomes dos dois deputados.,listNames
