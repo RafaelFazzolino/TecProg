@@ -25,7 +25,7 @@ import br.com.MDSGPP.ChamadaParlamentar.model.Ranking;
 import br.com.MDSGPP.ChamadaParlamentar.util.LimparLista;
 
 public final class RankingControl {
-	private static final int TAMANHO_RANKINGS = 5;
+	private static final int SIZE_RANKINGS = 5;
 	
 	/**	
 	 * This method is to generate the ranking.
@@ -42,28 +42,28 @@ public final class RankingControl {
 
 		Ranking ranking = new Ranking();
 		try {
-			ArrayList<ArrayList<Estatistica>> recebido = 
+			ArrayList<ArrayList<Estatistica>> received = 
 					LimparLista.limparLista(lista);
-			ArrayList<Estatistica> removidos = recebido.get(1);
-			ArrayList<Estatistica> melhores = new ArrayList<Estatistica>();
-			ArrayList<Estatistica> piores = new ArrayList<Estatistica>();
+			ArrayList<Estatistica> deleted = received.get(1);
+			ArrayList<Estatistica> bests = new ArrayList<Estatistica>();
+			ArrayList<Estatistica> worst = new ArrayList<Estatistica>();
 
-			ArrayList<Estatistica> listaRecebida = recebido.get(0);
+			ArrayList<Estatistica> listaRecebida = received.get(0);
 
-			if(listaRecebida.size() == 0) {
+			if(receivedList.size() == 0) {
 				throw new ListaRankingException();
 			}
-			ArrayList<Estatistica> listaOrdenada = ordenacao(listaRecebida);
+			ArrayList<Estatistica> orderedList = ordenacao(listaRecebida);
 
-			for(int i = 0; i < TAMANHO_RANKINGS; i++) {
-				melhores.add(lista.get(i));
-				piores.add(lista.get(lista.size() -1 -i));
+			for(int i = 0; i < SIZE_RANKINGS; i++) {
+				bests.add(list.get(i));
+				worst.add(list.get(list.size() -1 -i));
 			}
 
-			ranking.setMelhores(melhores);
-			ranking.setPiores(piores);
-			ranking.setLista(listaOrdenada);
-			ranking.setRemovidos(removidos);
+			ranking.setMelhores(bests);
+			ranking.setPiores(worsts);
+			ranking.setLista(orderedList);
+			ranking.setRemovidos(deleted);
 
 		} catch (NullPointerException e) {
 			throw new ListaRankingException();
@@ -94,15 +94,15 @@ public final class RankingControl {
 
 		try {
 			ArrayList<Estatistica> devolver = new ArrayList<Estatistica>();
-			String nome = EstatisticaControl.arrumarNomePesquisa(lista.get(0));
+			String name = EstatisticaControl.arrumarNomePesquisa(lista.get(0));
 
 			devolver.add(EstatisticaControl.gerarEstatisticas(nome));
 
 
-			int totalSessao = Integer.parseInt(devolver.get(0).getTotalSessao());
+			int allSession = Integer.parseInt(devolver.get(0).getTotalSessao());
 
 			for(int i = 0; i < lista.size(); i++) {
-				nome = EstatisticaControl.arrumarNomePesquisa(lista.get(i));
+				name = EstatisticaControl.arrumarNomePesquisa(lista.get(i));
 
 				try {
 					devolver.add(EstatisticaControl.gerarEstatisticas(nome, 
@@ -131,17 +131,17 @@ public final class RankingControl {
 	public static Ranking passarRankingTop5() throws ClassNotFoundException, SQLException {
 		RankingDao rankingDao = new RankingDao();
 		Ranking ranking = rankingDao.retornaRanking();
-		ArrayList<Estatistica> melhores = new ArrayList<Estatistica>();
-		ArrayList<Estatistica> piores = new ArrayList<Estatistica>();
+		ArrayList<Estatistica> bests = new ArrayList<Estatistica>();
+		ArrayList<Estatistica> worst = new ArrayList<Estatistica>();
 		
 		ranking.setLista(ordenacao(ranking.getLista()));
 		
 		for(int i = 0; i < 5; i++) {
-			melhores.add(ranking.getLista().get(i));
-			piores.add(ranking.getLista().get(ranking.getLista().size() -1 -i));
+			bests.add(ranking.getLista().get(i));
+			worst.add(ranking.getLista().get(ranking.getLista().size() -1 -i));
 		}
-		ranking.setMelhores(melhores);
-		ranking.setPiores(piores);
+		ranking.setMelhores(bests);
+		ranking.setPiores(worst);
 		return ranking;
 	}
 
@@ -155,27 +155,27 @@ public final class RankingControl {
 	 *         sorted list.
 	 */
 	
-	public static ArrayList<Estatistica> ordenacao(ArrayList<Estatistica> lista) {
+	public static ArrayList<Estatistica> ordenacao(ArrayList<Estatistica> list) {
 		/*Insertion Sort.*/
 		
 		int i = 1, j = 1;
-		if(lista.size() > 0)
+		if(list.size() > 0)
 		{
 			while( j < lista.size() )
 			{
 				i=j;
 				while( i > 0 )
 				{
-					int primeiro = Integer.parseInt(lista.get(i-1).getNumeroSessao());
-					int segundo = Integer.parseInt(lista.get(i).getNumeroSessao());
+					int first = Integer.parseInt(lista.get(i-1).getNumeroSessao());
+					int second = Integer.parseInt(lista.get(i).getNumeroSessao());
 
-					if ( primeiro < segundo ) {
+					if ( first < second ) {
 						Estatistica temp;
 
-						temp = lista.get(i-1);
+						temp = list.get(i-1);
 
-						lista.set(i-1, lista.get(i));
-						lista.set(i, temp);
+						list.set(i-1, list.get(i));
+						list.set(i, temp);
 						i--;
 					}
 					else
@@ -186,7 +186,7 @@ public final class RankingControl {
 				j++;
 			}
 		}
-		return lista;
+		return list;
 	}
 
 	/**
