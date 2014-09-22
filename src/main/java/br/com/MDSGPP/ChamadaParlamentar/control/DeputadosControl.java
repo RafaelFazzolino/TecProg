@@ -28,8 +28,8 @@ public final class DeputadosControl {
 	 */
 	public static ArrayList<String> getDeputados() throws ClassNotFoundException, SQLException {
 
-		DeputadoDao deputado;
-		deputado = new DeputadoDao();
+		DeputadoDao deputy;
+		deputy = new DeputadoDao();
 
 		return deputado.getNomesDeputados();
 	}
@@ -42,21 +42,21 @@ public final class DeputadosControl {
 	 */
 	 
 	public static Deputados verificaExistencia(String nome) throws ClassNotFoundException, SQLException {
-		Deputados deputado = null;
+		Deputados deputy = null;
 
 		DeputadoDao deputadoDao = new DeputadoDao();			
-		ArrayList<Deputados> lista = deputadoDao.getDeputados();
+		ArrayList<Deputados> list = deputadoDao.getDeputados();
 
-		for( int i = 0; i < lista.size(); i++ ) {
-			if(( lista.get(i).getNomeCivilDoParlamentar().
+		for( int countingAux = 0; countingAux < list.size(); countingAux++ ) {
+			if(( list.get(countingAux).getNomeCivilDoParlamentar().
 					equalsIgnoreCase(nome)) ||
-					lista.get(i).getNomeDeTratamentoDoParlamentar()
+					list.get(countingAux).getNomeDeTratamentoDoParlamentar()
 					.equalsIgnoreCase(nome) ) {
 
-				deputado = lista.get(i);
+				deputado = list.get(countingAux);
 			}
 		}
 
-		return deputado;
+		return deputy;
 	}
 }
