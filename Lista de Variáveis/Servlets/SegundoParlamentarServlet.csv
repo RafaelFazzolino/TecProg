@@ -1,15 +1,15 @@
-br.com.MDSGPP.ChamadaParlamentar.servlets,,,
-SegundoParlamentarServlet.java,,,
-Método,Variável,Tipo,Funcionalidade
-service,nomePrimeiroParlamentar,String,Variável que recebe o nome do primeiro parlamentar.
-service,nomeSegundoParlamentar,String,Variável que recebe o nome do segundo parlamentar.
-service,primeiroDeputado,Deputados,Variável que recebe as características do primeiro deputado.
-service,segundoDeputado,Deputados,Variável que recebe as características do segundo deputado.
-service,estatisticaPrimeiro,Estatística,Variável que recebe a estatística do primeiro deputado.
-service,estatisticaSegundo,Estatística,Variável que recebe a estatística do segundo deputado.
-service,lista,ArrayList,Array que recebe a lista de estatísticas tanto do primeiro quanto do segundo deputado.
-service,presencaPrimeiro,double,Variável que recebe a porcentagem de presença do primeiro deputado.
-service,presencaSegundo,double,Variável que recebe a porcentagem de presença do segundo deputado.
-service,presencaPassar1,String,Variável que recebe a porcentagem de presença do primeiro em forma de String;
-service,presencaPassar2,String,Variável que recebe a porcentagem de presença do segundo em forma de String.
-service,listaNomes,ArrayList,Array que recebe a lista de nomes dos dois deputados.
+br.com.MDSGPP.ChamadaParlamentar.servlets,,,,
+SegundoParlamentarServlet.java,,,,
+Método,Variável,Tipo,Funcionalidade,Nome Sugerido
+service,nomePrimeiroParlamentar,String,Variável que recebe o nome do primeiro parlamentar.,nameFirstCongressman
+service,nomeSegundoParlamentar,String,Variável que recebe o nome do segundo parlamentar.,nameSecondCongressman
+service,primeiroDeputado,Deputados,Variável que recebe as características do primeiro deputado.,firstCongressman
+service,segundoDeputado,Deputados,Variável que recebe as características do segundo deputado.,secondCongressman
+service,estatisticaPrimeiro,Estatística,Variável que recebe a estatística do primeiro deputado.,statisticFirst
+service,estatisticaSegundo,Estatística,Variável que recebe a estatística do segundo deputado.,statisticSecond
+service,lista,ArrayList,Array que recebe a lista de estatísticas tanto do primeiro quanto do segundo deputado.,list
+service,presencaPrimeiro,double,Variável que recebe a porcentagem de presença do primeiro deputado.,presenceFirst
+service,presencaSegundo,double,Variável que recebe a porcentagem de presença do segundo deputado.,presenceSecond
+service,presencaPassar1,String,Variável que recebe a porcentagem de presença do primeiro em forma de String,presenceStep1
+service,presencaPassar2,String,Variável que recebe a porcentagem de presença do segundo em forma de String.,presenceStep2
+service,listaNomes,ArrayList,Array que recebe a lista de nomes dos dois deputados.,listNames
