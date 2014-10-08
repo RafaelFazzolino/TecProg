@@ -22,7 +22,7 @@ public final class VerificarData {
 			Date greg = sdf.parse(data);
 		} catch (ParseException e) {
 			return false;
-		}	
-		return true;
+		  }	
+		  return true;
 	}
 }
