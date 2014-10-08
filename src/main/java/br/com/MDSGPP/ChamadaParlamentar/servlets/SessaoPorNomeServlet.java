@@ -26,31 +26,31 @@ public class SessaoPorNomeServlet extends HttpServlet{
 
 	protected void service (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = null;
-		SessoesEReunioes sessao = new SessoesEReunioes();
+		SessoesEReunioes session = new SessoesEReunioes();
 
-		String descricao = request.getParameter("descricao");
+		String description = request.getParameter("descricao");
 		try {
-			int pagina = 1;
-			int deputadosPorPagina = 20;
+			int page = 1;
+			int deputiesForPage = 20;
 			
 			if( request.getParameter("pagina") != null ) {
-				pagina = Integer.parseInt(request.getParameter("pagina"));
+				page = Integer.parseInt(request.getParameter("pagina"));
 			}
-			sessao = SessoesEReunioesControl.passarSessao(descricao);
+			session = SessoesEReunioesControl.passarSessao(description);
 			
-			if( sessao.getDeputadosPresentes().size() != 0 ) {
+			if( session.getDeputadosPresentes().size() != 0 ) {
 								
-				int numeroDeputados = sessao.getDeputadosPresentes().size();
-				int noDePaginas = ((int) Math.ceil(numeroDeputados * 1.0 / deputadosPorPagina))-1;
+				int numeroDeputados = session.getDeputadosPresentes().size();
+				int noDePaginas = ((int) Math.ceil(numeroDeputados * 1.0 / deputiesForPage))-1;
 				
-				sessao.setDeputadosPresentes(SessoesEReunioesControl.
-						arrumarListaDeputados(pagina-1, deputadosPorPagina, sessao.getDeputadosPresentes()));
+				session.setDeputadosPresentes(SessoesEReunioesControl.
+						arrumarListaDeputados(page-1, deputiesForPage, session.getDeputadosPresentes()));
 				
 				
 				request.setAttribute("quantosDeputados", numeroDeputados);
 				request.setAttribute("noDePaginas", noDePaginas);
-				request.setAttribute("paginaAtual", pagina);				
-				request.setAttribute("sessao", sessao);
+				request.setAttribute("paginaAtual", page);				
+				request.setAttribute("sessao", session);
 				rd = request.getRequestDispatcher("SessaoPorNome.jsp");
 			}
 			else {

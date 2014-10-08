@@ -25,8 +25,8 @@ public class PegarListaDeputados extends HttpServlet {
 	protected void service (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = null;
 		try {
-			ArrayList<String> lista = DeputadosControl.getDeputados();
-			request.setAttribute("lista", lista);
+			ArrayList<String> list = DeputadosControl.getDeputados();
+			request.setAttribute("lista", list);
 			rd = request.getRequestDispatcher("/AcompanharParlamentar.jsp");
 		} catch (ClassNotFoundException e) {
 			rd = request.getRequestDispatcher("/Erro.jsp");

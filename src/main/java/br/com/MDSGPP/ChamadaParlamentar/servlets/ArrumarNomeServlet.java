@@ -19,10 +19,10 @@ public class ArrumarNomeServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = null;
 		
-		String nome = request.getParameter("nome");
-		nome = nome.split("-")[0];
+		String name = request.getParameter("nome");
+		name = name.split("-")[0];
 		
-		rd = request.getRequestDispatcher("parlamentarRecebido?nome="+ nome);
+		rd = request.getRequestDispatcher("parlamentarRecebido?nome="+ name);
 		rd.forward(request, response);
 	}
 }
