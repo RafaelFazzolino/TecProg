@@ -15,7 +15,7 @@ public final class EstatisticaPartidoControl {
 	 * 
 	 * @param nome
 	 *            String, name of the political party.
-	 * @return
+	 * @return statistical what is the statistical of the political party.
 	 * @throws ClassNotFoundException case the class is not found.
 	 * @throws SQLException case an error occurs with dataBase.
 	 * @throws ListaVaziaException is case an error occurs with the list.
@@ -23,26 +23,26 @@ public final class EstatisticaPartidoControl {
 	
 	public static EstatisticaPartido gerarEstatisticaPartido(String nome) 
 			throws ClassNotFoundException, SQLException, ListaVaziaException {
-		EstatisticaPartido estatistica = new EstatisticaPartido();
+		EstatisticaPartido statistical = new EstatisticaPartido();
 		
 		Partidos partido = PartidoControl.passarPartidoComDadosCompletos(nome);
-		estatistica.setPartido(partido);
+		statistical.setPartido(partido);
 		
-		int totalDeSessoes = 0;
-		int totalDeSessoesAssistidas = 0;
+		int numberOfSessions = 0;
+		int numberOfSessionsAttended = 0;
 		for(int i = 0; i < partido.getEstatisticaDosDeputados().size(); i++) {
-			totalDeSessoes += Integer.parseInt(partido.getEstatisticaDosDeputados().get(i).getTotalSessao());
-			totalDeSessoesAssistidas += Integer.parseInt(partido.getEstatisticaDosDeputados().get(i).getNumeroSessao());
+			numberOfSessions += Integer.parseInt(partido.getEstatisticaDosDeputados().get(i).getTotalSessao());
+			numberOfSessionsAttended += Integer.parseInt(partido.getEstatisticaDosDeputados().get(i).getNumeroSessao());
 		}
 		
-		double porcentagem = (((double)(totalDeSessoesAssistidas))/((double)totalDeSessoes))*100.0;
+		double percentage = (((double)(numberOfSessionsAttended))/((double)numberOfSessions))*100.0;
 		
-		String porcentagemAPassar = formatarNumeroDouble(porcentagem);
+		String porcentagemAPassar = formatarNumeroDouble(percentage);
 		
-		estatistica.setPorcentagem(porcentagemAPassar);
-		estatistica.setQuantidadeDeSessoes(totalDeSessoes);
-		estatistica.setSessoesAssistidas(totalDeSessoesAssistidas);
-		return estatistica;	
+		statistical.setPorcentagem(porcentagemAPassar);
+		statistical.setQuantidadeDeSessoes(numberOfSessions);
+		statistical.setSessoesAssistidas(numberOfSessionsAttended);
+		return statistical;	
 	}
 	
 	/**
@@ -53,9 +53,9 @@ public final class EstatisticaPartidoControl {
 	 * @return returns a string with the formated number.
 	 */
 	
-	public static String formatarNumeroDouble(double numero) {
+	public static String formatarNumeroDouble(double number) {
 		NumberFormat formatardouble= new DecimalFormat("0.00");    
 		
-		return formatardouble.format(numero);
+		return formatardouble.format(number);
 	}
 }

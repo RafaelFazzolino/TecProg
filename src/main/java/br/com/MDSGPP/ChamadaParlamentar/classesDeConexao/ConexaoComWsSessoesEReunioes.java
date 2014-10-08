@@ -165,7 +165,7 @@ public class ConexaoComWsSessoesEReunioes {
 	 *            , is the date of the session.
 	 * @param matricula
 	 *            , is the ID of the Deputy.
-	 * @return passar, to know if the goal has been completed.
+	 * @return pass, to know if the goal has been completed.
 	 * @throws SQLException
 	 *             if miss spelled SQL is entered.
 	 * @throws MalformedURLException
@@ -176,7 +176,7 @@ public class ConexaoComWsSessoesEReunioes {
 
 	public static ArrayList<String> adcionarDataNaTable(String data, String matricula) 
 			throws SQLException, MalformedURLException, ServiceException {			 
-		ArrayList<String> passar = new ArrayList<String>();
+		ArrayList<String> pass = new ArrayList<String>();
 
 		ListarPresencasParlamentarResponseListarPresencasParlamentarResult sessao;
 
@@ -203,10 +203,10 @@ public class ConexaoComWsSessoesEReunioes {
 				MessageElement descricaoText = (MessageElement) descricaoTemp.item(j);
 
 				System.out.println(dataText.getFirstChild().getNodeValue());
-				passar.add(dataText.getFirstChild().getNodeValue());
-				passar.add(descricaoText.getFirstChild().getNodeValue());
+				pass.add(dataText.getFirstChild().getNodeValue());
+				pass.add(descricaoText.getFirstChild().getNodeValue());
 			}
 		}			
-		return passar;
+		return pass;
 	}
 }
