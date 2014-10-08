@@ -2,93 +2,93 @@ package br.com.MDSGPP.ChamadaParlamentar.model;
 
 public class EstatisticaPartido {
 
-	private Partidos partido;
-	private int quantidadeDeSessoes;
-	private int sessoesAssistidas;
-	private String porcentagem;
+	private Partidos politicalParty;
+	private int numberOfSessions;
+	private int assistedSessions;
+	private String percentage;
 	
 	/**
 	 * Getter of the political party.
 	 * 
-	 * @return an name of {@link partido} containing the name of the political
+	 * @return an name of {@link politicalParty} containing the name of the political
 	 *         party.
 	 */
 	
-	public Partidos getPartido() {
-		return partido;
+	public Partidos getpoliticalParty() {
+		return politicalParty;
 	}
 	
 	/**
 	 * Setter of the political party.
-	 * @param partido
-	 *            an variable of {@link partido} containing the name of the
+	 * @param politicalParty
+	 *            an variable of {@link politicalParty} containing the name of the
 	 *            political party.
 	 */
 	
-	public void setPartido(Partidos partido) {
-		this.partido = partido;
+	public void setpoliticalParty(Partidos politicalParty) {
+		this.politicalParty = politicalParty;
 	}
 	
 	/**
 	 * Getter of number of sessions.
-	 * @return an variable of {@link partido} containing the number of the
+	 * @return an variable of {@link politicalParty} containing the number of the
 	 *         sessions.
 	 */
 	
-	public int getQuantidadeDeSessoes() {
-		return quantidadeDeSessoes;
+	public int getnumberOfSessions() {
+		return numberOfSessions;
 	}
 	
 	/**
 	 * Setter of number of sessions.
-	 * @param quantidadeDeSessoes
+	 * @param numberOfSessions
 	 *            an variable of {@link sessoes} containing the number of the
 	 *            sessions.
 	 */
 	
-	public void setQuantidadeDeSessoes(int quantidadeDeSessoes) {
-		this.quantidadeDeSessoes = quantidadeDeSessoes;
+	public void setnumberOfSessions(int numberOfSessions) {
+		this.numberOfSessions = numberOfSessions;
 	}
 	
 	/**
 	 * Getter of assisted sessions.
-	 * @return an variable of {@link partido} containing the number of the
+	 * @return an variable of {@link politicalParty} containing the number of the
 	 *         sessions assisted.
 	 */
 	
-	public int getSessoesAssistidas() {
-		return sessoesAssistidas;
+	public int getassistedSessions() {
+		return assistedSessions;
 	}
 	
 	/**
 	 * Setter of assisted sessions.
-	 * @param sessoesAssistidas
-	 *            an variable of {@link partido} containing the number of the
+	 * @param assistedSessions
+	 *            an variable of {@link politicalParty} containing the number of the
 	 *            sessions assisted.
 	 */
 	
-	public void setSessoesAssistidas(int sessoesAssistidas) {
-		this.sessoesAssistidas = sessoesAssistidas;
+	public void setassistedSessions(int assistedSessions) {
+		this.assistedSessions = assistedSessions;
 	}
 	
 	/**
 	 * Getter of percentage.
-	 * @return an variable of {@link partido} containing the percentage of the
+	 * @return an variable of {@link politicalParty} containing the percentage of the
 	 *         sessions assisted.
 	 */
 	
-	public String getPorcentagem() {
-		return porcentagem;
+	public String getpercentage() {
+		return percentage;
 	}
 	
 	/**
 	 * Setter of percentage.
-	 * @param porcentagem
-	 *            an variable of {@link partido} containing the percentage of
+	 * @param percentage
+	 *            an variable of {@link politicalParty} containing the percentage of
 	 *            the sessions assisted.
 	 */
 	
-	public void setPorcentagem(String porcentagem) {
-		this.porcentagem = porcentagem;
+	public void setpercentage(String percentage) {
+		this.percentage = percentage;
 	}	
 }
