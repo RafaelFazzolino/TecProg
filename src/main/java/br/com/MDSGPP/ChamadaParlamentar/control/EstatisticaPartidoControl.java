@@ -26,22 +26,27 @@ public final class EstatisticaPartidoControl {
 		EstatisticaPartido statistical = new EstatisticaPartido();
 		
 		Partidos partido = PartidoControl.passarPartidoComDadosCompletos(nome);
-		statistical.setPartido(partido);
+		statistical.setpoliticalParty(partido);
 		
 		int numberOfSessions = 0;
 		int numberOfSessionsAttended = 0;
-		for(int i = 0; i < partido.getEstatisticaDosDeputados().size(); i++) {
+		int sizeStatisticalParty;
+		sizeStatisticalParty = partido.getEstatisticaDosDeputados().size();
+		
+		for(int i = 0; i < sizeStatisticalParty ; i++) {
+			
 			numberOfSessions += Integer.parseInt(partido.getEstatisticaDosDeputados().get(i).getTotalSessao());
 			numberOfSessionsAttended += Integer.parseInt(partido.getEstatisticaDosDeputados().get(i).getNumeroSessao());
 		}
 		
-		double percentage = (((double)(numberOfSessionsAttended))/((double)numberOfSessions))*100.0;
+		double percentage;
+		percentage = (((double)(numberOfSessionsAttended))/((double)numberOfSessions))*100.0;
 		
 		String porcentagemAPassar = formatarNumeroDouble(percentage);
 		
-		statistical.setPorcentagem(porcentagemAPassar);
-		statistical.setQuantidadeDeSessoes(numberOfSessions);
-		statistical.setSessoesAssistidas(numberOfSessionsAttended);
+		statistical.setpercentage(porcentagemAPassar);
+		statistical.setnumberOfSessions(numberOfSessions);
+		statistical.setassistedSessions(numberOfSessionsAttended);
 		return statistical;	
 	}
 	
