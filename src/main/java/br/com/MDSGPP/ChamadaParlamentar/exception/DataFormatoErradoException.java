@@ -1,8 +1,7 @@
 package br.com.MDSGPP.ChamadaParlamentar.exception;
 
 
-/*Esta exception é para verificar se a data foi inserida *
- * corretamente pelo usuario. *
+/*This exception is to check whether the date was entered correctly by the User.
  */
 public class DataFormatoErradoException extends Exception {
 	

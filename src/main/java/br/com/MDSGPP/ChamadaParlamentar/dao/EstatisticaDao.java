@@ -19,12 +19,12 @@ public class EstatisticaDao extends ConnectionFactory {
 	 * @throws SQLException
 	 *             if miss spelled SQL is entered.
 	 */
-	public ArrayList<String> getEstatisticaDeputados(String nome) throws SQLException {
+	public ArrayList<String> getEstatisticaDeputados(String name) throws SQLException {
 		String sql = "select * from sessao where deputadoPresente LIKE ?"; 
 
 		ArrayList<String> lista = new ArrayList<String>();
 		PreparedStatement stmt= ConnectionFactory.getConexao().prepareStatement(sql);
-		stmt.setString(1, nome);
+		stmt.setString(1, name);
 
 		ResultSet rs = stmt.executeQuery(); 
 
