@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class ConnectionFactory {
 
-	private static Connection conexao;
+	private static Connection connection;
 
 	public ConnectionFactory() {
 
@@ -25,12 +25,12 @@ public class ConnectionFactory {
 	 */
 
 	public Connection getConnection() throws ClassNotFoundException, SQLException {
-		if( ConnectionFactory.conexao == null ) {
+		if( ConnectionFactory.connection == null ) {
 			Class.forName("com.mysql.jdbc.Driver");
-			ConnectionFactory.conexao = DriverManager.getConnection
+			ConnectionFactory.connection = DriverManager.getConnection
 					("jdbc:mysql://localhost/chamada", "root", "12345");
 		}
-		return ConnectionFactory.conexao;
+		return ConnectionFactory.connection;
 	}
 	
 	/**
@@ -40,6 +40,6 @@ public class ConnectionFactory {
 	 */
 
 	public static Connection getConexao() {
-		return conexao;
+		return connection;
 	}	
 }
