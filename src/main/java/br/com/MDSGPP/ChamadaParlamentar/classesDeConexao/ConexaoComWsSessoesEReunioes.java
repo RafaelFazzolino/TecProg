@@ -110,15 +110,15 @@ public class ConexaoComWsSessoesEReunioes {
 		ArrayList<String> foi = new ArrayList<String>();
 		ArrayList<Integer> lista = new ArrayList<Integer>();
 
-		DeputadoDao conexaoDeputado = new DeputadoDao();
+		DeputadoDao conectionDeputy = new DeputadoDao();
 
-		lista = conexaoDeputado.getMatriculaDeputados();
+		lista = conectionDeputy.getMatriculaDeputados();
 
 		for( int i = 0; i<lista.size(); i++ ) {
-			double porcentagem = (((double)(i)/(double)lista.size())*100.0);
+			double percentage = (((double)(i)/(double)lista.size())*100.0);
 
-			System.out.println(i+"- " + porcentagem+"%");
-			Calendar hoje = new GregorianCalendar();
+			System.out.println(i+"- " + percentage+"%");
+			Calendar today = new GregorianCalendar();
 
 			SimpleDateFormat df = new SimpleDateFormat();
 			df.applyPattern("dd/MM/yyyy");
@@ -127,7 +127,7 @@ public class ConexaoComWsSessoesEReunioes {
 			try {
 				sessao = ConexaoComWsSessoesEReunioes.receberElementPresenca
 						(ConexaoComWsSessoesEReunioes.obterConexao(),
-								data, df.format(hoje.getTime()), Integer.toString(lista.get(i)));
+								data, df.format(today.getTime()), Integer.toString(lista.get(i)));
 
 				NodeList dias = sessao.get_any()[0].getElementsByTagName("dia");
 
@@ -180,14 +180,14 @@ public class ConexaoComWsSessoesEReunioes {
 
 		ListarPresencasParlamentarResponseListarPresencasParlamentarResult sessao;
 
-		Calendar hoje = new GregorianCalendar();
+		Calendar today = new GregorianCalendar();
 
 		SimpleDateFormat df = new SimpleDateFormat();
 		df.applyPattern("dd/MM/yyyy");
 
 		sessao = ConexaoComWsSessoesEReunioes.receberElementPresenca
 				(ConexaoComWsSessoesEReunioes.obterConexao(),
-						data, df.format(hoje.getTime()), matricula);
+						data, df.format(today.getTime()), matricula);
 
 		NodeList dias = sessao.get_any()[0].getElementsByTagName("dia");
 
