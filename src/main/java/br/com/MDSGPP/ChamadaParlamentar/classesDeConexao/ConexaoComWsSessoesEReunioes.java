@@ -51,7 +51,8 @@ public class ConexaoComWsSessoesEReunioes {
 		URL url;
 		url = new URL("http://www.camara.gov.br/SitCamaraWS/SessoesReunioes.asmx");
 
-		SessoesReunioesSoapStub service = (SessoesReunioesSoapStub)
+		SessoesReunioesSoapStub service;
+		service = (SessoesReunioesSoapStub)
 				new SessoesReunioesLocator().getSessoesReunioesSoap(url);
 
 		return service;
@@ -78,6 +79,7 @@ public class ConexaoComWsSessoesEReunioes {
 
 		try {
 			ListarPresencasParlamentarResponseListarPresencasParlamentarResult 
+			sessoes;
 			sessoes = service.listarPresencasParlamentar(inicio, fim, matricula);
 
 			return sessoes;
@@ -114,7 +116,11 @@ public class ConexaoComWsSessoesEReunioes {
 
 		lista = conectionDeputy.getMatriculaDeputados();
 
-		for( int i = 0; i<lista.size(); i++ ) {
+		int sizeList;
+		sizeList = lista.size();
+		
+		for( int i = 0; i<sizeList; i++ ) {
+			
 			double percentage = (((double)(i)/(double)lista.size())*100.0);
 
 			System.out.println(i+"- " + percentage+"%");
@@ -131,14 +137,20 @@ public class ConexaoComWsSessoesEReunioes {
 
 				NodeList dias = sessao.get_any()[0].getElementsByTagName("dia");
 
-				for( int j = 0; j < dias.getLength(); j++ ) {
+				int sizeDays;
+				sizeDays = dias.getLength();
+				
+				for( int j = 0; j < sizeDays; j++ ) {
 
 					MessageElement diasTemp = (MessageElement) dias.item(j);				
 					NodeList descricaoTemp = diasTemp.getElementsByTagName("descricao");
 					NodeList presencaTemp = diasTemp.getElementsByTagName("frequencia");
 
-
-					for( int k = 0; k < descricaoTemp.getLength(); k++ ) {
+					int descriptionSize;
+					descriptionSize = descricaoTemp.getLength();
+					
+					for( int k = 0; k < descriptionSize; k++ ) {
+						
 						MessageElement descricaoText = (MessageElement) descricaoTemp.item(k);
 						NodeList nomeTemp = sessao.get_any()[0].getElementsByTagName("nomeParlamentar");
 						MessageElement nomeText = (MessageElement) nomeTemp.item(0);
@@ -191,7 +203,11 @@ public class ConexaoComWsSessoesEReunioes {
 
 		NodeList dias = sessao.get_any()[0].getElementsByTagName("dia");
 
-		for( int i= 0; i < dias.getLength(); i++ ) {				
+		int sizeDays;
+		sizeDays = dias.getLength();
+		
+		for( int i= 0; i < sizeDays; i++ ) {
+			
 			MessageElement diaTemp = (MessageElement) dias.item(i);
 
 			NodeList dataTemp = diaTemp.getElementsByTagName("data");
@@ -199,9 +215,12 @@ public class ConexaoComWsSessoesEReunioes {
 
 			MessageElement dataText = (MessageElement) dataTemp.item(0);
 
-			for( int j = 0; j < descricaoTemp.getLength(); j++ ) {
+			int descriptionSize;
+			descriptionSize = descricaoTemp.getLength();
+			
+			for( int j = 0; j < descriptionSize; j++ ) {
+				
 				MessageElement descricaoText = (MessageElement) descricaoTemp.item(j);
-
 				System.out.println(dataText.getFirstChild().getNodeValue());
 				pass.add(dataText.getFirstChild().getNodeValue());
 				pass.add(descricaoText.getFirstChild().getNodeValue());
