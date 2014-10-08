@@ -19,37 +19,37 @@ public class DiaDao extends ConnectionFactory {
 	
 	/**
 	 * This method search all the descriptions based on a day.
-	 * @return lista contains all days.
+	 * @return list contains all days.
 	 * @throws SQLException case the dataBase is off.
 	 * @throws DataFormatoErradoException case the date is wrong.
 	 */
 
 	public ArrayList<Dia> buscarTodasDescricoes() throws SQLException, DataFormatoErradoException {
-		ArrayList<Dia> lista = new ArrayList<Dia>();
+		ArrayList<Dia> list = new ArrayList<Dia>();
 		String sql = "Select * from datas";
 
 		PreparedStatement stmt= ConnectionFactory.getConexao().prepareStatement(sql);
 		ResultSet rs = stmt.executeQuery();
 
-		lista = criarDias(rs);
+		list = criarDias(rs);
 
 		ResultSet rs2 = stmt.executeQuery();
 
-		lista = popularListaDia(rs2, lista);
+		list = popularListaDia(rs2, list);
 
 		rs.close();
-		return lista;
+		return list;
 	}
 
 	/**
 	 * This method populates the DB based on a day.
 	 * @param rs
 	 * @param lista
-	 * @return lista contains all days.
+	 * @return list contains all days.
 	 * @throws SQLException case the dataBase is off.
 	 */
 	public static ArrayList<Dia> popularListaDia(ResultSet rs, 
-			ArrayList<Dia> lista) throws SQLException {
+			ArrayList<Dia> list) throws SQLException {
 		int cont = 0;
 
 		while( rs.next() ) {
@@ -57,19 +57,19 @@ public class DiaDao extends ConnectionFactory {
 			String descAux = descricao;
 			descricao = descricao.split(" -")[0];
 
-			boolean teste = lista.get(cont).getData().equalsIgnoreCase(rs.getString(DATAS));
+			boolean teste = list.get(cont).getData().equalsIgnoreCase(rs.getString(DATAS));
 
 			if( !teste ) {
 				cont++;
 			}
 			SessoesEReunioes passar = new SessoesEReunioes();
 			passar.setDescricao(descricao);
-			passar.setDescricaoCompleta(descAux);
-			lista.get(cont).getListaSessoes().add(passar);
+			passar.setFullDescription(descAux);
+			list.get(cont).getListaSessoes().add(passar);
 		}
 
 		rs.close();
-		return lista;
+		return list;
 	}
 
 	/**

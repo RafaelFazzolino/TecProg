@@ -29,7 +29,7 @@ public class SessoesEReunioes {
 		this.data = data;
 		this.description = description;
 		this.deputies = deputies;
-		this.fullDescripton = fullDescription;
+		this.fullDescription = fullDescription;
 
 	}
 
@@ -69,7 +69,7 @@ public class SessoesEReunioes {
 		return fullDescription;
 	}
 
-	public void setDescricaoCompleta(String fullDescription;) {
+	public void setFullDescription(String fullDescription) {
 		this.fullDescription = fullDescription;
 	}
 

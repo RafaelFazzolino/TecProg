@@ -37,23 +37,23 @@ public final class RankingControl {
 	 * @throws ListaRankingException case an error occurs with the list.
 	 */
 
-	public static Ranking gerarRanking(ArrayList<Estatistica> lista) 
+	public static Ranking gerarRanking(ArrayList<Estatistica> list) 
 			throws ListaRankingException {
 
 		Ranking ranking = new Ranking();
 		try {
 			ArrayList<ArrayList<Estatistica>> received = 
-					LimparLista.limparLista(lista);
+					LimparLista.limparLista(list);
 			ArrayList<Estatistica> deleted = received.get(1);
 			ArrayList<Estatistica> bests = new ArrayList<Estatistica>();
 			ArrayList<Estatistica> worst = new ArrayList<Estatistica>();
 
-			ArrayList<Estatistica> listaRecebida = received.get(0);
+			ArrayList<Estatistica> receivedList = received.get(0);
 
 			if(receivedList.size() == 0) {
 				throw new ListaRankingException();
 			}
-			ArrayList<Estatistica> orderedList = ordenacao(listaRecebida);
+			ArrayList<Estatistica> orderedList = ordenacao(receivedList);
 
 			for(int i = 0; i < SIZE_RANKINGS; i++) {
 				bests.add(list.get(i));
@@ -61,7 +61,7 @@ public final class RankingControl {
 			}
 
 			ranking.setMelhores(bests);
-			ranking.setPiores(worsts);
+			ranking.setPiores(worst);
 			ranking.setLista(orderedList);
 			ranking.setRemovidos(deleted);
 
@@ -96,7 +96,7 @@ public final class RankingControl {
 			ArrayList<Estatistica> devolver = new ArrayList<Estatistica>();
 			String name = EstatisticaControl.arrumarNomePesquisa(lista.get(0));
 
-			devolver.add(EstatisticaControl.gerarEstatisticas(nome));
+			devolver.add(EstatisticaControl.gerarEstatisticas(name));
 
 
 			int allSession = Integer.parseInt(devolver.get(0).getTotalSessao());
@@ -105,11 +105,11 @@ public final class RankingControl {
 				name = EstatisticaControl.arrumarNomePesquisa(lista.get(i));
 
 				try {
-					devolver.add(EstatisticaControl.gerarEstatisticas(nome, 
-							totalSessao));
+					devolver.add(EstatisticaControl.gerarEstatisticas(name, 
+							allSession));
 				} catch (ListaVaziaException e) {
 					Estatistica estatistica = new Estatistica();
-					estatistica.setNome(nome);
+					estatistica.setNome(name);
 					devolver.add(estatistica);
 				}
 			}
@@ -161,13 +161,13 @@ public final class RankingControl {
 		int i = 1, j = 1;
 		if(list.size() > 0)
 		{
-			while( j < lista.size() )
+			while( j < list.size() )
 			{
 				i=j;
 				while( i > 0 )
 				{
-					int first = Integer.parseInt(lista.get(i-1).getNumeroSessao());
-					int second = Integer.parseInt(lista.get(i).getNumeroSessao());
+					int first = Integer.parseInt(list.get(i-1).getNumeroSessao());
+					int second = Integer.parseInt(list.get(i).getNumeroSessao());
 
 					if ( first < second ) {
 						Estatistica temp;

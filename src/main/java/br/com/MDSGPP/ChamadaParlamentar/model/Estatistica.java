@@ -46,11 +46,11 @@ public class Estatistica {
 	}
 
 	public ArrayList<String> getLista() {
-		return list;
+		return lista;
 	}
 
 	public void setLista(ArrayList<String> list) {
-		this.list = list;
+		this.lista = lista;
 	}
 }
 

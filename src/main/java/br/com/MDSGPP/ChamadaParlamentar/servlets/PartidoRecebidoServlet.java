@@ -35,9 +35,9 @@ public class PartidoRecebidoServlet extends HttpServlet {
 				EstatisticaPartido estatistica = 
 						EstatisticaPartidoControl.gerarEstatisticaPartido(nomePartido);
 
-				ArrayList<Estatistica> semDados = estatistica.getPartido().getDeputadosSemDados();
+				ArrayList<Estatistica> semDados = estatistica.getpoliticalParty().getDeputadosSemDados();
 				
-				Partidos partido = estatistica.getPartido();
+				Partidos partido = estatistica.getpoliticalParty();
 				
 				int quantosSemDados = partido.getDeputadosSemDados().size();
 								

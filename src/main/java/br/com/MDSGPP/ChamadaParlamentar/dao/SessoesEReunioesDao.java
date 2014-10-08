@@ -156,7 +156,7 @@ public class SessoesEReunioesDao extends ConnectionFactory {
 		while(rs.next()){
 			SessoesEReunioes sessoes = new SessoesEReunioes();
 			sessoes.setDescricao(rs.getString("sessao"));
-			sessoes.setDescricaoCompleta(sessoes.getDescricao());
+			sessoes.setFullDescription(sessoes.getDescricao());
 			lista.add(sessoes);
 		}
 		

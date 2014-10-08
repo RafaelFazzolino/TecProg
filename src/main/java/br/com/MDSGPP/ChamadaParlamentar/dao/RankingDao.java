@@ -65,12 +65,12 @@ public class RankingDao extends ConnectionFactory {
 			Estatistica statistic = new Estatistica();
 			statistic.setNome(rs.getString("nomeParlamentar"));
 			if( rs.getString("porcentagem").equalsIgnoreCase("semDados") ) {
-				deleted.add(estatistica);
+				deleted.add(statistic);
 			} 
 			else {
 				statistic.setPorcentagem(rs.getString("porcentagem"));
 				statistic.setNumeroSessao(rs.getString("numeroSessoes"));
-				list.add(estatistica);
+				list.add(statistic);
 			}
 		}
 		

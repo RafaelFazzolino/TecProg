@@ -31,7 +31,7 @@ public final class DeputadosControl {
 		DeputadoDao deputy;
 		deputy = new DeputadoDao();
 
-		return deputado.getNomesDeputados();
+		return deputy.getNomesDeputados();
 	}
 	/**
 	 * This method is to check the deputy.
@@ -53,7 +53,7 @@ public final class DeputadosControl {
 					list.get(countingAux).getNomeDeTratamentoDoParlamentar()
 					.equalsIgnoreCase(nome) ) {
 
-				deputado = list.get(countingAux);
+				deputy = list.get(countingAux);
 			}
 		}
 

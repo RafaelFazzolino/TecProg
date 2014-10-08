@@ -52,7 +52,7 @@ public class DeputadoDao extends ConnectionFactory {
 			stmt.setString(NINE, deputys.get(i).getNumeroDoGabinete());
 			stmt.setString(TEN, deputys.get(i).getAnexo());
 			stmt.setString(ELEVEN, deputys.get(i).getTelefone());
-			stmt.setString(TwELVE, deputys.get(i).getEmail());
+			stmt.setString(TWELVE, deputys.get(i).getEmail());
 
 			stmt.execute();
 
@@ -69,7 +69,7 @@ public class DeputadoDao extends ConnectionFactory {
 	public ArrayList<String> getNomesDeputados() throws SQLException {
 		String sql = "Select * from deputado"; 
 
-		ArrayList<String> list= = new ArrayList<String>();
+		ArrayList<String> list = new ArrayList<String>();
 
 		PreparedStatement stmt= ConnectionFactory.getConexao().prepareStatement(sql);
 		ResultSet rs = stmt.executeQuery();
@@ -78,7 +78,7 @@ public class DeputadoDao extends ConnectionFactory {
 			String civilName = rs.getString("nomeCivil");
 			String tratamentName = rs.getString("nomeDeTratamento");
 			list.add(civilName);
-			list.add(tratamentName;
+			list.add(tratamentName);
 		}
 
 		rs.close();
@@ -116,7 +116,7 @@ public class DeputadoDao extends ConnectionFactory {
 		ResultSet rs = stmt.executeQuery();
 
 		while( rs.next() ) {
-			lista.add(rs.getInt("matricula"));
+			list.add(rs.getInt("matricula"));
 		}
 
 
@@ -154,7 +154,7 @@ public class DeputadoDao extends ConnectionFactory {
 			deputy.setTelefone(rs.getString("telefone"));
 			deputy.setEmail(rs.getString("email"));
 
-			listy.add(deputy);
+			list.add(deputy);
 		}
 
 		rs.close();
