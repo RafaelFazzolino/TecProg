@@ -29,7 +29,7 @@ public class AtualizarBanco {
 	public AtualizarBanco() {
 
 		timer = new Timer();
-		/*Executa tarefa todo dia as 6 da manha.*/
+		/*Executes the task every day 6am.*/
 		System.out.println("ENTROU INICIAR");
 		timer.schedule(new tarefasDiarias(), getAmanha6Am(), delayDiario);
 }
@@ -77,7 +77,8 @@ public class AtualizarBanco {
 				sessionsDao.adcionarDataNaTable(ConexaoComWsSessoesEReunioes.adcionarDataNaTable("20/11/2011", "440"));
 				sessionsDao.adcionarSessaoNaTable(ConexaoComWsSessoesEReunioes.adcionarSessaoNaTable("20/11/2011"));
 				RankingDao rankingDao = new RankingDao();
-				Ranking ranking =  RankingControl.gerarRanking
+				Ranking ranking;
+				ranking =  RankingControl.gerarRanking
 						(RankingControl.gerarListaEstatistica(new DeputadoDao().getDeputados()));
 		
 				rankingDao.adicionarRankingNaTable(ranking);

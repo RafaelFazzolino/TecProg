@@ -63,12 +63,12 @@ public class ConexaoComWsDeputados {
 	public static ObterDeputadosResponseObterDeputadosResult 
 	receberElementDeputados(DeputadosSoapStub service) {
 
-		/*conexao criada, agora chamaremos a classe do ws.*/
+		/*connection created, now call the class of ws.*/
 		try {
-			ObterDeputadosResponseObterDeputadosResult deputados =
-					service.obterDeputados();
+			ObterDeputadosResponseObterDeputadosResult deputies;
+			deputies = service.obterDeputados();
 
-			return deputados;
+			return deputies;
 
 		} catch (RemoteException e) {
 			e.printStackTrace();
@@ -105,7 +105,10 @@ public class ConexaoComWsDeputados {
 		NodeList fone = deputados.get_any()[0].getElementsByTagName("fone");
 		NodeList email = deputados.get_any()[0].getElementsByTagName("email");
 
-		for( int i = 0; i<nome.getLength(); i++ ) {
+		int sizeName;
+		sizeName = nome.getLength();
+		
+		for( int i = 0 ; i < sizeName ; i++ ) {
 			MessageElement nomeTratamentoTemp = (MessageElement) nomeTratamento.item(i);
 			MessageElement nomeTemp = (MessageElement) nome.item(i);
 			MessageElement idTemp = (MessageElement) id.item(i);
@@ -122,6 +125,7 @@ public class ConexaoComWsDeputados {
 			int idInt = Integer.parseInt(idTemp.getFirstChild().getNodeValue());
 			int matriculaInt = Integer.parseInt(matriculaTemp.getFirstChild().getNodeValue());
 			int idParlamentarInt = Integer.parseInt(idParlamentarTemp.getFirstChild().getNodeValue());
+			
 			String nomeText = nomeTemp.getFirstChild().getNodeValue();
 			String nomeTratamentoText = nomeTratamentoTemp.getFirstChild().getNodeValue();
 			String sexoText = sexoTemp.getFirstChild().getNodeValue();
@@ -131,21 +135,24 @@ public class ConexaoComWsDeputados {
 			String anexoText;
 			String foneText;
 
-			try {/* Esse try catch esta aqui por causa de um erro oriundo do webservice no qual
-				a tag nao vem completa para o devido tratamento.*/
+			try {/* This try catch this one because of an error coming from the webservice in which 
+				the tag is not complete due to the treatment.*/
+				
 				gabineteText = gabineteTemp.getFirstChild().getNodeValue();
 				anexoText = anexoTemp.getFirstChild().getNodeValue();
 				foneText = foneTemp.getFirstChild().getNodeValue();
-			} catch (NullPointerException e) {
+				
+				} catch (NullPointerException e) {
 				gabineteText = null;
 				anexoText = null;
 				foneText = null;
 
-			}
+				  }
 
 
 
-			String emailText = emailTemp.getFirstChild().getNodeValue();
+			String emailText;
+			emailText = emailTemp.getFirstChild().getNodeValue();
 
 			Deputados deputadoNovo = new Deputados(idParlamentarInt, matriculaInt, idInt,
 					nomeText, nomeTratamentoText, sexoText, ufText, partidoText, gabineteText,
@@ -166,17 +173,17 @@ public class ConexaoComWsDeputados {
 
 	public static ObterPartidosCDResponseObterPartidosCDResult 
 	receberElementPartido(DeputadosSoapStub service) {			
-		/*conexao criada, agora chamaremos a classe do ws.*/
+		/*Connection created, now call the class of ws.*/
 		try {
 			ObterPartidosCDResponseObterPartidosCDResult partidos =
 					service.obterPartidosCD();
 
 			return partidos;
 
-		} catch (RemoteException e) {
-			e.printStackTrace();
-			return null;
-		}	
+			} catch (RemoteException e) {
+			     e.printStackTrace();
+			     return null;
+			  }	
 	}
 	
 	/**
@@ -202,7 +209,10 @@ public class ConexaoComWsDeputados {
 		NodeList siglaPartido = partidos.get_any()[0].getElementsByTagName("siglaPartido");
 		NodeList dataExtincao = partidos.get_any()[0].getElementsByTagName("dataExtincao");
 
-		for( int i = 0; i<nomePartido.getLength(); i++ ) {
+		int sizeNameParty;
+		sizeNameParty = nomePartido.getLength();
+		
+		for( int i = 0 ; i < sizeNameParty ; i++ ) {
 			MessageElement nomePartidoTemp = (MessageElement) nomePartido.item(i);
 			MessageElement siglaPartidoTemp = (MessageElement) siglaPartido.item(i);
 			MessageElement dataExtincaoTemp = (MessageElement) dataExtincao.item(i);
@@ -210,8 +220,7 @@ public class ConexaoComWsDeputados {
 			String nomePartidoText = nomePartidoTemp.getFirstChild().getNodeValue();
 			String siglaPartidoText = siglaPartidoTemp.getFirstChild().getNodeValue();
 
-			/*esse try catch é para retirar os partidos que já nao
-			existem mais.*/
+			/*Try catch this is to pull the parties that have not exist.*/
 			try {
 				String dataExtincaoText = dataExtincaoTemp.getFirstChild().getNodeValue();
 			} catch(NullPointerException e) {
@@ -219,11 +228,11 @@ public class ConexaoComWsDeputados {
 				partidoAdicionar.setSigla(siglaPartidoText);
 				partidoAdicionar.setNomePartido(nomePartidoText);
 
-				/* Se essa expressao for falsa.*/
+				/* If this expression is false.*/
 				if( !nomePartidoText.equalsIgnoreCase("sem partido") ) {
 					lista.add(partidoAdicionar);
 				}
-			}
+			  }
 		}
 
 		return lista;
