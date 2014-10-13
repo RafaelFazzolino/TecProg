@@ -22,57 +22,57 @@ public class TesteEstatisticaPartido {
 	@Test
 	public void testGetPartido() {
 		Partidos partido = new Partidos();
-		estatisticaPartido.setPartido(partido);
-		assertTrue(estatisticaPartido.getPartido().equals(partido));
+		estatisticaPartido.setpoliticalParty(partido);
+		assertTrue(estatisticaPartido.getpoliticalParty().equals(partido));
 	}
 
 	@Test
 	public void testSetPartido() {
 		Partidos partido = new Partidos();
-		estatisticaPartido.setPartido(partido);
-		assertTrue(estatisticaPartido.getPartido().equals(partido));
+		estatisticaPartido.setpoliticalParty(partido);
+		assertTrue(estatisticaPartido.getpoliticalParty().equals(partido));
 	}
 
 	@Test
 	public void testGetQuantidadeDeSessoes() {
 		int testQuantidade = 9;
-		estatisticaPartido.setQuantidadeDeSessoes(testQuantidade);
-		assertTrue(estatisticaPartido.getQuantidadeDeSessoes() == testQuantidade);
+		estatisticaPartido.setnumberOfSessions(testQuantidade);
+		assertTrue(estatisticaPartido.getnumberOfSessions() == testQuantidade);
 	}
 
 	@Test
 	public void testSetQuantidadeDeSessoes() {
 		int testQuantidade = 9;
-		estatisticaPartido.setQuantidadeDeSessoes(testQuantidade);
-		assertTrue(estatisticaPartido.getQuantidadeDeSessoes() == testQuantidade);
+		estatisticaPartido.setnumberOfSessions(testQuantidade);
+		assertTrue(estatisticaPartido.getnumberOfSessions() == testQuantidade);
 		
 	}
 
 	@Test
 	public void testGetSessoesAssistidas() {
 		int testQuantidade = 1;
-		estatisticaPartido.setSessoesAssistidas(testQuantidade);
-		assertTrue(estatisticaPartido.getSessoesAssistidas() == testQuantidade);
+		estatisticaPartido.setassistedSessions(testQuantidade);
+		assertTrue(estatisticaPartido.getassistedSessions() == testQuantidade);
 	}
 
 	@Test
 	public void testSetSessoesAssistidas() {
-		estatisticaPartido.setSessoesAssistidas(9);
-		assertTrue(estatisticaPartido.getSessoesAssistidas() == 9);
+		estatisticaPartido.setassistedSessions(9);
+		assertTrue(estatisticaPartido.getassistedSessions() == 9);
 	}
 
 	@Test
 	public void testGetPorcentagem() {
 		String testString = "teste";
-		estatisticaPartido.setPorcentagem(testString);
-		assertTrue(estatisticaPartido.getPorcentagem().equalsIgnoreCase(testString));
+		estatisticaPartido.setpercentage(testString);
+		assertTrue(estatisticaPartido.getpercentage().equalsIgnoreCase(testString));
 	}
 
 	@Test
 	public void testSetPorcentagem() {
 		String testString = "teste";
-		estatisticaPartido.setPorcentagem(testString);
-		assertTrue(estatisticaPartido.getPorcentagem().equalsIgnoreCase(testString));
+		estatisticaPartido.setpercentage(testString);
+		assertTrue(estatisticaPartido.getpercentage().equalsIgnoreCase(testString));
 	}
 
 }

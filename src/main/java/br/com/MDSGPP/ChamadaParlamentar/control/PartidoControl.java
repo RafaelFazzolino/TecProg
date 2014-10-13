@@ -1,17 +1,9 @@
 package br.com.MDSGPP.ChamadaParlamentar.control;
 
-import java.awt.Color;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.renderer.category.BarRenderer3D;
-import org.jfree.data.category.CategoryDataset;
-import org.jfree.data.category.DefaultCategoryDataset;
-
-import br.com.MDSGPP.ChamadaParlamentar.dao.DeputyDao;
+import br.com.MDSGPP.ChamadaParlamentar.dao.DeputadoDao;
 import br.com.MDSGPP.ChamadaParlamentar.dao.PartidoDao;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputados;
@@ -67,7 +59,7 @@ public final class PartidoControl {
 
 		ArrayList<String> nomePartidoCerto = verificaExistencia(nomePartido);
 
-		ArrayList<Deputados> todosDeputados = new DeputyDao().getDeputados();
+		ArrayList<Deputados> todosDeputados = new DeputadoDao().getDeputados();
 		ArrayList<Deputados> deputadosDoPartido = new ArrayList<Deputados>();
 
 		if(nomePartidoCerto != null) {			

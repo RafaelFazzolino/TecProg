@@ -1,23 +1,10 @@
 package br.com.MDSGPP.ChamadaParlamentar.control;
 
-import java.awt.Color;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.labels.StandardPieSectionLabelGenerator;
-import org.jfree.chart.plot.PiePlot3D;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.renderer.category.BarRenderer3D;
-import org.jfree.data.category.CategoryDataset;
-import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.general.DefaultPieDataset;
-import org.jfree.data.general.PieDataset;
-
-import br.com.MDSGPP.ChamadaParlamentar.dao.DeputyDao;
+import br.com.MDSGPP.ChamadaParlamentar.dao.DeputadoDao;
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputados;
-import br.com.MDSGPP.ChamadaParlamentar.model.Estatistica;
 
 public final class DeputadosControl {
 	/**
@@ -28,8 +15,8 @@ public final class DeputadosControl {
 	 */
 	public static ArrayList<String> getDeputados() throws ClassNotFoundException, SQLException {
 
-		DeputyDao deputy;
-		deputy = new DeputyDao();
+		DeputadoDao deputy;
+		deputy = new DeputadoDao();
 
 		return deputy.getNomesDeputados();
 	}
@@ -44,7 +31,7 @@ public final class DeputadosControl {
 	public static Deputados verificaExistencia(String nome) throws ClassNotFoundException, SQLException {
 		Deputados deputy = null;
 
-		DeputyDao deputadoDao = new DeputyDao();			
+		DeputadoDao deputadoDao = new DeputadoDao();			
 		ArrayList<Deputados> list = deputadoDao.getDeputados();
 
 		for( int countingAux = 0; countingAux < list.size(); countingAux++ ) {

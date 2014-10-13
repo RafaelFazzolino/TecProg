@@ -102,7 +102,7 @@ public class TesteSessoesEReunioes {
 	
 	@Test
 	public void testSetDescricaoCompleta() {
-		sessoes.setDescricaoCompleta("teste");
+		sessoes.setFullDescription("teste");
 		
 		assertTrue(sessoes.getDescricaoCompleta().equalsIgnoreCase("teste"));
 	}
