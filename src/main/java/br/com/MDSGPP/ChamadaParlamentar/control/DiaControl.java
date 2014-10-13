@@ -28,7 +28,10 @@ public final class DiaControl {
 
 		ArrayList<Dia> listaInverter = new ArrayList<Dia>();
 
-		for(int i = 0; i<lista.size(); i++) {
+		int sizeList;
+		sizeList = lista.size();
+		
+		for(int i = 0; i < sizeList; i++) {
 			listaInverter.add(lista.get(lista.size()-1-i));
 		}
 
@@ -48,12 +51,15 @@ public final class DiaControl {
 			ArrayList<Dia> dia) {
 		ArrayList<Dia> listaPassar = new ArrayList<Dia>();
 
-		for(int i = 0; i< datasPorPagina; i++) {
+		for(int i = 0 ; i < datasPorPagina ; i++) {
 			if(pagina == 0) {
 				listaPassar.add(dia.get(i));
 			}
 			else {
-				if(i+(pagina*datasPorPagina) < dia.size()) {
+				int sizeDay;
+				sizeDay = dia.size();
+				
+				if(i+(pagina*datasPorPagina) < sizeDay) {
 					listaPassar.add(dia.get(i+ (pagina*datasPorPagina)));
 				}
 			}

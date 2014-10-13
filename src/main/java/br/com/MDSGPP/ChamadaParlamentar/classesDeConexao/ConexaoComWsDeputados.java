@@ -45,8 +45,8 @@ public class ConexaoComWsDeputados {
 			throws MalformedURLException, ServiceException, UnknownHostException {
 		URL url;
 		url = new URL("http://www.camara.gov.br/SitCamaraWS/Deputados.asmx");
-		DeputadosSoapStub service = (DeputadosSoapStub)
-				new DeputadosLocator().getDeputadosSoap(url);
+		DeputadosSoapStub service;
+		service = (DeputadosSoapStub) new DeputadosLocator().getDeputadosSoap(url);
 
 		return service;
 	}
@@ -154,7 +154,8 @@ public class ConexaoComWsDeputados {
 			String emailText;
 			emailText = emailTemp.getFirstChild().getNodeValue();
 
-			Deputados deputadoNovo = new Deputados(idParlamentarInt, matriculaInt, idInt,
+			Deputados deputadoNovo;
+			deputadoNovo = new Deputados(idParlamentarInt, matriculaInt, idInt,
 					nomeText, nomeTratamentoText, sexoText, ufText, partidoText, gabineteText,
 					anexoText, foneText, emailText);
 
@@ -175,8 +176,8 @@ public class ConexaoComWsDeputados {
 	receberElementPartido(DeputadosSoapStub service) {			
 		/*Connection created, now call the class of ws.*/
 		try {
-			ObterPartidosCDResponseObterPartidosCDResult partidos =
-					service.obterPartidosCD();
+			ObterPartidosCDResponseObterPartidosCDResult partidos;
+			partidos = service.obterPartidosCD();
 
 			return partidos;
 

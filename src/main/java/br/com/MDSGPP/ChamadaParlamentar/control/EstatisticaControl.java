@@ -42,7 +42,8 @@ public final class EstatisticaControl {
 		Estatistica estatistica = new Estatistica();
 		EstatisticaDao dao = new EstatisticaDao();	
 		SessoesEReunioesDao sessoes = new SessoesEReunioesDao();
-		int numeroTotalSessao = sessoes.passarNumeroDeSessoes();
+		int numeroTotalSessao;
+		numeroTotalSessao = sessoes.passarNumeroDeSessoes();
 
 		estatistica.setLista(dao.getEstatisticaDeputados(nome));
 
@@ -108,14 +109,18 @@ public final class EstatisticaControl {
 	public static Estatistica calcularEstatistica
 	(Estatistica estatistica, SessoesEReunioesDao sessoes, 
 			int numeroTotalSessao) throws ListaVaziaException {
-		if(estatistica.getLista().size() == 0)
+		
+		int sizeList;
+		sizeList = estatistica.getLista().size();
+		
+		if(sizeList == 0){
 			throw new ListaVaziaException();
-
-		estatistica.setNumeroSessao(Integer.toString(estatistica.getLista().size()));
+		}
+		estatistica.setNumeroSessao(Integer.toString(sizeList));
 
 		DecimalFormat df = new DecimalFormat("###.00");  
 		estatistica.setPorcentagem(df.format(
-				(((double)estatistica.getLista().size())/
+				(((double)sizeList)/
 						((double)numeroTotalSessao))*PASSAR_PORCENTAGEM) + "%");
 
 
@@ -132,9 +137,13 @@ public final class EstatisticaControl {
 	 */
 
 	public static String arrumarNomePesquisa(Deputados deputado) {
-		String montar = deputado.getNomeDeTratamentoDoParlamentar() +
+		String montar;
+		montar = deputado.getNomeDeTratamentoDoParlamentar() +
 				"-" + deputado.getPartido() + "/" + deputado.getUf();
-		return montar.toUpperCase();
+		String montarFinal;
+		montarFinal = montar.toUpperCase();
+		
+		return montarFinal;
 	}
 
 /**
@@ -155,15 +164,19 @@ public final class EstatisticaControl {
 	public static ArrayList<String> passarListaCerta(int pagina, int sessoesPorPagina, ArrayList<String> listaPassada ) {
 		ArrayList<String> listaPassar = new ArrayList<String>();
 		ArrayList<String> lista = ordenarLista(listaPassada);
-		if(lista.size() == 0) {
+		
+		int sizeList;
+		sizeList = lista.size();
+		
+		if(sizeList == 0) {
 			throw new IndexOutOfBoundsException();
 		}
-		for(int i = 0; i< sessoesPorPagina; i++) {
+		for(int i = 0 ; i < sessoesPorPagina ; i++) {
 			if(pagina == 0) {
 				listaPassar.add(lista.get(i));
 			}
 			else {
-				if(i+(pagina*sessoesPorPagina) < lista.size()) {
+				if(i+(pagina*sessoesPorPagina) < sizeList) {
 					listaPassar.add(lista.get(i+ (pagina*sessoesPorPagina)));
 				}
 			}
@@ -184,8 +197,11 @@ public final class EstatisticaControl {
 	public static ArrayList<String> ordenarLista(ArrayList<String> lista) {
 		ArrayList<String> ordenada = new ArrayList<String>();
 
-		for(int i = 0; i<lista.size(); i++) {
-			ordenada.add(lista.get(lista.size() -1 - i));
+		int sizeList;
+		sizeList = lista.size();
+		
+		for(int i = 0 ; i < sizeList ; i++) {
+			ordenada.add(lista.get(sizeList -1 - i));
 		}
 
 		return ordenada;

@@ -17,8 +17,11 @@ public final class DeputadosControl {
 
 		DeputadoDao deputy;
 		deputy = new DeputadoDao();
-
-		return deputy.getNomesDeputados();
+		
+		ArrayList<String> nameDeputy; /*Variable that will contains the name of all deputies.*/
+		nameDeputy = deputy.getNomesDeputados();
+		
+		return nameDeputy;
 	}
 	/**
 	 * This method is to check the deputy.
@@ -32,9 +35,14 @@ public final class DeputadosControl {
 		Deputados deputy = null;
 
 		DeputadoDao deputadoDao = new DeputadoDao();			
-		ArrayList<Deputados> list = deputadoDao.getDeputados();
+		ArrayList<Deputados> list;
+		list = deputadoDao.getDeputados();
 
-		for( int countingAux = 0; countingAux < list.size(); countingAux++ ) {
+		int sizeList;
+		sizeList = list.size();
+		
+		for( int countingAux = 0; countingAux < sizeList; countingAux++ ) {
+			
 			if(( list.get(countingAux).getNomeCivilDoParlamentar().
 					equalsIgnoreCase(nome)) ||
 					list.get(countingAux).getNomeDeTratamentoDoParlamentar()

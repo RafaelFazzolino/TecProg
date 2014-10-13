@@ -121,10 +121,12 @@ public class ConexaoComWsSessoesEReunioes {
 		
 		for( int i = 0; i<sizeList; i++ ) {
 			
-			double percentage = (((double)(i)/(double)lista.size())*100.0);
+			double percentage; /*Variable that will contains the percentage of assisted sessions.*/
+			percentage = (((double)(i)/(double)lista.size())*100.0);
 
 			System.out.println(i+"- " + percentage+"%");
-			Calendar today = new GregorianCalendar();
+			Calendar today; /*Variable that will contains the date of today.*/
+			today = new GregorianCalendar();
 
 			SimpleDateFormat df = new SimpleDateFormat();
 			df.applyPattern("dd/MM/yyyy");
@@ -135,7 +137,8 @@ public class ConexaoComWsSessoesEReunioes {
 						(ConexaoComWsSessoesEReunioes.obterConexao(),
 								data, df.format(today.getTime()), Integer.toString(lista.get(i)));
 
-				NodeList dias = sessao.get_any()[0].getElementsByTagName("dia");
+				NodeList dias;
+				dias = sessao.get_any()[0].getElementsByTagName("dia");
 
 				int sizeDays;
 				sizeDays = dias.getLength();
@@ -192,7 +195,8 @@ public class ConexaoComWsSessoesEReunioes {
 
 		ListarPresencasParlamentarResponseListarPresencasParlamentarResult sessao;
 
-		Calendar today = new GregorianCalendar();
+		Calendar today; /*Variable that will contains the date of today.*/
+		today = new GregorianCalendar();
 
 		SimpleDateFormat df = new SimpleDateFormat();
 		df.applyPattern("dd/MM/yyyy");
@@ -201,7 +205,8 @@ public class ConexaoComWsSessoesEReunioes {
 				(ConexaoComWsSessoesEReunioes.obterConexao(),
 						data, df.format(today.getTime()), matricula);
 
-		NodeList dias = sessao.get_any()[0].getElementsByTagName("dia");
+		NodeList dias;
+		dias = sessao.get_any()[0].getElementsByTagName("dia");
 
 		int sizeDays;
 		sizeDays = dias.getLength();
@@ -210,17 +215,21 @@ public class ConexaoComWsSessoesEReunioes {
 			
 			MessageElement diaTemp = (MessageElement) dias.item(i);
 
-			NodeList dataTemp = diaTemp.getElementsByTagName("data");
-			NodeList descricaoTemp = diaTemp.getElementsByTagName("descricao");
+			NodeList dataTemp;
+			dataTemp = diaTemp.getElementsByTagName("data");
+			NodeList descricaoTemp;
+			descricaoTemp = diaTemp.getElementsByTagName("descricao");
 
-			MessageElement dataText = (MessageElement) dataTemp.item(0);
+			MessageElement dataText;
+			dataText = (MessageElement) dataTemp.item(0);
 
 			int descriptionSize;
 			descriptionSize = descricaoTemp.getLength();
 			
 			for( int j = 0; j < descriptionSize; j++ ) {
 				
-				MessageElement descricaoText = (MessageElement) descricaoTemp.item(j);
+				MessageElement descricaoText;
+				descricaoText = (MessageElement) descricaoTemp.item(j);
 				System.out.println(dataText.getFirstChild().getNodeValue());
 				pass.add(dataText.getFirstChild().getNodeValue());
 				pass.add(descricaoText.getFirstChild().getNodeValue());
