@@ -25,11 +25,13 @@ public final class EstatisticaPartidoControl {
 			throws ClassNotFoundException, SQLException, ListaVaziaException {
 		EstatisticaPartido statistical = new EstatisticaPartido();
 		
-		Partidos partido = PartidoControl.passarPartidoComDadosCompletos(nome);
+		Partidos partido;
+		partido = PartidoControl.passarPartidoComDadosCompletos(nome);
 		statistical.setpoliticalParty(partido);
 		
 		int numberOfSessions = 0;
 		int numberOfSessionsAttended = 0;
+		
 		int sizeStatisticalParty;
 		sizeStatisticalParty = partido.getEstatisticaDosDeputados().size();
 		
@@ -47,6 +49,7 @@ public final class EstatisticaPartidoControl {
 		statistical.setpercentage(porcentagemAPassar);
 		statistical.setnumberOfSessions(numberOfSessions);
 		statistical.setassistedSessions(numberOfSessionsAttended);
+		
 		return statistical;	
 	}
 	
@@ -59,8 +62,13 @@ public final class EstatisticaPartidoControl {
 	 */
 	
 	public static String formatarNumeroDouble(double number) {
-		NumberFormat formatardouble= new DecimalFormat("0.00");    
+		NumberFormat formatardouble;
+		formatardouble = new DecimalFormat("0.00");    
 		
-		return formatardouble.format(number);
+		String formatardoubleReturn;
+		
+		formatardoubleReturn = formatardouble.format(number);
+		
+		return formatardoubleReturn;
 	}
 }

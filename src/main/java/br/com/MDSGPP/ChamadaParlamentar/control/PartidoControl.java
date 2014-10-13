@@ -20,8 +20,10 @@ public final class PartidoControl {
 	 */
 	public static ArrayList<ArrayList<String>> passarListaPartidos() 
 			throws ClassNotFoundException, SQLException {
-		ArrayList<ArrayList<String>> lista = new PartidoDao().pegarPartidos();	
-		return lista;
+		ArrayList<ArrayList<String>> list;
+		list = new PartidoDao().pegarPartidos();	
+		
+		return list;
 	}
 	/**
 	 * This method is to check the party.
@@ -35,9 +37,14 @@ public final class PartidoControl {
 
 		ArrayList<ArrayList<String>> listaComDados = passarListaPartidos();
 
-		for(int i = 0; i < listaComDados.size(); i++) {
+		int sizeListWithData;
+		sizeListWithData = listaComDados.size();
+		
+		for(int i = 0 ; i < sizeListWithData ; i++) {
+			
 			if(listaComDados.get(i).get(0).equalsIgnoreCase(partido)
 					||listaComDados.get(i).get(1).equalsIgnoreCase(partido)) {
+				
 				return listaComDados.get(i);
 			}
 		}
@@ -59,14 +66,19 @@ public final class PartidoControl {
 
 		ArrayList<String> nomePartidoCerto = verificaExistencia(nomePartido);
 
-		ArrayList<Deputados> todosDeputados = new DeputadoDao().getDeputados();
+		ArrayList<Deputados> allDeputies;
+		allDeputies = new DeputadoDao().getDeputados();
 		ArrayList<Deputados> deputadosDoPartido = new ArrayList<Deputados>();
 
 		if(nomePartidoCerto != null) {			
-			for(int i = 0; i < todosDeputados.size(); i++) {
+			
+			int sizeAllDeputies;
+			sizeAllDeputies = allDeputies.size();
+			
+			for(int i = 0 ; i < sizeAllDeputies ; i++) {
 				if(nomePartidoCerto.get(0).equalsIgnoreCase(
-						todosDeputados.get(i).getPartido())) {
-					deputadosDoPartido.add(todosDeputados.get(i));
+						allDeputies.get(i).getPartido())) {
+					deputadosDoPartido.add(allDeputies.get(i));
 				}
 			}
 
@@ -94,8 +106,11 @@ public final class PartidoControl {
 
 		ArrayList<Estatistica> estatisticas = new ArrayList<Estatistica>();
 
+		int sizeDeputiesOfParty;
+		sizeDeputiesOfParty = partido.getDeputadosDoPartido().size();
+		
 		try {
-			for(int i = 0; i < partido.getDeputadosDoPartido().size(); i++) {
+			for(int i = 0 ; i < sizeDeputiesOfParty ; i++) {
 				Estatistica estatistica = new Estatistica();
 				try {
 					estatistica = EstatisticaControl.gerarEstatisticas(
@@ -129,8 +144,8 @@ public final class PartidoControl {
 		partido = gerarEstatisticaDoPartido(nome);
 
 
-		ArrayList<ArrayList<Estatistica>> listaRecebida = LimparLista.
-				limparLista(partido.getEstatisticaDosDeputados());
+		ArrayList<ArrayList<Estatistica>> listaRecebida;
+		listaRecebida = LimparLista.limparLista(partido.getEstatisticaDosDeputados());
 
 		partido.setEstatisticaDosDeputados(listaRecebida.get(0));
 		partido.setDeputadosSemDados(listaRecebida.get(1));
