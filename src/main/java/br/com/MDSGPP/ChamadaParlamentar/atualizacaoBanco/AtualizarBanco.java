@@ -13,7 +13,7 @@ import javax.xml.rpc.ServiceException;
 import br.com.MDSGPP.ChamadaParlamentar.classesDeConexao.ConexaoComWsSessoesEReunioes;
 import br.com.MDSGPP.ChamadaParlamentar.control.RankingControl;
 import br.com.MDSGPP.ChamadaParlamentar.dao.Dao;
-import br.com.MDSGPP.ChamadaParlamentar.dao.DeputadoDao;
+import br.com.MDSGPP.ChamadaParlamentar.dao.DeputyDao;
 import br.com.MDSGPP.ChamadaParlamentar.dao.RankingDao;
 import br.com.MDSGPP.ChamadaParlamentar.dao.SessoesEReunioesDao;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaRankingException;
@@ -79,7 +79,7 @@ public class AtualizarBanco {
 				RankingDao rankingDao = new RankingDao();
 				Ranking ranking;
 				ranking =  RankingControl.gerarRanking
-						(RankingControl.gerarListaEstatistica(new DeputadoDao().getDeputados()));
+						(RankingControl.gerarListaEstatistica(new DeputyDao().getDeputados()));
 		
 				rankingDao.adicionarRankingNaTable(ranking);
 			} catch (SQLException e) {

@@ -15,7 +15,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.general.PieDataset;
 
-import br.com.MDSGPP.ChamadaParlamentar.dao.DeputadoDao;
+import br.com.MDSGPP.ChamadaParlamentar.dao.DeputyDao;
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputados;
 import br.com.MDSGPP.ChamadaParlamentar.model.Estatistica;
 
@@ -28,8 +28,8 @@ public final class DeputadosControl {
 	 */
 	public static ArrayList<String> getDeputados() throws ClassNotFoundException, SQLException {
 
-		DeputadoDao deputy;
-		deputy = new DeputadoDao();
+		DeputyDao deputy;
+		deputy = new DeputyDao();
 
 		return deputy.getNomesDeputados();
 	}
@@ -44,7 +44,7 @@ public final class DeputadosControl {
 	public static Deputados verificaExistencia(String nome) throws ClassNotFoundException, SQLException {
 		Deputados deputy = null;
 
-		DeputadoDao deputadoDao = new DeputadoDao();			
+		DeputyDao deputadoDao = new DeputyDao();			
 		ArrayList<Deputados> list = deputadoDao.getDeputados();
 
 		for( int countingAux = 0; countingAux < list.size(); countingAux++ ) {
