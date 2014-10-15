@@ -43,9 +43,9 @@ public class ConexaoComWsDeputados {
 
 	public static DeputadosSoapStub obterConexao()
 			throws MalformedURLException, ServiceException, UnknownHostException {
-		URL url;
+		URL url;/*Variable used to receive the site of the webservice.*/
 		url = new URL("http://www.camara.gov.br/SitCamaraWS/Deputados.asmx");
-		DeputadosSoapStub service;
+		DeputadosSoapStub service;/*create the connection of deputies.*/
 		service = (DeputadosSoapStub) new DeputadosLocator().getDeputadosSoap(url);
 
 		return service;
@@ -87,50 +87,113 @@ public class ConexaoComWsDeputados {
 
 	public static ArrayList<Deputados> criaLista() throws MalformedURLException,
 	UnknownHostException, ServiceException {
-		ArrayList<Deputados> lista = new ArrayList<Deputados>();
+		ArrayList<Deputados> lista;/*Receive a list of deputies.*/
+		lista = new ArrayList<Deputados>();
 		ObterDeputadosResponseObterDeputadosResult deputados;
 
 		deputados = ConexaoComWsDeputados.receberElementDeputados
 				(ConexaoComWsDeputados.obterConexao());			
-		NodeList nome = deputados.get_any()[0].getElementsByTagName("nome");
-		NodeList nomeTratamento = deputados.get_any()[0].getElementsByTagName("nomeParlamentar");
-		NodeList id = deputados.get_any()[0].getElementsByTagName("ideCadastro");
-		NodeList matricula = deputados.get_any()[0].getElementsByTagName("matricula");
-		NodeList idParlamentar = deputados.get_any()[0].getElementsByTagName("idParlamentar");
-		NodeList sexo = deputados.get_any()[0].getElementsByTagName("sexo");
-		NodeList uf = deputados.get_any()[0].getElementsByTagName("uf");
-		NodeList partido = deputados.get_any()[0].getElementsByTagName("partido");
-		NodeList gabinete = deputados.get_any()[0].getElementsByTagName("gabinete");
-		NodeList anexo = deputados.get_any()[0].getElementsByTagName("anexo");
-		NodeList fone = deputados.get_any()[0].getElementsByTagName("fone");
-		NodeList email = deputados.get_any()[0].getElementsByTagName("email");
+		NodeList nome;/*Receives the attribute name of the Member.*/
+		nome = deputados.get_any()[0].getElementsByTagName("nome");
+		
+		NodeList nomeTratamento;/*Is called the treatment of a deputy.*/
+		nomeTratamento = deputados.get_any()[0].getElementsByTagName("nomeParlamentar");
+		
+		NodeList id;/*Receives the identification number of deputy.*/
+		id = deputados.get_any()[0].getElementsByTagName("ideCadastro");
+		
+		NodeList matricula;/*Receives tuition from deputy.*/
+		matricula = deputados.get_any()[0].getElementsByTagName("matricula");
+		
+		NodeList idParlamentar;/*Receives the identification number of parliamentary deputy.*/
+		idParlamentar = deputados.get_any()[0].getElementsByTagName("idParlamentar");
+		
+		NodeList sexo;/*Receive sex of deputy.*/
+		sexo = deputados.get_any()[0].getElementsByTagName("sexo");
+		
+		NodeList uf;/*Receives the acronym of the federative Unit that Deputy.*/
+		uf = deputados.get_any()[0].getElementsByTagName("uf");
+		
+		NodeList partido;/*Receives the political party of the deputy.*/
+		partido = deputados.get_any()[0].getElementsByTagName("partido");
+		
+		NodeList gabinete;/*Receives the current cabinet of deputy.*/
+		gabinete = deputados.get_any()[0].getElementsByTagName("gabinete");
+		
+		NodeList anexo;/*Receive the attachment from deputy.*/
+		anexo = deputados.get_any()[0].getElementsByTagName("anexo");
+		
+		NodeList fone;/*Receive the phone from deputy.*/
+		fone = deputados.get_any()[0].getElementsByTagName("fone");
+		
+		NodeList email;/*Receive the e-mail from deputy.*/
+		email = deputados.get_any()[0].getElementsByTagName("email");
 
-		int sizeName;
+		int sizeName; /*Receive the size of the name.*/
 		sizeName = nome.getLength();
 		
 		for( int i = 0 ; i < sizeName ; i++ ) {
-			MessageElement nomeTratamentoTemp = (MessageElement) nomeTratamento.item(i);
-			MessageElement nomeTemp = (MessageElement) nome.item(i);
-			MessageElement idTemp = (MessageElement) id.item(i);
-			MessageElement matriculaTemp = (MessageElement) matricula.item(i);
-			MessageElement idParlamentarTemp = (MessageElement) idParlamentar.item(i);
-			MessageElement sexoTemp = (MessageElement) sexo.item(i);
-			MessageElement ufTemp = (MessageElement) uf.item(i);
-			MessageElement partidoTemp = (MessageElement) partido.item(i);
-			MessageElement gabineteTemp = (MessageElement) gabinete.item(i);
-			MessageElement anexoTemp = (MessageElement) anexo.item(i);
-			MessageElement foneTemp = (MessageElement) fone.item(i);
-			MessageElement emailTemp = (MessageElement) email.item(i);
-
-			int idInt = Integer.parseInt(idTemp.getFirstChild().getNodeValue());
-			int matriculaInt = Integer.parseInt(matriculaTemp.getFirstChild().getNodeValue());
-			int idParlamentarInt = Integer.parseInt(idParlamentarTemp.getFirstChild().getNodeValue());
 			
-			String nomeText = nomeTemp.getFirstChild().getNodeValue();
-			String nomeTratamentoText = nomeTratamentoTemp.getFirstChild().getNodeValue();
-			String sexoText = sexoTemp.getFirstChild().getNodeValue();
-			String ufText = ufTemp.getFirstChild().getNodeValue();
-			String partidoText = partidoTemp.getFirstChild().getNodeValue();
+			MessageElement nomeTratamentoTemp;/*Temporary message variable to the name of treatment.*/
+			nomeTratamentoTemp = (MessageElement) nomeTratamento.item(i);
+			
+			MessageElement nomeTemp;/*Temporary variable for message name on.*/
+			nomeTemp = (MessageElement) nome.item(i);
+			
+			MessageElement idTemp;/*Temporary variable for message id on.*/
+			idTemp= (MessageElement) id.item(i);
+			
+			MessageElement matriculaTemp;/*Temporary variable for enrollment message.*/
+			matriculaTemp = (MessageElement) matricula.item(i);
+			
+			MessageElement idParlamentarTemp;/*Temporary variable for message about the identity of the Parliamentary.*/
+			idParlamentarTemp = (MessageElement) idParlamentar.item(i);
+			
+			MessageElement sexoTemp;/*Temporary variable for message about sex.*/
+			sexoTemp = (MessageElement) sexo.item(i);
+			
+			MessageElement ufTemp;/*Variable for temporary federal facility.*/
+			ufTemp = (MessageElement) uf.item(i);
+			
+			MessageElement partidoTemp;/*Temporary variable message to Political Party.*/
+			partidoTemp = (MessageElement) partido.item(i);
+			
+			MessageElement gabineteTemp;/*Temporary variable message to the office of the Deputy.*/
+			gabineteTemp = (MessageElement) gabinete.item(i);
+			
+			MessageElement anexoTemp;/*Temporary variable message to the annex.*/
+			anexoTemp = (MessageElement) anexo.item(i);
+			
+			MessageElement foneTemp;/*Temporary variable message to the phone.*/
+			foneTemp = (MessageElement) fone.item(i);
+			
+			MessageElement emailTemp;/*Temporary variable message to the e-mail.*/
+			emailTemp = (MessageElement) email.item(i);
+
+			int idInt;/*Variable to received the integer value of id.*/
+			idInt = Integer.parseInt(idTemp.getFirstChild().getNodeValue());
+			
+			int matriculaInt;/*Variable to received the integer value of enrollment.*/
+			matriculaInt = Integer.parseInt(matriculaTemp.getFirstChild().getNodeValue());
+			
+			int idParlamentarInt;/*Variable to received the integer value of identification of Deputy.*/
+			idParlamentarInt = Integer.parseInt(idParlamentarTemp.getFirstChild().getNodeValue());
+			
+			String nomeText;/*variable to received the text of the name.*/
+			nomeText = nomeTemp.getFirstChild().getNodeValue();
+			
+			String nomeTratamentoText;/*Variable to received the text of treatment name.*/
+			nomeTratamentoText = nomeTratamentoTemp.getFirstChild().getNodeValue();
+			
+			String sexoText;/*Variable to received the text of the sex.*/
+			sexoText = sexoTemp.getFirstChild().getNodeValue();
+			
+			String ufText;/*Variable to received the text of the UF.*/
+			ufText = ufTemp.getFirstChild().getNodeValue();
+			
+			String partidoText;/*Variable to received the text of the political party.*/
+			partidoText = partidoTemp.getFirstChild().getNodeValue();
+			
 			String gabineteText;
 			String anexoText;
 			String foneText;
@@ -151,10 +214,10 @@ public class ConexaoComWsDeputados {
 
 
 
-			String emailText;
+			String emailText;/*Variable to received the text of the e-mail.*/
 			emailText = emailTemp.getFirstChild().getNodeValue();
 
-			Deputados deputadoNovo;
+			Deputados deputadoNovo;/*Variable to received the new deputy.*/
 			deputadoNovo = new Deputados(idParlamentarInt, matriculaInt, idInt,
 					nomeText, nomeTratamentoText, sexoText, ufText, partidoText, gabineteText,
 					anexoText, foneText, emailText);
@@ -176,7 +239,7 @@ public class ConexaoComWsDeputados {
 	receberElementPartido(DeputadosSoapStub service) {			
 		/*Connection created, now call the class of ws.*/
 		try {
-			ObterPartidosCDResponseObterPartidosCDResult partidos;
+			ObterPartidosCDResponseObterPartidosCDResult partidos;/*Variable to received the political parties.*/
 			partidos = service.obterPartidosCD();
 
 			return partidos;
@@ -206,20 +269,32 @@ public class ConexaoComWsDeputados {
 
 		partidos = receberElementPartido(obterConexao());
 
-		NodeList nomePartido = partidos.get_any()[0].getElementsByTagName("nomePartido");
-		NodeList siglaPartido = partidos.get_any()[0].getElementsByTagName("siglaPartido");
-		NodeList dataExtincao = partidos.get_any()[0].getElementsByTagName("dataExtincao");
+		NodeList nomePartido;/*Variable to received the name of the political party.*/
+		nomePartido = partidos.get_any()[0].getElementsByTagName("nomePartido");
+		
+		NodeList siglaPartido;/*Variable that receives the symbol of the party.*/
+		siglaPartido = partidos.get_any()[0].getElementsByTagName("siglaPartido");
+		
+		NodeList dataExtincao;/*Variable that receives the termination date of the party.*/
+		dataExtincao = partidos.get_any()[0].getElementsByTagName("dataExtincao");
 
-		int sizeNameParty;
+		int sizeNameParty;/*Variable that receives the size of name from political party.*/
 		sizeNameParty = nomePartido.getLength();
 		
 		for( int i = 0 ; i < sizeNameParty ; i++ ) {
-			MessageElement nomePartidoTemp = (MessageElement) nomePartido.item(i);
-			MessageElement siglaPartidoTemp = (MessageElement) siglaPartido.item(i);
-			MessageElement dataExtincaoTemp = (MessageElement) dataExtincao.item(i);
+			MessageElement nomePartidoTemp;
+			nomePartidoTemp = (MessageElement) nomePartido.item(i);
+			
+			MessageElement siglaPartidoTemp;
+			siglaPartidoTemp = (MessageElement) siglaPartido.item(i);
+			
+			MessageElement dataExtincaoTemp;
+			dataExtincaoTemp = (MessageElement) dataExtincao.item(i);
 
-			String nomePartidoText = nomePartidoTemp.getFirstChild().getNodeValue();
-			String siglaPartidoText = siglaPartidoTemp.getFirstChild().getNodeValue();
+			String nomePartidoText;
+			nomePartidoText = nomePartidoTemp.getFirstChild().getNodeValue();
+			String siglaPartidoText;
+			siglaPartidoText = siglaPartidoTemp.getFirstChild().getNodeValue();
 
 			/*Try catch this is to pull the parties that have not exist.*/
 			try {
