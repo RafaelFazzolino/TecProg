@@ -21,18 +21,20 @@ public final class DiaControl {
 	 */
 	public static ArrayList<Dia> getDias() 
 			throws ClassNotFoundException, SQLException, DataFormatoErradoException {
-		ArrayList<Dia> lista;
-		DiaDao diaDao = new DiaDao();
+		ArrayList<Dia> list;/*Variable that contains the days.*/
+		DiaDao diaDao;/*Variable that create the connection with dataBase to get days.*/
+		diaDao = new DiaDao();
 
-		lista = diaDao.buscarTodasDescricoes();
+		list = diaDao.buscarTodasDescricoes();
 
-		ArrayList<Dia> listaInverter = new ArrayList<Dia>();
+		ArrayList<Dia> listaInverter;/*Variable that contains the list of the days.*/
+		listaInverter = new ArrayList<Dia>();
 
-		int sizeList;
-		sizeList = lista.size();
+		int sizeList;/*Variable that contains the size of the list.*/
+		sizeList = list.size();
 		
 		for(int i = 0; i < sizeList; i++) {
-			listaInverter.add(lista.get(lista.size()-1-i));
+			listaInverter.add(list.get(sizeList-1-i));
 		}
 
 		return listaInverter;
@@ -42,21 +44,22 @@ public final class DiaControl {
 	 * This method creates a list based on the days and dates per pages
 	 * and returns a list.
 	 * @param pagina is the number of pages.
-	 * @param datasPorPagina
+	 * @param datasPorPagina is a variable that contains the number of dates for page.
 	 * @param dia is the day that is being analyzed.
 	 * @return listaPassar is the arrayList contains all days.
 	 */
 	
 	public static ArrayList<Dia> getListaCerta(int pagina, int datasPorPagina,
 			ArrayList<Dia> dia) {
-		ArrayList<Dia> listaPassar = new ArrayList<Dia>();
+		ArrayList<Dia> listaPassar;/*Variable that contains all days.*/
+		listaPassar = new ArrayList<Dia>();
 
 		for(int i = 0 ; i < datasPorPagina ; i++) {
 			if(pagina == 0) {
 				listaPassar.add(dia.get(i));
 			}
 			else {
-				int sizeDay;
+				int sizeDay;/*Variable that contains the size of the Day.*/
 				sizeDay = dia.size();
 				
 				if(i+(pagina*datasPorPagina) < sizeDay) {
@@ -80,11 +83,15 @@ public final class DiaControl {
 			throws ClassNotFoundException, SQLException, 
 			DataFormatoErradoException, ListaVaziaException{
 		
-		Dia dia = null;
+		Dia dia;/*Variable that contains the day.*/
+		dia = null;
 		dia = new SessoesEReunioesDao().procuraDia(data);
 		dia.setData(data);
 		
-		if(dia.getListaSessoes().size() == 0){
+		int sizeListOfSessions;/*Variable that contains the size of the list of sessions.*/
+		sizeListOfSessions = dia.getListaSessoes().size();
+		
+		if(sizeListOfSessions == 0){
 			throw new ListaVaziaException();
 		}
 

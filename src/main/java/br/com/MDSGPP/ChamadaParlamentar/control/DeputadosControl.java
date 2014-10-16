@@ -15,7 +15,7 @@ public final class DeputadosControl {
 	 */
 	public static ArrayList<String> getDeputados() throws ClassNotFoundException, SQLException {
 
-		DeputadoDao deputy;
+		DeputadoDao deputy;/*Variable that contains the deputies.*/
 		deputy = new DeputadoDao();
 		
 		ArrayList<String> nameDeputy; /*Variable that will contains the name of all deputies.*/
@@ -32,16 +32,18 @@ public final class DeputadosControl {
 	 */
 	 
 	public static Deputados verificaExistencia(String nome) throws ClassNotFoundException, SQLException {
-		Deputados deputy = null;
+		Deputados deputy;/*Variable that contains the deputies.*/
+		deputy = null;
 
-		DeputadoDao deputadoDao = new DeputadoDao();			
-		ArrayList<Deputados> list;
+		DeputadoDao deputadoDao;/*Variable that create connection with dataBase to get deputies.*/
+		deputadoDao = new DeputadoDao();			
+		ArrayList<Deputados> list;/*Variable that contains all deputies.*/
 		list = deputadoDao.getDeputados();
 
-		int sizeList;
+		int sizeList;/*Variable that contains the size of the list.*/
 		sizeList = list.size();
 		
-		for( int countingAux = 0; countingAux < sizeList; countingAux++ ) {
+		for( int countingAux = 0 ; countingAux < sizeList ; countingAux++ ) {
 			
 			if(( list.get(countingAux).getNomeCivilDoParlamentar().
 					equalsIgnoreCase(nome)) ||
