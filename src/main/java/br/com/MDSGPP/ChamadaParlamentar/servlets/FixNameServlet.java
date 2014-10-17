@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ArrumarNomeServlet extends HttpServlet {
+public class FixNameServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -19,6 +19,9 @@ public class ArrumarNomeServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = null;
 		
+		/**
+		 * This variable received name Deputy and fix possible wrong
+		 * */
 		String name = request.getParameter("nome");
 		name = name.split("-")[0];
 		
