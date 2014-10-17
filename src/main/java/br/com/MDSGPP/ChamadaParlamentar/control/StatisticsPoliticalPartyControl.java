@@ -27,7 +27,7 @@ public final class StatisticsPoliticalPartyControl {
 		statistical = new EstatisticaPartido();
 		
 		Partidos partido;/*Variable that contains the political party.*/
-		partido = PartidoControl.passarPartidoComDadosCompletos(nome);
+		partido = PoliticalPartyControl.passarPartidoComDadosCompletos(nome);
 		statistical.setpoliticalParty(partido);
 		
 		int numberOfSessions = 0;/*Variable that contains the number of sessions.*/

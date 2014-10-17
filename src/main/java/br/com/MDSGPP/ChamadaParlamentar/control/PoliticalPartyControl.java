@@ -11,7 +11,7 @@ import br.com.MDSGPP.ChamadaParlamentar.model.Estatistica;
 import br.com.MDSGPP.ChamadaParlamentar.model.Partidos;
 import br.com.MDSGPP.ChamadaParlamentar.util.LimparLista;
 
-public final class PartidoControl {
+public final class PoliticalPartyControl {
 	/**
 	 * This method is to pass the list contains all parties.
 	 * @return lista contains all parties.
@@ -20,7 +20,7 @@ public final class PartidoControl {
 	 */
 	public static ArrayList<ArrayList<String>> passarListaPartidos() 
 			throws ClassNotFoundException, SQLException {
-		ArrayList<ArrayList<String>> list;
+		ArrayList<ArrayList<String>> list;/*ArrayList that contains all political parties.*/
 		list = new PartidoDao().pegarPartidos();	
 		
 		return list;
@@ -35,9 +35,10 @@ public final class PartidoControl {
 	public static ArrayList<String> verificaExistencia(String partido)
 			throws ClassNotFoundException, SQLException {
 
-		ArrayList<ArrayList<String>> listaComDados = passarListaPartidos();
+		ArrayList<ArrayList<String>> listaComDados;/*Variable that contains all data of the parties.*/
+		listaComDados = passarListaPartidos();
 
-		int sizeListWithData;
+		int sizeListWithData;/*Variable that contains the size of the list.*/
 		sizeListWithData = listaComDados.size();
 		
 		for(int i = 0 ; i < sizeListWithData ; i++) {
@@ -61,18 +62,22 @@ public final class PartidoControl {
 	 
 	public static Partidos passarPartido(String nomePartido) 
 			throws ClassNotFoundException, SQLException {
-		Partidos partido = new Partidos();
+		Partidos partido;/*Variable that contains all features of the party.*/
+		partido = new Partidos();
 		partido.setDeputadosDoPartido(null);
 
-		ArrayList<String> nomePartidoCerto = verificaExistencia(nomePartido);
+		ArrayList<String> nomePartidoCerto;/*Variable that contains the right political party.*/
+		nomePartidoCerto = verificaExistencia(nomePartido);
 
-		ArrayList<Deputados> allDeputies;
+		ArrayList<Deputados> allDeputies;/*Array that contains all deputies.*/
 		allDeputies = new DeputadoDao().getDeputados();
-		ArrayList<Deputados> deputadosDoPartido = new ArrayList<Deputados>();
+		
+		ArrayList<Deputados> deputadosDoPartido;/*ArrayList that contains all deputies of the party.*/
+		deputadosDoPartido = new ArrayList<Deputados>();
 
 		if(nomePartidoCerto != null) {			
 			
-			int sizeAllDeputies;
+			int sizeAllDeputies;/*Variable that contains the size of the list with all deputies.*/
 			sizeAllDeputies = allDeputies.size();
 			
 			for(int i = 0 ; i < sizeAllDeputies ; i++) {
@@ -104,14 +109,16 @@ public final class PartidoControl {
 			throws ClassNotFoundException, SQLException, ListaVaziaException {
 		Partidos partido = passarPartido(nome);
 
-		ArrayList<Estatistica> estatisticas = new ArrayList<Estatistica>();
+		ArrayList<Estatistica> estatisticas;/*Variable that contains the statistics.*/
+		estatisticas = new ArrayList<Estatistica>();
 
-		int sizeDeputiesOfParty;
+		int sizeDeputiesOfParty;/*Variable that contains the size of list with all deputies of the party.*/
 		sizeDeputiesOfParty = partido.getDeputadosDoPartido().size();
 		
 		try {
 			for(int i = 0 ; i < sizeDeputiesOfParty ; i++) {
-				Estatistica estatistica = new Estatistica();
+				Estatistica estatistica;/*Variable that contains all features of statistics.*/
+				estatistica = new Estatistica();
 				try {
 					estatistica = EstatisticaControl.gerarEstatisticas(
 							EstatisticaControl.arrumarNomePesquisa(partido.getDeputadosDoPartido().get(i)));
@@ -140,11 +147,11 @@ public final class PartidoControl {
 	public static Partidos passarPartidoComDadosCompletos(String nome) 
 			throws ClassNotFoundException, SQLException, ListaVaziaException {
 
-		Partidos partido;
+		Partidos partido;/*Variable that contains all features of the political party.*/
 		partido = gerarEstatisticaDoPartido(nome);
 
 
-		ArrayList<ArrayList<Estatistica>> listaRecebida;
+		ArrayList<ArrayList<Estatistica>> listaRecebida;/*Variable that contains the received list.*/
 		listaRecebida = LimparLista.limparLista(partido.getEstatisticaDosDeputados());
 
 		partido.setEstatisticaDosDeputados(listaRecebida.get(0));

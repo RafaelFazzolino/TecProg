@@ -9,7 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.MDSGPP.ChamadaParlamentar.control.PartidoControl;
+import br.com.MDSGPP.ChamadaParlamentar.control.PoliticalPartyControl;
 
 public class PartidoAutoCompleteServlet extends javax.servlet.http.HttpServlet {
 
@@ -22,7 +22,7 @@ public class PartidoAutoCompleteServlet extends javax.servlet.http.HttpServlet {
 		RequestDispatcher rd = null;
 		
 		try {
-			ArrayList<ArrayList<String>> listaAutoComplete = PartidoControl.passarListaPartidos();
+			ArrayList<ArrayList<String>> listaAutoComplete = PoliticalPartyControl.passarListaPartidos();
 			
 			request.setAttribute("lista", listaAutoComplete);
 			

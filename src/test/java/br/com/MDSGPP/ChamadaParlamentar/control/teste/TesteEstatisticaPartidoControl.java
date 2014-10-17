@@ -8,16 +8,17 @@ import java.sql.SQLException;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.MDSGPP.ChamadaParlamentar.control.EstatisticaPartidoControl;
+import br.com.MDSGPP.ChamadaParlamentar.control.PoliticalPartyControl;
+import br.com.MDSGPP.ChamadaParlamentar.control.StatisticsPoliticalPartyControl;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
 import br.com.MDSGPP.ChamadaParlamentar.model.EstatisticaPartido;
 
 public class TesteEstatisticaPartidoControl {
-	EstatisticaPartidoControl estatistica;
+	PoliticalPartyControl estatistica;
 	
 	@Before
 	public void setUp() {
-		estatistica = new EstatisticaPartidoControl();
+		estatistica = new PoliticalPartyControl();
 	}
 	
 	@Test
@@ -31,7 +32,7 @@ public class TesteEstatisticaPartidoControl {
 		String nomePassar = "PT";
 		
 		EstatisticaPartido estatistica = 
-				EstatisticaPartidoControl.gerarEstatisticaPartido(nomePassar);
+				StatisticsPoliticalPartyControl.gerarEstatisticaPartido(nomePassar);
 		
 		assertNotNull(estatistica);
 	}
@@ -40,7 +41,7 @@ public class TesteEstatisticaPartidoControl {
 	public void testGerarEstatisticaPartidoListaVazia() 
 			throws ClassNotFoundException, SQLException, ListaVaziaException {
 		String nomePassar = "nao deve passar";
-		EstatisticaPartido estatistica = EstatisticaPartidoControl.gerarEstatisticaPartido(nomePassar);
+		EstatisticaPartido estatistica = StatisticsPoliticalPartyControl.gerarEstatisticaPartido(nomePassar);
 	}
 
 	@Test
@@ -48,8 +49,8 @@ public class TesteEstatisticaPartidoControl {
 		double numero = 12.1335413;
 		double numero2 = 12.148090;
 		
-		String numeroPassado = EstatisticaPartidoControl.formatarNumeroDouble(numero);
-		String numeroPassado2 = EstatisticaPartidoControl.formatarNumeroDouble(numero2);
+		String numeroPassado = StatisticsPoliticalPartyControl.formatarNumeroDouble(numero);
+		String numeroPassado2 = StatisticsPoliticalPartyControl.formatarNumeroDouble(numero2);
 
 		assertTrue(numeroPassado.equalsIgnoreCase("12.13") || numeroPassado.equalsIgnoreCase("12,13"));
 		
