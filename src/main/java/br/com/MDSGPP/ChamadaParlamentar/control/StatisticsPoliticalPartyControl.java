@@ -8,7 +8,7 @@ import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
 import br.com.MDSGPP.ChamadaParlamentar.model.EstatisticaPartido;
 import br.com.MDSGPP.ChamadaParlamentar.model.Partidos;
 
-public final class EstatisticaPartidoControl {
+public final class StatisticsPoliticalPartyControl {
 	
 	/**
 	 * This method is to generate the statistics of one political party.
@@ -23,16 +23,17 @@ public final class EstatisticaPartidoControl {
 	
 	public static EstatisticaPartido gerarEstatisticaPartido(String nome) 
 			throws ClassNotFoundException, SQLException, ListaVaziaException {
-		EstatisticaPartido statistical = new EstatisticaPartido();
+		EstatisticaPartido statistical;/*Variable that contains the statistical of the political party.*/
+		statistical = new EstatisticaPartido();
 		
-		Partidos partido;
+		Partidos partido;/*Variable that contains the political party.*/
 		partido = PartidoControl.passarPartidoComDadosCompletos(nome);
 		statistical.setpoliticalParty(partido);
 		
-		int numberOfSessions = 0;
-		int numberOfSessionsAttended = 0;
+		int numberOfSessions = 0;/*Variable that contains the number of sessions.*/
+		int numberOfSessionsAttended = 0;/*Variable that contains the number of attended sessions.*/
 		
-		int sizeStatisticalParty;
+		int sizeStatisticalParty;/*Variable that contains the size of statistical party.*/
 		sizeStatisticalParty = partido.getEstatisticaDosDeputados().size();
 		
 		for(int i = 0; i < sizeStatisticalParty ; i++) {
@@ -41,10 +42,11 @@ public final class EstatisticaPartidoControl {
 			numberOfSessionsAttended += Integer.parseInt(partido.getEstatisticaDosDeputados().get(i).getNumeroSessao());
 		}
 		
-		double percentage;
+		double percentage;/*Variable that contains the percentage of attended sessions.*/
 		percentage = (((double)(numberOfSessionsAttended))/((double)numberOfSessions))*100.0;
 		
-		String porcentagemAPassar = formatarNumeroDouble(percentage);
+		String porcentagemAPassar;/*Variable that contains the final percentage.*/
+		porcentagemAPassar = formatarNumeroDouble(percentage);
 		
 		statistical.setpercentage(porcentagemAPassar);
 		statistical.setnumberOfSessions(numberOfSessions);
@@ -62,10 +64,10 @@ public final class EstatisticaPartidoControl {
 	 */
 	
 	public static String formatarNumeroDouble(double number) {
-		NumberFormat formatardouble;
+		NumberFormat formatardouble;/*Variable of contains the double format of the number.*/
 		formatardouble = new DecimalFormat("0.00");    
 		
-		String formatardoubleReturn;
+		String formatardoubleReturn;/*Variable that contains the return of double format.*/
 		
 		formatardoubleReturn = formatardouble.format(number);
 		

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.MDSGPP.ChamadaParlamentar.control.EstatisticaPartidoControl;
+import br.com.MDSGPP.ChamadaParlamentar.control.StatisticsPoliticalPartyControl;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ExceptionSqlInjection;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Estatistica;
@@ -36,7 +36,7 @@ public class PartyReceivedServlet extends HttpServlet {
 				 * This variable will receive statistical party
 				 * */
 				EstatisticaPartido statistic = 
-						EstatisticaPartidoControl.gerarEstatisticaPartido(nameParty);
+						StatisticsPoliticalPartyControl.gerarEstatisticaPartido(nameParty);
 				/**
 				 * This Array will receive all deputy with no data
 				 * */
