@@ -18,7 +18,7 @@ import br.com.MDSGPP.ChamadaParlamentar.model.Estatistica;
 import br.com.MDSGPP.ChamadaParlamentar.model.EstatisticaPartido;
 import br.com.MDSGPP.ChamadaParlamentar.model.Partidos;
 
-public class PartidoRecebidoServlet extends HttpServlet {
+public class PartyReceivedServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
@@ -28,23 +28,35 @@ public class PartidoRecebidoServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = null;
 
-		String nomePartido = request.getParameter("nome");
+		String nameParty = request.getParameter("nome");
 
-		if( ExceptionSqlInjection.testeSqlInjection(nomePartido) ) {
+		if( ExceptionSqlInjection.testeSqlInjection(nameParty) ) {
 			try {
-				EstatisticaPartido estatistica = 
-						EstatisticaPartidoControl.gerarEstatisticaPartido(nomePartido);
-
-				ArrayList<Estatistica> semDados = estatistica.getpoliticalParty().getDeputadosSemDados();
+				/**
+				 * This variable will receive statistical party
+				 * */
+				EstatisticaPartido statistic = 
+						EstatisticaPartidoControl.gerarEstatisticaPartido(nameParty);
+				/**
+				 * This Array will receive all deputy with no data
+				 * */
+				ArrayList<Estatistica> noData = statistic.getpoliticalParty().getDeputadosSemDados();
 				
-				Partidos partido = estatistica.getpoliticalParty();
+				/**
+				 * This variable will receive party
+				 * */
+				Partidos party = statistic.getpoliticalParty();
 				
-				int quantosSemDados = partido.getDeputadosSemDados().size();
+				/**
+				 * This variable used to know how many deputy whitout data
+				 * */
+				
+				int howManyNoData = party.getDeputadosSemDados().size();
 								
-				request.setAttribute("numeroSemDados", quantosSemDados);
-				request.setAttribute("semDados", semDados);
-				request.setAttribute("estatisticaPartido", estatistica);
-				request.setAttribute("partido", partido);
+				request.setAttribute("numeroSemDados", howManyNoData);
+				request.setAttribute("semDados", noData);
+				request.setAttribute("estatisticaPartido", statistic);
+				request.setAttribute("partido", party);
 				rd = request.getRequestDispatcher("MostrarPartido.jsp");
 
 			} catch (ClassNotFoundException e) {
