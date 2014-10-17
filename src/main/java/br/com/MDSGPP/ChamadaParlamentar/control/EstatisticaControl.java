@@ -39,17 +39,24 @@ public final class EstatisticaControl {
     
 	public static Estatistica gerarEstatisticas(String nome)
 			throws ClassNotFoundException, SQLException, ListaVaziaException {
-		Estatistica estatistica = new Estatistica();
-		EstatisticaDao dao = new EstatisticaDao();	
-		SessoesEReunioesDao sessoes = new SessoesEReunioesDao();
-		int numeroTotalSessao;
-		numeroTotalSessao = sessoes.passarNumeroDeSessoes();
+		
+		Estatistica estatistica;/*Variable that contains the statistic.*/
+		estatistica = new Estatistica();
+		
+		EstatisticaDao dao;/*Variable that create the connection with dataBase.*/
+		dao = new EstatisticaDao();	
+		
+		SessoesEReunioesDao sessions;/*Variable that create the connection with dataBase.*/
+		sessions = new SessoesEReunioesDao();
+		
+		int numeroTotalSessao;/*Variable that contains the number of all sessions.*/
+		numeroTotalSessao = sessions.passarNumeroDeSessoes();
 
 		estatistica.setLista(dao.getEstatisticaDeputados(nome));
 
 		estatistica.setNome(nome);
 
-		estatistica = calcularEstatistica(estatistica, sessoes, numeroTotalSessao);
+		estatistica = calcularEstatistica(estatistica, sessions, numeroTotalSessao);
 		estatistica.setTotalSessao(Integer.toString(numeroTotalSessao));
 
 
@@ -73,15 +80,20 @@ public final class EstatisticaControl {
 	public static Estatistica gerarEstatisticas(String nome, int numeroTotalSessao) 
 			throws ClassNotFoundException, SQLException, ListaVaziaException {
 
-		Estatistica estatistica = new Estatistica();
-		EstatisticaDao dao = new EstatisticaDao();	
-		SessoesEReunioesDao sessoes = new SessoesEReunioesDao();
+		Estatistica estatistica;/*Variable that contains the statistic.*/
+		estatistica = new Estatistica();
+		
+		EstatisticaDao dao;/*Variable that create the connection with dataBase.*/
+		dao = new EstatisticaDao();	
+		
+		SessoesEReunioesDao sessions;/*Variable that create the connection with dataBase.*/
+		sessions = new SessoesEReunioesDao();
 
 		estatistica.setLista(dao.getEstatisticaDeputados(nome));
 
 		estatistica.setNome(nome);
 
-		estatistica = calcularEstatistica(estatistica, sessoes, numeroTotalSessao);
+		estatistica = calcularEstatistica(estatistica, sessions, numeroTotalSessao);
 
 		estatistica.setTotalSessao(Integer.toString(numeroTotalSessao));
 
@@ -110,7 +122,7 @@ public final class EstatisticaControl {
 	(Estatistica estatistica, SessoesEReunioesDao sessoes, 
 			int numeroTotalSessao) throws ListaVaziaException {
 		
-		int sizeList;
+		int sizeList;/*Variable that contains the size of List.*/
 		sizeList = estatistica.getLista().size();
 		
 		if(sizeList == 0){
@@ -118,7 +130,9 @@ public final class EstatisticaControl {
 		}
 		estatistica.setNumeroSessao(Integer.toString(sizeList));
 
-		DecimalFormat df = new DecimalFormat("###.00");  
+		DecimalFormat df;/*Variable that contains the decimal format of the number.*/
+		df = new DecimalFormat("###.00");  
+		
 		estatistica.setPorcentagem(df.format(
 				(((double)sizeList)/
 						((double)numeroTotalSessao))*PASSAR_PORCENTAGEM) + "%");
@@ -137,10 +151,10 @@ public final class EstatisticaControl {
 	 */
 
 	public static String arrumarNomePesquisa(Deputados deputado) {
-		String montar;
+		String montar;/*Variable that contains the new name.*/
 		montar = deputado.getNomeDeTratamentoDoParlamentar() +
 				"-" + deputado.getPartido() + "/" + deputado.getUf();
-		String montarFinal;
+		String montarFinal;/*Variable that contains the final name.*/
 		montarFinal = montar.toUpperCase();
 		
 		return montarFinal;
@@ -165,7 +179,7 @@ public final class EstatisticaControl {
 		ArrayList<String> listaPassar = new ArrayList<String>();
 		ArrayList<String> lista = ordenarLista(listaPassada);
 		
-		int sizeList;
+		int sizeList;/*Variable that contains the size of list.*/
 		sizeList = lista.size();
 		
 		if(sizeList == 0) {
@@ -197,7 +211,7 @@ public final class EstatisticaControl {
 	public static ArrayList<String> ordenarLista(ArrayList<String> lista) {
 		ArrayList<String> ordenada = new ArrayList<String>();
 
-		int sizeList;
+		int sizeList;/*Variable that contains the size of list.*/
 		sizeList = lista.size();
 		
 		for(int i = 0 ; i < sizeList ; i++) {

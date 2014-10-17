@@ -20,13 +20,13 @@ import br.com.MDSGPP.ChamadaParlamentar.exception.ListaRankingException;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Ranking;
 
-public class AtualizarBanco {
+public class UpdateDataBase {
 	Timer timer;/*Variable used to control the time of updating the database.*/
 	/**
 	 * Method to start the execution of tasks.
 	 * From this method will update the database with new information from the WebService.
 	 */
-	public AtualizarBanco() {
+	public UpdateDataBase() {
 
 		timer = new Timer();
 		/*Executes the task every day 6am.*/
@@ -56,7 +56,7 @@ public class AtualizarBanco {
 	}
 	
 	public static void main(String[] args) {
-        new AtualizarBanco();
+        new UpdateDataBase();
     }
 	
 	/**
