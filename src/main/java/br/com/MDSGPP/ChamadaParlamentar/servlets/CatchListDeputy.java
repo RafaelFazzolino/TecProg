@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.MDSGPP.ChamadaParlamentar.control.DeputadosControl;
 
-public class PegarListaDeputados extends HttpServlet {
+public class CatchListDeputy extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
