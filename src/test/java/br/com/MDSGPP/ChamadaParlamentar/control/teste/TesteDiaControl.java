@@ -47,6 +47,14 @@ public class TesteDiaControl {
 		assertNotNull(dias);
 		assertTrue(dias.size() != 0);
 	}
+	
+	@Test
+	public void testReverseList() 
+			throws ClassNotFoundException, SQLException,
+			DataFormatoErradoException {
+		ArrayList<Dia> listaInverter = new ArrayList<Dia>();
+		assertNotNull(listaInverter);
+	}
 
 	@Test
 	public void testGetListaCerta() throws ClassNotFoundException, SQLException {
