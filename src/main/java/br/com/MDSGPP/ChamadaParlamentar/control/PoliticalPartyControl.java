@@ -14,38 +14,52 @@ import br.com.MDSGPP.ChamadaParlamentar.util.LimparLista;
 public final class PoliticalPartyControl {
 	/**
 	 * This method is to pass the list contains all parties.
+	 * 
 	 * @return lista contains all parties.
-	 * @throws ClassNotFoundException case the class is not found.
-	 * @throws SQLException case an error occurs with dataBase.
+	 * @throws ClassNotFoundException
+	 *             case the class is not found.
+	 * @throws SQLException
+	 *             case an error occurs with dataBase.
 	 */
-	public static ArrayList<ArrayList<String>> passarListaPartidos() 
+	public static ArrayList<ArrayList<String>> passarListaPartidos()
 			throws ClassNotFoundException, SQLException {
-		ArrayList<ArrayList<String>> list;/*ArrayList that contains all political parties.*/
-		list = new PartidoDao().pegarPartidos();	
-		
+		ArrayList<ArrayList<String>> list;/*
+										 * ArrayList that contains all political
+										 * parties.
+										 */
+		list = new PartidoDao().pegarPartidos();
+
 		return list;
 	}
+
 	/**
 	 * This method is to check the party.
-	 * @param partido is a String contains the name of the party.
+	 * 
+	 * @param partido
+	 *            is a String contains the name of the party.
 	 * @return listaComDados contains the features of the party.
-	 * @throws ClassNotFoundException case the class is not found.
-	 * @throws SQLException case an error occurs with dataBase.
+	 * @throws ClassNotFoundException
+	 *             case the class is not found.
+	 * @throws SQLException
+	 *             case an error occurs with dataBase.
 	 */
 	public static ArrayList<String> verificaExistencia(String partido)
 			throws ClassNotFoundException, SQLException {
 
-		ArrayList<ArrayList<String>> listaComDados;/*Variable that contains all data of the parties.*/
+		ArrayList<ArrayList<String>> listaComDados;/*
+													 * Variable that contains
+													 * all data of the parties.
+													 */
 		listaComDados = passarListaPartidos();
 
-		int sizeListWithData;/*Variable that contains the size of the list.*/
+		int sizeListWithData;/* Variable that contains the size of the list. */
 		sizeListWithData = listaComDados.size();
-		
-		for(int i = 0 ; i < sizeListWithData ; i++) {
-			
-			if(listaComDados.get(i).get(0).equalsIgnoreCase(partido)
-					||listaComDados.get(i).get(1).equalsIgnoreCase(partido)) {
-				
+
+		for (int i = 0; i < sizeListWithData; i++) {
+
+			if (listaComDados.get(i).get(0).equalsIgnoreCase(partido)
+					|| listaComDados.get(i).get(1).equalsIgnoreCase(partido)) {
+
 				return listaComDados.get(i);
 			}
 		}
@@ -53,36 +67,50 @@ public final class PoliticalPartyControl {
 	}
 
 	/**
-	 * This method is to pass all parties already with all Members of each party.
-	 * @param nomePartido is a String contains the name of the party.
+	 * This method is to pass all parties already with all Members of each
+	 * party.
+	 * 
+	 * @param nomePartido
+	 *            is a String contains the name of the party.
 	 * @return partido contains all features of the party.
-	 * @throws ClassNotFoundException case the class is not found.
-	 * @throws SQLException case an error occurs with dataBase.
+	 * @throws ClassNotFoundException
+	 *             case the class is not found.
+	 * @throws SQLException
+	 *             case an error occurs with dataBase.
 	 */
-	 
-	public static Partidos passarPartido(String nomePartido) 
+
+	public static Partidos passarPartido(String nomePartido)
 			throws ClassNotFoundException, SQLException {
-		
-		Partidos partido;/*Variable that contains all features of the party.*/
+
+		Partidos partido;/* Variable that contains all features of the party. */
 		partido = new Partidos();
 		partido.setDeputadosDoPartido(null);
 
-		ArrayList<String> politicalPartyName;/*Variable that contains the right political party.*/
+		ArrayList<String> politicalPartyName;/*
+											 * Variable that contains the right
+											 * political party.
+											 */
 		politicalPartyName = verificaExistencia(nomePartido);
 
-		ArrayList<Deputados> allDeputies;/*Array that contains all deputies.*/
+		ArrayList<Deputados> allDeputies;/* Array that contains all deputies. */
 		allDeputies = new DeputadoDao().getDeputados();
-		
-		ArrayList<Deputados> deputadosDoPartido;/*ArrayList that contains all deputies of the party.*/
+
+		ArrayList<Deputados> deputadosDoPartido;/*
+												 * ArrayList that contains all
+												 * deputies of the party.
+												 */
 		deputadosDoPartido = new ArrayList<Deputados>();
 
-		if(politicalPartyName != null) {			
-			
-			int sizeAllDeputies;/*Variable that contains the size of the list with all deputies.*/
+		if (politicalPartyName != null) {
+
+			int sizeAllDeputies;/*
+								 * Variable that contains the size of the list
+								 * with all deputies.
+								 */
 			sizeAllDeputies = allDeputies.size();
-			
-			for(int i = 0 ; i < sizeAllDeputies ; i++) {
-				if(politicalPartyName.get(0).equalsIgnoreCase(
+
+			for (int i = 0; i < sizeAllDeputies; i++) {
+				if (politicalPartyName.get(0).equalsIgnoreCase(
 						allDeputies.get(i).getPartido())) {
 					deputadosDoPartido.add(allDeputies.get(i));
 				}
@@ -90,7 +118,7 @@ public final class PoliticalPartyControl {
 
 			partido.setSigla(politicalPartyName.get(0));
 			partido.setNomePartido(politicalPartyName.get(1));
-			partido.setDeputadosDoPartido(deputadosDoPartido);	
+			partido.setDeputadosDoPartido(deputadosDoPartido);
 		}
 
 		return partido;
@@ -99,32 +127,50 @@ public final class PoliticalPartyControl {
 	/**
 	 * This method is to generate the statistical presence of each party,
 	 * analyzing all the Members present in each party.
-	 * @param nome is a String contains the name of the party.
+	 * 
+	 * @param nome
+	 *            is a String contains the name of the party.
 	 * @return partido contains all features of the party.
-	 * @throws ClassNotFoundException case the class is not found.
-	 * @throws SQLException case an error occurs with dataBase.
-	 * @throws ListaVaziaException case an error occurs with the list.
+	 * @throws ClassNotFoundException
+	 *             case the class is not found.
+	 * @throws SQLException
+	 *             case an error occurs with dataBase.
+	 * @throws ListaVaziaException
+	 *             case an error occurs with the list.
 	 */
-	 
-	public static Partidos gerarEstatisticaDoPartido(String nome) 
+
+	public static Partidos gerarEstatisticaDoPartido(String nome)
 			throws ClassNotFoundException, SQLException, ListaVaziaException {
 		Partidos partido = passarPartido(nome);
 
-		ArrayList<Estatistica> estatisticas;/*Variable that contains the statistics.*/
+		ArrayList<Estatistica> estatisticas;/*
+											 * Variable that contains the
+											 * statistics.
+											 */
 		estatisticas = new ArrayList<Estatistica>();
 
-		int sizeDeputiesOfParty;/*Variable that contains the size of list with all deputies of the party.*/
+		int sizeDeputiesOfParty;/*
+								 * Variable that contains the size of list with
+								 * all deputies of the party.
+								 */
 		sizeDeputiesOfParty = partido.getDeputadosDoPartido().size();
-		
+
 		try {
-			for(int i = 0 ; i < sizeDeputiesOfParty ; i++) {
-				Estatistica estatistica;/*Variable that contains all features of statistics.*/
+			for (int i = 0; i < sizeDeputiesOfParty; i++) {
+				Estatistica estatistica;/*
+										 * Variable that contains all features
+										 * of statistics.
+										 */
 				estatistica = new Estatistica();
 				try {
-					estatistica = EstatisticaControl.gerarEstatisticas(
-							EstatisticaControl.arrumarNomePesquisa(partido.getDeputadosDoPartido().get(i)));
+					estatistica = EstatisticaControl
+							.gerarEstatisticas(EstatisticaControl
+									.arrumarNomePesquisa(partido
+											.getDeputadosDoPartido().get(i)));
 				} catch (ListaVaziaException e) {
-					estatistica.setNome(EstatisticaControl.arrumarNomePesquisa(partido.getDeputadosDoPartido().get(i)));
+					estatistica.setNome(EstatisticaControl
+							.arrumarNomePesquisa(partido
+									.getDeputadosDoPartido().get(i)));
 				}
 				estatisticas.add(estatistica);
 			}
@@ -134,30 +180,42 @@ public final class PoliticalPartyControl {
 
 		partido.setEstatisticaDosDeputados(estatisticas);
 
-		return partido;		
+		return partido;
 	}
 
 	/**
 	 * This method is to pass only the parties with complete data.
-	 * @param nome is a String contains the name of the party.
+	 * 
+	 * @param nome
+	 *            is a String contains the name of the party.
 	 * @return partido contains all features of the party.
-	 * @throws ClassNotFoundException case the class is not found.
-	 * @throws SQLException case an error occurs with database.
-	 * @throws ListaVaziaException case an error occurs with the list.
+	 * @throws ClassNotFoundException
+	 *             case the class is not found.
+	 * @throws SQLException
+	 *             case an error occurs with database.
+	 * @throws ListaVaziaException
+	 *             case an error occurs with the list.
 	 */
-	public static Partidos passarPartidoComDadosCompletos(String nome) 
+	public static Partidos passarPartidoComDadosCompletos(String nome)
 			throws ClassNotFoundException, SQLException, ListaVaziaException {
 
-		Partidos partido;/*Variable that contains all features of the political party.*/
+		Partidos partido;/*
+						 * Variable that contains all features of the political
+						 * party.
+						 */
 		partido = gerarEstatisticaDoPartido(nome);
 
-
-		ArrayList<ArrayList<Estatistica>> listaRecebida;/*Variable that contains the received list.*/
-		listaRecebida = LimparLista.limparLista(partido.getEstatisticaDosDeputados());
+		ArrayList<ArrayList<Estatistica>> listaRecebida;/*
+														 * Variable that
+														 * contains the received
+														 * list.
+														 */
+		listaRecebida = LimparLista.limparLista(partido
+				.getEstatisticaDosDeputados());
 
 		partido.setEstatisticaDosDeputados(listaRecebida.get(0));
 		partido.setDeputadosSemDados(listaRecebida.get(1));
 
 		return partido;
-	}	
+	}
 }

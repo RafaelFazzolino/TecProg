@@ -10,6 +10,7 @@ public class EstatisticaDao extends ConnectionFactory {
 	public EstatisticaDao() throws ClassNotFoundException, SQLException {
 		new ConnectionFactory().getConnection();
 	}
+
 	/**
 	 * Method that adds all sessions assisted by Deputy in a list.
 	 * 
@@ -19,21 +20,27 @@ public class EstatisticaDao extends ConnectionFactory {
 	 * @throws SQLException
 	 *             if miss spelled SQL is entered.
 	 */
-	public ArrayList<String> getEstatisticaDeputados(String name) throws SQLException {
-		String sql = "select * from sessao where deputadoPresente LIKE ?"; 
+	public ArrayList<String> getEstatisticaDeputados(String name)
+			throws SQLException {
+		String sql;/* Variable that contains the code of database. */
+		sql = "select * from sessao where deputadoPresente LIKE ?";
 
-		ArrayList<String> lista = new ArrayList<String>();
-		PreparedStatement stmt= ConnectionFactory.getConexao().prepareStatement(sql);
+		ArrayList<String> list;/* Variable that contains the statistics. */
+		list = new ArrayList<String>();
+
+		PreparedStatement stmt;/* Variable that create the connection. */
+		stmt = ConnectionFactory.getConexao().prepareStatement(sql);
 		stmt.setString(1, name);
 
-		ResultSet rs = stmt.executeQuery(); 
+		ResultSet rs;/* Variable that received the connection. */
+		rs = stmt.executeQuery();
 
-		while( rs.next() ) {
-			lista.add(rs.getString("idSessoes"));
+		while (rs.next()) {
+			list.add(rs.getString("idSessoes"));
 		}
 		stmt.close();
 
 		rs.close();
-		return lista;
+		return list;
 	}
 }

@@ -7,7 +7,7 @@ import br.com.MDSGPP.ChamadaParlamentar.dao.SessoesEReunioesDao;
 import br.com.MDSGPP.ChamadaParlamentar.model.SessoesEReunioes;
 
 public final class SessoesEReunioesControl {
-	
+
 	/**
 	 * Method that bridges the gap between the Dao and Model about the sessions.
 	 * 
@@ -20,22 +20,25 @@ public final class SessoesEReunioesControl {
 	 *             if miss spelled SQL is entered.
 	 */
 
-	public static SessoesEReunioes passarSessao(String descricao) 
+	public static SessoesEReunioes passarSessao(String descricao)
 			throws ClassNotFoundException, SQLException {
-		SessoesEReunioesDao dao;/*Variable that create the connection with dataBase.*/
+		SessoesEReunioesDao dao;/*
+								 * Variable that create the connection with
+								 * dataBase.
+								 */
 		dao = new SessoesEReunioesDao();
 
-		ArrayList<String> list;/*Variable that contains the list of sessions.*/
+		ArrayList<String> list;/* Variable that contains the list of sessions. */
 		list = dao.procurarSessao(descricao);
 
-		SessoesEReunioes pass;/*Variable that contains the final list.*/
+		SessoesEReunioes pass;/* Variable that contains the final list. */
 		pass = new SessoesEReunioes();
 		pass.setDeputadosPresentes(list);
 		pass.setDescricao(descricao);
 
-		return pass;		
+		return pass;
 	}
-	
+
 	/**
 	 * Method that organizes how many deputies will be displayed per page.
 	 * 
@@ -45,22 +48,23 @@ public final class SessoesEReunioesControl {
 	 * @return 'listaPassar' with all the deputies that are in the page.
 	 */
 
-	public static ArrayList<String> arrumarListaDeputados(int pagina, 
+	public static ArrayList<String> arrumarListaDeputados(int pagina,
 			int deputadosPorPagina, ArrayList<String> deputadosPresentes) {
-		ArrayList<String> passList;/*Variable that contains the final list.*/
+		ArrayList<String> passList;/* Variable that contains the final list. */
 		passList = new ArrayList<String>();
 
-		for(int i = 0; i < deputadosPorPagina; i++) {
-			if( pagina == 0 ) {
+		for (int i = 0; i < deputadosPorPagina; i++) {
+			if (pagina == 0) {
 				passList.add(deputadosPresentes.get(i));
-			}
-			else {
-				if( i + (pagina*deputadosPorPagina) < deputadosPresentes.size() ) {
-					passList.add(deputadosPresentes.get(i+ (pagina*deputadosPorPagina)));
+			} else {
+				if (i + (pagina * deputadosPorPagina) < deputadosPresentes
+						.size()) {
+					passList.add(deputadosPresentes.get(i
+							+ (pagina * deputadosPorPagina)));
 				}
 			}
 		}
-		
+
 		return passList;
 	}
 }

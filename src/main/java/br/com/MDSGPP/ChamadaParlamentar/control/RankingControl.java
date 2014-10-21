@@ -25,51 +25,80 @@ import br.com.MDSGPP.ChamadaParlamentar.model.Ranking;
 import br.com.MDSGPP.ChamadaParlamentar.util.LimparLista;
 
 public final class RankingControl {
-	private static final int SIZE_RANKINGS = 5;/*Variable used to store the value of the number of members of the ranking.*/
-	
-	/**	
+	private static final int SIZE_RANKINGS = 5;/*
+												 * Variable used to store the
+												 * value of the number of
+												 * members of the ranking.
+												 */
+
+	/**
 	 * This method is to generate the ranking.
 	 * 
 	 * @param lista
 	 *            {@link ArrayList} of {@link Estatistica}, is the list of the
 	 *            statistics of all the deputies, having data or not.
 	 * @return returns the ranking.
-	 * @throws ListaRankingException case an error occurs with the list.
+	 * @throws ListaRankingException
+	 *             case an error occurs with the list.
 	 */
 
-	public static Ranking gerarRanking(ArrayList<Estatistica> list) 
+	public static Ranking gerarRanking(ArrayList<Estatistica> list)
 			throws ListaRankingException {
 
-		Ranking ranking;/*Variable that contains all features of the ranking.*/
+		Ranking ranking;/* Variable that contains all features of the ranking. */
 		ranking = new Ranking();
 		try {
-			ArrayList<ArrayList<Estatistica>> received;/*It is an array that receives all the statistics for each deputy.*/
+			ArrayList<ArrayList<Estatistica>> received;/*
+														 * It is an array that
+														 * receives all the
+														 * statistics for each
+														 * deputy.
+														 */
 			received = LimparLista.limparLista(list);
-			
-			ArrayList<Estatistica> deleted;/*It is an array that receives all Members removed by mistake in webService.*/
+
+			ArrayList<Estatistica> deleted;/*
+											 * It is an array that receives all
+											 * Members removed by mistake in
+											 * webService.
+											 */
 			deleted = received.get(1);
-			
-			ArrayList<Estatistica> bests;/*It is an array that receives the best MPs taking into account their statistical presence.*/
+
+			ArrayList<Estatistica> bests;/*
+										 * It is an array that receives the best
+										 * MPs taking into account their
+										 * statistical presence.
+										 */
 			bests = new ArrayList<Estatistica>();
-			
-			ArrayList<Estatistica> worst;/*It is an array that receives the worst MPs taking into account their statistical presence.*/
+
+			ArrayList<Estatistica> worst;/*
+										 * It is an array that receives the
+										 * worst MPs taking into account their
+										 * statistical presence.
+										 */
 			worst = new ArrayList<Estatistica>();
 
-			ArrayList<Estatistica> receivedList;/*It is an array that receives the list of statistics.*/
+			ArrayList<Estatistica> receivedList;/*
+												 * It is an array that receives
+												 * the list of statistics.
+												 */
 			receivedList = received.get(0);
 
-			int sizeReceived;/*Variable that contains the size of the received.*/
+			int sizeReceived;/* Variable that contains the size of the received. */
 			sizeReceived = receivedList.size();
-			
-			if(sizeReceived == 0) {
+
+			if (sizeReceived == 0) {
 				throw new ListaRankingException();
 			}
-			ArrayList<Estatistica> orderedList;/*Um array is to receive all the sorted list of statistics.*/
+			ArrayList<Estatistica> orderedList;/*
+												 * Um array is to receive all
+												 * the sorted list of
+												 * statistics.
+												 */
 			orderedList = ordenacao(receivedList);
 
-			for(int i = 0 ; i < SIZE_RANKINGS ; i++) {
+			for (int i = 0; i < SIZE_RANKINGS; i++) {
 				bests.add(list.get(i));
-				worst.add(list.get(list.size() -1 -i));
+				worst.add(list.get(list.size() - 1 - i));
 			}
 
 			ranking.setMelhores(bests);
@@ -94,42 +123,51 @@ public final class RankingControl {
 	 *            the deputies.
 	 * @return returns an {@link ArrayList} of {@link Estatistica} from de
 	 *         calculations.
-	 * @throws ClassNotFoundException case the class is not found.
-	 * @throws SQLException case an error occurs with dataBase.
-	 * @throws ListaRankingException case an error occurs with the list.
-	 * @throws ListaVaziaException case an error occurs with the list.
+	 * @throws ClassNotFoundException
+	 *             case the class is not found.
+	 * @throws SQLException
+	 *             case an error occurs with dataBase.
+	 * @throws ListaRankingException
+	 *             case an error occurs with the list.
+	 * @throws ListaVaziaException
+	 *             case an error occurs with the list.
 	 */
-	
-	public static ArrayList<Estatistica> gerarListaEstatistica(ArrayList<Deputados> lista)
-			throws ClassNotFoundException, SQLException, 
-			ListaRankingException, ListaVaziaException {
+
+	public static ArrayList<Estatistica> gerarListaEstatistica(
+			ArrayList<Deputados> lista) throws ClassNotFoundException,
+			SQLException, ListaRankingException, ListaVaziaException {
 
 		try {
-			ArrayList<Estatistica> devolver;/*Variable that will return the result of the method.*/
+			ArrayList<Estatistica> devolver;/*
+											 * Variable that will return the
+											 * result of the method.
+											 */
 			devolver = new ArrayList<Estatistica>();
-			
-			String name;/*Variable that contains the name of the deputy.*/
+
+			String name;/* Variable that contains the name of the deputy. */
 			name = EstatisticaControl.arrumarNomePesquisa(lista.get(0));
 
 			devolver.add(EstatisticaControl.gerarEstatisticas(name));
 
-
-			int allSession;/*Variable that contains the number of sessions.*/
+			int allSession;/* Variable that contains the number of sessions. */
 			allSession = Integer.parseInt(devolver.get(0).getTotalSessao());
 
-			int sizeList;/*Variable that contains the size of the list.*/
+			int sizeList;/* Variable that contains the size of the list. */
 			sizeList = lista.size();
-			
-			for(int i = 0 ; i < sizeList ; i++) {
+
+			for (int i = 0; i < sizeList; i++) {
 				name = EstatisticaControl.arrumarNomePesquisa(lista.get(i));
 
 				try {
-					devolver.add(EstatisticaControl.gerarEstatisticas(name, 
+					devolver.add(EstatisticaControl.gerarEstatisticas(name,
 							allSession));
 				} catch (ListaVaziaException e) {
-					Estatistica estatistica;/*Variable that contains all features of the statistics.*/
+					Estatistica estatistica;/*
+											 * Variable that contains all
+											 * features of the statistics.
+											 */
 					estatistica = new Estatistica();
-					
+
 					estatistica.setNome(name);
 					devolver.add(estatistica);
 				}
@@ -139,34 +177,47 @@ public final class RankingControl {
 			throw new ListaRankingException();
 		}
 	}
-	
+
 	/**
 	 * This method generates the ranking top 5, taking the best and the worst.
 	 * 
 	 * @return returns an {@link Ranking} with the 5 top and 5 worst.
-	 * @throws ClassNotFoundException case the class is not found.
-	 * @throws SQLException case an error occurs with database.
+	 * @throws ClassNotFoundException
+	 *             case the class is not found.
+	 * @throws SQLException
+	 *             case an error occurs with database.
 	 */
-	
-	
-	public static Ranking passarRankingTop5() throws ClassNotFoundException, SQLException {
-		RankingDao rankingDao;/*Variable that will connect to the database, the Ranking table.*/
+
+	public static Ranking passarRankingTop5() throws ClassNotFoundException,
+			SQLException {
+		RankingDao rankingDao;/*
+							 * Variable that will connect to the database, the
+							 * Ranking table.
+							 */
 		rankingDao = new RankingDao();
-		
-		Ranking ranking;/*Variable that contains all features of the ranking.*/
+
+		Ranking ranking;/* Variable that contains all features of the ranking. */
 		ranking = rankingDao.retornaRanking();
-		
-		ArrayList<Estatistica> bests;/*Variable used to store the best deputies, taking into account their statistical presence.*/
+
+		ArrayList<Estatistica> bests;/*
+									 * Variable used to store the best deputies,
+									 * taking into account their statistical
+									 * presence.
+									 */
 		bests = new ArrayList<Estatistica>();
-		
-		ArrayList<Estatistica> worst;/*Variable used to store the worst deputies, taking into account their statistical presence.*/
+
+		ArrayList<Estatistica> worst;/*
+									 * Variable used to store the worst
+									 * deputies, taking into account their
+									 * statistical presence.
+									 */
 		worst = new ArrayList<Estatistica>();
-		
+
 		ranking.setLista(ordenacao(ranking.getLista()));
-		
-		for(int i = 0; i < SIZE_RANKINGS; i++) {
+
+		for (int i = 0; i < SIZE_RANKINGS; i++) {
 			bests.add(ranking.getLista().get(i));
-			worst.add(ranking.getLista().get(ranking.getLista().size() -1 -i));
+			worst.add(ranking.getLista().get(ranking.getLista().size() - 1 - i));
 		}
 		ranking.setMelhores(bests);
 		ranking.setPiores(worst);
@@ -182,40 +233,45 @@ public final class RankingControl {
 	 * @return returns an {@link ArrayList} of {@link Estatistica} with the
 	 *         sorted list.
 	 */
-	
+
 	public static ArrayList<Estatistica> ordenacao(ArrayList<Estatistica> list) {
-		/*Insertion Sort.*/
-		
+		/* Insertion Sort. */
+
 		int i = 1, j = 1;
-		
-		int sizeList;/*Variable that contains the size of the list.*/
+
+		int sizeList;/* Variable that contains the size of the list. */
 		sizeList = list.size();
-		
-		if(sizeList > 0) {
-			
-			while( j < sizeList ) {
-				
-				i=j;
-				
-				while( i > 0 ) {
-					
-					int first;/*Variable that stores the fewest for the ordination.*/
-					first = Integer.parseInt(list.get(i-1).getNumeroSessao());
-					int second;/*Variable that stores the highest number for the ordination.*/
+
+		if (sizeList > 0) {
+
+			while (j < sizeList) {
+
+				i = j;
+
+				while (i > 0) {
+
+					int first;/*
+							 * Variable that stores the fewest for the
+							 * ordination.
+							 */
+					first = Integer.parseInt(list.get(i - 1).getNumeroSessao());
+					int second;/*
+								 * Variable that stores the highest number for
+								 * the ordination.
+								 */
 					second = Integer.parseInt(list.get(i).getNumeroSessao());
 
-					if ( first < second ) {
+					if (first < second) {
 						Estatistica temp;
 
-						temp = list.get(i-1);
+						temp = list.get(i - 1);
 
-						list.set(i-1, list.get(i));
+						list.set(i - 1, list.get(i));
 						list.set(i, temp);
 						i--;
-					}
-					else {
+					} else {
 						break;
-					}		
+					}
 				}
 				j++;
 			}
@@ -227,19 +283,24 @@ public final class RankingControl {
 	 * This method generates the full ranking.
 	 * 
 	 * @return returns a {@link Ranking} object having all the deputies.
-	 * @throws SQLException case an error occurs with dataBase.
-	 * @throws ClassNotFoundException case the class is not found.
+	 * @throws SQLException
+	 *             case an error occurs with dataBase.
+	 * @throws ClassNotFoundException
+	 *             case the class is not found.
 	 */
-	
-	public static Ranking passarRankingCompleto() 
-			throws SQLException, ClassNotFoundException {
-		RankingDao rankingDao;/*Variable that create the connection with the dataBase.*/
+
+	public static Ranking passarRankingCompleto() throws SQLException,
+			ClassNotFoundException {
+		RankingDao rankingDao;/*
+							 * Variable that create the connection with the
+							 * dataBase.
+							 */
 		rankingDao = new RankingDao();
-		Ranking ranking;/*Variable that contains all features of the ranking.*/
+		Ranking ranking;/* Variable that contains all features of the ranking. */
 		ranking = rankingDao.retornaRanking();
-		
+
 		ranking.setLista(ordenacao(ranking.getLista()));
-		
+
 		return ranking;
 	}
 }
