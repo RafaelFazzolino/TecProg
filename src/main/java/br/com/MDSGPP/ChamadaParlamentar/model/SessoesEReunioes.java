@@ -1,10 +1,6 @@
 package br.com.MDSGPP.ChamadaParlamentar.model;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-
 import br.com.MDSGPP.ChamadaParlamentar.exception.DataFormatoErradoException;
 import br.com.MDSGPP.ChamadaParlamentar.util.VerificarData;
 
@@ -17,14 +13,13 @@ public class SessoesEReunioes {
 
 	private ArrayList<Deputados> deputies = new ArrayList<Deputados>();
 
-	public SessoesEReunioes(String data, 
-			String description, ArrayList<Deputados> deputies,
-			String fullDescription) throws DataFormatoErradoException {
+	public SessoesEReunioes(String data, String description,
+			ArrayList<Deputados> deputies, String fullDescription)
+			throws DataFormatoErradoException {
 
-		if( !VerificarData.verificaData(data) ) {
+		if (!VerificarData.verificaData(data)) {
 			throw new DataFormatoErradoException();
 		}
-
 
 		this.data = data;
 		this.description = description;
@@ -42,7 +37,7 @@ public class SessoesEReunioes {
 	}
 
 	public void setData(String data) throws DataFormatoErradoException {
-		if(!VerificarData.verificaData(data)) {
+		if (!VerificarData.verificaData(data)) {
 			throw new DataFormatoErradoException();
 		}
 

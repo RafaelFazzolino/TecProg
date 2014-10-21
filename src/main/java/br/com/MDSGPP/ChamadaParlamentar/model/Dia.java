@@ -1,10 +1,6 @@
 package br.com.MDSGPP.ChamadaParlamentar.model;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-
 import br.com.MDSGPP.ChamadaParlamentar.exception.DataFormatoErradoException;
 import br.com.MDSGPP.ChamadaParlamentar.util.VerificarData;
 
