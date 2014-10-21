@@ -3,6 +3,8 @@ package br.com.MDSGPP.ChamadaParlamentar.control;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import org.apache.commons.collections.iterators.ReverseListIterator;
+
 import br.com.MDSGPP.ChamadaParlamentar.dao.DiaDao;
 import br.com.MDSGPP.ChamadaParlamentar.dao.SessoesEReunioesDao;
 import br.com.MDSGPP.ChamadaParlamentar.exception.DataFormatoErradoException;
@@ -30,13 +32,26 @@ public final class DiaControl {
 		ArrayList<Dia> listaInverter;/*Variable that contains the list of the days.*/
 		listaInverter = new ArrayList<Dia>();
 
+		listaInverter = ReverseList(listaInverter, list);
+
+		return listaInverter;
+	}
+	
+	/**
+	 * This method creates the inverted list.
+	 * @param listaInverter is an Array that contains the clear list.
+	 * @param list variable that contains the list.
+	 * @return listaInverter that is the inverted list.
+	 */
+	public static ArrayList<Dia> ReverseList(ArrayList<Dia> listaInverter, ArrayList<Dia> list ){
+		listaInverter = new ArrayList<Dia>();
+		
 		int sizeList;/*Variable that contains the size of the list.*/
 		sizeList = list.size();
 		
 		for(int i = 0; i < sizeList; i++) {
 			listaInverter.add(list.get(sizeList-1-i));
 		}
-
 		return listaInverter;
 	}
 

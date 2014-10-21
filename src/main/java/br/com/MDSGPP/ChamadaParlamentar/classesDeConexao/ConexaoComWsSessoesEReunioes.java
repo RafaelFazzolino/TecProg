@@ -109,15 +109,17 @@ public class ConexaoComWsSessoesEReunioes {
 
 	public static ArrayList<String> adcionarSessaoNaTable(String data)
 			throws SQLException, ClassNotFoundException, MalformedURLException, ServiceException {
-		ArrayList<String> foi = new ArrayList<String>();
-		ArrayList<Integer> list = new ArrayList<Integer>();
+		ArrayList<String> foi;
+		foi = new ArrayList<String>();
+		ArrayList<Integer> list;
+		list = new ArrayList<Integer>();
 
 		DeputadoDao conectionDeputy;/*Variable that create the connection with deputies.*/ 
 		conectionDeputy = new DeputadoDao();
 
 		list = conectionDeputy.getMatriculaDeputados();
 
-		int sizeList;
+		int sizeList;/*Variable that contains the size of the list.*/
 		sizeList = list.size();
 		
 		for( int i = 0; i<sizeList; i++ ) {
