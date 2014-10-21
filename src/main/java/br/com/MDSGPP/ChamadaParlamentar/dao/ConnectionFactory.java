@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class ConnectionFactory {
 
-	private static Connection connection;
+	private static Connection connection;/*Variable that create the connection with DataBase.*/
 
 	public ConnectionFactory() {
 
@@ -36,7 +36,7 @@ public class ConnectionFactory {
 	/**
 	 * Getter of connection, <b>deprecated</b>.
 	 * 
-	 * @return connection
+	 * @return connection that is a variable that create a connection with database.
 	 */
 
 	public static Connection getConexao() {

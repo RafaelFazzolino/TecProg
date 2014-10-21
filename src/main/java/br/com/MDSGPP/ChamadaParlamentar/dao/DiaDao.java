@@ -11,8 +11,13 @@ import br.com.MDSGPP.ChamadaParlamentar.model.SessoesEReunioes;
 
 public class DiaDao extends ConnectionFactory {
 
-	private static final String DATAS = "datas";
+	private static final String DATAS = "datas";/*This is a constant that contains the string "datas".*/
 
+	/**
+	 * This method is to create the connection.
+	 * @throws ClassNotFoundException case the class is not found.
+	 * @throws SQLException case the database is off.
+	 */
 	public DiaDao() throws ClassNotFoundException, SQLException {
 		new ConnectionFactory().getConnection();
 	}
@@ -25,8 +30,11 @@ public class DiaDao extends ConnectionFactory {
 	 */
 
 	public ArrayList<Dia> buscarTodasDescricoes() throws SQLException, DataFormatoErradoException {
-		ArrayList<Dia> list = new ArrayList<Dia>();
-		String sql = "Select * from datas";
+		ArrayList<Dia> list;/*Variable that contains all days.*/
+		list = new ArrayList<Dia>();
+		
+		String sql;/*Variable that contains the code of database.*/
+		sql = "Select * from datas";
 
 		PreparedStatement stmt= ConnectionFactory.getConexao().prepareStatement(sql);
 		ResultSet rs = stmt.executeQuery();
