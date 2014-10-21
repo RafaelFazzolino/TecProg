@@ -25,7 +25,7 @@ import br.com.MDSGPP.ChamadaParlamentar.model.Ranking;
 import br.com.MDSGPP.ChamadaParlamentar.util.LimparLista;
 
 public final class RankingControl {
-	private static final int SIZE_RANKINGS = 5;
+	private static final int SIZE_RANKINGS = 5;/*Variable used to store the value of the number of members of the ranking.*/
 	
 	/**	
 	 * This method is to generate the ranking.
@@ -40,22 +40,31 @@ public final class RankingControl {
 	public static Ranking gerarRanking(ArrayList<Estatistica> list) 
 			throws ListaRankingException {
 
-		Ranking ranking = new Ranking();
+		Ranking ranking;/*Variable that contains all features of the ranking.*/
+		ranking = new Ranking();
 		try {
-			ArrayList<ArrayList<Estatistica>> received = 
-					LimparLista.limparLista(list);
-			ArrayList<Estatistica> deleted = received.get(1);
-			ArrayList<Estatistica> bests = new ArrayList<Estatistica>();
-			ArrayList<Estatistica> worst = new ArrayList<Estatistica>();
+			ArrayList<ArrayList<Estatistica>> received;/*It is an array that receives all the statistics for each deputy.*/
+			received = LimparLista.limparLista(list);
+			ArrayList<Estatistica> deleted;/*It is an array that receives all Members removed by mistake in webService.*/
+			deleted = received.get(1);
+			ArrayList<Estatistica> bests;/*It is an array that receives the best MPs taking into account their statistical presence.*/
+			bests = new ArrayList<Estatistica>();
+			ArrayList<Estatistica> worst;/*It is an array that receives the worst MPs taking into account their statistical presence.*/
+			worst = new ArrayList<Estatistica>();
 
-			ArrayList<Estatistica> receivedList = received.get(0);
+			ArrayList<Estatistica> receivedList;/*It is an array that receives the list of statistics.*/
+			receivedList = received.get(0);
 
-			if(receivedList.size() == 0) {
+			int sizeReceived;/*Variable that contains the size of the received.*/
+			sizeReceived = receivedList.size();
+			
+			if(sizeReceived == 0) {
 				throw new ListaRankingException();
 			}
-			ArrayList<Estatistica> orderedList = ordenacao(receivedList);
+			ArrayList<Estatistica> orderedList;/*Um array is to receive all the sorted list of statistics.*/
+			orderedList = ordenacao(receivedList);
 
-			for(int i = 0; i < SIZE_RANKINGS; i++) {
+			for(int i = 0 ; i < SIZE_RANKINGS ; i++) {
 				bests.add(list.get(i));
 				worst.add(list.get(list.size() -1 -i));
 			}
@@ -93,22 +102,30 @@ public final class RankingControl {
 			ListaRankingException, ListaVaziaException {
 
 		try {
-			ArrayList<Estatistica> devolver = new ArrayList<Estatistica>();
-			String name = EstatisticaControl.arrumarNomePesquisa(lista.get(0));
+			ArrayList<Estatistica> devolver;/*Variable that will return the result of the method.*/
+			devolver = new ArrayList<Estatistica>();
+			
+			String name;/*Variable that contains the name of the deputy.*/
+			name = EstatisticaControl.arrumarNomePesquisa(lista.get(0));
 
 			devolver.add(EstatisticaControl.gerarEstatisticas(name));
 
 
-			int allSession = Integer.parseInt(devolver.get(0).getTotalSessao());
+			int allSession;/*Variable that contains the number of sessions.*/
+			allSession = Integer.parseInt(devolver.get(0).getTotalSessao());
 
-			for(int i = 0; i < lista.size(); i++) {
+			int sizeList;/*Variable that contains the size of the list.*/
+			sizeList = lista.size();
+			
+			for(int i = 0 ; i < sizeList ; i++) {
 				name = EstatisticaControl.arrumarNomePesquisa(lista.get(i));
 
 				try {
 					devolver.add(EstatisticaControl.gerarEstatisticas(name, 
 							allSession));
 				} catch (ListaVaziaException e) {
-					Estatistica estatistica = new Estatistica();
+					Estatistica estatistica;/*Variable that contains all features of the statistics.*/
+					estatistica = new Estatistica();
 					estatistica.setNome(name);
 					devolver.add(estatistica);
 				}
@@ -129,10 +146,14 @@ public final class RankingControl {
 	
 	
 	public static Ranking passarRankingTop5() throws ClassNotFoundException, SQLException {
-		RankingDao rankingDao = new RankingDao();
-		Ranking ranking = rankingDao.retornaRanking();
-		ArrayList<Estatistica> bests = new ArrayList<Estatistica>();
-		ArrayList<Estatistica> worst = new ArrayList<Estatistica>();
+		RankingDao rankingDao;/*Variable that will connect to the database, the Ranking table.*/
+		rankingDao = new RankingDao();
+		Ranking ranking;/*Variable that contains all features of the ranking.*/
+		ranking = rankingDao.retornaRanking();
+		ArrayList<Estatistica> bests;/*Variable used to store the best deputies, taking into account their statistical presence.*/
+		bests = new ArrayList<Estatistica>();
+		ArrayList<Estatistica> worst;/*Variable used to store the worst deputies, taking into account their statistical presence.*/
+		worst = new ArrayList<Estatistica>();
 		
 		ranking.setLista(ordenacao(ranking.getLista()));
 		
@@ -159,15 +180,22 @@ public final class RankingControl {
 		/*Insertion Sort.*/
 		
 		int i = 1, j = 1;
-		if(list.size() > 0)
-		{
-			while( j < list.size() )
-			{
+		
+		int sizeList;/*Variable that contains the size of the list.*/
+		sizeList = list.size();
+		
+		if(sizeList > 0) {
+			
+			while( j < sizeList ) {
+				
 				i=j;
-				while( i > 0 )
-				{
-					int first = Integer.parseInt(list.get(i-1).getNumeroSessao());
-					int second = Integer.parseInt(list.get(i).getNumeroSessao());
+				
+				while( i > 0 ) {
+					
+					int first;/*Variable that stores the fewest for the ordination.*/
+					first = Integer.parseInt(list.get(i-1).getNumeroSessao());
+					int second;/*Variable that stores the highest number for the ordination.*/
+					second = Integer.parseInt(list.get(i).getNumeroSessao());
 
 					if ( first < second ) {
 						Estatistica temp;
@@ -178,8 +206,7 @@ public final class RankingControl {
 						list.set(i, temp);
 						i--;
 					}
-					else
-					{
+					else {
 						break;
 					}		
 				}
@@ -199,8 +226,10 @@ public final class RankingControl {
 	
 	public static Ranking passarRankingCompleto() 
 			throws SQLException, ClassNotFoundException {
-		RankingDao rankingDao = new RankingDao();
-		Ranking ranking = rankingDao.retornaRanking();
+		RankingDao rankingDao;/*Variable that create the connection with the dataBase.*/
+		rankingDao = new RankingDao();
+		Ranking ranking;/*Variable that contains all features of the ranking.*/
+		ranking = rankingDao.retornaRanking();
 		
 		ranking.setLista(ordenacao(ranking.getLista()));
 		
