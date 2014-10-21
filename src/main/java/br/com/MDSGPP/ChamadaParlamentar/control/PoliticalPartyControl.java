@@ -62,12 +62,13 @@ public final class PoliticalPartyControl {
 	 
 	public static Partidos passarPartido(String nomePartido) 
 			throws ClassNotFoundException, SQLException {
+		
 		Partidos partido;/*Variable that contains all features of the party.*/
 		partido = new Partidos();
 		partido.setDeputadosDoPartido(null);
 
-		ArrayList<String> nomePartidoCerto;/*Variable that contains the right political party.*/
-		nomePartidoCerto = verificaExistencia(nomePartido);
+		ArrayList<String> politicalPartyName;/*Variable that contains the right political party.*/
+		politicalPartyName = verificaExistencia(nomePartido);
 
 		ArrayList<Deputados> allDeputies;/*Array that contains all deputies.*/
 		allDeputies = new DeputadoDao().getDeputados();
@@ -75,20 +76,20 @@ public final class PoliticalPartyControl {
 		ArrayList<Deputados> deputadosDoPartido;/*ArrayList that contains all deputies of the party.*/
 		deputadosDoPartido = new ArrayList<Deputados>();
 
-		if(nomePartidoCerto != null) {			
+		if(politicalPartyName != null) {			
 			
 			int sizeAllDeputies;/*Variable that contains the size of the list with all deputies.*/
 			sizeAllDeputies = allDeputies.size();
 			
 			for(int i = 0 ; i < sizeAllDeputies ; i++) {
-				if(nomePartidoCerto.get(0).equalsIgnoreCase(
+				if(politicalPartyName.get(0).equalsIgnoreCase(
 						allDeputies.get(i).getPartido())) {
 					deputadosDoPartido.add(allDeputies.get(i));
 				}
 			}
 
-			partido.setSigla(nomePartidoCerto.get(0));
-			partido.setNomePartido(nomePartidoCerto.get(1));
+			partido.setSigla(politicalPartyName.get(0));
+			partido.setNomePartido(politicalPartyName.get(1));
 			partido.setDeputadosDoPartido(deputadosDoPartido);	
 		}
 
@@ -159,8 +160,4 @@ public final class PoliticalPartyControl {
 
 		return partido;
 	}	
-
-	
-
-
 }

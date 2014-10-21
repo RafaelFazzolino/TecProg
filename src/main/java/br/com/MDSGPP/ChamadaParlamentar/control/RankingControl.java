@@ -45,10 +45,13 @@ public final class RankingControl {
 		try {
 			ArrayList<ArrayList<Estatistica>> received;/*It is an array that receives all the statistics for each deputy.*/
 			received = LimparLista.limparLista(list);
+			
 			ArrayList<Estatistica> deleted;/*It is an array that receives all Members removed by mistake in webService.*/
 			deleted = received.get(1);
+			
 			ArrayList<Estatistica> bests;/*It is an array that receives the best MPs taking into account their statistical presence.*/
 			bests = new ArrayList<Estatistica>();
+			
 			ArrayList<Estatistica> worst;/*It is an array that receives the worst MPs taking into account their statistical presence.*/
 			worst = new ArrayList<Estatistica>();
 
@@ -126,6 +129,7 @@ public final class RankingControl {
 				} catch (ListaVaziaException e) {
 					Estatistica estatistica;/*Variable that contains all features of the statistics.*/
 					estatistica = new Estatistica();
+					
 					estatistica.setNome(name);
 					devolver.add(estatistica);
 				}
@@ -148,16 +152,19 @@ public final class RankingControl {
 	public static Ranking passarRankingTop5() throws ClassNotFoundException, SQLException {
 		RankingDao rankingDao;/*Variable that will connect to the database, the Ranking table.*/
 		rankingDao = new RankingDao();
+		
 		Ranking ranking;/*Variable that contains all features of the ranking.*/
 		ranking = rankingDao.retornaRanking();
+		
 		ArrayList<Estatistica> bests;/*Variable used to store the best deputies, taking into account their statistical presence.*/
 		bests = new ArrayList<Estatistica>();
+		
 		ArrayList<Estatistica> worst;/*Variable used to store the worst deputies, taking into account their statistical presence.*/
 		worst = new ArrayList<Estatistica>();
 		
 		ranking.setLista(ordenacao(ranking.getLista()));
 		
-		for(int i = 0; i < 5; i++) {
+		for(int i = 0; i < SIZE_RANKINGS; i++) {
 			bests.add(ranking.getLista().get(i));
 			worst.add(ranking.getLista().get(ranking.getLista().size() -1 -i));
 		}

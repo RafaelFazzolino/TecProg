@@ -22,15 +22,18 @@ public final class SessoesEReunioesControl {
 
 	public static SessoesEReunioes passarSessao(String descricao) 
 			throws ClassNotFoundException, SQLException {
-		SessoesEReunioesDao dao = new SessoesEReunioesDao();
+		SessoesEReunioesDao dao;/*Variable that create the connection with dataBase.*/
+		dao = new SessoesEReunioesDao();
 
-		ArrayList<String> lista = dao.procurarSessao(descricao);
+		ArrayList<String> list;/*Variable that contains the list of sessions.*/
+		list = dao.procurarSessao(descricao);
 
-		SessoesEReunioes passar = new SessoesEReunioes();
-		passar.setDeputadosPresentes(lista);
-		passar.setDescricao(descricao);
+		SessoesEReunioes pass;/*Variable that contains the final list.*/
+		pass = new SessoesEReunioes();
+		pass.setDeputadosPresentes(list);
+		pass.setDescricao(descricao);
 
-		return passar;		
+		return pass;		
 	}
 	
 	/**
@@ -44,19 +47,20 @@ public final class SessoesEReunioesControl {
 
 	public static ArrayList<String> arrumarListaDeputados(int pagina, 
 			int deputadosPorPagina, ArrayList<String> deputadosPresentes) {
-		ArrayList<String> listaPassar = new ArrayList<String>();
+		ArrayList<String> passList;/*Variable that contains the final list.*/
+		passList = new ArrayList<String>();
 
 		for(int i = 0; i < deputadosPorPagina; i++) {
 			if( pagina == 0 ) {
-				listaPassar.add(deputadosPresentes.get(i));
+				passList.add(deputadosPresentes.get(i));
 			}
 			else {
 				if( i + (pagina*deputadosPorPagina) < deputadosPresentes.size() ) {
-					listaPassar.add(deputadosPresentes.get(i+ (pagina*deputadosPorPagina)));
+					passList.add(deputadosPresentes.get(i+ (pagina*deputadosPorPagina)));
 				}
 			}
 		}
 		
-		return listaPassar;
+		return passList;
 	}
 }

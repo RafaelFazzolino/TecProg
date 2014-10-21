@@ -24,7 +24,7 @@ import br.com.MDSGPP.ChamadaParlamentar.model.Estatistica;
 
 public final class EstatisticaControl {
 
-	public static final double PASSAR_PORCENTAGEM = 100.0;
+	public static final double PASS_PERCENTAGE = 100.0;
 
     	/**
 	 * This method is to generate statistics based on the name of the deputy.
@@ -135,7 +135,7 @@ public final class EstatisticaControl {
 		
 		estatistica.setPorcentagem(df.format(
 				(((double)sizeList)/
-						((double)numeroTotalSessao))*PASSAR_PORCENTAGEM) + "%");
+						((double)numeroTotalSessao))*PASS_PERCENTAGE) + "%");
 
 
 		return estatistica;
@@ -151,6 +151,7 @@ public final class EstatisticaControl {
 	 */
 
 	public static String arrumarNomePesquisa(Deputados deputado) {
+		
 		String montar;/*Variable that contains the new name.*/
 		montar = deputado.getNomeDeTratamentoDoParlamentar() +
 				"-" + deputado.getPartido() + "/" + deputado.getUf();
@@ -176,26 +177,28 @@ public final class EstatisticaControl {
 	 */
 
 	public static ArrayList<String> passarListaCerta(int pagina, int sessoesPorPagina, ArrayList<String> listaPassada ) {
-		ArrayList<String> listaPassar = new ArrayList<String>();
-		ArrayList<String> lista = ordenarLista(listaPassada);
+		ArrayList<String> listPass;/*Variable that contains the final list of statistics.*/
+		listPass= new ArrayList<String>();
+		ArrayList<String> list;/*Variable that contains the list of statistics.*/
+		list = ordenarLista(listaPassada);
 		
 		int sizeList;/*Variable that contains the size of list.*/
-		sizeList = lista.size();
+		sizeList = list.size();
 		
 		if(sizeList == 0) {
 			throw new IndexOutOfBoundsException();
 		}
 		for(int i = 0 ; i < sessoesPorPagina ; i++) {
 			if(pagina == 0) {
-				listaPassar.add(lista.get(i));
+				listPass.add(list.get(i));
 			}
 			else {
 				if(i+(pagina*sessoesPorPagina) < sizeList) {
-					listaPassar.add(lista.get(i+ (pagina*sessoesPorPagina)));
+					listPass.add(list.get(i+ (pagina*sessoesPorPagina)));
 				}
 			}
 		}		
-		return listaPassar;
+		return listPass;
 	}
 	/**
 	 * This method put the list on the order from most recent to older.

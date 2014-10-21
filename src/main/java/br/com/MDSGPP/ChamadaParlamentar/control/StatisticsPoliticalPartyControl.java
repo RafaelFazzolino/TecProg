@@ -38,8 +38,8 @@ public final class StatisticsPoliticalPartyControl {
 		
 		for(int i = 0; i < sizeStatisticalParty ; i++) {
 			
-			numberOfSessions += Integer.parseInt(partido.getEstatisticaDosDeputados().get(i).getTotalSessao());
-			numberOfSessionsAttended += Integer.parseInt(partido.getEstatisticaDosDeputados().get(i).getNumeroSessao());
+			numberOfSessions = numberOfSessions + Integer.parseInt(partido.getEstatisticaDosDeputados().get(i).getTotalSessao());
+			numberOfSessionsAttended = numberOfSessionsAttended + Integer.parseInt(partido.getEstatisticaDosDeputados().get(i).getNumeroSessao());
 		}
 		
 		double percentage;/*Variable that contains the percentage of attended sessions.*/
