@@ -8,9 +8,9 @@ public class Estatistica {
 	private String numberOfSession;
 	private String totalSessao;
 	private String percentage;
-	private ArrayList<String> lista = new ArrayList<String>(); 
-	
-	public Estatistica(){		
+	private ArrayList<String> lista = new ArrayList<String>();
+
+	public Estatistica() {
 	}
 
 	public String getNumeroSessao() {
@@ -49,9 +49,7 @@ public class Estatistica {
 		return lista;
 	}
 
-	public void setLista(ArrayList<String> list) {
+	public void setLista(ArrayList<String> lista) {
 		this.lista = lista;
 	}
 }
-
-

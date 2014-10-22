@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
-import org.openqa.selenium.remote.RemoteWebDriver.When;
-
 import br.com.MDSGPP.ChamadaParlamentar.model.Estatistica;
 import br.com.MDSGPP.ChamadaParlamentar.util.LimparLista;
 

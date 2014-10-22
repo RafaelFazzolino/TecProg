@@ -13,13 +13,7 @@ import javax.xml.rpc.ServiceException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.html5.ResultSet;
-
-import br.com.MDSGPP.ChamadaParlamentar.dao.ConnectionFactory;
 import br.com.MDSGPP.ChamadaParlamentar.dao.SessoesEReunioesDao;
-import br.com.MDSGPP.ChamadaParlamentar.model.Deputados;
-
-import com.mysql.jdbc.PreparedStatement;
 
 public class TesteSessoesEReunioesDao {
 	SessoesEReunioesDao sessoesDao;

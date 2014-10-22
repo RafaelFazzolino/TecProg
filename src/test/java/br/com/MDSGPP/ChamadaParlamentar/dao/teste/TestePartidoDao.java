@@ -2,7 +2,6 @@ package br.com.MDSGPP.ChamadaParlamentar.dao.teste;
 
 import static org.junit.Assert.*;
 
-import java.awt.List;
 import java.net.MalformedURLException;
 import java.net.UnknownHostException;
 import java.sql.PreparedStatement;

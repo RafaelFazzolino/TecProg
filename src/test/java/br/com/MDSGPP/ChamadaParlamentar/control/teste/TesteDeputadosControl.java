@@ -5,17 +5,9 @@ import static org.junit.Assert.assertTrue;
 
 import java.sql.SQLException;
 
-import org.jfree.chart.JFreeChart;
-import org.jfree.data.category.CategoryDataset;
-import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.general.PieDataset;
-import org.jfree.data.xml.CategoryDatasetHandler;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
-
 import br.com.MDSGPP.ChamadaParlamentar.control.DeputadosControl;
-import br.com.MDSGPP.ChamadaParlamentar.model.Estatistica;
 
 public class TesteDeputadosControl {
 	DeputadosControl deputados;

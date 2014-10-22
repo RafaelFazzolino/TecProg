@@ -2,7 +2,6 @@ package br.com.MDSGPP.ChamadaParlamentar.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 
 public final class VerificarData {
@@ -19,7 +18,7 @@ public final class VerificarData {
 		sdf.setLenient(false);
 
 		try {
-			Date greg = sdf.parse(data);
+			sdf.parse(data);
 		} catch (ParseException e) {
 			return false;
 		  }	
