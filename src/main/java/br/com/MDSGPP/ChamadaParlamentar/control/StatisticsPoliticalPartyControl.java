@@ -82,7 +82,7 @@ public final class StatisticsPoliticalPartyControl {
 	 * 
 	 * @param numero
 	 *            Double, number to be formated.
-	 * @return returns a string with the formated number.
+	 * @return formatardoubleReturn that is a string with the formated number.
 	 */
 
 	public static String formatarNumeroDouble(double number) {

@@ -13,7 +13,7 @@ public final class SessoesEReunioesControl {
 	 * 
 	 * @param descricao
 	 *            is the parameter that used for search the session.
-	 * @return passar, is the object of the model SessoesEReunioes.
+	 * @return pass, is the object of the model SessoesEReunioes.
 	 * @throws ClassNotFoundException
 	 *             if the database is off.
 	 * @throws SQLException
@@ -45,22 +45,25 @@ public final class SessoesEReunioesControl {
 	 * @param pagina
 	 * @param deputadosPorPagina
 	 * @param deputadosPresentes
-	 * @return 'listaPassar' with all the deputies that are in the page.
+	 * @return passList with all the deputies that are in the page.
 	 */
 
-	public static ArrayList<String> arrumarListaDeputados(int pagina,
+	public static ArrayList<String> arrumarListaDeputados(int page,
 			int deputadosPorPagina, ArrayList<String> deputadosPresentes) {
 		ArrayList<String> passList;/* Variable that contains the final list. */
 		passList = new ArrayList<String>();
 
 		for (int i = 0; i < deputadosPorPagina; i++) {
-			if (pagina == 0) {
+			if (page == 0) {
 				passList.add(deputadosPresentes.get(i));
 			} else {
-				if (i + (pagina * deputadosPorPagina) < deputadosPresentes
-						.size()) {
+				
+				int numberOfPresentsDeputy;/*Variable that contains the number of present deputies.*/
+				numberOfPresentsDeputy = deputadosPresentes.size();
+				
+				if (i + (page * deputadosPorPagina) < numberOfPresentsDeputy) {
 					passList.add(deputadosPresentes.get(i
-							+ (pagina * deputadosPorPagina)));
+							+ (page * deputadosPorPagina)));
 				}
 			}
 		}
