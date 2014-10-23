@@ -18,13 +18,13 @@ import br.gov.camara.www.SitCamaraWS.Deputados.DeputadosSoapStub;
 import br.gov.camara.www.SitCamaraWS.Deputados.ObterDeputadosResponseObterDeputadosResult;
 import br.gov.camara.www.SitCamaraWS.Deputados.ObterPartidosCDResponseObterPartidosCDResult;
 
-public class ConexaoComWsDeputados {
+public class ConnectionWithWsDeputies {
 
 	/**
 	 * Empty constructor.
 	 */
 
-	public ConexaoComWsDeputados() {
+	public ConnectionWithWsDeputies() {
 
 	}
 
@@ -92,8 +92,8 @@ public class ConexaoComWsDeputados {
 		lista = new ArrayList<Deputados>();
 		ObterDeputadosResponseObterDeputadosResult deputados;
 
-		deputados = ConexaoComWsDeputados
-				.receberElementDeputados(ConexaoComWsDeputados.obterConexao());
+		deputados = ConnectionWithWsDeputies
+				.receberElementDeputados(ConnectionWithWsDeputies.obterConexao());
 		NodeList nome;/* Receives the attribute name of the Member. */
 		nome = deputados.get_any()[0].getElementsByTagName("nome");
 

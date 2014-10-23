@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.MDSGPP.ChamadaParlamentar.control.DeputadosControl;
+import br.com.MDSGPP.ChamadaParlamentar.control.DeputiesControl;
 import br.com.MDSGPP.ChamadaParlamentar.control.EstatisticaControl;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ExceptionSqlInjection;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
@@ -53,8 +53,8 @@ public class SecondCongressmanServlet extends HttpServlet {
 
 		if( ExceptionSqlInjection.testeSqlInjection(nameSecondCongressman) ) {
 			try {
-				firstCongressman = DeputadosControl.verificaExistencia(nameFirstCongressman);
-				secondCongressman = DeputadosControl.verificaExistencia(nameSecondCongressman);
+				firstCongressman = DeputiesControl.verificaExistencia(nameFirstCongressman);
+				secondCongressman = DeputiesControl.verificaExistencia(nameSecondCongressman);
 
 
 				if( secondCongressman != null ) {

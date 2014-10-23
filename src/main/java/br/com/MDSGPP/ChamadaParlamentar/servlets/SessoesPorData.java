@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.MDSGPP.ChamadaParlamentar.control.DiaControl;
+import br.com.MDSGPP.ChamadaParlamentar.control.DayControl;
 import br.com.MDSGPP.ChamadaParlamentar.exception.DataFormatoErradoException;
 import br.com.MDSGPP.ChamadaParlamentar.exception.DataNaoEncontradaException;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ExceptionSqlInjection;
@@ -29,8 +29,8 @@ public class SessoesPorData extends HttpServlet {
 		String data = request.getParameter("datas");
 		if( ExceptionSqlInjection.testeSqlInjection(data) ) {
 			try {
-				new DiaControl();
-				Dia dia = DiaControl.passarData(data);
+				new DayControl();
+				Dia dia = DayControl.passarData(data);
 
 				try {
 					dia.getListaSessoes().size();

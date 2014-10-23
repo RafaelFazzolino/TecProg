@@ -9,7 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.MDSGPP.ChamadaParlamentar.control.DeputadosControl;
+import br.com.MDSGPP.ChamadaParlamentar.control.DeputiesControl;
 import br.com.MDSGPP.ChamadaParlamentar.control.EstatisticaControl;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ExceptionSqlInjection;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
@@ -38,10 +38,10 @@ public class ParlamentarRecebido extends javax.servlet.http.HttpServlet {
 					pagina = Integer.parseInt(request.getParameter("pagina"));
 					nome = nome.split("-")[0];
 				}
-				deputado = DeputadosControl.verificaExistencia(nome);
+				deputado = DeputiesControl.verificaExistencia(nome);
 
 				if( deputado != null ) {
-					ArrayList<String> lista = DeputadosControl.getDeputados();
+					ArrayList<String> lista = DeputiesControl.getDeputados();
 					Estatistica estatistica = EstatisticaControl.
 							gerarEstatisticas(EstatisticaControl.
 									arrumarNomePesquisa(deputado));

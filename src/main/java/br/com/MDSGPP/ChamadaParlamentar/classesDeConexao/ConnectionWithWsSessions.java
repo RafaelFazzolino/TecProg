@@ -29,9 +29,9 @@ import br.gov.camara.www.SitCamaraWS.SessoesReunioes.ListarPresencasParlamentarR
 import br.gov.camara.www.SitCamaraWS.SessoesReunioes.SessoesReunioesLocator;
 import br.gov.camara.www.SitCamaraWS.SessoesReunioes.SessoesReunioesSoapStub;
 
-public class ConexaoComWsSessoesEReunioes {
+public class ConnectionWithWsSessions {
 
-	public ConexaoComWsSessoesEReunioes() {
+	public ConnectionWithWsSessions() {
 
 	}
 
@@ -161,8 +161,8 @@ public class ConexaoComWsSessoesEReunioes {
 																					 * .
 																					 */
 			try {
-				sessao = ConexaoComWsSessoesEReunioes.receberElementPresenca(
-						ConexaoComWsSessoesEReunioes.obterConexao(), data,
+				sessao = ConnectionWithWsSessions.receberElementPresenca(
+						ConnectionWithWsSessions.obterConexao(), data,
 						df.format(today.getTime()),
 						Integer.toString(list.get(i)));
 
@@ -281,8 +281,8 @@ public class ConexaoComWsSessoesEReunioes {
 		df = new SimpleDateFormat();
 		df.applyPattern("dd/MM/yyyy");
 
-		sessao = ConexaoComWsSessoesEReunioes.receberElementPresenca(
-				ConexaoComWsSessoesEReunioes.obterConexao(), data,
+		sessao = ConnectionWithWsSessions.receberElementPresenca(
+				ConnectionWithWsSessions.obterConexao(), data,
 				df.format(today.getTime()), matricula);
 
 		NodeList days;/* Variable that contains the days. */

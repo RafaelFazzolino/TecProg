@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.MDSGPP.ChamadaParlamentar.control.DiaControl;
+import br.com.MDSGPP.ChamadaParlamentar.control.DayControl;
 import br.com.MDSGPP.ChamadaParlamentar.exception.DataFormatoErradoException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Dia;
 
@@ -33,13 +33,13 @@ public class SessoesEReunioesServlet extends HttpServlet {
 				pagina = Integer.parseInt(request.getParameter("pagina"));
 			}
 			
-			ArrayList<Dia> dia = DiaControl.getDias();
+			ArrayList<Dia> dia = DayControl.getDias();
 				
 			int numeroDatas = dia.size();	
 							
 			int noDePaginas = ((int) Math.ceil(numeroDatas * 1.0 / datasPorPagina))-1;
 			
-			ArrayList<Dia> diaPassar = DiaControl.getListaCerta(pagina-1, datasPorPagina, dia);
+			ArrayList<Dia> diaPassar = DayControl.getListaCerta(pagina-1, datasPorPagina, dia);
 			
 			
 			request.setAttribute("noDePaginas", noDePaginas);

@@ -9,7 +9,7 @@ import br.com.MDSGPP.ChamadaParlamentar.exception.DataFormatoErradoException;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Dia;
 
-public final class DiaControl {
+public final class DayControl {
 
 	/**
 	 * This method creates a list and returns the days that the deputy was in a

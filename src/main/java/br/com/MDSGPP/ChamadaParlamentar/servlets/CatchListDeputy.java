@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.MDSGPP.ChamadaParlamentar.control.DeputadosControl;
+import br.com.MDSGPP.ChamadaParlamentar.control.DeputiesControl;
 
 public class CatchListDeputy extends HttpServlet {
 	
@@ -25,7 +25,7 @@ public class CatchListDeputy extends HttpServlet {
 	protected void service (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = null;
 		try {
-			ArrayList<String> list = DeputadosControl.getDeputados();
+			ArrayList<String> list = DeputiesControl.getDeputados();
 			request.setAttribute("lista", list);
 			rd = request.getRequestDispatcher("/AcompanharParlamentar.jsp");
 		} catch (ClassNotFoundException e) {

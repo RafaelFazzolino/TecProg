@@ -10,7 +10,7 @@ import java.util.TimerTask;
 
 import javax.xml.rpc.ServiceException;
 
-import br.com.MDSGPP.ChamadaParlamentar.classesDeConexao.ConexaoComWsSessoesEReunioes;
+import br.com.MDSGPP.ChamadaParlamentar.classesDeConexao.ConnectionWithWsSessions;
 import br.com.MDSGPP.ChamadaParlamentar.control.RankingControl;
 import br.com.MDSGPP.ChamadaParlamentar.dao.Dao;
 import br.com.MDSGPP.ChamadaParlamentar.dao.DeputadoDao;
@@ -95,9 +95,9 @@ public class UpdateDataBase {
 												 */
 				sessionsDao = new SessoesEReunioesDao();
 
-				sessionsDao.adcionarDataNaTable(ConexaoComWsSessoesEReunioes
+				sessionsDao.adcionarDataNaTable(ConnectionWithWsSessions
 						.adcionarDataNaTable("20/11/2011", "440"));
-				sessionsDao.adcionarSessaoNaTable(ConexaoComWsSessoesEReunioes
+				sessionsDao.adcionarSessaoNaTable(ConnectionWithWsSessions
 						.adcionarSessaoNaTable("20/11/2011"));
 
 				RankingDao rankingDao;/*
