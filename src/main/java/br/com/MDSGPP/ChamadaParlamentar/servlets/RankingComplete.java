@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.MDSGPP.ChamadaParlamentar.control.RankingControl;
 import br.com.MDSGPP.ChamadaParlamentar.model.Ranking;
 
-public class RankingCompleto extends HttpServlet {
+public class RankingComplete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
