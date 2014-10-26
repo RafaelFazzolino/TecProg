@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.MDSGPP.ChamadaParlamentar.control.PoliticalPartyControl;
 
-public class PartidoAutoCompleteServlet extends javax.servlet.http.HttpServlet {
+public class PartyAutoCompleteServlet extends javax.servlet.http.HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	/**
@@ -22,9 +22,9 @@ public class PartidoAutoCompleteServlet extends javax.servlet.http.HttpServlet {
 		RequestDispatcher rd = null;
 		
 		try {
-			ArrayList<ArrayList<String>> listaAutoComplete = PoliticalPartyControl.passarListaPartidos();
+			ArrayList<ArrayList<String>> listAutoComplete = PoliticalPartyControl.passarListaPartidos();
 			
-			request.setAttribute("lista", listaAutoComplete);
+			request.setAttribute("lista", listAutoComplete);
 			
 			rd = request.getRequestDispatcher("AcompanharPartido.jsp");
 		
