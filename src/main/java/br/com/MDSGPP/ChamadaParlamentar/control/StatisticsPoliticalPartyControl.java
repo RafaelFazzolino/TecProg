@@ -55,10 +55,10 @@ public final class StatisticsPoliticalPartyControl {
 
 			numberOfSessions = numberOfSessions
 					+ Integer.parseInt(partido.getEstatisticaDosDeputados()
-							.get(i).getTotalSessao());
+							.get(i).getTotalSession());
 			numberOfSessionsAttended = numberOfSessionsAttended
 					+ Integer.parseInt(partido.getEstatisticaDosDeputados()
-							.get(i).getNumeroSessao());
+							.get(i).getNumberSession());
 		}
 
 		double percentage;/*

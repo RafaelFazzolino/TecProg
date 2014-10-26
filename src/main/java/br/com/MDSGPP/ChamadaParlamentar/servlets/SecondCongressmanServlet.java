@@ -15,7 +15,7 @@ import br.com.MDSGPP.ChamadaParlamentar.control.EstatisticaControl;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ExceptionSqlInjection;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
-import br.com.MDSGPP.ChamadaParlamentar.model.Estatistica;
+import br.com.MDSGPP.ChamadaParlamentar.model.Statistic;
 
 public class SecondCongressmanServlet extends HttpServlet {
 
@@ -62,17 +62,17 @@ public class SecondCongressmanServlet extends HttpServlet {
 					 * This variable will receive statistic of first congressman
 					 * 
 					 * */
-					Estatistica statisticFirst = EstatisticaControl.
+					Statistic statisticFirst = EstatisticaControl.
 							gerarEstatisticas(EstatisticaControl.
 									arrumarNomePesquisa(firstCongressman));
 					/**
 					 * This variable will receive statistic of second congressman
 					 * 
 					 * */	
-					Estatistica statisticSecond = EstatisticaControl.
+					Statistic statisticSecond = EstatisticaControl.
 							gerarEstatisticas(EstatisticaControl.
 									arrumarNomePesquisa(secondCongressman));
-					ArrayList<Estatistica> lista = new ArrayList<Estatistica>();
+					ArrayList<Statistic> lista = new ArrayList<Statistic>();
 					lista.add(statisticFirst);
 					lista.add(statisticSecond);
 					
@@ -80,7 +80,7 @@ public class SecondCongressmanServlet extends HttpServlet {
 					 * This variable will receive percent of miss of first congressman
 					 * 
 					 * */
-					double presenceFirst = Math.ceil(((Double.parseDouble(statisticFirst.getNumeroSessao())) / (Double.parseDouble(statisticFirst.getTotalSessao())))*100);
+					double presenceFirst = Math.ceil(((Double.parseDouble(statisticFirst.getNumberSession())) / (Double.parseDouble(statisticFirst.getTotalSession())))*100);
 					
 					/**
 					 * This variable will receive percent of miss of first congressman in format string
@@ -93,7 +93,7 @@ public class SecondCongressmanServlet extends HttpServlet {
 					 * This variable will receive percent of miss of second congressman
 					 * 
 					 * */
-					double presenceSecond = Math.ceil(((Double.parseDouble(statisticSecond.getNumeroSessao())) / (Double.parseDouble(statisticSecond.getTotalSessao())))*100);
+					double presenceSecond = Math.ceil(((Double.parseDouble(statisticSecond.getNumberSession())) / (Double.parseDouble(statisticSecond.getTotalSession())))*100);
 					/**
 					 * This variable will receive percent of miss of first congressman in format string
 					 * 
@@ -107,12 +107,12 @@ public class SecondCongressmanServlet extends HttpServlet {
 					 * 
 					 * */
 					ArrayList<String> listNames = new ArrayList<String>();
-					listNames.add(statisticFirst.getNome());
-					listNames.add(statisticSecond.getNome());
+					listNames.add(statisticFirst.getName());
+					listNames.add(statisticSecond.getName());
 					listNames.add("Total");
 					
 					request.setAttribute("lista", listNames);
-					request.setAttribute("nomePrimeiro", statisticFirst.getNome());
+					request.setAttribute("nomePrimeiro", statisticFirst.getName());
 					request.setAttribute("presencaPrimeiro", presenceNext1);
 					request.setAttribute("presencaSegundo", presenceNext2);
 					request.setAttribute("estatisticaPrimeiro", statisticFirst);

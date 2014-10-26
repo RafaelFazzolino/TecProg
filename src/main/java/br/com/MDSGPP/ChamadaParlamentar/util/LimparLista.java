@@ -2,7 +2,7 @@ package br.com.MDSGPP.ChamadaParlamentar.util;
 
 import java.util.ArrayList;
 
-import br.com.MDSGPP.ChamadaParlamentar.model.Estatistica;
+import br.com.MDSGPP.ChamadaParlamentar.model.Statistic;
 
 public final class LimparLista {
 
@@ -11,12 +11,12 @@ public final class LimparLista {
 	 * @param lista is an Array contains all deputies.
 	 * @return passar what is the clean list.
 	 */
-	public static ArrayList<ArrayList<Estatistica>> limparLista(ArrayList<Estatistica> lista){
-		ArrayList<ArrayList<Estatistica>> passar = new ArrayList<ArrayList<Estatistica>>();
-		ArrayList<Estatistica> removidos = new ArrayList<Estatistica>();
+	public static ArrayList<ArrayList<Statistic>> limparLista(ArrayList<Statistic> lista){
+		ArrayList<ArrayList<Statistic>> passar = new ArrayList<ArrayList<Statistic>>();
+		ArrayList<Statistic> removidos = new ArrayList<Statistic>();
 		for( int i = 0; i < lista.size(); i++ ) {
 			try {
-				Integer.parseInt(lista.get(i).getNumeroSessao());
+				Integer.parseInt(lista.get(i).getNumberSession());
 			} catch (NumberFormatException e) {
 				removidos.add(lista.get(i));
 				lista.remove(i);

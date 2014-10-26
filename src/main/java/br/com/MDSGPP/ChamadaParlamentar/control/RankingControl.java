@@ -20,7 +20,7 @@ import br.com.MDSGPP.ChamadaParlamentar.dao.RankingDao;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaRankingException;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
-import br.com.MDSGPP.ChamadaParlamentar.model.Estatistica;
+import br.com.MDSGPP.ChamadaParlamentar.model.Statistic;
 import br.com.MDSGPP.ChamadaParlamentar.model.Ranking;
 import br.com.MDSGPP.ChamadaParlamentar.util.LimparLista;
 
@@ -35,20 +35,20 @@ public final class RankingControl {
 	 * This method is to generate the ranking.
 	 * 
 	 * @param lista
-	 *            {@link ArrayList} of {@link Estatistica}, is the list of the
+	 *            {@link ArrayList} of {@link Statistic}, is the list of the
 	 *            statistics of all the deputies, having data or not.
 	 * @return returns the ranking.
 	 * @throws ListaRankingException
 	 *             case an error occurs with the list.
 	 */
 
-	public static Ranking gerarRanking(ArrayList<Estatistica> list)
+	public static Ranking gerarRanking(ArrayList<Statistic> list)
 			throws ListaRankingException {
 
 		Ranking ranking;/* Variable that contains all features of the ranking. */
 		ranking = new Ranking();
 		try {
-			ArrayList<ArrayList<Estatistica>> received;/*
+			ArrayList<ArrayList<Statistic>> received;/*
 														 * It is an array that
 														 * receives all the
 														 * statistics for each
@@ -56,28 +56,28 @@ public final class RankingControl {
 														 */
 			received = LimparLista.limparLista(list);
 
-			ArrayList<Estatistica> deleted;/*
+			ArrayList<Statistic> deleted;/*
 											 * It is an array that receives all
 											 * Members removed by mistake in
 											 * webService.
 											 */
 			deleted = received.get(1);
 
-			ArrayList<Estatistica> bests;/*
+			ArrayList<Statistic> bests;/*
 										 * It is an array that receives the best
 										 * MPs taking into account their
 										 * statistical presence.
 										 */
-			bests = new ArrayList<Estatistica>();
+			bests = new ArrayList<Statistic>();
 
-			ArrayList<Estatistica> worst;/*
+			ArrayList<Statistic> worst;/*
 										 * It is an array that receives the
 										 * worst MPs taking into account their
 										 * statistical presence.
 										 */
-			worst = new ArrayList<Estatistica>();
+			worst = new ArrayList<Statistic>();
 
-			ArrayList<Estatistica> receivedList;/*
+			ArrayList<Statistic> receivedList;/*
 												 * It is an array that receives
 												 * the list of statistics.
 												 */
@@ -89,7 +89,7 @@ public final class RankingControl {
 			if (sizeReceived == 0) {
 				throw new ListaRankingException();
 			}
-			ArrayList<Estatistica> orderedList;/*
+			ArrayList<Statistic> orderedList;/*
 												 * Um array is to receive all
 												 * the sorted list of
 												 * statistics.
@@ -121,7 +121,7 @@ public final class RankingControl {
 	 * @param lista
 	 *            {@link ArrayList} of {@link Deputies} its the list with all
 	 *            the deputies.
-	 * @return returns an {@link ArrayList} of {@link Estatistica} from de
+	 * @return returns an {@link ArrayList} of {@link Statistic} from de
 	 *         calculations.
 	 * @throws ClassNotFoundException
 	 *             case the class is not found.
@@ -133,16 +133,16 @@ public final class RankingControl {
 	 *             case an error occurs with the list.
 	 */
 
-	public static ArrayList<Estatistica> gerarListaEstatistica(
+	public static ArrayList<Statistic> gerarListaEstatistica(
 			ArrayList<Deputies> lista) throws ClassNotFoundException,
 			SQLException, ListaRankingException, ListaVaziaException {
 
 		try {
-			ArrayList<Estatistica> devolver;/*
+			ArrayList<Statistic> devolver;/*
 											 * Variable that will return the
 											 * result of the method.
 											 */
-			devolver = new ArrayList<Estatistica>();
+			devolver = new ArrayList<Statistic>();
 
 			String name;/* Variable that contains the name of the deputy. */
 			name = EstatisticaControl.arrumarNomePesquisa(lista.get(0));
@@ -150,7 +150,7 @@ public final class RankingControl {
 			devolver.add(EstatisticaControl.gerarEstatisticas(name));
 
 			int allSession;/* Variable that contains the number of sessions. */
-			allSession = Integer.parseInt(devolver.get(0).getTotalSessao());
+			allSession = Integer.parseInt(devolver.get(0).getTotalSession());
 
 			int sizeList;/* Variable that contains the size of the list. */
 			sizeList = lista.size();
@@ -162,13 +162,13 @@ public final class RankingControl {
 					devolver.add(EstatisticaControl.gerarEstatisticas(name,
 							allSession));
 				} catch (ListaVaziaException e) {
-					Estatistica estatistica;/*
+					Statistic estatistica;/*
 											 * Variable that contains all
 											 * features of the statistics.
 											 */
-					estatistica = new Estatistica();
+					estatistica = new Statistic();
 
-					estatistica.setNome(name);
+					estatistica.setName(name);
 					devolver.add(estatistica);
 				}
 			}
@@ -199,19 +199,19 @@ public final class RankingControl {
 		Ranking ranking;/* Variable that contains all features of the ranking. */
 		ranking = rankingDao.retornaRanking();
 
-		ArrayList<Estatistica> bests;/*
+		ArrayList<Statistic> bests;/*
 									 * Variable used to store the best deputies,
 									 * taking into account their statistical
 									 * presence.
 									 */
-		bests = new ArrayList<Estatistica>();
+		bests = new ArrayList<Statistic>();
 
-		ArrayList<Estatistica> worst;/*
+		ArrayList<Statistic> worst;/*
 									 * Variable used to store the worst
 									 * deputies, taking into account their
 									 * statistical presence.
 									 */
-		worst = new ArrayList<Estatistica>();
+		worst = new ArrayList<Statistic>();
 
 		ranking.setLista(ordenacao(ranking.getLista()));
 
@@ -229,12 +229,12 @@ public final class RankingControl {
 	 * <b>insertion sort</b>.
 	 * 
 	 * @param lista
-	 *            {@link ArrayList} of {@link Estatistica}, unsorted list.
-	 * @return returns an {@link ArrayList} of {@link Estatistica} with the
+	 *            {@link ArrayList} of {@link Statistic}, unsorted list.
+	 * @return returns an {@link ArrayList} of {@link Statistic} with the
 	 *         sorted list.
 	 */
 
-	public static ArrayList<Estatistica> ordenacao(ArrayList<Estatistica> list) {
+	public static ArrayList<Statistic> ordenacao(ArrayList<Statistic> list) {
 		/* Insertion Sort. */
 
 		int i = 1, j = 1;
@@ -254,15 +254,15 @@ public final class RankingControl {
 							 * Variable that stores the fewest for the
 							 * ordination.
 							 */
-					first = Integer.parseInt(list.get(i - 1).getNumeroSessao());
+					first = Integer.parseInt(list.get(i - 1).getNumberSession());
 					int second;/*
 								 * Variable that stores the highest number for
 								 * the ordination.
 								 */
-					second = Integer.parseInt(list.get(i).getNumeroSessao());
+					second = Integer.parseInt(list.get(i).getNumberSession());
 
 					if (first < second) {
-						Estatistica temp;
+						Statistic temp;
 
 						temp = list.get(i - 1);
 

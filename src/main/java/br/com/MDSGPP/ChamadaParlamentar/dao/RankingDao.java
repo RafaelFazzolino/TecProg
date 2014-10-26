@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import br.com.MDSGPP.ChamadaParlamentar.model.Estatistica;
+import br.com.MDSGPP.ChamadaParlamentar.model.Statistic;
 import br.com.MDSGPP.ChamadaParlamentar.model.Ranking;
 
 import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
@@ -28,17 +28,17 @@ public class RankingDao extends ConnectionFactory {
 
 		for( int i = 0; i < ranking.getLista().size(); i++ ) {
 			try {
-				stmt.setString(1, ranking.getLista().get(i).getNome());
-				stmt.setString(2, ranking.getLista().get(i).getPorcentagem());
-				stmt.setString(3, ranking.getLista().get(i).getNumeroSessao());
+				stmt.setString(1, ranking.getLista().get(i).getName());
+				stmt.setString(2, ranking.getLista().get(i).getPercentagem());
+				stmt.setString(3, ranking.getLista().get(i).getNumberSession());
 				
 				stmt.execute();
 			} catch (MySQLIntegrityConstraintViolationException e) {
-				System.out.println(ranking.getLista().get(i).getNome());
+				System.out.println(ranking.getLista().get(i).getName());
 			}
 		}
 		for( int i = 0; i < ranking.getRemovidos().size(); i++ ) {
-			stmt.setString(1, ranking.getRemovidos().get(i).getNome());
+			stmt.setString(1, ranking.getRemovidos().get(i).getName());
 			stmt.setString(2, "semDados");
 			stmt.execute();
 		}
@@ -53,8 +53,8 @@ public class RankingDao extends ConnectionFactory {
 	 */
 	public Ranking retornaRanking () throws SQLException {
 		Ranking ranking = new Ranking();
-		ArrayList<Estatistica> deleted = new ArrayList<Estatistica>();
-		ArrayList<Estatistica> list = new ArrayList<Estatistica>();
+		ArrayList<Statistic> deleted = new ArrayList<Statistic>();
+		ArrayList<Statistic> list = new ArrayList<Statistic>();
 		
 		String sql = "Select * from ranking";
 		
@@ -62,14 +62,14 @@ public class RankingDao extends ConnectionFactory {
 		ResultSet rs = stmt.executeQuery();
 		
 		while( rs.next() ) {
-			Estatistica statistic = new Estatistica();
-			statistic.setNome(rs.getString("nomeParlamentar"));
+			Statistic statistic = new Statistic();
+			statistic.setName(rs.getString("nomeParlamentar"));
 			if( rs.getString("porcentagem").equalsIgnoreCase("semDados") ) {
 				deleted.add(statistic);
 			} 
 			else {
-				statistic.setPorcentagem(rs.getString("porcentagem"));
-				statistic.setNumeroSessao(rs.getString("numeroSessoes"));
+				statistic.setPercentagem(rs.getString("porcentagem"));
+				statistic.setNumberSession(rs.getString("numeroSessoes"));
 				list.add(statistic);
 			}
 		}

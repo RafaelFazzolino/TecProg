@@ -7,7 +7,7 @@ import br.com.MDSGPP.ChamadaParlamentar.dao.DeputadoDao;
 import br.com.MDSGPP.ChamadaParlamentar.dao.PartidoDao;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
-import br.com.MDSGPP.ChamadaParlamentar.model.Estatistica;
+import br.com.MDSGPP.ChamadaParlamentar.model.Statistic;
 import br.com.MDSGPP.ChamadaParlamentar.model.Partidos;
 import br.com.MDSGPP.ChamadaParlamentar.util.LimparLista;
 
@@ -143,11 +143,11 @@ public final class PoliticalPartyControl {
 			throws ClassNotFoundException, SQLException, ListaVaziaException {
 		Partidos partido = passarPartido(nome);
 
-		ArrayList<Estatistica> estatisticas;/*
+		ArrayList<Statistic> estatisticas;/*
 											 * Variable that contains the
 											 * statistics.
 											 */
-		estatisticas = new ArrayList<Estatistica>();
+		estatisticas = new ArrayList<Statistic>();
 
 		int sizeDeputiesOfParty;/*
 								 * Variable that contains the size of list with
@@ -157,18 +157,18 @@ public final class PoliticalPartyControl {
 
 		try {
 			for (int i = 0; i < sizeDeputiesOfParty; i++) {
-				Estatistica estatistica;/*
+				Statistic estatistica;/*
 										 * Variable that contains all features
 										 * of statistics.
 										 */
-				estatistica = new Estatistica();
+				estatistica = new Statistic();
 				try {
 					estatistica = EstatisticaControl
 							.gerarEstatisticas(EstatisticaControl
 									.arrumarNomePesquisa(partido
 											.getDeputadosDoPartido().get(i)));
 				} catch (ListaVaziaException e) {
-					estatistica.setNome(EstatisticaControl
+					estatistica.setName(EstatisticaControl
 							.arrumarNomePesquisa(partido
 									.getDeputadosDoPartido().get(i)));
 				}
@@ -205,7 +205,7 @@ public final class PoliticalPartyControl {
 						 */
 		partido = gerarEstatisticaDoPartido(nome);
 
-		ArrayList<ArrayList<Estatistica>> listaRecebida;/*
+		ArrayList<ArrayList<Statistic>> listaRecebida;/*
 														 * Variable that
 														 * contains the received
 														 * list.

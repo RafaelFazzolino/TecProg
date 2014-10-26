@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class Ranking {
 
-	private ArrayList<Estatistica> lista = new ArrayList<Estatistica>();
-	private ArrayList<Estatistica> removidos = new ArrayList<Estatistica>();
-	private ArrayList<Estatistica> melhores = new ArrayList<Estatistica>();
-	private ArrayList<Estatistica> piores = new ArrayList<Estatistica>();
+	private ArrayList<Statistic> lista = new ArrayList<Statistic>();
+	private ArrayList<Statistic> removidos = new ArrayList<Statistic>();
+	private ArrayList<Statistic> melhores = new ArrayList<Statistic>();
+	private ArrayList<Statistic> piores = new ArrayList<Statistic>();
 
 	public Ranking() {
 	}
@@ -15,56 +15,56 @@ public class Ranking {
 	/**
 	 * This method is to get the statistic of deturies.
 	 */
-	public ArrayList<Estatistica> getLista() {
+	public ArrayList<Statistic> getLista() {
 		return lista;
 	}
 
 	/**
 	 * This method is to change the variable lista.
 	 */
-	public void setLista(ArrayList<Estatistica> lista) {
+	public void setLista(ArrayList<Statistic> lista) {
 		this.lista = lista;
 	}
 
 	/**
 	 * This method is to get all deputies deleted.
 	 */
-	public ArrayList<Estatistica> getRemovidos() {
+	public ArrayList<Statistic> getRemovidos() {
 		return removidos;
 	}
 
 	/**
 	 * This method is to change the variable removidos.
 	 */
-	public void setRemovidos(ArrayList<Estatistica> removidos) {
+	public void setRemovidos(ArrayList<Statistic> removidos) {
 		this.removidos = removidos;
 	}
 
 	/**
 	 * This method is to get the bests deputies.
 	 */
-	public ArrayList<Estatistica> getMelhores() {
+	public ArrayList<Statistic> getMelhores() {
 		return melhores;
 	}
 
 	/**
 	 * This method is to change the variable melhores.
 	 */
-	public void setMelhores(ArrayList<Estatistica> melhores) {
+	public void setMelhores(ArrayList<Statistic> melhores) {
 		this.melhores = melhores;
 	}
 
 	/**
 	 * This method is to get the worst deputies.
 	 */
-	public ArrayList<Estatistica> getPiores() {
+	public ArrayList<Statistic> getPiores() {
 		return piores;
 	}
 
 	/**
 	 * This method is to change the variable piores.
 	 */
-	public void setPiores(ArrayList<Estatistica> piores) {
+	public void setPiores(ArrayList<Statistic> piores) {
 		this.piores = piores;
 	}
 }

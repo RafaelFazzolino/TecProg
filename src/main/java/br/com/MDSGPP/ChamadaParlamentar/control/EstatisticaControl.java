@@ -20,7 +20,7 @@ import br.com.MDSGPP.ChamadaParlamentar.dao.EstatisticaDao;
 import br.com.MDSGPP.ChamadaParlamentar.dao.SessoesEReunioesDao;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
-import br.com.MDSGPP.ChamadaParlamentar.model.Estatistica;
+import br.com.MDSGPP.ChamadaParlamentar.model.Statistic;
 
 public final class EstatisticaControl {
 
@@ -31,17 +31,17 @@ public final class EstatisticaControl {
 	 * 
 	 * @param nome
 	 *            String, its the name of deputy.
-	 * @return returns the {@link Estatistica} of the {@link Deputies}
+	 * @return returns the {@link Statistic} of the {@link Deputies}
 	 * @throws ClassNotFoundException case the class is not found.
 	 * @throws SQLException case an error occurs with dataBase.
 	 * @throws ListaVaziaException is case an error occurs with the list.
 	 */
     
-	public static Estatistica gerarEstatisticas(String nome)
+	public static Statistic gerarEstatisticas(String nome)
 			throws ClassNotFoundException, SQLException, ListaVaziaException {
 		
-		Estatistica estatistica;/*Variable that contains the statistic.*/
-		estatistica = new Estatistica();
+		Statistic estatistica;/*Variable that contains the statistic.*/
+		estatistica = new Statistic();
 		
 		EstatisticaDao dao;/*Variable that create the connection with dataBase.*/
 		dao = new EstatisticaDao();	
@@ -52,12 +52,12 @@ public final class EstatisticaControl {
 		int numeroTotalSessao;/*Variable that contains the number of all sessions.*/
 		numeroTotalSessao = sessions.passarNumeroDeSessoes();
 
-		estatistica.setLista(dao.getEstatisticaDeputados(nome));
+		estatistica.setList(dao.getEstatisticaDeputados(nome));
 
-		estatistica.setNome(nome);
+		estatistica.setName(nome);
 
 		estatistica = calcularEstatistica(estatistica, sessions, numeroTotalSessao);
-		estatistica.setTotalSessao(Integer.toString(numeroTotalSessao));
+		estatistica.setTotalSession(Integer.toString(numeroTotalSessao));
 
 
 		return estatistica;
@@ -71,17 +71,17 @@ public final class EstatisticaControl {
 	 *            String, name of the {@link Deputies}.
 	 * @param numeroTotalSessao
 	 *            Integer, total number of sessions.
-	 * @return returns {@link Estatistica}.
+	 * @return returns {@link Statistic}.
 	 * @throws ClassNotFoundException case the class is not found.
 	 * @throws SQLException case an error occurs with dataBase.
 	 * @throws ListaVaziaException is case an error occurs with the list.
 	 */
 
-	public static Estatistica gerarEstatisticas(String nome, int numeroTotalSessao) 
+	public static Statistic gerarEstatisticas(String nome, int numeroTotalSessao) 
 			throws ClassNotFoundException, SQLException, ListaVaziaException {
 
-		Estatistica estatistica;/*Variable that contains the statistic.*/
-		estatistica = new Estatistica();
+		Statistic estatistica;/*Variable that contains the statistic.*/
+		estatistica = new Statistic();
 		
 		EstatisticaDao dao;/*Variable that create the connection with dataBase.*/
 		dao = new EstatisticaDao();	
@@ -89,13 +89,13 @@ public final class EstatisticaControl {
 		SessoesEReunioesDao sessions;/*Variable that create the connection with dataBase.*/
 		sessions = new SessoesEReunioesDao();
 
-		estatistica.setLista(dao.getEstatisticaDeputados(nome));
+		estatistica.setList(dao.getEstatisticaDeputados(nome));
 
-		estatistica.setNome(nome);
+		estatistica.setName(nome);
 
 		estatistica = calcularEstatistica(estatistica, sessions, numeroTotalSessao);
 
-		estatistica.setTotalSessao(Integer.toString(numeroTotalSessao));
+		estatistica.setTotalSession(Integer.toString(numeroTotalSessao));
 
 
 		return estatistica;
@@ -103,37 +103,37 @@ public final class EstatisticaControl {
 	}
 
 	/**
-	 * This method actualy calculate the {@link Estatistica}.
+	 * This method actualy calculate the {@link Statistic}.
 	 * 
 	 * @param estatistica
-	 *            {@link Estatistica}, its the {@link Estatistica} but without
+	 *            {@link Statistic}, its the {@link Statistic} but without
 	 *            the numbers, have only data of the number of sessions.
 	 * @param sessoes
 	 *            {@link SessoesEReunioesDao}, its the connection to the data
 	 *            base.
 	 * @param numeroTotalSessao
 	 *            Integer, its the total number of sessions.
-	 * @return returns an {@link Estatistica} but now with actual numbers.
+	 * @return returns an {@link Statistic} but now with actual numbers.
 	 * @throws ListaVaziaException
 	 */
 
 
-	public static Estatistica calcularEstatistica
-	(Estatistica estatistica, SessoesEReunioesDao sessoes, 
+	public static Statistic calcularEstatistica
+	(Statistic estatistica, SessoesEReunioesDao sessoes, 
 			int numeroTotalSessao) throws ListaVaziaException {
 		
 		int sizeList;/*Variable that contains the size of List.*/
-		sizeList = estatistica.getLista().size();
+		sizeList = estatistica.getList().size();
 		
 		if(sizeList == 0){
 			throw new ListaVaziaException();
 		}
-		estatistica.setNumeroSessao(Integer.toString(sizeList));
+		estatistica.setNumberSession(Integer.toString(sizeList));
 
 		DecimalFormat df;/*Variable that contains the decimal format of the number.*/
 		df = new DecimalFormat("###.00");  
 		
-		estatistica.setPorcentagem(df.format(
+		estatistica.setPercentagem(df.format(
 				(((double)sizeList)/
 						((double)numeroTotalSessao))*PASS_PERCENTAGE) + "%");
 

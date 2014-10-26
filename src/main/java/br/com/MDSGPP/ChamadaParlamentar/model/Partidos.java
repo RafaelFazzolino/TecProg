@@ -6,8 +6,8 @@ public class Partidos {
 	private String sigla;
 	private String nomePartido;
 	private ArrayList<Deputies> deputadosDoPartido;
-	private ArrayList<Estatistica> estatisticaDosDeputados;
-	private ArrayList<Estatistica> deputadosSemDados;
+	private ArrayList<Statistic> estatisticaDosDeputados;
+	private ArrayList<Statistic> deputadosSemDados;
 
 	public String getNomePartido() {
 		return nomePartido;
@@ -33,20 +33,20 @@ public class Partidos {
 		this.deputadosDoPartido = deputadosDoPartido;
 	}
 
-	public ArrayList<Estatistica> getEstatisticaDosDeputados() {
+	public ArrayList<Statistic> getEstatisticaDosDeputados() {
 		return estatisticaDosDeputados;
 	}
 
 	public void setEstatisticaDosDeputados(
-			ArrayList<Estatistica> estatisticaDosDeputados) {
+			ArrayList<Statistic> estatisticaDosDeputados) {
 		this.estatisticaDosDeputados = estatisticaDosDeputados;
 	}
 
-	public ArrayList<Estatistica> getDeputadosSemDados() {
+	public ArrayList<Statistic> getDeputadosSemDados() {
 		return deputadosSemDados;
 	}
 
-	public void setDeputadosSemDados(ArrayList<Estatistica> deputadosSemDados) {
+	public void setDeputadosSemDados(ArrayList<Statistic> deputadosSemDados) {
 		this.deputadosSemDados = deputadosSemDados;
 	}
 

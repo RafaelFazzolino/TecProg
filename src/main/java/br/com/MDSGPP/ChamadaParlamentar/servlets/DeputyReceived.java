@@ -14,7 +14,7 @@ import br.com.MDSGPP.ChamadaParlamentar.control.EstatisticaControl;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ExceptionSqlInjection;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
-import br.com.MDSGPP.ChamadaParlamentar.model.Estatistica;
+import br.com.MDSGPP.ChamadaParlamentar.model.Statistic;
 
 
 public class DeputyReceived extends javax.servlet.http.HttpServlet {
@@ -42,20 +42,20 @@ public class DeputyReceived extends javax.servlet.http.HttpServlet {
 
 				if( deputy != null ) {
 					ArrayList<String> list = DeputiesControl.getDeputados();
-					Estatistica statistic = EstatisticaControl.
+					Statistic statistic = EstatisticaControl.
 							gerarEstatisticas(EstatisticaControl.
 									arrumarNomePesquisa(deputy));
 
-					int numberOfSessions = statistic.getLista().size();
+					int numberOfSessions = statistic.getList().size();
 					int numberOfPage = ((int) Math.ceil(numberOfSessions * 1.0 / sessionForPage))-1;
 
-					double presence = Math.ceil(((Double.parseDouble(statistic.getNumeroSessao())) / (Double.parseDouble(statistic.getTotalSessao())))*100);
+					double presence = Math.ceil(((Double.parseDouble(statistic.getNumberSession())) / (Double.parseDouble(statistic.getTotalSession())))*100);
 					String presenceNext = Double.toString(presence);
 					
 
 					
 					
-					statistic.setLista(EstatisticaControl.passarListaCerta(page-1, sessionForPage, statistic.getLista()));
+					statistic.setList(EstatisticaControl.passarListaCerta(page-1, sessionForPage, statistic.getList()));
 
 					request.setAttribute("presenca", presenceNext);
 					request.setAttribute("noDePaginas", numberOfPage);
