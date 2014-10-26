@@ -17,51 +17,51 @@ import br.com.MDSGPP.ChamadaParlamentar.model.Deputados;
 import br.com.MDSGPP.ChamadaParlamentar.model.Estatistica;
 
 
-public class ParlamentarRecebido extends javax.servlet.http.HttpServlet {
+public class DeputyReceived extends javax.servlet.http.HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * This method is to get the deputy.
 	 */
 	protected void service (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nome = request.getParameter("nome");
+		String name = request.getParameter("nome");
 
-		Deputados deputado = null;
+		Deputados deputy = null;
 		RequestDispatcher rd = null;
 
-		if( ExceptionSqlInjection.testeSqlInjection(nome) ) {
+		if( ExceptionSqlInjection.testeSqlInjection(name) ) {
 			try {
-				int pagina = 1;
-				int sessoesPorPagina = 15;
+				int page = 1;
+				int sessionForPage = 15;
 
 				if( request.getParameter("pagina") != null ) {
-					pagina = Integer.parseInt(request.getParameter("pagina"));
-					nome = nome.split("-")[0];
+					page = Integer.parseInt(request.getParameter("pagina"));
+					name = name.split("-")[0];
 				}
-				deputado = DeputiesControl.verificaExistencia(nome);
+				deputy = DeputiesControl.verificaExistencia(name);
 
-				if( deputado != null ) {
-					ArrayList<String> lista = DeputiesControl.getDeputados();
-					Estatistica estatistica = EstatisticaControl.
+				if( deputy != null ) {
+					ArrayList<String> list = DeputiesControl.getDeputados();
+					Estatistica statistic = EstatisticaControl.
 							gerarEstatisticas(EstatisticaControl.
-									arrumarNomePesquisa(deputado));
+									arrumarNomePesquisa(deputy));
 
-					int numeroSessoes = estatistica.getLista().size();
-					int noDePaginas = ((int) Math.ceil(numeroSessoes * 1.0 / sessoesPorPagina))-1;
+					int numberOfSessions = statistic.getLista().size();
+					int numberOfPage = ((int) Math.ceil(numberOfSessions * 1.0 / sessionForPage))-1;
 
-					double presenca = Math.ceil(((Double.parseDouble(estatistica.getNumeroSessao())) / (Double.parseDouble(estatistica.getTotalSessao())))*100);
-					String presencaPassar = Double.toString(presenca);
+					double presence = Math.ceil(((Double.parseDouble(statistic.getNumeroSessao())) / (Double.parseDouble(statistic.getTotalSessao())))*100);
+					String presenceNext = Double.toString(presence);
 					
 
 					
 					
-					estatistica.setLista(EstatisticaControl.passarListaCerta(pagina-1, sessoesPorPagina, estatistica.getLista()));
+					statistic.setLista(EstatisticaControl.passarListaCerta(page-1, sessionForPage, statistic.getLista()));
 
-					request.setAttribute("presenca", presencaPassar);
-					request.setAttribute("noDePaginas", noDePaginas);
-					request.setAttribute("paginaAtual", pagina);
-					request.setAttribute("lista", lista);
-					request.setAttribute("estatistica", estatistica);
+					request.setAttribute("presenca", presenceNext);
+					request.setAttribute("noDePaginas", numberOfPage);
+					request.setAttribute("paginaAtual", page);
+					request.setAttribute("lista", list);
+					request.setAttribute("estatistica", statistic);
 					rd = request.getRequestDispatcher("/MostrarEstatisticaDeputado.jsp");
 
 				}
