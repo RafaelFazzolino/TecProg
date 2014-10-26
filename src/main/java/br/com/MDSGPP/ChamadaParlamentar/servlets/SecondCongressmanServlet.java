@@ -14,7 +14,7 @@ import br.com.MDSGPP.ChamadaParlamentar.control.DeputiesControl;
 import br.com.MDSGPP.ChamadaParlamentar.control.EstatisticaControl;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ExceptionSqlInjection;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
-import br.com.MDSGPP.ChamadaParlamentar.model.Deputados;
+import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 import br.com.MDSGPP.ChamadaParlamentar.model.Estatistica;
 
 public class SecondCongressmanServlet extends HttpServlet {
@@ -42,13 +42,13 @@ public class SecondCongressmanServlet extends HttpServlet {
 		 * 
 		 * */
 		
-		Deputados firstCongressman = null;
+		Deputies firstCongressman = null;
 		/**
 		 * This variable will receive feature of second congressman
 		 * 
 		 * */
 		
-		Deputados secondCongressman = null;
+		Deputies secondCongressman = null;
 		RequestDispatcher rd = null;
 
 		if( ExceptionSqlInjection.testeSqlInjection(nameSecondCongressman) ) {

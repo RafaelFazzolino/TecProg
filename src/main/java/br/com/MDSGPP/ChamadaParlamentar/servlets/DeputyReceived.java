@@ -13,7 +13,7 @@ import br.com.MDSGPP.ChamadaParlamentar.control.DeputiesControl;
 import br.com.MDSGPP.ChamadaParlamentar.control.EstatisticaControl;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ExceptionSqlInjection;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
-import br.com.MDSGPP.ChamadaParlamentar.model.Deputados;
+import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 import br.com.MDSGPP.ChamadaParlamentar.model.Estatistica;
 
 
@@ -26,7 +26,7 @@ public class DeputyReceived extends javax.servlet.http.HttpServlet {
 	protected void service (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String name = request.getParameter("nome");
 
-		Deputados deputy = null;
+		Deputies deputy = null;
 		RequestDispatcher rd = null;
 
 		if( ExceptionSqlInjection.testeSqlInjection(name) ) {
