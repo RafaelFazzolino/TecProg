@@ -45,11 +45,11 @@ public class Statistic {
 		this.percentage = percentage;
 	}
 
-	public ArrayList<String> getList() {
+	public ArrayList<String> getLista() {
 		return list;
 	}
 
-	public void setList(ArrayList<String> lista) {
+	public void setLista(ArrayList<String> lista) {
 		this.list = lista;
 	}
 }

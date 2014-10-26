@@ -46,7 +46,7 @@ public class DeputyReceived extends javax.servlet.http.HttpServlet {
 							gerarEstatisticas(EstatisticaControl.
 									arrumarNomePesquisa(deputy));
 
-					int numberOfSessions = statistic.getList().size();
+					int numberOfSessions = statistic.getLista().size();
 					int numberOfPage = ((int) Math.ceil(numberOfSessions * 1.0 / sessionForPage))-1;
 
 					double presence = Math.ceil(((Double.parseDouble(statistic.getNumberSession())) / (Double.parseDouble(statistic.getTotalSession())))*100);
@@ -55,7 +55,7 @@ public class DeputyReceived extends javax.servlet.http.HttpServlet {
 
 					
 					
-					statistic.setList(EstatisticaControl.passarListaCerta(page-1, sessionForPage, statistic.getList()));
+					statistic.setLista(EstatisticaControl.passarListaCerta(page-1, sessionForPage, statistic.getLista()));
 
 					request.setAttribute("presenca", presenceNext);
 					request.setAttribute("noDePaginas", numberOfPage);

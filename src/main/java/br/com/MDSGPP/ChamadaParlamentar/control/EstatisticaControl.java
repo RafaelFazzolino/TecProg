@@ -52,7 +52,7 @@ public final class EstatisticaControl {
 		int numeroTotalSessao;/*Variable that contains the number of all sessions.*/
 		numeroTotalSessao = sessions.passarNumeroDeSessoes();
 
-		estatistica.setList(dao.getEstatisticaDeputados(nome));
+		estatistica.setLista(dao.getEstatisticaDeputados(nome));
 
 		estatistica.setName(nome);
 
@@ -89,7 +89,7 @@ public final class EstatisticaControl {
 		SessoesEReunioesDao sessions;/*Variable that create the connection with dataBase.*/
 		sessions = new SessoesEReunioesDao();
 
-		estatistica.setList(dao.getEstatisticaDeputados(nome));
+		estatistica.setLista(dao.getEstatisticaDeputados(nome));
 
 		estatistica.setName(nome);
 
@@ -123,7 +123,7 @@ public final class EstatisticaControl {
 			int numeroTotalSessao) throws ListaVaziaException {
 		
 		int sizeList;/*Variable that contains the size of List.*/
-		sizeList = estatistica.getList().size();
+		sizeList = estatistica.getLista().size();
 		
 		if(sizeList == 0){
 			throw new ListaVaziaException();

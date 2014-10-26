@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.MDSGPP.ChamadaParlamentar.control.SessoesEReunioesControl;
+import br.com.MDSGPP.ChamadaParlamentar.control.SessionsAndMeetingsControl;
 import br.com.MDSGPP.ChamadaParlamentar.model.SessoesEReunioes;
 
 public class SessaoPorNomeServlet extends HttpServlet {
@@ -34,7 +34,7 @@ public class SessaoPorNomeServlet extends HttpServlet {
 			if (request.getParameter("pagina") != null) {
 				page = Integer.parseInt(request.getParameter("pagina"));
 			}
-			session = SessoesEReunioesControl.passarSessao(description);
+			session = SessionsAndMeetingsControl.nextSession(description);
 
 			if (session.getDeputadosPresentes().size() != 0) {
 
@@ -42,8 +42,8 @@ public class SessaoPorNomeServlet extends HttpServlet {
 				int noDePaginas = ((int) Math.ceil(numeroDeputados * 1.0
 						/ deputiesForPage)) - 1;
 
-				session.setDeputadosPresentes(SessoesEReunioesControl
-						.arrumarListaDeputados(page - 1, deputiesForPage,
+				session.setDeputadosPresentes(SessionsAndMeetingsControl
+						.organizeListDeputy(page - 1, deputiesForPage,
 								session.getDeputadosPresentes()));
 
 				request.setAttribute("quantosDeputados", numeroDeputados);

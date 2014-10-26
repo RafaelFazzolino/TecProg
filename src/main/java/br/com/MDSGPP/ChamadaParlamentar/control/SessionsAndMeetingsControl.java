@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import br.com.MDSGPP.ChamadaParlamentar.dao.SessoesEReunioesDao;
 import br.com.MDSGPP.ChamadaParlamentar.model.SessoesEReunioes;
 
-public final class SessoesEReunioesControl {
+public final class SessionsAndMeetingsControl {
 
 	/**
 	 * Method that bridges the gap between the Dao and Model about the sessions.
@@ -20,7 +20,7 @@ public final class SessoesEReunioesControl {
 	 *             if miss spelled SQL is entered.
 	 */
 
-	public static SessoesEReunioes passarSessao(String descricao)
+	public static SessoesEReunioes nextSession(String descricao)
 			throws ClassNotFoundException, SQLException {
 		SessoesEReunioesDao dao;/*
 								 * Variable that create the connection with
@@ -48,7 +48,7 @@ public final class SessoesEReunioesControl {
 	 * @return passList with all the deputies that are in the page.
 	 */
 
-	public static ArrayList<String> arrumarListaDeputados(int page,
+	public static ArrayList<String> organizeListDeputy(int page,
 			int deputadosPorPagina, ArrayList<String> deputadosPresentes) {
 		ArrayList<String> passList;/* Variable that contains the final list. */
 		passList = new ArrayList<String>();
