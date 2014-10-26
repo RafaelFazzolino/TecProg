@@ -7,7 +7,8 @@ import br.com.MDSGPP.ChamadaParlamentar.dao.DiaDao;
 import br.com.MDSGPP.ChamadaParlamentar.dao.SessoesEReunioesDao;
 import br.com.MDSGPP.ChamadaParlamentar.exception.DataFormatoErradoException;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
-import br.com.MDSGPP.ChamadaParlamentar.model.Dia;
+import br.com.MDSGPP.ChamadaParlamentar.model.Day;
+
 
 public final class DayControl {
 
@@ -23,9 +24,9 @@ public final class DayControl {
 	 * @throws DataFormatoErradoException
 	 *             case to come up with wrong date format.
 	 */
-	public static ArrayList<Dia> getDias() throws ClassNotFoundException,
+	public static ArrayList<Day> getDias() throws ClassNotFoundException,
 			SQLException, DataFormatoErradoException {
-		ArrayList<Dia> list;/* Variable that contains the days. */
+		ArrayList<Day> list;/* Variable that contains the days. */
 		DiaDao diaDao;/*
 					 * Variable that create the connection with dataBase to get
 					 * days.
@@ -34,11 +35,11 @@ public final class DayControl {
 
 		list = diaDao.buscarTodasDescricoes();
 
-		ArrayList<Dia> listaInverter;/*
+		ArrayList<Day> listaInverter;/*
 									 * Variable that contains the list of the
 									 * days.
 									 */
-		listaInverter = new ArrayList<Dia>();
+		listaInverter = new ArrayList<Day>();
 
 		listaInverter = ReverseList(listaInverter, list);
 
@@ -54,9 +55,9 @@ public final class DayControl {
 	 *            variable that contains the list.
 	 * @return listaInverter that is the inverted list.
 	 */
-	public static ArrayList<Dia> ReverseList(ArrayList<Dia> listaInverter,
-			ArrayList<Dia> list) {
-		listaInverter = new ArrayList<Dia>();
+	public static ArrayList<Day> ReverseList(ArrayList<Day> listaInverter,
+			ArrayList<Day> list) {
+		listaInverter = new ArrayList<Day>();
 
 		int sizeList;/* Variable that contains the size of the list. */
 		sizeList = list.size();
@@ -80,10 +81,10 @@ public final class DayControl {
 	 * @return listaPassar is the arrayList contains all days.
 	 */
 
-	public static ArrayList<Dia> getListaCerta(int pagina, int datasPorPagina,
-			ArrayList<Dia> dia) {
-		ArrayList<Dia> listaPassar;/* Variable that contains all days. */
-		listaPassar = new ArrayList<Dia>();
+	public static ArrayList<Day> getListaCerta(int pagina, int datasPorPagina,
+			ArrayList<Day> dia) {
+		ArrayList<Day> listaPassar;/* Variable that contains all days. */
+		listaPassar = new ArrayList<Day>();
 
 		for (int i = 0; i < datasPorPagina; i++) {
 			if (pagina == 0) {
@@ -116,10 +117,10 @@ public final class DayControl {
 	 * @throws ListaVaziaException
 	 *             is case the list came empty.
 	 */
-	public static Dia passarData(String data) throws ClassNotFoundException,
+	public static Day passarData(String data) throws ClassNotFoundException,
 			SQLException, DataFormatoErradoException, ListaVaziaException {
 
-		Dia dia;/* Variable that contains the day. */
+		Day dia;/* Variable that contains the day. */
 		dia = null;
 		dia = new SessoesEReunioesDao().procuraDia(data);
 		dia.setData(data);
@@ -128,7 +129,7 @@ public final class DayControl {
 								 * Variable that contains the size of the list
 								 * of sessions.
 								 */
-		sizeListOfSessions = dia.getListaSessoes().size();
+		sizeListOfSessions = dia.getListSessions().size();
 
 		if (sizeListOfSessions == 0) {
 			throw new ListaVaziaException();

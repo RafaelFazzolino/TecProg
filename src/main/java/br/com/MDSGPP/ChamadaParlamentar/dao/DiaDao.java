@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import br.com.MDSGPP.ChamadaParlamentar.exception.DataFormatoErradoException;
-import br.com.MDSGPP.ChamadaParlamentar.model.Dia;
+import br.com.MDSGPP.ChamadaParlamentar.model.Day;
 import br.com.MDSGPP.ChamadaParlamentar.model.SessoesEReunioes;
 
 public class DiaDao extends ConnectionFactory {
@@ -38,10 +38,10 @@ public class DiaDao extends ConnectionFactory {
 	 *             case the date is wrong.
 	 */
 
-	public ArrayList<Dia> buscarTodasDescricoes() throws SQLException,
+	public ArrayList<Day> buscarTodasDescricoes() throws SQLException,
 			DataFormatoErradoException {
-		ArrayList<Dia> list;/* Variable that contains all days. */
-		list = new ArrayList<Dia>();
+		ArrayList<Day> list;/* Variable that contains all days. */
+		list = new ArrayList<Day>();
 
 		String sql;/* Variable that contains the code of database. */
 		sql = "Select * from datas";
@@ -72,8 +72,8 @@ public class DiaDao extends ConnectionFactory {
 	 * @throws SQLException
 	 *             case the dataBase is off.
 	 */
-	public static ArrayList<Dia> popularListaDia(ResultSet rs,
-			ArrayList<Dia> list) throws SQLException {
+	public static ArrayList<Day> popularListaDia(ResultSet rs,
+			ArrayList<Day> list) throws SQLException {
 		int cont;/* Variable to use on while. */
 		cont = 0;
 
@@ -100,7 +100,7 @@ public class DiaDao extends ConnectionFactory {
 			passar = new SessoesEReunioes();
 			passar.setDescricao(descricao);
 			passar.setFullDescription(descAux);
-			list.get(cont).getListaSessoes().add(passar);
+			list.get(cont).getListSessions().add(passar);
 		}
 
 		rs.close();
@@ -118,26 +118,26 @@ public class DiaDao extends ConnectionFactory {
 	 *             case the date is wrong.
 	 */
 
-	public static ArrayList<Dia> criarDias(ResultSet rs) throws SQLException,
+	public static ArrayList<Day> criarDias(ResultSet rs) throws SQLException,
 			DataFormatoErradoException {
-		ArrayList<Dia> list;/* Is an array that received the days. */
-		list = new ArrayList<Dia>();
+		ArrayList<Day> list;/* Is an array that received the days. */
+		list = new ArrayList<Day>();
 
 		int controle;/* This variable is to control the while. */
 		controle = 0;
 
 		while (rs.next()) {
 			if (list.size() == 0) {
-				Dia dia;/* Variable that contains the day. */
-				dia = new Dia();
+				Day dia;/* Variable that contains the day. */
+				dia = new Day();
 				dia.setData(rs.getString(DATAS));
 				list.add(dia);
 			} else {
 				boolean teste = list.get(controle).getData()
 						.equals(rs.getString(DATAS));
 				if (!teste) {
-					Dia diaAux;/* Temporary variable that contains the day. */
-					diaAux = new Dia();
+					Day diaAux;/* Temporary variable that contains the day. */
+					diaAux = new Day();
 					diaAux.setData(rs.getString(DATAS));
 					list.add(diaAux);
 					controle++;

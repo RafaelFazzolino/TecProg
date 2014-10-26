@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import br.com.MDSGPP.ChamadaParlamentar.exception.DataFormatoErradoException;
 import br.com.MDSGPP.ChamadaParlamentar.util.VerificarData;
 
-public class Dia {
+public class Day {
 	private String date;
 	private ArrayList<SessoesEReunioes> listOfSessions = new ArrayList<SessoesEReunioes>();
 	private int numberOfSessions;
@@ -33,14 +33,14 @@ public class Dia {
 	 * This method is to get the Array listaSessoes containing all sessions at this day.
 	 * @return listaSessoes what is an array containing all sessions at this day.
 	 */
-	public ArrayList<SessoesEReunioes> getListaSessoes() {
+	public ArrayList<SessoesEReunioes> getListSessions() {
 		return listOfSessions;
 	}
 	/**
 	 * This method is to change the array listaSessoes.
 	 * @param listaSessoes is an array containing all sessions at this day.
 	 */
-	public void setListaSessoes(ArrayList<SessoesEReunioes> listOfSessions) {
+	public void setListSesssions(ArrayList<SessoesEReunioes> listOfSessions) {
 		this.listOfSessions = listOfSessions;
 		if( listOfSessions != null ) {
 			this.numberOfSessions = listOfSessions.size();
@@ -53,7 +53,7 @@ public class Dia {
 	 * This method is to get the number of sessions.
 	 * @return numeroSessoes what is a variable containing the number of sessions.
 	 */
-	public int getNumeroSessoes() {
+	public int getNumberSessions() {
 		return numberOfSessions;
 	}
 }

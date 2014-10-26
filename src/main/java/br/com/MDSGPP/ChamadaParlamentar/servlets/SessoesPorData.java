@@ -14,7 +14,7 @@ import br.com.MDSGPP.ChamadaParlamentar.exception.DataFormatoErradoException;
 import br.com.MDSGPP.ChamadaParlamentar.exception.DataNaoEncontradaException;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ExceptionSqlInjection;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
-import br.com.MDSGPP.ChamadaParlamentar.model.Dia;
+import br.com.MDSGPP.ChamadaParlamentar.model.Day;
 
 public class SessoesPorData extends HttpServlet {
 
@@ -30,10 +30,10 @@ public class SessoesPorData extends HttpServlet {
 		if( ExceptionSqlInjection.testeSqlInjection(data) ) {
 			try {
 				new DayControl();
-				Dia dia = DayControl.passarData(data);
+				Day dia = DayControl.passarData(data);
 
 				try {
-					dia.getListaSessoes().size();
+					dia.getListSessions().size();
 				} catch (NullPointerException e1) {
 					throw new DataNaoEncontradaException();
 				}

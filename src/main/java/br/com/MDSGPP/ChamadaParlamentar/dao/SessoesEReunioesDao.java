@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import javax.xml.rpc.ServiceException;
 
 import br.com.MDSGPP.ChamadaParlamentar.exception.DataFormatoErradoException;
-import br.com.MDSGPP.ChamadaParlamentar.model.Dia;
+import br.com.MDSGPP.ChamadaParlamentar.model.Day;
 import br.com.MDSGPP.ChamadaParlamentar.model.SessoesEReunioes;
 
 public class SessoesEReunioesDao extends ConnectionFactory {
@@ -144,8 +144,8 @@ public class SessoesEReunioesDao extends ConnectionFactory {
 	 * @throws SQLException is case occurs an error with dataBase.
 	 */
 	
-	public Dia procuraDia(String data) throws SQLException{
-		Dia dia = new Dia();
+	public Day procuraDia(String data) throws SQLException{
+		Day dia = new Day();
 		String sql = "select * from datas where datas LIKE ?";
 	
 		PreparedStatement stmt = getConexao().prepareStatement(sql);
@@ -160,7 +160,7 @@ public class SessoesEReunioesDao extends ConnectionFactory {
 			lista.add(sessoes);
 		}
 		
-		dia.setListaSessoes(lista);
+		dia.setListSesssions(lista);
 		rs.close();
 		return dia;
 	}
