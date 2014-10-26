@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import br.com.MDSGPP.ChamadaParlamentar.dao.DeputadoDao;
 import br.com.MDSGPP.ChamadaParlamentar.dao.PartidoDao;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
-import br.com.MDSGPP.ChamadaParlamentar.model.Deputados;
+import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 import br.com.MDSGPP.ChamadaParlamentar.model.Estatistica;
 import br.com.MDSGPP.ChamadaParlamentar.model.Partidos;
 import br.com.MDSGPP.ChamadaParlamentar.util.LimparLista;
@@ -92,14 +92,14 @@ public final class PoliticalPartyControl {
 											 */
 		politicalPartyName = verificaExistencia(nomePartido);
 
-		ArrayList<Deputados> allDeputies;/* Array that contains all deputies. */
+		ArrayList<Deputies> allDeputies;/* Array that contains all deputies. */
 		allDeputies = new DeputadoDao().getDeputados();
 
-		ArrayList<Deputados> deputadosDoPartido;/*
+		ArrayList<Deputies> deputadosDoPartido;/*
 												 * ArrayList that contains all
 												 * deputies of the party.
 												 */
-		deputadosDoPartido = new ArrayList<Deputados>();
+		deputadosDoPartido = new ArrayList<Deputies>();
 
 		if (politicalPartyName != null) {
 
@@ -111,7 +111,7 @@ public final class PoliticalPartyControl {
 
 			for (int i = 0; i < sizeAllDeputies; i++) {
 				if (politicalPartyName.get(0).equalsIgnoreCase(
-						allDeputies.get(i).getPartido())) {
+						allDeputies.get(i).getParty())) {
 					deputadosDoPartido.add(allDeputies.get(i));
 				}
 			}

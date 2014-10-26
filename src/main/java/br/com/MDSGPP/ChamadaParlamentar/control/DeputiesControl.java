@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import br.com.MDSGPP.ChamadaParlamentar.dao.DeputadoDao;
-import br.com.MDSGPP.ChamadaParlamentar.model.Deputados;
+import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 
 public final class DeputiesControl {
 	/**
@@ -39,9 +39,9 @@ public final class DeputiesControl {
 	 * @throws SQLException
 	 */
 
-	public static Deputados verificaExistencia(String nome)
+	public static Deputies verificaExistencia(String nome)
 			throws ClassNotFoundException, SQLException {
-		Deputados deputy;/* Variable that contains the deputies. */
+		Deputies deputy;/* Variable that contains the deputies. */
 		deputy = null;
 
 		DeputadoDao deputadoDao;/*
@@ -49,7 +49,7 @@ public final class DeputiesControl {
 								 * to get deputies.
 								 */
 		deputadoDao = new DeputadoDao();
-		ArrayList<Deputados> list;/* Variable that contains all deputies. */
+		ArrayList<Deputies> list;/* Variable that contains all deputies. */
 		list = deputadoDao.getDeputados();
 
 		int sizeList;/* Variable that contains the size of the list. */
@@ -57,9 +57,9 @@ public final class DeputiesControl {
 
 		for (int countingAux = 0; countingAux < sizeList; countingAux++) {
 
-			if ((list.get(countingAux).getNomeCivilDoParlamentar()
+			if ((list.get(countingAux).getNameCivilCongressman()
 					.equalsIgnoreCase(nome))
-					|| list.get(countingAux).getNomeDeTratamentoDoParlamentar()
+					|| list.get(countingAux).getNameTreatmentCongressman()
 							.equalsIgnoreCase(nome)) {
 
 				deputy = list.get(countingAux);

@@ -11,10 +11,10 @@ public class SessoesEReunioes {
 	private String fullDescription;
 	private ArrayList<String> presentDeputies = new ArrayList<String>();
 
-	private ArrayList<Deputados> deputies = new ArrayList<Deputados>();
+	private ArrayList<Deputies> deputies = new ArrayList<Deputies>();
 
 	public SessoesEReunioes(String data, String description,
-			ArrayList<Deputados> deputies, String fullDescription)
+			ArrayList<Deputies> deputies, String fullDescription)
 			throws DataFormatoErradoException {
 
 		if (!VerificarData.verificaData(data)) {
@@ -52,11 +52,11 @@ public class SessoesEReunioes {
 		this.description = description;
 	}
 
-	public ArrayList<Deputados> getDeputados() {
+	public ArrayList<Deputies> getDeputados() {
 		return deputies;
 	}
 
-	public void setDeputados(ArrayList<Deputados> deputies) {
+	public void setDeputados(ArrayList<Deputies> deputies) {
 		this.deputies = deputies;
 	}
 

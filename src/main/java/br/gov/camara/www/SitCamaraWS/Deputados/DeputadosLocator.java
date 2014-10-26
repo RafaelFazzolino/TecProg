@@ -7,7 +7,7 @@
 
 package br.gov.camara.www.SitCamaraWS.Deputados;
 
-public class DeputadosLocator extends org.apache.axis.client.Service implements br.gov.camara.www.SitCamaraWS.Deputados.Deputados {
+public class DeputadosLocator extends org.apache.axis.client.Service implements br.gov.camara.www.SitCamaraWS.Deputados.Deputies {
 
     /**
 	 * 

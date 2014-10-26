@@ -1,116 +1,116 @@
 package br.com.MDSGPP.ChamadaParlamentar.model;
 
-public class Deputados {
+public class Deputies {
 	
 	/*Atributs to our class.*/
-	private int idDoParlamentar;
-	private int matricula;
-	private int ideCadastro;
-	private String nomeCivilDoParlamentar;
-	private String nomeDeTratamentoDoParlamentar;
-	private String sexo;
-	private String uf;
-	private String partido;
-	private String numeroDoGabinete;
-	private String anexo;
-	private String telefone;
+	private int idCongressman;
+	private int registry;
+	private int idRegister;
+	private String nameCivilCongressman;
+	private String nameTreamentCOngressman;
+	private String sex;
+	private String federativeUnit;
+	private String party;
+	private String numberCabinet;
+	private String annexx;
+	private String telephone;
 	private String email;
 
 	/*Constructor to our class.*/
-	public Deputados() {
+	public Deputies() {
 		
 	}
 	
-	public Deputados(int idParlamentar, int matricula, int ideCadastro, String nomeCivil,
+	public Deputies(int idParlamentar, int matricula, int ideCadastro, String nomeCivil,
 			String nomeTratamento, String sexo, String uf, String partido, String numeroGabinete,
 			String anexo, String telefone, String email) {
 		
-		this.idDoParlamentar = idParlamentar;
-		this.matricula = matricula;
-		this.ideCadastro = ideCadastro;
-		this.nomeCivilDoParlamentar = nomeCivil;
-		this.nomeDeTratamentoDoParlamentar = nomeTratamento;
-		this.sexo = sexo;
-		this.uf = uf;
-		this.partido = partido;
-		this.numeroDoGabinete = numeroGabinete;
-		this.anexo = anexo;
-		this.telefone = telefone;
+		this.idCongressman = idParlamentar;
+		this.registry = matricula;
+		this.idRegister = ideCadastro;
+		this.nameCivilCongressman = nomeCivil;
+		this.nameTreamentCOngressman = nomeTratamento;
+		this.sex = sexo;
+		this.federativeUnit = uf;
+		this.party = partido;
+		this.numberCabinet = numeroGabinete;
+		this.annexx = anexo;
+		this.telephone = telefone;
 		this.email = email;
 	}
 
 	/*Geters and setters.*/
-	public int getIdDoParlamentar() {
-		return idDoParlamentar;
+	public int getIdDeputy() {
+		return idCongressman;
 	}
 
-	public void setIdDoParlamentar(int idDoParlamentar) {
-		this.idDoParlamentar = idDoParlamentar;
+	public void setIdDeputy(int idDoParlamentar) {
+		this.idCongressman = idDoParlamentar;
 	}
 
-	public String getNomeCivilDoParlamentar() {
-		return nomeCivilDoParlamentar;
+	public String getNameCivilCongressman() {
+		return nameCivilCongressman;
 	}
 
-	public void setNomeCivilDoParlamentar(String nomeCivilDoParlamentar) {
-		this.nomeCivilDoParlamentar = nomeCivilDoParlamentar;
+	public void setNameCivilCongressman(String nomeCivilDoParlamentar) {
+		this.nameCivilCongressman = nomeCivilDoParlamentar;
 	}
 
-	public String getNomeDeTratamentoDoParlamentar() {
-		return nomeDeTratamentoDoParlamentar;
+	public String getNameTreatmentCongressman() {
+		return nameTreamentCOngressman;
 	}
 
-	public void setNomeDeTratamentoDoParlamentar(
+	public void setNameTreatmentCongressman(
 			String nomeDeTratamentoDoParlamentar) {
-		this.nomeDeTratamentoDoParlamentar = nomeDeTratamentoDoParlamentar;
+		this.nameTreamentCOngressman = nomeDeTratamentoDoParlamentar;
 	}
 
-	public String getSexo() {
-		return sexo;
+	public String getSex() {
+		return sex;
 	}
 
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
+	public void setSex(String sexo) {
+		this.sex = sexo;
 	}
 
-	public String getUf() {
-		return uf;
+	public String getFederativeUnit() {
+		return federativeUnit;
 	}
 
-	public void setUf(String uf) {
-		this.uf = uf;
+	public void setFederativeUnit(String uf) {
+		this.federativeUnit = uf;
 	}
 
-	public String getPartido() {
-		return partido;
+	public String getParty() {
+		return party;
 	}
 
-	public void setPartido(String partido) {
-		this.partido = partido;
+	public void setParty(String partido) {
+		this.party = partido;
 	}
 
-	public String getNumeroDoGabinete() {
-		return numeroDoGabinete;
+	public String getNumberCabinet() {
+		return numberCabinet;
 	}
 
-	public void setNumeroDoGabinete(String numeroDoGabinete) {
-		this.numeroDoGabinete = numeroDoGabinete;
+	public void setNumberCabinet(String numeroDoGabinete) {
+		this.numberCabinet = numeroDoGabinete;
 	}
 
-	public String getAnexo() {
-		return anexo;
+	public String getAnnexx() {
+		return annexx;
 	}
 
-	public void setAnexo(String anexo) {
-		this.anexo = anexo;
+	public void setAnnexx(String anexo) {
+		this.annexx = anexo;
 	}
 
-	public String getTelefone() {
-		return telefone;
+	public String getTelephone() {
+		return telephone;
 	}
 
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
+	public void setTelephone(String telefone) {
+		this.telephone = telefone;
 	}
 
 	public String getEmail() {
@@ -121,19 +121,19 @@ public class Deputados {
 		this.email = email;
 	}
 
-	public int getMatricula() {
-		return matricula;
+	public int getResgitry() {
+		return registry;
 	}
 
-	public void setMatricula(int matricula) {
-		this.matricula = matricula;
+	public void setRegsitry(int matricula) {
+		this.registry = matricula;
 	}
 
-	public int getIdeCadastro() {
-		return ideCadastro;
+	public int getIdRegister() {
+		return idRegister;
 	}
 
-	public void setIdeCadastro(int ideCadastro) {
-		this.ideCadastro = ideCadastro;
+	public void setIdRegister(int ideCadastro) {
+		this.idRegister = ideCadastro;
 	}
 }

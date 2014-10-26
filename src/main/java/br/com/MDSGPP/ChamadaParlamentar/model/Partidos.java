@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Partidos {
 	private String sigla;
 	private String nomePartido;
-	private ArrayList<Deputados> deputadosDoPartido;
+	private ArrayList<Deputies> deputadosDoPartido;
 	private ArrayList<Estatistica> estatisticaDosDeputados;
 	private ArrayList<Estatistica> deputadosSemDados;
 
@@ -25,11 +25,11 @@ public class Partidos {
 		this.sigla = sigla;
 	}
 
-	public ArrayList<Deputados> getDeputadosDoPartido() {
+	public ArrayList<Deputies> getDeputadosDoPartido() {
 		return deputadosDoPartido;
 	}
 
-	public void setDeputadosDoPartido(ArrayList<Deputados> deputadosDoPartido) {
+	public void setDeputadosDoPartido(ArrayList<Deputies> deputadosDoPartido) {
 		this.deputadosDoPartido = deputadosDoPartido;
 	}
 

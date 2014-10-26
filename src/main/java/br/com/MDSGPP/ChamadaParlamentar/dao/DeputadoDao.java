@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import br.com.MDSGPP.ChamadaParlamentar.model.Deputados;
+import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 
 public class DeputadoDao extends ConnectionFactory {
 
@@ -43,7 +43,7 @@ public class DeputadoDao extends ConnectionFactory {
 	 *             case the dataBase is off.
 	 */
 
-	public void adicionaDeputado(ArrayList<Deputados> deputies)
+	public void adicionaDeputado(ArrayList<Deputies> deputies)
 			throws SQLException {
 		String sql;/*
 					 * Variable that received the code to add deputies on
@@ -65,18 +65,18 @@ public class DeputadoDao extends ConnectionFactory {
 
 		for (int i = 0; i < sizeDeputies; i++) {
 
-			stmt.setInt(ONE, deputies.get(i).getIdDoParlamentar());
-			stmt.setInt(TWO, deputies.get(i).getMatricula());
-			stmt.setInt(THREE, deputies.get(i).getIdeCadastro());
-			stmt.setString(FOUR, deputies.get(i).getNomeCivilDoParlamentar());
+			stmt.setInt(ONE, deputies.get(i).getIdDeputy());
+			stmt.setInt(TWO, deputies.get(i).getResgitry());
+			stmt.setInt(THREE, deputies.get(i).getIdRegister());
+			stmt.setString(FOUR, deputies.get(i).getNameCivilCongressman());
 			stmt.setString(FIVE, deputies.get(i)
-					.getNomeDeTratamentoDoParlamentar());
-			stmt.setString(SIX, deputies.get(i).getSexo());
-			stmt.setString(SEVEN, deputies.get(i).getUf());
-			stmt.setString(EIGHT, deputies.get(i).getPartido());
-			stmt.setString(NINE, deputies.get(i).getNumeroDoGabinete());
-			stmt.setString(TEN, deputies.get(i).getAnexo());
-			stmt.setString(ELEVEN, deputies.get(i).getTelefone());
+					.getNameTreatmentCongressman());
+			stmt.setString(SIX, deputies.get(i).getSex());
+			stmt.setString(SEVEN, deputies.get(i).getFederativeUnit());
+			stmt.setString(EIGHT, deputies.get(i).getParty());
+			stmt.setString(NINE, deputies.get(i).getNumberCabinet());
+			stmt.setString(TEN, deputies.get(i).getAnnexx());
+			stmt.setString(ELEVEN, deputies.get(i).getTelephone());
 			stmt.setString(TWELVE, deputies.get(i).getEmail());
 
 			stmt.execute();
@@ -184,12 +184,12 @@ public class DeputadoDao extends ConnectionFactory {
 	 *             is case occurs an error with dataBase.
 	 */
 
-	public ArrayList<Deputados> getDeputados() throws SQLException {
+	public ArrayList<Deputies> getDeputados() throws SQLException {
 		String sql;/* Variable that received the code of database. */
 		sql = "Select * from deputado";
 
-		ArrayList<Deputados> list;/* This is an array that contains all deputies. */
-		list = new ArrayList<Deputados>();
+		ArrayList<Deputies> list;/* This is an array that contains all deputies. */
+		list = new ArrayList<Deputies>();
 
 		PreparedStatement stmt;/* Variable that create the connection. */
 		stmt = ConnectionFactory.getConexao().prepareStatement(sql);
@@ -198,24 +198,24 @@ public class DeputadoDao extends ConnectionFactory {
 		rs = stmt.executeQuery();
 
 		while (rs.next()) {
-			Deputados deputy;/*
+			Deputies deputy;/*
 							 * Variable that received all features of the
 							 * deputy.
 							 */
-			deputy = new Deputados();
+			deputy = new Deputies();
 
-			deputy.setIdDoParlamentar(rs.getInt("idParlamentar"));
-			deputy.setMatricula(rs.getInt("matricula"));
-			deputy.setIdeCadastro(rs.getInt("ideCadastro"));
-			deputy.setNomeCivilDoParlamentar(rs.getString("nomeCivil"));
-			deputy.setNomeDeTratamentoDoParlamentar(rs
+			deputy.setIdDeputy(rs.getInt("idParlamentar"));
+			deputy.setRegsitry(rs.getInt("matricula"));
+			deputy.setIdRegister(rs.getInt("ideCadastro"));
+			deputy.setNameCivilCongressman(rs.getString("nomeCivil"));
+			deputy.setNameTreatmentCongressman(rs
 					.getString("nomeDeTratamento"));
-			deputy.setSexo(rs.getString("sexo"));
-			deputy.setUf(rs.getString("uf"));
-			deputy.setPartido(rs.getString("partido"));
-			deputy.setNumeroDoGabinete(rs.getString("numeroDoGabinete"));
-			deputy.setAnexo(rs.getString("anexo"));
-			deputy.setTelefone(rs.getString("telefone"));
+			deputy.setSex(rs.getString("sexo"));
+			deputy.setFederativeUnit(rs.getString("uf"));
+			deputy.setParty(rs.getString("partido"));
+			deputy.setNumberCabinet(rs.getString("numeroDoGabinete"));
+			deputy.setAnnexx(rs.getString("anexo"));
+			deputy.setTelephone(rs.getString("telefone"));
 			deputy.setEmail(rs.getString("email"));
 
 			list.add(deputy);

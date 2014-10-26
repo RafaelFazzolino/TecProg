@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import br.com.MDSGPP.ChamadaParlamentar.dao.EstatisticaDao;
 import br.com.MDSGPP.ChamadaParlamentar.dao.SessoesEReunioesDao;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
-import br.com.MDSGPP.ChamadaParlamentar.model.Deputados;
+import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 import br.com.MDSGPP.ChamadaParlamentar.model.Estatistica;
 
 public final class EstatisticaControl {
@@ -31,7 +31,7 @@ public final class EstatisticaControl {
 	 * 
 	 * @param nome
 	 *            String, its the name of deputy.
-	 * @return returns the {@link Estatistica} of the {@link Deputados}
+	 * @return returns the {@link Estatistica} of the {@link Deputies}
 	 * @throws ClassNotFoundException case the class is not found.
 	 * @throws SQLException case an error occurs with dataBase.
 	 * @throws ListaVaziaException is case an error occurs with the list.
@@ -68,7 +68,7 @@ public final class EstatisticaControl {
 	 * number of sessions.
 	 * 
 	 * @param nome
-	 *            String, name of the {@link Deputados}.
+	 *            String, name of the {@link Deputies}.
 	 * @param numeroTotalSessao
 	 *            Integer, total number of sessions.
 	 * @return returns {@link Estatistica}.
@@ -146,15 +146,15 @@ public final class EstatisticaControl {
 	 * the database.
 	 * 
 	 * @param deputado
-	 *            {@link Deputados}, its the deputy object.
+	 *            {@link Deputies}, its the deputy object.
 	 * @return returns a String with the name based on the data base pattern.
 	 */
 
-	public static String arrumarNomePesquisa(Deputados deputado) {
+	public static String arrumarNomePesquisa(Deputies deputado) {
 		
 		String montar;/*Variable that contains the new name.*/
-		montar = deputado.getNomeDeTratamentoDoParlamentar() +
-				"-" + deputado.getPartido() + "/" + deputado.getUf();
+		montar = deputado.getNameTreatmentCongressman() +
+				"-" + deputado.getParty() + "/" + deputado.getFederativeUnit();
 		String montarFinal;/*Variable that contains the final name.*/
 		montarFinal = montar.toUpperCase();
 		

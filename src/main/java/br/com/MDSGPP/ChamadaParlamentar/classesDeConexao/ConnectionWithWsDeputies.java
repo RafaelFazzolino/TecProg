@@ -11,7 +11,8 @@ import javax.xml.rpc.ServiceException;
 import org.apache.axis.message.MessageElement;
 import org.w3c.dom.NodeList;
 
-import br.com.MDSGPP.ChamadaParlamentar.model.Deputados;
+
+import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 import br.com.MDSGPP.ChamadaParlamentar.model.Partidos;
 import br.gov.camara.www.SitCamaraWS.Deputados.DeputadosLocator;
 import br.gov.camara.www.SitCamaraWS.Deputados.DeputadosSoapStub;
@@ -85,11 +86,11 @@ public class ConnectionWithWsDeputies {
 	 * @return returns the connection to the classes of the webService.
 	 */
 
-	public static ArrayList<Deputados> criaLista()
+	public static ArrayList<Deputies> criaLista()
 			throws MalformedURLException, UnknownHostException,
 			ServiceException {
-		ArrayList<Deputados> lista;/* Receive a list of deputies. */
-		lista = new ArrayList<Deputados>();
+		ArrayList<Deputies> lista;/* Receive a list of deputies. */
+		lista = new ArrayList<Deputies>();
 		ObterDeputadosResponseObterDeputadosResult deputados;
 
 		deputados = ConnectionWithWsDeputies
@@ -255,8 +256,8 @@ public class ConnectionWithWsDeputies {
 			String emailText;/* Variable to received the text of the e-mail. */
 			emailText = emailTemp.getFirstChild().getNodeValue();
 
-			Deputados deputadoNovo;/* Variable to received the new deputy. */
-			deputadoNovo = new Deputados(idParlamentarInt, matriculaInt, idInt,
+			Deputies deputadoNovo;/* Variable to received the new deputy. */
+			deputadoNovo = new Deputies(idParlamentarInt, matriculaInt, idInt,
 					nomeText, nomeTratamentoText, sexoText, ufText,
 					partidoText, gabineteText, anexoText, foneText, emailText);
 

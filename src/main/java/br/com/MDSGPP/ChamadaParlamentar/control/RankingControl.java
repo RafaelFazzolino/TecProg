@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import br.com.MDSGPP.ChamadaParlamentar.dao.RankingDao;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaRankingException;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
-import br.com.MDSGPP.ChamadaParlamentar.model.Deputados;
+import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 import br.com.MDSGPP.ChamadaParlamentar.model.Estatistica;
 import br.com.MDSGPP.ChamadaParlamentar.model.Ranking;
 import br.com.MDSGPP.ChamadaParlamentar.util.LimparLista;
@@ -114,12 +114,12 @@ public final class RankingControl {
 	}
 
 	/**
-	 * This method is to get an {@link ArrayList} of {@link Deputados} and
+	 * This method is to get an {@link ArrayList} of {@link Deputies} and
 	 * calculate the statistics to all of then, if there is no data, it marks
 	 * it.
 	 * 
 	 * @param lista
-	 *            {@link ArrayList} of {@link Deputados} its the list with all
+	 *            {@link ArrayList} of {@link Deputies} its the list with all
 	 *            the deputies.
 	 * @return returns an {@link ArrayList} of {@link Estatistica} from de
 	 *         calculations.
@@ -134,7 +134,7 @@ public final class RankingControl {
 	 */
 
 	public static ArrayList<Estatistica> gerarListaEstatistica(
-			ArrayList<Deputados> lista) throws ClassNotFoundException,
+			ArrayList<Deputies> lista) throws ClassNotFoundException,
 			SQLException, ListaRankingException, ListaVaziaException {
 
 		try {

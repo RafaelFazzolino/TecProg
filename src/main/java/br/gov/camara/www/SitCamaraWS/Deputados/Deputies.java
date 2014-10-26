@@ -7,7 +7,7 @@
 
 package br.gov.camara.www.SitCamaraWS.Deputados;
 
-public interface Deputados extends javax.xml.rpc.Service {
+public interface Deputies extends javax.xml.rpc.Service {
     public java.lang.String getDeputadosSoapAddress();
 
     public br.gov.camara.www.SitCamaraWS.Deputados.DeputadosSoap getDeputadosSoap() throws javax.xml.rpc.ServiceException;
