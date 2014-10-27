@@ -3,7 +3,7 @@ package br.com.MDSGPP.ChamadaParlamentar.control;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import br.com.MDSGPP.ChamadaParlamentar.dao.SessoesEReunioesDao;
+import br.com.MDSGPP.ChamadaParlamentar.dao.SessionsAndMeetingsDao;
 import br.com.MDSGPP.ChamadaParlamentar.model.SessionAndMeetings;
 
 public final class SessionsAndMeetingsControl {
@@ -22,14 +22,14 @@ public final class SessionsAndMeetingsControl {
 
 	public static SessionAndMeetings nextSession(String descricao)
 			throws ClassNotFoundException, SQLException {
-		SessoesEReunioesDao dao;/*
+		SessionsAndMeetingsDao dao;/*
 								 * Variable that create the connection with
 								 * dataBase.
 								 */
-		dao = new SessoesEReunioesDao();
+		dao = new SessionsAndMeetingsDao();
 
 		ArrayList<String> list;/* Variable that contains the list of sessions. */
-		list = dao.procurarSessao(descricao);
+		list = dao.searchSession(descricao);
 
 		SessionAndMeetings pass;/* Variable that contains the final list. */
 		pass = new SessionAndMeetings();

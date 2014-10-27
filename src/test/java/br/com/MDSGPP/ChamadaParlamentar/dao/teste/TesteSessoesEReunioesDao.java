@@ -13,14 +13,14 @@ import javax.xml.rpc.ServiceException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import br.com.MDSGPP.ChamadaParlamentar.dao.SessoesEReunioesDao;
+import br.com.MDSGPP.ChamadaParlamentar.dao.SessionsAndMeetingsDao;
 
 public class TesteSessoesEReunioesDao {
-	SessoesEReunioesDao sessoesDao;
+	SessionsAndMeetingsDao sessoesDao;
 
 	@Before
 	public void setUp() throws ClassNotFoundException, SQLException {
-		sessoesDao = new SessoesEReunioesDao();
+		sessoesDao = new SessionsAndMeetingsDao();
 	}
 
 	public static ArrayList<String> gerarListaDatas() {
@@ -49,7 +49,7 @@ public class TesteSessoesEReunioesDao {
 
 	@Test
 	public void testPassarNumeroDeSessoes() throws SQLException {
-		assertTrue(sessoesDao.passarNumeroDeSessoes() > 0);
+		assertTrue(sessoesDao.nextNumberSession() > 0);
 	}
 
 	@Test
@@ -57,7 +57,7 @@ public class TesteSessoesEReunioesDao {
 			MalformedURLException, ServiceException, ClassNotFoundException {
 		ArrayList<String> lista = gerarListaDatas();
 
-		sessoesDao.adcionarDataNaTable(lista);
+		sessoesDao.addDateInTable(lista);
 
 		int sizeList;
 		sizeList = lista.size();
@@ -90,7 +90,7 @@ public class TesteSessoesEReunioesDao {
 			MalformedURLException, ServiceException, ClassNotFoundException {
 		ArrayList<String> lista = gerarListaDatas();
 
-		sessoesDao.adcionarSessaoNaTable(lista);
+		sessoesDao.addSessionInTable(lista);
 
 		int sizeList;
 		sizeList = lista.size();

@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import br.com.MDSGPP.ChamadaParlamentar.dao.DayDao;
-import br.com.MDSGPP.ChamadaParlamentar.dao.SessoesEReunioesDao;
+import br.com.MDSGPP.ChamadaParlamentar.dao.SessionsAndMeetingsDao;
 import br.com.MDSGPP.ChamadaParlamentar.exception.DataFormatoErradoException;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Day;
@@ -122,7 +122,7 @@ public final class DayControl {
 
 		Day dia;/* Variable that contains the day. */
 		dia = null;
-		dia = new SessoesEReunioesDao().procuraDia(data);
+		dia = new SessionsAndMeetingsDao().searchDay(data);
 		dia.setData(data);
 
 		int sizeListOfSessions;/*

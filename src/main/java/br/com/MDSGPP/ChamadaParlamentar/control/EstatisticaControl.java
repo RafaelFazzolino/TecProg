@@ -17,7 +17,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import br.com.MDSGPP.ChamadaParlamentar.dao.StatisticDao;
-import br.com.MDSGPP.ChamadaParlamentar.dao.SessoesEReunioesDao;
+import br.com.MDSGPP.ChamadaParlamentar.dao.SessionsAndMeetingsDao;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 import br.com.MDSGPP.ChamadaParlamentar.model.Statistic;
@@ -46,11 +46,11 @@ public final class EstatisticaControl {
 		StatisticDao dao;/*Variable that create the connection with dataBase.*/
 		dao = new StatisticDao();	
 		
-		SessoesEReunioesDao sessions;/*Variable that create the connection with dataBase.*/
-		sessions = new SessoesEReunioesDao();
+		SessionsAndMeetingsDao sessions;/*Variable that create the connection with dataBase.*/
+		sessions = new SessionsAndMeetingsDao();
 		
 		int numeroTotalSessao;/*Variable that contains the number of all sessions.*/
-		numeroTotalSessao = sessions.passarNumeroDeSessoes();
+		numeroTotalSessao = sessions.nextNumberSession();
 
 		estatistica.setLista(dao.getStatisticDeputies(nome));
 
@@ -86,8 +86,8 @@ public final class EstatisticaControl {
 		StatisticDao dao;/*Variable that create the connection with dataBase.*/
 		dao = new StatisticDao();	
 		
-		SessoesEReunioesDao sessions;/*Variable that create the connection with dataBase.*/
-		sessions = new SessoesEReunioesDao();
+		SessionsAndMeetingsDao sessions;/*Variable that create the connection with dataBase.*/
+		sessions = new SessionsAndMeetingsDao();
 
 		estatistica.setLista(dao.getStatisticDeputies(nome));
 
@@ -109,7 +109,7 @@ public final class EstatisticaControl {
 	 *            {@link Statistic}, its the {@link Statistic} but without
 	 *            the numbers, have only data of the number of sessions.
 	 * @param sessoes
-	 *            {@link SessoesEReunioesDao}, its the connection to the data
+	 *            {@link SessionsAndMeetingsDao}, its the connection to the data
 	 *            base.
 	 * @param numeroTotalSessao
 	 *            Integer, its the total number of sessions.
@@ -119,7 +119,7 @@ public final class EstatisticaControl {
 
 
 	public static Statistic calcularEstatistica
-	(Statistic estatistica, SessoesEReunioesDao sessoes, 
+	(Statistic estatistica, SessionsAndMeetingsDao sessoes, 
 			int numeroTotalSessao) throws ListaVaziaException {
 		
 		int sizeList;/*Variable that contains the size of List.*/

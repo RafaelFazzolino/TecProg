@@ -12,9 +12,9 @@ import br.com.MDSGPP.ChamadaParlamentar.exception.DataFormatoErradoException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Day;
 import br.com.MDSGPP.ChamadaParlamentar.model.SessionAndMeetings;
 
-public class SessoesEReunioesDao extends ConnectionFactory {
+public class SessionsAndMeetingsDao extends ConnectionFactory {
 
-	public SessoesEReunioesDao() throws ClassNotFoundException, SQLException {
+	public SessionsAndMeetingsDao() throws ClassNotFoundException, SQLException {
 		new ConnectionFactory().getConnection();
 	}
 	
@@ -26,7 +26,7 @@ public class SessoesEReunioesDao extends ConnectionFactory {
 	 * @throws ServiceException is case occurs an error with the service.
 	 */
 	
-	public void adcionarDataNaTable(ArrayList<String> insert) 
+	public void addDateInTable(ArrayList<String> insert) 
 			throws SQLException, MalformedURLException, ServiceException {			     
 
 		for( int i = 0; i < insert.size(); i= i + 2 ) {
@@ -52,7 +52,7 @@ public class SessoesEReunioesDao extends ConnectionFactory {
 	 * @throws ServiceException is case occurs an error with the service.
 	 */
 
-	public void adcionarSessaoNaTable(ArrayList<String> insert)
+	public void addSessionInTable(ArrayList<String> insert)
 			throws SQLException, ClassNotFoundException, MalformedURLException, ServiceException {
 
 		String sql = "insert into sessao(idSessoes, deputadoPresente)values(?,?)";
@@ -73,7 +73,7 @@ public class SessoesEReunioesDao extends ConnectionFactory {
 	 * @throws SQLException is case occurs an error with Database.
 	 */
 
-	public int passarNumeroDeSessoes() throws SQLException {
+	public int nextNumberSession() throws SQLException {
 		String sql = "select * from datas";
 
 		PreparedStatement stmt= ConnectionFactory.getConexao().prepareStatement(sql);
@@ -94,7 +94,7 @@ public class SessoesEReunioesDao extends ConnectionFactory {
 	 * @throws SQLException is case occurs an error with dataBase.
 	 * @throws DataFormatoErradoException is case occurs an error with the Date.
 	 */
-	public ArrayList<SessionAndMeetings> pegarSessoes() throws SQLException, DataFormatoErradoException {
+	public ArrayList<SessionAndMeetings> catchSessions() throws SQLException, DataFormatoErradoException {
 		String sql = "Select * from datas";
 		
 		PreparedStatement stmt = ConnectionFactory.getConexao().prepareStatement(sql);
@@ -119,7 +119,7 @@ public class SessoesEReunioesDao extends ConnectionFactory {
 	 * @throws SQLException is case occurs an error with dataBase.
 	 */
 
-	public ArrayList<String> procurarSessao(String descricao) throws SQLException {
+	public ArrayList<String> searchSession(String descricao) throws SQLException {
 		String sql = "select * from sessao where idSessoes LIKE ?";
 
 		PreparedStatement stmt = ConnectionFactory.getConexao().prepareStatement(sql);
@@ -144,7 +144,7 @@ public class SessoesEReunioesDao extends ConnectionFactory {
 	 * @throws SQLException is case occurs an error with dataBase.
 	 */
 	
-	public Day procuraDia(String data) throws SQLException{
+	public Day searchDay(String data) throws SQLException{
 		Day dia = new Day();
 		String sql = "select * from datas where datas LIKE ?";
 	

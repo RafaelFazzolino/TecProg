@@ -15,7 +15,7 @@ import br.com.MDSGPP.ChamadaParlamentar.control.RankingControl;
 import br.com.MDSGPP.ChamadaParlamentar.dao.Dao;
 import br.com.MDSGPP.ChamadaParlamentar.dao.DeputiesDao;
 import br.com.MDSGPP.ChamadaParlamentar.dao.RankingDao;
-import br.com.MDSGPP.ChamadaParlamentar.dao.SessoesEReunioesDao;
+import br.com.MDSGPP.ChamadaParlamentar.dao.SessionsAndMeetingsDao;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaRankingException;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Ranking;
@@ -87,17 +87,17 @@ public class UpdateDataBase {
 				System.out.println("teste");
 				Dao.truncateTables();
 
-				SessoesEReunioesDao sessionsDao;/*
+				SessionsAndMeetingsDao sessionsDao;/*
 												 * This variable controls the
 												 * connection to the database,
 												 * specific to the table
 												 * sessions and meetings.
 												 */
-				sessionsDao = new SessoesEReunioesDao();
+				sessionsDao = new SessionsAndMeetingsDao();
 
-				sessionsDao.adcionarDataNaTable(ConnectionWithWsSessions
+				sessionsDao.addDateInTable(ConnectionWithWsSessions
 						.adcionarDataNaTable("20/11/2011", "440"));
-				sessionsDao.adcionarSessaoNaTable(ConnectionWithWsSessions
+				sessionsDao.addSessionInTable(ConnectionWithWsSessions
 						.adcionarSessaoNaTable("20/11/2011"));
 
 				RankingDao rankingDao;/*
