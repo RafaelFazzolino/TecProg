@@ -15,15 +15,15 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.MDSGPP.ChamadaParlamentar.dao.PartidoDao;
+import br.com.MDSGPP.ChamadaParlamentar.dao.PartyDao;
 import br.com.MDSGPP.ChamadaParlamentar.model.Party;
 
 public class TestePartidoDao {
-	PartidoDao partidoDao;
+	PartyDao partidoDao;
 
 	@Before
 	public void setUp() throws ClassNotFoundException, SQLException {
-		partidoDao = new PartidoDao();
+		partidoDao = new PartyDao();
 	}
 
 	public ArrayList<Party> criaLista() {
@@ -52,8 +52,8 @@ public class TestePartidoDao {
 		ArrayList<Party> partido = criaLista();
 		ArrayList<Party> listaTeste = new ArrayList<Party>();
 
-		partidoDao.adicionarPartidoNaTable(partido);
-		partidoDao.adicionarPartidoNaTable(listaTeste);
+		partidoDao.addPartyInTable(partido);
+		partidoDao.addPartyInTable(listaTeste);
 
 		String sql = "Select * from partido";
 
@@ -87,7 +87,7 @@ public class TestePartidoDao {
 
 	@Test
 	public void testPegarPartidos() throws SQLException {
-		ArrayList<ArrayList<String>> listaDeTeste = partidoDao.pegarPartidos();
+		ArrayList<ArrayList<String>> listaDeTeste = partidoDao.catchParty();
 
 		int sizeListOfTest;
 		sizeListOfTest = listaDeTeste.size();

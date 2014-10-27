@@ -7,12 +7,12 @@ import java.util.ArrayList;
 
 import br.com.MDSGPP.ChamadaParlamentar.model.Party;
 
-public class PartidoDao extends ConnectionFactory {
+public class PartyDao extends ConnectionFactory {
 
 	private final int UM = 1;
 	private final int DOIS = 2;
 
-	public PartidoDao() throws ClassNotFoundException, SQLException {
+	public PartyDao() throws ClassNotFoundException, SQLException {
 		new ConnectionFactory().getConnection();
 	}
 
@@ -21,7 +21,7 @@ public class PartidoDao extends ConnectionFactory {
 	 * @param lista is a Array containing all parties.
 	 * @throws SQLException is for case some SQL exceptions happen.
 	 */
-	public void adicionarPartidoNaTable (ArrayList<Party> lista)
+	public void addPartyInTable (ArrayList<Party> lista)
 			throws SQLException {
 		String sql = "insert into partido(sigla, nomePartido)values(?, ?)";
 
@@ -42,7 +42,7 @@ public class PartidoDao extends ConnectionFactory {
 	 * @return listaPassar what is an Array with all the desired parties.
 	 * @throws SQLException is for case some SQL exceptions happen.
 	 */
-	public ArrayList<ArrayList<String>> pegarPartidos() throws SQLException {
+	public ArrayList<ArrayList<String>> catchParty() throws SQLException {
 		
 		ArrayList<ArrayList<String>> listaPassar = new ArrayList<ArrayList<String>>();
 		

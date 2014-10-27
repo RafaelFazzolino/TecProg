@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import br.com.MDSGPP.ChamadaParlamentar.dao.DeputiesDao;
-import br.com.MDSGPP.ChamadaParlamentar.dao.PartidoDao;
+import br.com.MDSGPP.ChamadaParlamentar.dao.PartyDao;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 import br.com.MDSGPP.ChamadaParlamentar.model.Statistic;
@@ -27,7 +27,7 @@ public final class PoliticalPartyControl {
 										 * ArrayList that contains all political
 										 * parties.
 										 */
-		list = new PartidoDao().pegarPartidos();
+		list = new PartyDao().catchParty();
 
 		return list;
 	}
