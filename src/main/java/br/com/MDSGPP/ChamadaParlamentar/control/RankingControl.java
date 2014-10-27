@@ -42,7 +42,7 @@ public final class RankingControl {
 	 *             case an error occurs with the list.
 	 */
 
-	public static Ranking gerarRanking(ArrayList<Statistic> list)
+	public static Ranking createRanking(ArrayList<Statistic> list)
 			throws ListaRankingException {
 
 		Ranking ranking;/* Variable that contains all features of the ranking. */
@@ -94,7 +94,7 @@ public final class RankingControl {
 												 * the sorted list of
 												 * statistics.
 												 */
-			orderedList = ordenacao(receivedList);
+			orderedList = ordenation(receivedList);
 
 			for (int i = 0; i < SIZE_RANKINGS; i++) {
 				bests.add(list.get(i));
@@ -133,7 +133,7 @@ public final class RankingControl {
 	 *             case an error occurs with the list.
 	 */
 
-	public static ArrayList<Statistic> gerarListaEstatistica(
+	public static ArrayList<Statistic> createListEstatistic(
 			ArrayList<Deputies> lista) throws ClassNotFoundException,
 			SQLException, ListaRankingException, ListaVaziaException {
 
@@ -188,7 +188,7 @@ public final class RankingControl {
 	 *             case an error occurs with database.
 	 */
 
-	public static Ranking passarRankingTop5() throws ClassNotFoundException,
+	public static Ranking nextRankingTop5() throws ClassNotFoundException,
 			SQLException {
 		RankingDao rankingDao;/*
 							 * Variable that will connect to the database, the
@@ -213,7 +213,7 @@ public final class RankingControl {
 									 */
 		worst = new ArrayList<Statistic>();
 
-		ranking.setList(ordenacao(ranking.getList()));
+		ranking.setList(ordenation(ranking.getList()));
 
 		for (int i = 0; i < SIZE_RANKINGS; i++) {
 			bests.add(ranking.getList().get(i));
@@ -234,7 +234,7 @@ public final class RankingControl {
 	 *         sorted list.
 	 */
 
-	public static ArrayList<Statistic> ordenacao(ArrayList<Statistic> list) {
+	public static ArrayList<Statistic> ordenation(ArrayList<Statistic> list) {
 		/* Insertion Sort. */
 
 		int i = 1, j = 1;
@@ -289,7 +289,7 @@ public final class RankingControl {
 	 *             case the class is not found.
 	 */
 
-	public static Ranking passarRankingCompleto() throws SQLException,
+	public static Ranking nextRankingComplete() throws SQLException,
 			ClassNotFoundException {
 		RankingDao rankingDao;/*
 							 * Variable that create the connection with the
@@ -299,7 +299,7 @@ public final class RankingControl {
 		Ranking ranking;/* Variable that contains all features of the ranking. */
 		ranking = rankingDao.returnRanking();
 
-		ranking.setList(ordenacao(ranking.getList()));
+		ranking.setList(ordenation(ranking.getList()));
 
 		return ranking;
 	}

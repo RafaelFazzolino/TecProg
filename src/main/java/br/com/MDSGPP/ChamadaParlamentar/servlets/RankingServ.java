@@ -23,7 +23,7 @@ public class RankingServ extends javax.servlet.http.HttpServlet {
 		RequestDispatcher rd = null;
 
 		try {
-			ranking = RankingControl.passarRankingTop5();
+			ranking = RankingControl.nextRankingTop5();
 			request.setAttribute("ranking", ranking);
 			rd= request.getRequestDispatcher("/Ranking.jsp");
 

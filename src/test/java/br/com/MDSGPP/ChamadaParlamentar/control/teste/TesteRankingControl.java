@@ -33,8 +33,8 @@ public class TesteRankingControl {
 	@Test
 	public void testGerarRanking() throws ClassNotFoundException, SQLException,
 			ListaRankingException, ListaVaziaException {
-		Ranking ranking = RankingControl.gerarRanking(RankingControl
-				.gerarListaEstatistica(new DeputiesDao().getDeputies()));
+		Ranking ranking = RankingControl.createRanking(RankingControl
+				.createListEstatistic(new DeputiesDao().getDeputies()));
 
 		assertNotNull(ranking.getList());
 		assertNotNull(ranking.getBetter());
@@ -46,21 +46,21 @@ public class TesteRankingControl {
 	public void testGerarRankingListaRankingException()
 			throws ListaRankingException {
 		ArrayList<Statistic> teste = new ArrayList<Statistic>();
-		Ranking ranking2 = RankingControl.gerarRanking(teste);
+		Ranking ranking2 = RankingControl.createRanking(teste);
 	}
 
 	@Test(expected = ListaRankingException.class)
 	public void testGerarRankingListaComParametroNull()
 			throws ListaRankingException {
 
-		Ranking ranking3 = RankingControl.gerarRanking(null);
+		Ranking ranking3 = RankingControl.createRanking(null);
 	}
 
 	@Test
 	public void testGerarListaEstatistica() throws ClassNotFoundException,
 			SQLException, ListaRankingException, ListaVaziaException {
 		ArrayList<Statistic> lista1 = RankingControl
-				.gerarListaEstatistica(new DeputiesDao().getDeputies());
+				.createListEstatistic(new DeputiesDao().getDeputies());
 		assertNotNull(lista1);
 	}
 
@@ -70,7 +70,7 @@ public class TesteRankingControl {
 			ListaVaziaException {
 		ArrayList<Deputies> listaParaParametro = new ArrayList<Deputies>();
 		ArrayList<Statistic> lista2 = RankingControl
-				.gerarListaEstatistica(listaParaParametro);
+				.createListEstatistic(listaParaParametro);
 	}
 
 	@Test
@@ -87,7 +87,7 @@ public class TesteRankingControl {
 		lista.add(primeiro);
 		lista.add(segundo);
 		lista.add(terceiro);
-		lista = RankingControl.ordenacao(lista);
+		lista = RankingControl.ordenation(lista);
 
 		for (int i = 0; i < lista.size() - 1; i++) {
 			assertTrue(Integer.parseInt(lista.get(i).getNumberSession()) > Integer
@@ -98,7 +98,7 @@ public class TesteRankingControl {
 	@Test
 	public void testOrdenacaoListaNull() {
 		ArrayList<Statistic> lista = new ArrayList<Statistic>();
-		lista = RankingControl.ordenacao(lista);
+		lista = RankingControl.ordenation(lista);
 		assertTrue(lista.size() == 0);
 	}
 

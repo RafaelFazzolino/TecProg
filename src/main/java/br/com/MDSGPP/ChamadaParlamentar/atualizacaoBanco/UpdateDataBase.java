@@ -109,8 +109,8 @@ public class UpdateDataBase {
 
 				Ranking ranking;/* This variable is the ranking done. */
 				ranking = RankingControl
-						.gerarRanking(RankingControl
-								.gerarListaEstatistica(new DeputiesDao()
+						.createRanking(RankingControl
+								.createListEstatistic(new DeputiesDao()
 										.getDeputies()));
 
 				rankingDao.addRankingInTable(ranking);

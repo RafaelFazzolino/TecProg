@@ -24,7 +24,7 @@ public class RankingComplete extends HttpServlet {
 		RequestDispatcher rd = null;
 
 		try {
-			ranking = RankingControl.passarRankingCompleto();
+			ranking = RankingControl.nextRankingComplete();
 			request.setAttribute("ranking", ranking);
 			rd= request.getRequestDispatcher("/RankingCompleto.jsp");
 
