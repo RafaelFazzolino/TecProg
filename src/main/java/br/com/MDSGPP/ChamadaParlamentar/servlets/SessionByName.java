@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.MDSGPP.ChamadaParlamentar.control.SessionsAndMeetingsControl;
 import br.com.MDSGPP.ChamadaParlamentar.model.SessionAndMeetings;
 
-public class SessaoPorNomeServlet extends HttpServlet {
+public class SessionByName extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
@@ -38,16 +38,16 @@ public class SessaoPorNomeServlet extends HttpServlet {
 
 			if (session.getDeputiesPresence().size() != 0) {
 
-				int numeroDeputados = session.getDeputiesPresence().size();
-				int noDePaginas = ((int) Math.ceil(numeroDeputados * 1.0
+				int numberDeputies = session.getDeputiesPresence().size();
+				int numberPages = ((int) Math.ceil(numberDeputies * 1.0
 						/ deputiesForPage)) - 1;
 
 				session.setDeputiesPresence(SessionsAndMeetingsControl
 						.organizeListDeputy(page - 1, deputiesForPage,
 								session.getDeputiesPresence()));
 
-				request.setAttribute("quantosDeputados", numeroDeputados);
-				request.setAttribute("noDePaginas", noDePaginas);
+				request.setAttribute("quantosDeputados", numberDeputies);
+				request.setAttribute("noDePaginas", numberPages);
 				request.setAttribute("paginaAtual", page);
 				request.setAttribute("sessao", session);
 				rd = request.getRequestDispatcher("SessaoPorNome.jsp");
