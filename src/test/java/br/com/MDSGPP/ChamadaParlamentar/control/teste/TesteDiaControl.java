@@ -1,6 +1,7 @@
 package br.com.MDSGPP.ChamadaParlamentar.control.teste;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import org.junit.Test;
 import br.com.MDSGPP.ChamadaParlamentar.control.DayControl;
 import br.com.MDSGPP.ChamadaParlamentar.exception.DataFormatoErradoException;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
-import br.com.MDSGPP.ChamadaParlamentar.model.Dia;
+import br.com.MDSGPP.ChamadaParlamentar.model.Day;
 
 public class TesteDiaControl {
 	DayControl control;
@@ -22,11 +23,11 @@ public class TesteDiaControl {
 		control = new DayControl();
 	}
 	
-	public ArrayList<Dia> criarListaDia() {
-		ArrayList<Dia> lista = new ArrayList<Dia>();
+	public ArrayList<Day> criarListaDia() {
+		ArrayList<Day> lista = new ArrayList<Day>();
 		
 		for(int i = 0; i<50; i++) {
-			Dia dia = new Dia();
+			Day dia = new Day();
 			lista.add(dia);
 		}
 				
@@ -42,7 +43,7 @@ public class TesteDiaControl {
 	public void testGetDias() 
 			throws ClassNotFoundException, SQLException,
 			DataFormatoErradoException {
-		ArrayList<Dia> dias = DayControl.getDias();
+		ArrayList<Day> dias = DayControl.getDias();
 		
 		assertNotNull(dias);
 		assertTrue(dias.size() != 0);
@@ -52,23 +53,23 @@ public class TesteDiaControl {
 	public void testReverseList() 
 			throws ClassNotFoundException, SQLException,
 			DataFormatoErradoException {
-		ArrayList<Dia> listaInverter = new ArrayList<Dia>();
+		ArrayList<Day> listaInverter = new ArrayList<Day>();
 		assertNotNull(listaInverter);
 	}
 
 	@Test
 	public void testGetListaCerta() throws ClassNotFoundException, SQLException {
-		ArrayList<Dia> dias = criarListaDia();
+		ArrayList<Day> dias = criarListaDia();
 		
 		int pagina = 1;
 		int pagina2 = 2;
 		int datasPorPagina = 5;
 		int paginaFinal =(int) (dias.size()/datasPorPagina);
 		
-		ArrayList<Dia> diasTeste = DayControl.getListaCerta(pagina-1, datasPorPagina, dias);
-		ArrayList<Dia> diasTeste2 = DayControl.getListaCerta(pagina2-1, datasPorPagina, dias);
-		ArrayList<Dia> diasTesteFinal = DayControl.getListaCerta(paginaFinal-1, datasPorPagina, dias);
-		ArrayList<Dia> diasTesteFinalReal = DayControl.getListaCerta(paginaFinal, datasPorPagina, dias);
+		ArrayList<Day> diasTeste = DayControl.getListaCerta(pagina-1, datasPorPagina, dias);
+		ArrayList<Day> diasTeste2 = DayControl.getListaCerta(pagina2-1, datasPorPagina, dias);
+		ArrayList<Day> diasTesteFinal = DayControl.getListaCerta(paginaFinal-1, datasPorPagina, dias);
+		ArrayList<Day> diasTesteFinalReal = DayControl.getListaCerta(paginaFinal, datasPorPagina, dias);
 		assertNotNull(diasTeste);
 		
 		assertTrue(diasTeste.size() == datasPorPagina);
@@ -89,21 +90,21 @@ public class TesteDiaControl {
 	@Test(expected=ListaVaziaException.class)
 	public void testPassarDataListaVazia() throws ClassNotFoundException, 
 	SQLException, DataFormatoErradoException, ListaVaziaException{
-		Dia dia1 = DayControl.passarData("20/11/2011");
+		Day dia1 = DayControl.passarData("20/11/2011");
 	}
 	
 	@Test
 	public void testePassarDataNormal() 
 			throws ClassNotFoundException, SQLException, 
 			DataFormatoErradoException, ListaVaziaException {
-		Dia dia2 = DayControl.passarData("22/11/2011");
-		assertTrue(dia2.getListaSessoes().size() > 0);
+		Day dia2 = DayControl.passarData("22/11/2011");
+		assertTrue(dia2.getListSessions().size() > 0);
 	}
 	
 	@Test(expected=DataFormatoErradoException.class)
 	public void testePassarDataFormatoErrado() 
 			throws ClassNotFoundException, SQLException,
 			DataFormatoErradoException, ListaVaziaException {
-		Dia dia3 = DayControl.passarData("nao deve passar"); //esse espera uma data null
+		Day dia3 = DayControl.passarData("nao deve passar"); //esse espera uma data null
 	}
 }

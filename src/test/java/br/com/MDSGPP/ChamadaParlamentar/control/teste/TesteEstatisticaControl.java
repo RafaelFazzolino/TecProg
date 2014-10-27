@@ -11,8 +11,8 @@ import org.junit.Test;
 
 import br.com.MDSGPP.ChamadaParlamentar.control.EstatisticaControl;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
-import br.com.MDSGPP.ChamadaParlamentar.model.Deputados;
-import br.com.MDSGPP.ChamadaParlamentar.model.Estatistica;
+import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
+import br.com.MDSGPP.ChamadaParlamentar.model.Statistic;
 
 public class TesteEstatisticaControl {
 	
@@ -31,8 +31,8 @@ public class TesteEstatisticaControl {
 	@Test
 	public void testGerarEstatisticas() 
 			throws ClassNotFoundException, SQLException, ListaVaziaException {
-		Estatistica estatisticaTeste2 = null;
-		Estatistica estatisticaTeste3 = null;
+		Statistic estatisticaTeste2 = null;
+		Statistic estatisticaTeste3 = null;
 		
 		estatisticaTeste2 = EstatisticaControl.gerarEstatisticas("abelardo lupion-dem/pr");
 		estatisticaTeste3 = EstatisticaControl.gerarEstatisticas("ABELARDO LUPION-DEM/PR");
@@ -44,37 +44,37 @@ public class TesteEstatisticaControl {
 	@Test(expected=ListaVaziaException.class)
 	public void testGerarEstatisticasListaVazia() 
 			throws ClassNotFoundException, SQLException, ListaVaziaException {
-		Estatistica estatisticaTeste1 = 
+		Statistic estatisticaTeste1 = 
 				EstatisticaControl.gerarEstatisticas("naoDevePassar");
 	}
 	
 	@Test
 	public void testGerarEstatisticasComDoisParametros() 
 			throws ClassNotFoundException, SQLException, ListaVaziaException {
-		Estatistica estatisticaTeste2 = null;
-		Estatistica estatisticaTeste3 = null;
+		Statistic estatisticaTeste2 = null;
+		Statistic estatisticaTeste3 = null;
 		
 		estatisticaTeste2 = EstatisticaControl.gerarEstatisticas("abelardo lupion-dem/pr", 4);
 		estatisticaTeste3 = EstatisticaControl.gerarEstatisticas("ABELARDO LUPION-DEM/PR", 5);
 		
 		assertTrue(estatisticaTeste2 != null);
 		assertTrue(estatisticaTeste3 != null);
-		assertTrue(estatisticaTeste2.getNome().equalsIgnoreCase(estatisticaTeste3.getNome()));
+		assertTrue(estatisticaTeste2.getName().equalsIgnoreCase(estatisticaTeste3.getName()));
 	}
 	
 	@Test(expected=ListaVaziaException.class)
 	public void testGerarEstatisticasComDoisParametrosListaVazia() 
 			throws ClassNotFoundException, SQLException, ListaVaziaException {
-		Estatistica estatisticaTeste1 = EstatisticaControl.gerarEstatisticas("naoDevePassar", 3);
+		Statistic estatisticaTeste1 = EstatisticaControl.gerarEstatisticas("naoDevePassar", 3);
 	}
 	
 	@Test
 	public void testArrumarNomePesquisa() {
-		Deputados deputado1 = new Deputados();
+		Deputies deputado1 = new Deputies();
 		
-		deputado1.setNomeDeTratamentoDoParlamentar("teste");
-		deputado1.setPartido("PT");
-		deputado1.setUf("Sn");
+		deputado1.setNameTreatmentCongressman("teste");
+		deputado1.setParty("PT");
+		deputado1.setFederativeUnit("Sn");
 		
 		String nomeArrumado = EstatisticaControl.arrumarNomePesquisa(deputado1);
 		
