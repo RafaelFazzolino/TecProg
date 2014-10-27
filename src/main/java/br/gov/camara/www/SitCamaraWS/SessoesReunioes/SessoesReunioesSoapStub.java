@@ -44,7 +44,7 @@ public class SessoesReunioesSoapStub extends org.apache.axis.client.Stub impleme
         param.setOmittable(true);
         oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://www.camara.gov.br/SitCamaraWS/SessoesReunioes", ">>ListarPresencasParlamentarResponse>ListarPresencasParlamentarResult"));
-        oper.setReturnClass(br.gov.camara.www.SitCamaraWS.SessoesReunioes.ListarPresencasParlamentarResponseListarPresencasParlamentarResult.class);
+        oper.setReturnClass(br.gov.camara.www.SitCamaraWS.SessoesReunioes.ListPresencesCongressmanResponseListPresencesCongressmanResult.class);
         oper.setReturnQName(new javax.xml.namespace.QName("http://www.camara.gov.br/SitCamaraWS/SessoesReunioes", "ListarPresencasParlamentarResult"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -166,7 +166,7 @@ public class SessoesReunioesSoapStub extends org.apache.axis.client.Stub impleme
 
             qName = new javax.xml.namespace.QName("http://www.camara.gov.br/SitCamaraWS/SessoesReunioes", ">>ListarPresencasParlamentarResponse>ListarPresencasParlamentarResult");
             cachedSerQNames.add(qName);
-            cls = br.gov.camara.www.SitCamaraWS.SessoesReunioes.ListarPresencasParlamentarResponseListarPresencasParlamentarResult.class;
+            cls = br.gov.camara.www.SitCamaraWS.SessoesReunioes.ListPresencesCongressmanResponseListPresencesCongressmanResult.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
@@ -341,7 +341,7 @@ public class SessoesReunioesSoapStub extends org.apache.axis.client.Stub impleme
 }
     }
 
-    public br.gov.camara.www.SitCamaraWS.SessoesReunioes.ListarPresencasParlamentarResponseListarPresencasParlamentarResult listarPresencasParlamentar(java.lang.String dataIni, java.lang.String dataFim, java.lang.String numMatriculaParlamentar) throws java.rmi.RemoteException {
+    public br.gov.camara.www.SitCamaraWS.SessoesReunioes.ListPresencesCongressmanResponseListPresencesCongressmanResult listarPresencasParlamentar(java.lang.String dataIni, java.lang.String dataFim, java.lang.String numMatriculaParlamentar) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -365,9 +365,9 @@ public class SessoesReunioesSoapStub extends org.apache.axis.client.Stub impleme
         else {
             extractAttachments(_call);
             try {
-                return (br.gov.camara.www.SitCamaraWS.SessoesReunioes.ListarPresencasParlamentarResponseListarPresencasParlamentarResult) _resp;
+                return (br.gov.camara.www.SitCamaraWS.SessoesReunioes.ListPresencesCongressmanResponseListPresencesCongressmanResult) _resp;
             } catch (java.lang.Exception _exception) {
-                return (br.gov.camara.www.SitCamaraWS.SessoesReunioes.ListarPresencasParlamentarResponseListarPresencasParlamentarResult) org.apache.axis.utils.JavaUtils.convert(_resp, br.gov.camara.www.SitCamaraWS.SessoesReunioes.ListarPresencasParlamentarResponseListarPresencasParlamentarResult.class);
+                return (br.gov.camara.www.SitCamaraWS.SessoesReunioes.ListPresencesCongressmanResponseListPresencesCongressmanResult) org.apache.axis.utils.JavaUtils.convert(_resp, br.gov.camara.www.SitCamaraWS.SessoesReunioes.ListPresencesCongressmanResponseListPresencesCongressmanResult.class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {

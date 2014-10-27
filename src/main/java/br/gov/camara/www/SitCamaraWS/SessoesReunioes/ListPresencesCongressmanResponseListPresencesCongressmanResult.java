@@ -7,13 +7,13 @@
 
 package br.gov.camara.www.SitCamaraWS.SessoesReunioes;
 
-public class ListarPresencasParlamentarResponseListarPresencasParlamentarResult  implements java.io.Serializable, org.apache.axis.encoding.AnyContentType, org.apache.axis.encoding.MixedContentType {
+public class ListPresencesCongressmanResponseListPresencesCongressmanResult  implements java.io.Serializable, org.apache.axis.encoding.AnyContentType, org.apache.axis.encoding.MixedContentType {
     private org.apache.axis.message.MessageElement [] _any;
 
-    public ListarPresencasParlamentarResponseListarPresencasParlamentarResult() {
+    public ListPresencesCongressmanResponseListPresencesCongressmanResult() {
     }
 
-    public ListarPresencasParlamentarResponseListarPresencasParlamentarResult(
+    public ListPresencesCongressmanResponseListPresencesCongressmanResult(
            org.apache.axis.message.MessageElement [] _any) {
            this._any = _any;
     }
@@ -40,8 +40,8 @@ public class ListarPresencasParlamentarResponseListarPresencasParlamentarResult 
 
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof ListarPresencasParlamentarResponseListarPresencasParlamentarResult)) return false;
-        ListarPresencasParlamentarResponseListarPresencasParlamentarResult other = (ListarPresencasParlamentarResponseListarPresencasParlamentarResult) obj;
+        if (!(obj instanceof ListPresencesCongressmanResponseListPresencesCongressmanResult)) return false;
+        ListPresencesCongressmanResponseListPresencesCongressmanResult other = (ListPresencesCongressmanResponseListPresencesCongressmanResult) obj;
         if (obj == null) return false;
         if (this == obj) return true;
         if (__equalsCalc != null) {
@@ -81,7 +81,7 @@ public class ListarPresencasParlamentarResponseListarPresencasParlamentarResult 
 
     // Type metadata
     private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(ListarPresencasParlamentarResponseListarPresencasParlamentarResult.class, true);
+        new org.apache.axis.description.TypeDesc(ListPresencesCongressmanResponseListPresencesCongressmanResult.class, true);
 
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("http://www.camara.gov.br/SitCamaraWS/SessoesReunioes", ">>ListarPresencasParlamentarResponse>ListarPresencasParlamentarResult"));

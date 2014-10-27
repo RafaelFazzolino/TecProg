@@ -25,7 +25,7 @@ import org.apache.axis.message.MessageElement;
 import org.w3c.dom.NodeList;
 
 import br.com.MDSGPP.ChamadaParlamentar.dao.DeputiesDao;
-import br.gov.camara.www.SitCamaraWS.SessoesReunioes.ListarPresencasParlamentarResponseListarPresencasParlamentarResult;
+import br.gov.camara.www.SitCamaraWS.SessoesReunioes.ListPresencesCongressmanResponseListPresencesCongressmanResult;
 import br.gov.camara.www.SitCamaraWS.SessoesReunioes.SessoesReunioesLocator;
 import br.gov.camara.www.SitCamaraWS.SessoesReunioes.SessoesReunioesSoapStub;
 
@@ -46,7 +46,7 @@ public class ConnectionWithWsSessions {
 	 *             if there is a problem with the connection.
 	 */
 
-	public static SessoesReunioesSoapStub obterConexao()
+	public static SessoesReunioesSoapStub obtainConnection()
 			throws MalformedURLException, ServiceException {
 		URL url;/* Variable used to receive the site of the webservice. */
 		url = new URL(
@@ -73,12 +73,12 @@ public class ConnectionWithWsSessions {
 	 * @return the sessions.
 	 */
 
-	public static ListarPresencasParlamentarResponseListarPresencasParlamentarResult receberElementPresenca(
+	public static ListPresencesCongressmanResponseListPresencesCongressmanResult receberElementPresenca(
 			SessoesReunioesSoapStub service, String inicio, String fim,
 			String matricula) {
 
 		try {
-			ListarPresencasParlamentarResponseListarPresencasParlamentarResult sessoes;/*
+			ListPresencesCongressmanResponseListPresencesCongressmanResult sessoes;/*
 																						 * Variable
 																						 * that
 																						 * contains
@@ -114,7 +114,7 @@ public class ConnectionWithWsSessions {
 	 *             if there is a problem with the connection.
 	 */
 
-	public static ArrayList<String> adcionarSessaoNaTable(String data)
+	public static ArrayList<String> addSessionInTable(String data)
 			throws SQLException, ClassNotFoundException, MalformedURLException,
 			ServiceException {
 		ArrayList<String> foi;
@@ -152,7 +152,7 @@ public class ConnectionWithWsSessions {
 			df = new SimpleDateFormat();
 			df.applyPattern("dd/MM/yyyy");
 
-			ListarPresencasParlamentarResponseListarPresencasParlamentarResult sessao;/*
+			ListPresencesCongressmanResponseListPresencesCongressmanResult sessao;/*
 																					 * Variable
 																					 * that
 																					 * contains
@@ -162,7 +162,7 @@ public class ConnectionWithWsSessions {
 																					 */
 			try {
 				sessao = ConnectionWithWsSessions.receberElementPresenca(
-						ConnectionWithWsSessions.obterConexao(), data,
+						ConnectionWithWsSessions.obtainConnection(), data,
 						df.format(today.getTime()),
 						Integer.toString(list.get(i)));
 
@@ -257,12 +257,12 @@ public class ConnectionWithWsSessions {
 	 *             if there is a problem with the connection.
 	 */
 
-	public static ArrayList<String> adcionarDataNaTable(String data,
+	public static ArrayList<String> addDateInTable(String data,
 			String matricula) throws SQLException, MalformedURLException,
 			ServiceException {
 		ArrayList<String> pass = new ArrayList<String>();
 
-		ListarPresencasParlamentarResponseListarPresencasParlamentarResult sessao;/*
+		ListPresencesCongressmanResponseListPresencesCongressmanResult sessao;/*
 																				 * Variable
 																				 * that
 																				 * contains
@@ -282,7 +282,7 @@ public class ConnectionWithWsSessions {
 		df.applyPattern("dd/MM/yyyy");
 
 		sessao = ConnectionWithWsSessions.receberElementPresenca(
-				ConnectionWithWsSessions.obterConexao(), data,
+				ConnectionWithWsSessions.obtainConnection(), data,
 				df.format(today.getTime()), matricula);
 
 		NodeList days;/* Variable that contains the days. */

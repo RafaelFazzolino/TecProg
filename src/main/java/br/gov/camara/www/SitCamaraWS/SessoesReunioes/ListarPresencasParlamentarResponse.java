@@ -8,13 +8,13 @@
 package br.gov.camara.www.SitCamaraWS.SessoesReunioes;
 
 public class ListarPresencasParlamentarResponse  implements java.io.Serializable {
-    private br.gov.camara.www.SitCamaraWS.SessoesReunioes.ListarPresencasParlamentarResponseListarPresencasParlamentarResult listarPresencasParlamentarResult;
+    private br.gov.camara.www.SitCamaraWS.SessoesReunioes.ListPresencesCongressmanResponseListPresencesCongressmanResult listarPresencasParlamentarResult;
 
     public ListarPresencasParlamentarResponse() {
     }
 
     public ListarPresencasParlamentarResponse(
-           br.gov.camara.www.SitCamaraWS.SessoesReunioes.ListarPresencasParlamentarResponseListarPresencasParlamentarResult listarPresencasParlamentarResult) {
+           br.gov.camara.www.SitCamaraWS.SessoesReunioes.ListPresencesCongressmanResponseListPresencesCongressmanResult listarPresencasParlamentarResult) {
            this.listarPresencasParlamentarResult = listarPresencasParlamentarResult;
     }
 
@@ -24,7 +24,7 @@ public class ListarPresencasParlamentarResponse  implements java.io.Serializable
      * 
      * @return listarPresencasParlamentarResult
      */
-    public br.gov.camara.www.SitCamaraWS.SessoesReunioes.ListarPresencasParlamentarResponseListarPresencasParlamentarResult getListarPresencasParlamentarResult() {
+    public br.gov.camara.www.SitCamaraWS.SessoesReunioes.ListPresencesCongressmanResponseListPresencesCongressmanResult getListarPresencasParlamentarResult() {
         return listarPresencasParlamentarResult;
     }
 
@@ -34,7 +34,7 @@ public class ListarPresencasParlamentarResponse  implements java.io.Serializable
      * 
      * @param listarPresencasParlamentarResult
      */
-    public void setListarPresencasParlamentarResult(br.gov.camara.www.SitCamaraWS.SessoesReunioes.ListarPresencasParlamentarResponseListarPresencasParlamentarResult listarPresencasParlamentarResult) {
+    public void setListarPresencasParlamentarResult(br.gov.camara.www.SitCamaraWS.SessoesReunioes.ListPresencesCongressmanResponseListPresencesCongressmanResult listarPresencasParlamentarResult) {
         this.listarPresencasParlamentarResult = listarPresencasParlamentarResult;
     }
 

@@ -50,7 +50,7 @@ public class SessoesReunioesSoapProxy implements br.gov.camara.www.SitCamaraWS.S
     return sessoesReunioesSoap.listarSituacoesReuniaoSessao();
   }
   
-  public br.gov.camara.www.SitCamaraWS.SessoesReunioes.ListarPresencasParlamentarResponseListarPresencasParlamentarResult listarPresencasParlamentar(java.lang.String dataIni, java.lang.String dataFim, java.lang.String numMatriculaParlamentar) throws java.rmi.RemoteException{
+  public br.gov.camara.www.SitCamaraWS.SessoesReunioes.ListPresencesCongressmanResponseListPresencesCongressmanResult listarPresencasParlamentar(java.lang.String dataIni, java.lang.String dataFim, java.lang.String numMatriculaParlamentar) throws java.rmi.RemoteException{
     if (sessoesReunioesSoap == null)
       _initSessoesReunioesSoapProxy();
     return sessoesReunioesSoap.listarPresencasParlamentar(dataIni, dataFim, numMatriculaParlamentar);

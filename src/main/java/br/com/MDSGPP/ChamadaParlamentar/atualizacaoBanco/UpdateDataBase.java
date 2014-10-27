@@ -96,9 +96,9 @@ public class UpdateDataBase {
 				sessionsDao = new SessionsAndMeetingsDao();
 
 				sessionsDao.addDateInTable(ConnectionWithWsSessions
-						.adcionarDataNaTable("20/11/2011", "440"));
+						.addDateInTable("20/11/2011", "440"));
 				sessionsDao.addSessionInTable(ConnectionWithWsSessions
-						.adcionarSessaoNaTable("20/11/2011"));
+						.addSessionInTable("20/11/2011"));
 
 				RankingDao rankingDao;/*
 									 * This variable controls the connection to
