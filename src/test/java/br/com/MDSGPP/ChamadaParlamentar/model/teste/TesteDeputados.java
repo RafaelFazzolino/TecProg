@@ -7,20 +7,17 @@ import org.junit.Before;
 import org.junit.Test;
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 
-
 public class TesteDeputados {
 	Deputies deputado;
 	Deputies deputado2;
-	
+
 	@Before
 	public void setUp() {
 		deputado = new Deputies();
-		deputado2 = new Deputies
-				(123, 124, 125, "pedro", "pedrin", "masculino", 
-						"DF", "PT", "123", "2",
-						"123456789", "alguem@algumacoisa");
+		deputado2 = new Deputies(123, 124, 125, "pedro", "pedrin", "masculino",
+				"DF", "PT", "123", "2", "123456789", "alguem@algumacoisa");
 	}
-	
+
 	@Test
 	public void testDeputados() {
 		assertNotNull(deputado);
@@ -28,15 +25,14 @@ public class TesteDeputados {
 
 	@Test
 	public void testDeputadosIntIntIntStringStringStringStringStringStringStringStringString() {
-		Deputies deputadoTeste = new Deputies
-				(123, 124, 125, "pedro", "pedrin", "masculino", 
-						"DF", "PT", "123", "2",
-						"123456789", "alguem@algumacoisa");
-	
+		Deputies deputadoTeste = new Deputies(123, 124, 125, "pedro", "pedrin",
+				"masculino", "DF", "PT", "123", "2", "123456789",
+				"alguem@algumacoisa");
+
 		assertNotNull(deputadoTeste);
 		assertTrue(deputadoTeste.getIdDeputy() == 123);
 		assertTrue(deputadoTeste.getResgitry() == 124);
-		assertTrue(deputadoTeste.getIdRegister()== 125);
+		assertTrue(deputadoTeste.getIdRegister() == 125);
 		assertTrue(deputadoTeste.getNameCivilCongressman().equals("pedro"));
 		assertTrue(deputadoTeste.getNameTreatmentCongressman().equals("pedrin"));
 		assertTrue(deputadoTeste.getSex().equals("masculino"));
@@ -46,7 +42,7 @@ public class TesteDeputados {
 		assertTrue(deputadoTeste.getAnnexx().equals("2"));
 		assertTrue(deputadoTeste.getTelephone().equals("123456789"));
 		assertTrue(deputadoTeste.getEmail().equals("alguem@algumacoisa"));
-		
+
 	}
 
 	@Test
@@ -78,7 +74,8 @@ public class TesteDeputados {
 
 	@Test
 	public void testSetNomeDeTratamentoDoParlamentar() {
-		deputado.setNameTreatmentCongressman("teste");;
+		deputado.setNameTreatmentCongressman("teste");
+		;
 		assertNotNull(deputado.getNameTreatmentCongressman());
 	}
 
@@ -155,7 +152,8 @@ public class TesteDeputados {
 
 	@Test
 	public void testSetEmail() {
-		deputado.setEmail("teste");;
+		deputado.setEmail("teste");
+		;
 		assertNotNull(deputado.getEmail());
 	}
 

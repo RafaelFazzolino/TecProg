@@ -11,25 +11,26 @@ import org.junit.Test;
 import br.com.MDSGPP.ChamadaParlamentar.model.Statistic;
 
 public class TesteEstatistica {
-	Statistic test = new Statistic();	
+	Statistic test = new Statistic();
+
 	@Before
 	public void setUp() throws Exception {
 		test.setName("Rafael");
 		test.setNumberSession("123");
 		test.setTotalSession("100");
 		test.setPercentagem("98");
-		ArrayList<String> lista = new ArrayList<String> ();
-		for(int i=0 ; i<30 ; i++)
-			lista.add(""+i);
+		ArrayList<String> lista = new ArrayList<String>();
+		for (int i = 0; i < 30; i++)
+			lista.add("" + i);
 		test.setLista(lista);
-		
+
 	}
-		
 
 	@Test
-	public void testEstatistica() {//Testando instância de estatistica
+	public void testEstatistica() {// Testando instância de estatistica
 		assertNotNull(test);
 	}
+
 	@Test
 	public void testGetNumeroSessao() {
 		assertNotNull(test.getNumberSession());
@@ -77,7 +78,7 @@ public class TesteEstatistica {
 
 	@Test
 	public void testSetLista() {
-			for(int i=0 ; i<30 ; i++)
-			assertTrue(test.getLista().get(i).equals(""+i));
+		for (int i = 0; i < 30; i++)
+			assertTrue(test.getLista().get(i).equals("" + i));
 	}
 }
