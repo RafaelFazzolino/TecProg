@@ -49,7 +49,7 @@ public class TestePartidoControl {
 		}
 	}
 	
-	@Test//aqui ainda falta testar
+	@Test
 	public void testPassarPartidoCerto() throws ClassNotFoundException, SQLException {
 		PoliticalPartyControl control = new PoliticalPartyControl();
 		String nomePartido = "PT";

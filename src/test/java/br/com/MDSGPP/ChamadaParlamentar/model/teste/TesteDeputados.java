@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 
+
 public class TesteDeputados {
 	Deputies deputado;
 	Deputies deputado2;
