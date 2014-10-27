@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import br.com.MDSGPP.ChamadaParlamentar.exception.DataFormatoErradoException;
 import br.com.MDSGPP.ChamadaParlamentar.util.VerificarData;
 
-public class SessoesEReunioes {
+public class SessionAndMeetings {
 
 	private String data;
 	private String description;
@@ -13,7 +13,7 @@ public class SessoesEReunioes {
 
 	private ArrayList<Deputies> deputies = new ArrayList<Deputies>();
 
-	public SessoesEReunioes(String data, String description,
+	public SessionAndMeetings(String data, String description,
 			ArrayList<Deputies> deputies, String fullDescription)
 			throws DataFormatoErradoException {
 
@@ -28,7 +28,7 @@ public class SessoesEReunioes {
 
 	}
 
-	public SessoesEReunioes() {
+	public SessionAndMeetings() {
 
 	}
 
@@ -44,23 +44,23 @@ public class SessoesEReunioes {
 		this.data = data;
 	}
 
-	public String getDescricao() {
+	public String getDescription() {
 		return description;
 	}
 
-	public void setDescricao(String description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
-	public ArrayList<Deputies> getDeputados() {
+	public ArrayList<Deputies> getDeputies() {
 		return deputies;
 	}
 
-	public void setDeputados(ArrayList<Deputies> deputies) {
+	public void setDeputies(ArrayList<Deputies> deputies) {
 		this.deputies = deputies;
 	}
 
-	public String getDescricaoCompleta() {
+	public String getFullDescription() {
 		return fullDescription;
 	}
 
@@ -68,11 +68,11 @@ public class SessoesEReunioes {
 		this.fullDescription = fullDescription;
 	}
 
-	public ArrayList<String> getDeputadosPresentes() {
+	public ArrayList<String> getDeputiesPresence() {
 		return presentDeputies;
 	}
 
-	public void setDeputadosPresentes(ArrayList<String> presentDeputies) {
+	public void setDeputiesPresence(ArrayList<String> presentDeputies) {
 		this.presentDeputies = presentDeputies;
 	}
 }

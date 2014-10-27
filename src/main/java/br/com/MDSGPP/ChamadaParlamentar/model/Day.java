@@ -6,7 +6,7 @@ import br.com.MDSGPP.ChamadaParlamentar.util.VerificarData;
 
 public class Day {
 	private String date;
-	private ArrayList<SessoesEReunioes> listOfSessions = new ArrayList<SessoesEReunioes>();
+	private ArrayList<SessionAndMeetings> listOfSessions = new ArrayList<SessionAndMeetings>();
 	private int numberOfSessions;
 
 	/**
@@ -33,14 +33,14 @@ public class Day {
 	 * This method is to get the Array listaSessoes containing all sessions at this day.
 	 * @return listaSessoes what is an array containing all sessions at this day.
 	 */
-	public ArrayList<SessoesEReunioes> getListSessions() {
+	public ArrayList<SessionAndMeetings> getListSessions() {
 		return listOfSessions;
 	}
 	/**
 	 * This method is to change the array listaSessoes.
 	 * @param listaSessoes is an array containing all sessions at this day.
 	 */
-	public void setListSesssions(ArrayList<SessoesEReunioes> listOfSessions) {
+	public void setListSesssions(ArrayList<SessionAndMeetings> listOfSessions) {
 		this.listOfSessions = listOfSessions;
 		if( listOfSessions != null ) {
 			this.numberOfSessions = listOfSessions.size();

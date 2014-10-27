@@ -10,7 +10,7 @@ import javax.xml.rpc.ServiceException;
 
 import br.com.MDSGPP.ChamadaParlamentar.exception.DataFormatoErradoException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Day;
-import br.com.MDSGPP.ChamadaParlamentar.model.SessoesEReunioes;
+import br.com.MDSGPP.ChamadaParlamentar.model.SessionAndMeetings;
 
 public class SessoesEReunioesDao extends ConnectionFactory {
 
@@ -94,17 +94,17 @@ public class SessoesEReunioesDao extends ConnectionFactory {
 	 * @throws SQLException is case occurs an error with dataBase.
 	 * @throws DataFormatoErradoException is case occurs an error with the Date.
 	 */
-	public ArrayList<SessoesEReunioes> pegarSessoes() throws SQLException, DataFormatoErradoException {
+	public ArrayList<SessionAndMeetings> pegarSessoes() throws SQLException, DataFormatoErradoException {
 		String sql = "Select * from datas";
 		
 		PreparedStatement stmt = ConnectionFactory.getConexao().prepareStatement(sql);
 		
 		ResultSet rs = stmt.executeQuery();
 		
-		ArrayList<SessoesEReunioes> lista = new ArrayList<SessoesEReunioes>();
+		ArrayList<SessionAndMeetings> lista = new ArrayList<SessionAndMeetings>();
 		
 		while(rs.next()) {
-			SessoesEReunioes sessao = new SessoesEReunioes();
+			SessionAndMeetings sessao = new SessionAndMeetings();
 			sessao.setData(rs.getString("datas"));
 			lista.add(sessao);
 		}
@@ -151,12 +151,12 @@ public class SessoesEReunioesDao extends ConnectionFactory {
 		PreparedStatement stmt = getConexao().prepareStatement(sql);
 		stmt.setString(1, data);
 		ResultSet rs = stmt.executeQuery();
-		ArrayList<SessoesEReunioes> lista = new ArrayList<SessoesEReunioes>();
+		ArrayList<SessionAndMeetings> lista = new ArrayList<SessionAndMeetings>();
 
 		while(rs.next()){
-			SessoesEReunioes sessoes = new SessoesEReunioes();
-			sessoes.setDescricao(rs.getString("sessao"));
-			sessoes.setFullDescription(sessoes.getDescricao());
+			SessionAndMeetings sessoes = new SessionAndMeetings();
+			sessoes.setDescription(rs.getString("sessao"));
+			sessoes.setFullDescription(sessoes.getDescription());
 			lista.add(sessoes);
 		}
 		

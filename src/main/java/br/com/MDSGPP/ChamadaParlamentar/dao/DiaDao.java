@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import br.com.MDSGPP.ChamadaParlamentar.exception.DataFormatoErradoException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Day;
-import br.com.MDSGPP.ChamadaParlamentar.model.SessoesEReunioes;
+import br.com.MDSGPP.ChamadaParlamentar.model.SessionAndMeetings;
 
 public class DiaDao extends ConnectionFactory {
 
@@ -93,12 +93,12 @@ public class DiaDao extends ConnectionFactory {
 				cont++;
 			}
 
-			SessoesEReunioes passar;/*
+			SessionAndMeetings passar;/*
 									 * Variable that received all features of
 									 * the sessions.
 									 */
-			passar = new SessoesEReunioes();
-			passar.setDescricao(descricao);
+			passar = new SessionAndMeetings();
+			passar.setDescription(descricao);
 			passar.setFullDescription(descAux);
 			list.get(cont).getListSessions().add(passar);
 		}

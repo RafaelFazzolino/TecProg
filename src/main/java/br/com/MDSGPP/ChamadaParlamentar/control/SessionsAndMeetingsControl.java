@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import br.com.MDSGPP.ChamadaParlamentar.dao.SessoesEReunioesDao;
-import br.com.MDSGPP.ChamadaParlamentar.model.SessoesEReunioes;
+import br.com.MDSGPP.ChamadaParlamentar.model.SessionAndMeetings;
 
 public final class SessionsAndMeetingsControl {
 
@@ -20,7 +20,7 @@ public final class SessionsAndMeetingsControl {
 	 *             if miss spelled SQL is entered.
 	 */
 
-	public static SessoesEReunioes nextSession(String descricao)
+	public static SessionAndMeetings nextSession(String descricao)
 			throws ClassNotFoundException, SQLException {
 		SessoesEReunioesDao dao;/*
 								 * Variable that create the connection with
@@ -31,10 +31,10 @@ public final class SessionsAndMeetingsControl {
 		ArrayList<String> list;/* Variable that contains the list of sessions. */
 		list = dao.procurarSessao(descricao);
 
-		SessoesEReunioes pass;/* Variable that contains the final list. */
-		pass = new SessoesEReunioes();
-		pass.setDeputadosPresentes(list);
-		pass.setDescricao(descricao);
+		SessionAndMeetings pass;/* Variable that contains the final list. */
+		pass = new SessionAndMeetings();
+		pass.setDeputiesPresence(list);
+		pass.setDescription(descricao);
 
 		return pass;
 	}
