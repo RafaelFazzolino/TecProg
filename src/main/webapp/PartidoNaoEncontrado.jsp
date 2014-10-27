@@ -2,20 +2,20 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-<style type="text/css">
-		<jsp:include page="FolhaParaHeader.css"/>
-		<jsp:include page="FolhaParaTudo.css"/>
-		<jsp:include page="FolhaParaQuemSomos.css"/>
-		<jsp:include page="FolhaParaBody.css"/>
-		<jsp:include page="FolhaParaFooter.css"/>
-		<jsp:include page="FolhaParaDeputadoNaoEncontrado.css"/>
-</style>
+			<style type="text/css">
+				<jsp:include page="FolhaParaHeader.css"/>
+				<jsp:include page="FolhaParaTudo.css"/>
+				<jsp:include page="FolhaParaQuemSomos.css"/>
+				<jsp:include page="FolhaParaBody.css"/>
+				<jsp:include page="FolhaParaFooter.css"/>
+				<jsp:include page="FolhaParaDeputadoNaoEncontrado.css"/>
+			</style>
 
-<title>Chamada Parlamentar</title>
-</head>
+		<title>Chamada Parlamentar</title>
+	</head>
 <body>
 	<div id = "tudo">
 	
@@ -29,7 +29,7 @@
 			<ul id = "voltar">
 				<li><a href="autoCompletePartido">Deseja tentar novamente?</a></li>
 			</ul>
-		</div><!-- fim da id principal -->
+		</div><!-- fim da id aviso -->
 		
 		<div id="rodape">
 			<jsp:include page = 'Footer.html'/>
