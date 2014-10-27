@@ -101,10 +101,10 @@ public final class RankingControl {
 				worst.add(list.get(list.size() - 1 - i));
 			}
 
-			ranking.setMelhores(bests);
-			ranking.setPiores(worst);
-			ranking.setLista(orderedList);
-			ranking.setRemovidos(deleted);
+			ranking.setBetter(bests);
+			ranking.setWorst(worst);
+			ranking.setList(orderedList);
+			ranking.setRemoved(deleted);
 
 		} catch (NullPointerException e) {
 			throw new ListaRankingException();
@@ -213,14 +213,14 @@ public final class RankingControl {
 									 */
 		worst = new ArrayList<Statistic>();
 
-		ranking.setLista(ordenacao(ranking.getLista()));
+		ranking.setList(ordenacao(ranking.getList()));
 
 		for (int i = 0; i < SIZE_RANKINGS; i++) {
-			bests.add(ranking.getLista().get(i));
-			worst.add(ranking.getLista().get(ranking.getLista().size() - 1 - i));
+			bests.add(ranking.getList().get(i));
+			worst.add(ranking.getList().get(ranking.getList().size() - 1 - i));
 		}
-		ranking.setMelhores(bests);
-		ranking.setPiores(worst);
+		ranking.setBetter(bests);
+		ranking.setWorst(worst);
 		return ranking;
 	}
 
@@ -299,7 +299,7 @@ public final class RankingControl {
 		Ranking ranking;/* Variable that contains all features of the ranking. */
 		ranking = rankingDao.retornaRanking();
 
-		ranking.setLista(ordenacao(ranking.getLista()));
+		ranking.setList(ordenacao(ranking.getList()));
 
 		return ranking;
 	}

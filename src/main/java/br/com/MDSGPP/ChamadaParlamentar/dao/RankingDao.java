@@ -26,19 +26,19 @@ public class RankingDao extends ConnectionFactory {
 		String sql =  "insert into ranking(nomeParlamentar, porcentagem, numeroSessoes)values (?, ?, ?)";
 		PreparedStatement stmt = ConnectionFactory.getConexao().prepareStatement(sql);
 
-		for( int i = 0; i < ranking.getLista().size(); i++ ) {
+		for( int i = 0; i < ranking.getList().size(); i++ ) {
 			try {
-				stmt.setString(1, ranking.getLista().get(i).getName());
-				stmt.setString(2, ranking.getLista().get(i).getPercentagem());
-				stmt.setString(3, ranking.getLista().get(i).getNumberSession());
+				stmt.setString(1, ranking.getList().get(i).getName());
+				stmt.setString(2, ranking.getList().get(i).getPercentagem());
+				stmt.setString(3, ranking.getList().get(i).getNumberSession());
 				
 				stmt.execute();
 			} catch (MySQLIntegrityConstraintViolationException e) {
-				System.out.println(ranking.getLista().get(i).getName());
+				System.out.println(ranking.getList().get(i).getName());
 			}
 		}
-		for( int i = 0; i < ranking.getRemovidos().size(); i++ ) {
-			stmt.setString(1, ranking.getRemovidos().get(i).getName());
+		for( int i = 0; i < ranking.getRemoved().size(); i++ ) {
+			stmt.setString(1, ranking.getRemoved().get(i).getName());
 			stmt.setString(2, "semDados");
 			stmt.execute();
 		}
@@ -74,8 +74,8 @@ public class RankingDao extends ConnectionFactory {
 			}
 		}
 		
-		ranking.setLista(list);
-		ranking.setRemovidos(deleted);
+		ranking.setList(list);
+		ranking.setRemoved(deleted);
 		return ranking;
 	}
 
