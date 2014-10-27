@@ -1,31 +1,30 @@
 @CHARSET "ISO-8859-1";
 
-#mensagem{
-	
-	background-color:#E6E8FA;
+#mensagem {
+	background-color: #E6E8FA;
 	float: left;
-	width:40%;
+	width: 40%;
 	margin-left: 150px;
 	margin-top: 50px;
 	margin-right: 30px;
 }
 
-#mensagem h1{
+#mensagem h1 {
 	margin-left: 10px;
-	font-size:140%;
+	font-size: 140%;
 }
 
-#mensagem p{
+#mensagem p {
 	margin-left: 10px;
 	font-color: #000;
 }
 
-#mensagem a{
+#mensagem a {
 	text-decoration: none;
 	color: #000;
 }
 
-#mensagem a:hover{
+#mensagem a:hover {
 	background-color: #333333;
 	color: #f8f8ff;
 	-moz-box-shadow: 0 3px 10px 0 #333333;

@@ -3,74 +3,74 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-<style type="text/css">
+			<style type="text/css">
                 <jsp:include page="FolhaParaHeader.css"/>
                 <jsp:include page="FolhaParaTudo.css"/>
                 <jsp:include page="FolhaParaBody.css"/>
                 <jsp:include page="FolhaParaFooter.css"/>
                 <jsp:include page="FolhaParaMostrarComparacaoDeputados.css"/>
-</style>
+			</style>
 
-<script type="text/javascript" src = "jquery.js"></script>
-<script src="http://code.highcharts.com/highcharts.js"></script>
+		<script type="text/javascript" src = "jquery.js"></script>
+		<script src="http://code.highcharts.com/highcharts.js"></script>
 
-<script>
-$(function () {
-    $('#grafico').highcharts({
-        chart: {
-            type: 'column'
-        },
-        title: {
-            text: 'Comparação dos deputados'
-        },
-        xAxis: {
-            categories: [
-                '${estatisticaPrimeiro.nome}',
-                '${estatisticaSegundo.nome}',
-                'Total',
-            ]
-        },
-        yAxis: {
-            min: 0,
-            title: {
-                text: 'Porcentagem de Presença'
-            }
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+		<script>
+			$(function () {
+    		$('#grafico').highcharts({
+        	chart: {
+            	type: 'column'
+        	},
+        	title: {
+            	text: 'Comparação dos deputados'
+        	},
+        	xAxis: {
+            	categories: [
+                	'${estatisticaPrimeiro.nome}',
+                	'${estatisticaSegundo.nome}',
+                	'Total',
+            	]
+        	},
+        	yAxis: {
+            	min: 0,
+            	title: {
+                	text: 'Porcentagem de Presença'
+            	}
+        	},
+        	tooltip: {
+            	headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            	pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
                 '<td style="padding:0"><b>{point.y:.1f} %</b></td></tr>',
-            footerFormat: '</table>',
-            shared: true,
-            useHTML: true
-        },
-        plotOptions: {
-            column: {
-                pointPadding: 0.2,
-                borderWidth: 0
-            }
-        },
-        series: [{
-            name: '${estatisticaPrimeiro.nome}',
-            data: [${presencaPrimeiro}]
+            	footerFormat: '</table>',
+            	shared: true,
+            	useHTML: true
+        	},
+        	plotOptions: {
+            	column: {
+                	pointPadding: 0.2,
+                	borderWidth: 0
+            	}
+        	},
+        	series: [{
+            	name: '${estatisticaPrimeiro.nome}',
+            	data: [${presencaPrimeiro}]
 
-        }, {
-            name: '${estatisticaSegundo.nome}',
-            data: [${presencaSegundo}]
+        	}, {
+            	name: '${estatisticaSegundo.nome}',
+            	data: [${presencaSegundo}]
 
-        }, {
-            name: 'Total',
-            data: [100]
-        }]
-    });
-});
-</script>
+        	}, {
+            	name: 'Total',
+            	data: [100]
+        	}]
+    	});
+	});
+	</script>	
 
 
-<title>Chamada Parlamentar</title>
+	<title>Chamada Parlamentar</title>
 </head>
 <body>
 	<div id="tudo">

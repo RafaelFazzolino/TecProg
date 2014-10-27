@@ -1,6 +1,5 @@
 @CHARSET "ISO-8859-1";
 
-
 #principal {
 	float: left;
 	width: auto;
@@ -8,16 +7,17 @@
 	margin-top: 5%;
 }
 
-#principal h1{
-	background-color:#E6E8FA;
+#principal h1 {
+	background-color: #E6E8FA;
 	font-size: 200%;
 }
 
-#principal h2{
-	background-color:#E6E8FA;
+#principal h2 {
+	background-color: #E6E8FA;
 	font-size: 150%;
 }
-#principal a{
+
+#principal a {
 	margin-left: 7%;
 	text-decoration: none;
 	color: #000;
@@ -31,22 +31,20 @@
 	text-shadow: 0px 0px 5px #fff;
 }
 
-
-
 #semDados {
 	float: left;
 	margin-top: 9.2%;
 	margin-left: 4%;
 }
 
-#grafico{
+#grafico {
 	background-image: url("partido.png");
 	height: 200px;
 	background-repeat: no-repeat;
 	margin-left: 10%;
 	width: auto;
 }
-	
-#principal p{
+
+#principal p {
 	margin-left: 7%;
 }

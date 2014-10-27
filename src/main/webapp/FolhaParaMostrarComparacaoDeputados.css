@@ -1,8 +1,8 @@
 @CHARSET "ISO-8859-1";
 
-#primeiro, #segundo{
-	background-color:#E6E8FA;
-	width:35%;
+#primeiro,#segundo {
+	background-color: #E6E8FA;
+	width: 35%;
 }
 
 #primeiro {
@@ -12,29 +12,30 @@
 
 #segundo {
 	float: right;
-	margin-right: 12%;	
+	margin-right: 12%;
 }
 
-#primeiro h1, #segundo h1{
+#primeiro h1,#segundo h1 {
 	font-size: 120%;
 	margin-left: 2%;
 }
 
-#primeiro p, #segundo p{
+#primeiro p,#segundo p {
 	margin-left: 2%;
 }
 
-#primeiro a, #segundo a{
+#primeiro a,#segundo a {
 	margin-left: 2%;
 	text-decoration: none;
 	color: #000;
 }
 
-#primeiro h2, #segundo h2{
+#primeiro h2,#segundo h2 {
 	margin-left: 2%;
 	font-size: 120%;
 }
-#primeiro a:hover{
+
+#primeiro a:hover {
 	background-color: #333333;
 	color: #f8f8ff;
 	-moz-box-shadow: 0 3px 10px 0 #333333;
@@ -42,7 +43,7 @@
 	text-shadow: 0px 0px 5px #fff;
 }
 
-#segundo a:hover{
+#segundo a:hover {
 	background-color: #333333;
 	color: #f8f8ff;
 	-moz-box-shadow: 0 3px 10px 0 #333333;
@@ -50,9 +51,8 @@
 	text-shadow: 0px 0px 5px #fff;
 }
 
-#grafico{
+#grafico {
 	width: 50%;
 	margin-left: 23%;
-	margin-top: 8%; 
-	
+	margin-top: 8%;
 }
