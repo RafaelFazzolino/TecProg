@@ -6,7 +6,7 @@ import java.text.NumberFormat;
 
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
 import br.com.MDSGPP.ChamadaParlamentar.model.StatisticParty;
-import br.com.MDSGPP.ChamadaParlamentar.model.Partidos;
+import br.com.MDSGPP.ChamadaParlamentar.model.Party;
 
 public final class StatisticsPoliticalPartyControl {
 
@@ -32,7 +32,7 @@ public final class StatisticsPoliticalPartyControl {
 										 */
 		statistical = new StatisticParty();
 
-		Partidos partido;/* Variable that contains the political party. */
+		Party partido;/* Variable that contains the political party. */
 		partido = PoliticalPartyControl.passarPartidoComDadosCompletos(nome);
 		statistical.setpoliticalParty(partido);
 
@@ -49,15 +49,15 @@ public final class StatisticsPoliticalPartyControl {
 								 * Variable that contains the size of
 								 * statistical party.
 								 */
-		sizeStatisticalParty = partido.getEstatisticaDosDeputados().size();
+		sizeStatisticalParty = partido.getStatisticDeputies().size();
 
 		for (int i = 0; i < sizeStatisticalParty; i++) {
 
 			numberOfSessions = numberOfSessions
-					+ Integer.parseInt(partido.getEstatisticaDosDeputados()
+					+ Integer.parseInt(partido.getStatisticDeputies()
 							.get(i).getTotalSession());
 			numberOfSessionsAttended = numberOfSessionsAttended
-					+ Integer.parseInt(partido.getEstatisticaDosDeputados()
+					+ Integer.parseInt(partido.getStatisticDeputies()
 							.get(i).getNumberSession());
 		}
 

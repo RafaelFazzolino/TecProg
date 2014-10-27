@@ -2,7 +2,7 @@ package br.com.MDSGPP.ChamadaParlamentar.model;
 
 public class StatisticParty {
 
-	private Partidos politicalParty;
+	private Party politicalParty;
 	private int numberOfSessions;
 	private int assistedSessions;
 	private String percentage;
@@ -14,7 +14,7 @@ public class StatisticParty {
 	 *         political party.
 	 */
 
-	public Partidos getpoliticalParty() {
+	public Party getpoliticalParty() {
 		return politicalParty;
 	}
 
@@ -26,7 +26,7 @@ public class StatisticParty {
 	 *            the political party.
 	 */
 
-	public void setpoliticalParty(Partidos politicalParty) {
+	public void setpoliticalParty(Party politicalParty) {
 		this.politicalParty = politicalParty;
 	}
 

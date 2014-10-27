@@ -13,7 +13,7 @@ import org.w3c.dom.NodeList;
 
 
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
-import br.com.MDSGPP.ChamadaParlamentar.model.Partidos;
+import br.com.MDSGPP.ChamadaParlamentar.model.Party;
 import br.gov.camara.www.SitCamaraWS.Deputados.DeputadosLocator;
 import br.gov.camara.www.SitCamaraWS.Deputados.DeputadosSoapStub;
 import br.gov.camara.www.SitCamaraWS.Deputados.ObterDeputadosResponseObterDeputadosResult;
@@ -296,19 +296,19 @@ public class ConnectionWithWsDeputies {
 
 	/**
 	 * Method to get all the political party from the webService and return then
-	 * as an {@link ArrayList} of {@link Partidos}.
+	 * as an {@link ArrayList} of {@link Party}.
 	 * 
-	 * @return an {@link ArrayList} of {@link Partidos} containing all the
+	 * @return an {@link ArrayList} of {@link Party} containing all the
 	 *         political party.
 	 * @throws MalformedURLException
 	 * @throws UnknownHostException
 	 * @throws ServiceException
 	 */
 
-	public static ArrayList<Partidos> criaListaPartidos()
+	public static ArrayList<Party> criaListaPartidos()
 			throws MalformedURLException, UnknownHostException,
 			ServiceException {
-		ArrayList<Partidos> lista = new ArrayList<Partidos>();
+		ArrayList<Party> lista = new ArrayList<Party>();
 
 		ObterPartidosCDResponseObterPartidosCDResult partidos;
 
@@ -346,9 +346,9 @@ public class ConnectionWithWsDeputies {
 			try {
 
 			} catch (NullPointerException e) {
-				Partidos partidoAdicionar = new Partidos();
-				partidoAdicionar.setSigla(siglaPartidoText);
-				partidoAdicionar.setNomePartido(nomePartidoText);
+				Party partidoAdicionar = new Party();
+				partidoAdicionar.setAcronyn(siglaPartidoText);
+				partidoAdicionar.setNameParty(nomePartidoText);
 
 				/* If this expression is false. */
 				if (!nomePartidoText.equalsIgnoreCase("sem partido")) {

@@ -8,7 +8,7 @@ import br.com.MDSGPP.ChamadaParlamentar.dao.PartidoDao;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 import br.com.MDSGPP.ChamadaParlamentar.model.Statistic;
-import br.com.MDSGPP.ChamadaParlamentar.model.Partidos;
+import br.com.MDSGPP.ChamadaParlamentar.model.Party;
 import br.com.MDSGPP.ChamadaParlamentar.util.LimparLista;
 
 public final class PoliticalPartyControl {
@@ -79,12 +79,12 @@ public final class PoliticalPartyControl {
 	 *             case an error occurs with dataBase.
 	 */
 
-	public static Partidos passarPartido(String nomePartido)
+	public static Party passarPartido(String nomePartido)
 			throws ClassNotFoundException, SQLException {
 
-		Partidos partido;/* Variable that contains all features of the party. */
-		partido = new Partidos();
-		partido.setDeputadosDoPartido(null);
+		Party partido;/* Variable that contains all features of the party. */
+		partido = new Party();
+		partido.setDeputiesParty(null);
 
 		ArrayList<String> politicalPartyName;/*
 											 * Variable that contains the right
@@ -116,9 +116,9 @@ public final class PoliticalPartyControl {
 				}
 			}
 
-			partido.setSigla(politicalPartyName.get(0));
-			partido.setNomePartido(politicalPartyName.get(1));
-			partido.setDeputadosDoPartido(deputadosDoPartido);
+			partido.setAcronyn(politicalPartyName.get(0));
+			partido.setNameParty(politicalPartyName.get(1));
+			partido.setDeputiesParty(deputadosDoPartido);
 		}
 
 		return partido;
@@ -139,9 +139,9 @@ public final class PoliticalPartyControl {
 	 *             case an error occurs with the list.
 	 */
 
-	public static Partidos gerarEstatisticaDoPartido(String nome)
+	public static Party gerarEstatisticaDoPartido(String nome)
 			throws ClassNotFoundException, SQLException, ListaVaziaException {
-		Partidos partido = passarPartido(nome);
+		Party partido = passarPartido(nome);
 
 		ArrayList<Statistic> estatisticas;/*
 											 * Variable that contains the
@@ -153,7 +153,7 @@ public final class PoliticalPartyControl {
 								 * Variable that contains the size of list with
 								 * all deputies of the party.
 								 */
-		sizeDeputiesOfParty = partido.getDeputadosDoPartido().size();
+		sizeDeputiesOfParty = partido.getDeputiesParty().size();
 
 		try {
 			for (int i = 0; i < sizeDeputiesOfParty; i++) {
@@ -166,11 +166,11 @@ public final class PoliticalPartyControl {
 					estatistica = EstatisticaControl
 							.gerarEstatisticas(EstatisticaControl
 									.arrumarNomePesquisa(partido
-											.getDeputadosDoPartido().get(i)));
+											.getDeputiesParty().get(i)));
 				} catch (ListaVaziaException e) {
 					estatistica.setName(EstatisticaControl
 							.arrumarNomePesquisa(partido
-									.getDeputadosDoPartido().get(i)));
+									.getDeputiesParty().get(i)));
 				}
 				estatisticas.add(estatistica);
 			}
@@ -178,7 +178,7 @@ public final class PoliticalPartyControl {
 			throw new ListaVaziaException();
 		}
 
-		partido.setEstatisticaDosDeputados(estatisticas);
+		partido.setStatisticDeputies(estatisticas);
 
 		return partido;
 	}
@@ -196,10 +196,10 @@ public final class PoliticalPartyControl {
 	 * @throws ListaVaziaException
 	 *             case an error occurs with the list.
 	 */
-	public static Partidos passarPartidoComDadosCompletos(String nome)
+	public static Party passarPartidoComDadosCompletos(String nome)
 			throws ClassNotFoundException, SQLException, ListaVaziaException {
 
-		Partidos partido;/*
+		Party partido;/*
 						 * Variable that contains all features of the political
 						 * party.
 						 */
@@ -211,10 +211,10 @@ public final class PoliticalPartyControl {
 														 * list.
 														 */
 		listaRecebida = LimparLista.limparLista(partido
-				.getEstatisticaDosDeputados());
+				.getStatisticDeputies());
 
-		partido.setEstatisticaDosDeputados(listaRecebida.get(0));
-		partido.setDeputadosSemDados(listaRecebida.get(1));
+		partido.setStatisticDeputies(listaRecebida.get(0));
+		partido.setDeputiesWithoutData(listaRecebida.get(1));
 
 		return partido;
 	}

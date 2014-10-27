@@ -16,7 +16,7 @@ import br.com.MDSGPP.ChamadaParlamentar.exception.ExceptionSqlInjection;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Statistic;
 import br.com.MDSGPP.ChamadaParlamentar.model.StatisticParty;
-import br.com.MDSGPP.ChamadaParlamentar.model.Partidos;
+import br.com.MDSGPP.ChamadaParlamentar.model.Party;
 
 public class PartyReceivedServlet extends HttpServlet {
 
@@ -40,18 +40,18 @@ public class PartyReceivedServlet extends HttpServlet {
 				/**
 				 * This Array will receive all deputy with no data
 				 * */
-				ArrayList<Statistic> noData = statistic.getpoliticalParty().getDeputadosSemDados();
+				ArrayList<Statistic> noData = statistic.getpoliticalParty().getDeputiesWithoutData();
 				
 				/**
 				 * This variable will receive party
 				 * */
-				Partidos party = statistic.getpoliticalParty();
+				Party party = statistic.getpoliticalParty();
 				
 				/**
 				 * This variable used to know how many deputy whitout data
 				 * */
 				
-				int howManyNoData = party.getDeputadosSemDados().size();
+				int howManyNoData = party.getDeputiesWithoutData().size();
 								
 				request.setAttribute("numeroSemDados", howManyNoData);
 				request.setAttribute("semDados", noData);
