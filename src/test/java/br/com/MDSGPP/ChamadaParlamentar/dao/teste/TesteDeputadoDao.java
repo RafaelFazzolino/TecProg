@@ -16,19 +16,19 @@ import br.com.MDSGPP.ChamadaParlamentar.dao.DeputadoDao;
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 
 public class TesteDeputadoDao {
-	
+
 	DeputadoDao deputadoDao;
-	
+
 	Deputies deputado1 = new Deputies();
 	Deputies deputado2 = new Deputies();
-	
+
 	@Before
 	public void setUp() throws ClassNotFoundException, SQLException {
 		deputadoDao = new DeputadoDao();
 	}
+
 	public ArrayList<Deputies> criaLista() {
 		ArrayList<Deputies> lista = new ArrayList<Deputies>();
-		
 
 		deputado1.setAnnexx("123");
 
@@ -43,9 +43,7 @@ public class TesteDeputadoDao {
 		deputado1.setSex("teste");
 		deputado1.setTelephone("12");
 		deputado1.setFederativeUnit("Df");
-		
-		
-		
+
 		deputado2.setAnnexx("0");
 		deputado2.setEmail("teste2");
 		deputado2.setIdDeputy(000);
@@ -58,18 +56,18 @@ public class TesteDeputadoDao {
 		deputado2.setSex("teste2");
 		deputado2.setTelephone("00000000");
 		deputado2.setFederativeUnit("Df");
-		
+
 		lista.add(deputado1);
 		lista.add(deputado2);
-		
+
 		return lista;
 	}
-	
+
 	@Test
-	public void testDeputadoDao() {		
+	public void testDeputadoDao() {
 		assertNotNull(deputadoDao);
 	}
-	
+
 	@Test
 	public void TestegetMatriculaDeputados() throws SQLException {
 		ArrayList<Integer> lista = deputadoDao.getMatriculaDeputados();
@@ -81,41 +79,48 @@ public class TesteDeputadoDao {
 		ArrayList<Deputies> deputados = criaLista();
 		deputadoDao.adicionaDeputado(deputados);
 	}
+
 	@Test
 	public void testInstancia1() throws SQLException {
 		assertNotNull(deputadoDao);
-		
+
 	}
+
 	@Test
 	public void testlista() throws SQLException {
 		assertTrue(criaLista().size() == 2);
 	}
+
 	@Test
 	public void testDeputado1() throws SQLException {
 		assertNotNull(deputado1);
 	}
+
 	@Test
 	public void testDeputado2() throws SQLException {
 		assertNotNull(deputado2);
 	}
-	
+
 	@After
 	public void tearDown() throws ClassNotFoundException, SQLException {
 		Connection conexao = new ConnectionFactory().getConnection();
-		
+
 		String sql = "Delete from deputado where nomeCivil = ?";
-		
+
 		java.sql.PreparedStatement stmt = conexao.prepareStatement(sql);
-		
+
 		ArrayList<Deputies> lista = criaLista();
-		
-		for(int i = 0; i<lista.size(); i++) {
-			
+
+		int sizeList;
+		sizeList = lista.size();
+
+		for (int i = 0; i < sizeList; i++) {
+
 			stmt.setString(1, lista.get(i).getNameCivilCongressman());
-		
+
 			stmt.execute();
 		}
-		stmt.close();		
+		stmt.close();
 	}
-	
+
 }

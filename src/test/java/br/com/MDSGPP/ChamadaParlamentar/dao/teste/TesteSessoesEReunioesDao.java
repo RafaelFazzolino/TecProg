@@ -23,7 +23,7 @@ public class TesteSessoesEReunioesDao {
 		sessoesDao = new SessoesEReunioesDao();
 	}
 
-	public static ArrayList<String> gerarListaDatas(){
+	public static ArrayList<String> gerarListaDatas() {
 		String string1 = "eulalala";
 		String string2 = "tulalalas";
 		String string3 = "elelalala";
@@ -53,23 +53,27 @@ public class TesteSessoesEReunioesDao {
 	}
 
 	@Test
-	public void testAdicionaDataNaTable() throws SQLException, MalformedURLException, 
-	ServiceException, ClassNotFoundException {
+	public void testAdicionaDataNaTable() throws SQLException,
+			MalformedURLException, ServiceException, ClassNotFoundException {
 		ArrayList<String> lista = gerarListaDatas();
 
 		sessoesDao.adcionarDataNaTable(lista);
 
-		for(int i = 0; i<lista.size();i=i+2) {
+		int sizeList;
+		sizeList = lista.size();
+
+		for (int i = 0; i < sizeList; i = i + 2) {
 			String sql = "Select * from datas where datas LIKE ?";
 			String nome = lista.get(i);
-			String desc = lista.get(i+1);
+			String desc = lista.get(i + 1);
 
-			java.sql.PreparedStatement stmt = sessoesDao.getConnection().prepareStatement(sql);
+			java.sql.PreparedStatement stmt = sessoesDao.getConnection()
+					.prepareStatement(sql);
 			stmt.setString(1, nome);
 
 			java.sql.ResultSet rs = stmt.executeQuery();
 
-			while(rs.next()) {
+			while (rs.next()) {
 				String data = rs.getString("datas");
 				String descTest = rs.getString("sessao");
 
@@ -82,23 +86,27 @@ public class TesteSessoesEReunioesDao {
 	}
 
 	@Test
-	public void testAdicionaSessaoNaTable() throws SQLException, MalformedURLException, 
-	ServiceException, ClassNotFoundException {
+	public void testAdicionaSessaoNaTable() throws SQLException,
+			MalformedURLException, ServiceException, ClassNotFoundException {
 		ArrayList<String> lista = gerarListaDatas();
 
 		sessoesDao.adcionarSessaoNaTable(lista);
 
-		for(int i = 0; i<lista.size();i=i+2) {
+		int sizeList;
+		sizeList = lista.size();
+
+		for (int i = 0; i < sizeList; i = i + 2) {
 			String sql = "Select * from sessao where idSessoes LIKE ?";
 			String nome = lista.get(i);
-			String desc = lista.get(i+1);
+			String desc = lista.get(i + 1);
 
-			java.sql.PreparedStatement stmt = sessoesDao.getConnection().prepareStatement(sql);
+			java.sql.PreparedStatement stmt = sessoesDao.getConnection()
+					.prepareStatement(sql);
 			stmt.setString(1, nome);
 
 			java.sql.ResultSet rs = stmt.executeQuery();
 
-			while(rs.next()) {
+			while (rs.next()) {
 				String data = rs.getString("idSessoes");
 				String descTest = rs.getString("deputadoPresente");
 
@@ -119,20 +127,22 @@ public class TesteSessoesEReunioesDao {
 
 		ArrayList<String> lista = gerarListaDatas();
 
-		for(int i = 0; i<lista.size(); i=i+2) {
+		int sizeList;
+		sizeList = lista.size();
+
+		for (int i = 0; i < sizeList; i = i + 2) {
 
 			stmt.setString(1, lista.get(i));
 
 			stmt.execute();
 		}
-		stmt.close();		
+		stmt.close();
 
-		
 		String sql2 = "Delete from sessao where idSessoes = ?";
 
 		java.sql.PreparedStatement stmt2 = conexao.prepareStatement(sql);
 
-		for(int i = 0; i<lista.size(); i=i+2) {
+		for (int i = 0; i < sizeList; i = i + 2) {
 
 			stmt2.setString(1, lista.get(i));
 

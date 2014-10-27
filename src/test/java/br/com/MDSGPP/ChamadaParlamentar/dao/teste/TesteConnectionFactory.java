@@ -10,14 +10,15 @@ import br.com.MDSGPP.ChamadaParlamentar.dao.ConnectionFactory;
 public class TesteConnectionFactory {
 
 	ConnectionFactory connection;
+
 	@Before
 	public void setUp() throws Exception {
 		connection = new ConnectionFactory();
 	}
 
-	//Testando a instância
+	/* Verify the instance. */
 	@Test
 	public void test() {
 		assertNotNull(connection);
-	}	
+	}
 }
