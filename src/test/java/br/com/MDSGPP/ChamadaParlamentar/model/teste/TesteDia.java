@@ -8,23 +8,23 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.com.MDSGPP.ChamadaParlamentar.exception.DataFormatoErradoException;
-import br.com.MDSGPP.ChamadaParlamentar.model.Dia;
-import br.com.MDSGPP.ChamadaParlamentar.model.SessoesEReunioes;
+import br.com.MDSGPP.ChamadaParlamentar.model.Day;
+import br.com.MDSGPP.ChamadaParlamentar.model.SessionAndMeetings;
 
 public class TesteDia {
-	Dia dia;
-	Dia dia2;
+	Day dia;
+	Day dia2;
 	
 	@Before
 	public void setUp() throws DataFormatoErradoException {
-		dia = new Dia();
+		dia = new Day();
 		dia.setData("10/10/2010");
-		ArrayList<SessoesEReunioes> lista = new ArrayList<SessoesEReunioes>();
-		SessoesEReunioes sessao = new SessoesEReunioes();
+		ArrayList<SessionAndMeetings> lista = new ArrayList<SessionAndMeetings>();
+		SessionAndMeetings sessao = new SessionAndMeetings();
 		lista.add(sessao);
-		dia.setListaSessoes(lista);
+		dia.setListSesssions(lista);
 		
-		dia2 = new Dia();
+		dia2 = new Day();
 	}
 
 	@Test
@@ -46,21 +46,21 @@ public class TesteDia {
 
 	@Test
 	public void testGetListaSessoes() {
-		assertNotNull(dia.getListaSessoes());
+		assertNotNull(dia.getListSessions());
 	}
 
 	@Test
 	public void testSetListaSessoes() {
-		dia2.setListaSessoes(null);
-		assertTrue(dia2.getListaSessoes()==null);
+		dia2.setListSesssions(null);
+		assertTrue(dia2.getListSessions()==null);
 		
-		dia2.setListaSessoes(dia.getListaSessoes());
+		dia2.setListSesssions(dia.getListSessions());
 		
-		assertNotNull(dia2.getListaSessoes());
+		assertNotNull(dia2.getListSessions());
 	}
 
 	@Test
 	public void testGetNumeroSessoes() {
-		assertTrue(dia2.getListaSessoes().size()== dia2.getNumeroSessoes());
+		assertTrue(dia2.getListSessions().size()== dia2.getNumberSessions());
 	}
 }

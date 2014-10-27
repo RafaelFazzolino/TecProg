@@ -8,16 +8,16 @@ import org.junit.Before;
 
 import org.junit.Test;
 
-import br.com.MDSGPP.ChamadaParlamentar.model.Estatistica;
+import br.com.MDSGPP.ChamadaParlamentar.model.Statistic;
 
 public class TesteEstatistica {
-	Estatistica test = new Estatistica();	
+	Statistic test = new Statistic();	
 	@Before
 	public void setUp() throws Exception {
-		test.setNome("Rafael");
-		test.setNumeroSessao("123");
-		test.setTotalSessao("100");
-		test.setPorcentagem("98");
+		test.setName("Rafael");
+		test.setNumberSession("123");
+		test.setTotalSession("100");
+		test.setPercentagem("98");
 		ArrayList<String> lista = new ArrayList<String> ();
 		for(int i=0 ; i<30 ; i++)
 			lista.add(""+i);
@@ -32,42 +32,42 @@ public class TesteEstatistica {
 	}
 	@Test
 	public void testGetNumeroSessao() {
-		assertNotNull(test.getNumeroSessao());
+		assertNotNull(test.getNumberSession());
 	}
 
 	@Test
 	public void testSetNumeroSessao() {
-		assertTrue(test.getNumeroSessao().equals("123"));
+		assertTrue(test.getNumberSession().equals("123"));
 	}
 
 	@Test
 	public void testGetTotalSessao() {
-		assertNotNull(test.getTotalSessao());
+		assertNotNull(test.getTotalSession());
 	}
 
 	@Test
 	public void testSetTotalSessao() {
-		assertTrue(test.getTotalSessao().equals("100"));
+		assertTrue(test.getTotalSession().equals("100"));
 	}
 
 	@Test
 	public void testGetNome() {
-		assertNotNull(test.getNome());
+		assertNotNull(test.getName());
 	}
 
 	@Test
 	public void testSetNome() {
-		assertTrue(test.getNome().equals("Rafael"));
+		assertTrue(test.getName().equals("Rafael"));
 	}
 
 	@Test
 	public void testGetPorcentagem() {
-		assertNotNull(test.getPorcentagem());
+		assertNotNull(test.getPercentagem());
 	}
 
 	@Test
 	public void testSetPorcentagem() {
-		assertTrue(test.getPorcentagem().equals("98"));
+		assertTrue(test.getPercentagem().equals("98"));
 	}
 
 	@Test

@@ -8,15 +8,15 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.MDSGPP.ChamadaParlamentar.control.SessoesEReunioesControl;
-import br.com.MDSGPP.ChamadaParlamentar.model.SessoesEReunioes;
+import br.com.MDSGPP.ChamadaParlamentar.control.SessionsAndMeetingsControl;
+import br.com.MDSGPP.ChamadaParlamentar.model.SessionAndMeetings;
 
 public class TesteSessoesEReunioesControl {
-	SessoesEReunioesControl sessoes;
+	SessionsAndMeetingsControl sessoes;
 	
 	@Before
 	public void setUp() {
-		sessoes = new SessoesEReunioesControl();
+		sessoes = new SessionsAndMeetingsControl();
 	}
 
 	@Test
@@ -26,13 +26,13 @@ public class TesteSessoesEReunioesControl {
 
 	@Test
 	public void testPassarSessao() throws ClassNotFoundException, SQLException {
-		SessoesEReunioes teste = SessoesEReunioesControl.passarSessao("teste");
-		assertNotNull(teste.getDeputadosPresentes());
-		assertTrue(teste.getDeputadosPresentes().size() == 0);
+		SessionAndMeetings teste = SessionsAndMeetingsControl.nextSession("teste");
+		assertNotNull(teste.getDeputiesPresence());
+		assertTrue(teste.getDeputiesPresence().size() == 0);
 		
-		SessoesEReunioes teste2 = SessoesEReunioesControl.passarSessao("ORDINÁRIA Nº 313 - 20/11/2012");
-		assertNotNull(teste2.getDeputadosPresentes());
-		assertTrue(teste2.getDeputadosPresentes().size() > 0);		
+		SessionAndMeetings teste2 = SessionsAndMeetingsControl.nextSession("ORDINÁRIA Nº 313 - 20/11/2012");
+		assertNotNull(teste2.getDeputiesPresence());
+		assertTrue(teste2.getDeputiesPresence().size() > 0);		
 	}
 	
 	@Test
@@ -44,8 +44,8 @@ public class TesteSessoesEReunioesControl {
 			listaParaTeste.add("numero " + i);
 		}
 		
-		ArrayList<String> listaRecebida1 = SessoesEReunioesControl.arrumarListaDeputados(0, 10, listaParaTeste);
-		ArrayList<String> listaRecebida2 = SessoesEReunioesControl.arrumarListaDeputados(5, 9, listaParaTeste);
+		ArrayList<String> listaRecebida1 = SessionsAndMeetingsControl.organizeListDeputy(0, 10, listaParaTeste);
+		ArrayList<String> listaRecebida2 = SessionsAndMeetingsControl.organizeListDeputy(5, 9, listaParaTeste);
 		
 		
 		assertTrue(listaRecebida1.size() <= 10);

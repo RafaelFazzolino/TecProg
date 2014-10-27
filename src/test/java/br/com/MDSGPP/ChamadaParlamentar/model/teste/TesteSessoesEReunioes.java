@@ -9,29 +9,29 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.com.MDSGPP.ChamadaParlamentar.exception.DataFormatoErradoException;
-import br.com.MDSGPP.ChamadaParlamentar.model.Deputados;
-import br.com.MDSGPP.ChamadaParlamentar.model.SessoesEReunioes;
+import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
+import br.com.MDSGPP.ChamadaParlamentar.model.SessionAndMeetings;
 
 public class TesteSessoesEReunioes {
 
 
-	SessoesEReunioes sessoes;
-	SessoesEReunioes sessoesTeste; 
+	SessionAndMeetings sessoes;
+	SessionAndMeetings sessoesTeste; 
 
 	@Before
 	public void setUp() throws DataFormatoErradoException {
-		ArrayList<Deputados> listaTeste = new ArrayList<Deputados>();
-		sessoes = new SessoesEReunioes();
+		ArrayList<Deputies> listaTeste = new ArrayList<Deputies>();
+		sessoes = new SessionAndMeetings();
 		sessoesTeste = new 
-				SessoesEReunioes("11/12/2012", "descricaoDeTeste", listaTeste, "descricaoTeste");
+				SessionAndMeetings("11/12/2012", "descricaoDeTeste", listaTeste, "descricaoTeste");
 	}
 
 	@Test
 	public void testSessoesEReunioesStringStringArrayListOfDeputados() 
 			throws DataFormatoErradoException {
-		ArrayList<Deputados> lista = new ArrayList<Deputados>();
-		SessoesEReunioes sessoes2 = new 
-				SessoesEReunioes("11/12/2012", "descricaoDeTeste", lista,
+		ArrayList<Deputies> lista = new ArrayList<Deputies>();
+		SessionAndMeetings sessoes2 = new 
+				SessionAndMeetings("11/12/2012", "descricaoDeTeste", lista,
 						"descricaoTeste");
 		
 
@@ -40,9 +40,9 @@ public class TesteSessoesEReunioes {
 	
 	@Test(expected=DataFormatoErradoException.class)
 	public void testSessoesEReunioesComException() throws DataFormatoErradoException {
-		ArrayList<Deputados> lista = new ArrayList<Deputados>();
-		SessoesEReunioes sessoes3 = new 
-				SessoesEReunioes("oioi", "não pode passar", lista, "descricaoTeste");
+		ArrayList<Deputies> lista = new ArrayList<Deputies>();
+		SessionAndMeetings sessoes3 = new 
+				SessionAndMeetings("oioi", "não pode passar", lista, "descricaoTeste");
 	}
 
 	@Test
@@ -68,43 +68,43 @@ public class TesteSessoesEReunioes {
 
 	@Test
 	public void testGetDescricao() {
-		assertTrue(sessoesTeste.getDescricao().equals("descricaoDeTeste"));
+		assertTrue(sessoesTeste.getDescription().equals("descricaoDeTeste"));
 	}
 
 	@Test
 	public void testSetDescricao() {
-		sessoes.setDescricao("descricaoDeTeste");
-		assertTrue(sessoes.getDescricao().equals("descricaoDeTeste"));
+		sessoes.setDescription("descricaoDeTeste");
+		assertTrue(sessoes.getDescription().equals("descricaoDeTeste"));
 	}
 
 	@Test
 	public void testGetDeputados() {
-		assertNotNull(sessoesTeste.getDeputados());
+		assertNotNull(sessoesTeste.getDeputies());
 	}
 
 	@Test
 	public void testSetDeputados() {
-		Deputados deputado = new Deputados();
-		deputado.setNomeDeTratamentoDoParlamentar("teste");
-		ArrayList<Deputados> lista = new ArrayList<Deputados>();
+		Deputies deputado = new Deputies();
+		deputado.setNameTreatmentCongressman("teste");
+		ArrayList<Deputies> lista = new ArrayList<Deputies>();
 		lista.add(deputado);
-		sessoes.setDeputados(lista);
+		sessoes.setDeputies(lista);
 
-		assertTrue(sessoes.getDeputados()
-				.get(0).getNomeDeTratamentoDoParlamentar()
+		assertTrue(sessoes.getDeputies()
+				.get(0).getNameTreatmentCongressman()
 				.equals("teste"));
 	}
 	
 	@Test
 	public void testGetDescricaoCompleta() {
-		assertNotNull(sessoesTeste.getDescricaoCompleta());
+		assertNotNull(sessoesTeste.getFullDescription());
 	}
 	
 	@Test
 	public void testSetDescricaoCompleta() {
 		sessoes.setFullDescription("teste");
 		
-		assertTrue(sessoes.getDescricaoCompleta().equalsIgnoreCase("teste"));
+		assertTrue(sessoes.getFullDescription().equalsIgnoreCase("teste"));
 	}
 	
 	@Test
@@ -113,10 +113,10 @@ public class TesteSessoesEReunioes {
 		lista.add("teste");
 		lista.add("teste2");
 		
-		sessoes.setDeputadosPresentes(lista);
-		assertTrue(sessoes.getDeputadosPresentes().size() == 2);
-		assertNotNull(sessoes.getDeputadosPresentes().get(0));
-		assertNotNull(sessoes.getDeputadosPresentes().get(1));
+		sessoes.setDeputiesPresence(lista);
+		assertTrue(sessoes.getDeputiesPresence().size() == 2);
+		assertNotNull(sessoes.getDeputiesPresence().get(0));
+		assertNotNull(sessoes.getDeputiesPresence().get(1));
 	}
 	
 	@Test
@@ -124,13 +124,13 @@ public class TesteSessoesEReunioes {
 		ArrayList<String> lista = new ArrayList<String>();
 		lista.add("teste");
 		lista.add("teste2");
-		sessoes.setDeputadosPresentes(null);
+		sessoes.setDeputiesPresence(null);
 		
-		assertTrue(sessoes.getDeputadosPresentes() == null);
-		sessoes.setDeputadosPresentes(lista);
-		assertTrue(sessoes.getDeputadosPresentes().size() == 2);
-		assertNotNull(sessoes.getDeputadosPresentes().get(0));
-		assertNotNull(sessoes.getDeputadosPresentes().get(1));
+		assertTrue(sessoes.getDeputiesPresence() == null);
+		sessoes.setDeputiesPresence(lista);
+		assertTrue(sessoes.getDeputiesPresence().size() == 2);
+		assertNotNull(sessoes.getDeputiesPresence().get(0));
+		assertNotNull(sessoes.getDeputiesPresence().get(1));
 	}
 	
 

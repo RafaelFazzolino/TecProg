@@ -7,76 +7,76 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.MDSGPP.ChamadaParlamentar.model.Deputados;
-import br.com.MDSGPP.ChamadaParlamentar.model.Estatistica;
-import br.com.MDSGPP.ChamadaParlamentar.model.Partidos;
+import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
+import br.com.MDSGPP.ChamadaParlamentar.model.Statistic;
+import br.com.MDSGPP.ChamadaParlamentar.model.Party;
 
 public class TestePartidos {
 
-	Partidos partido;
+	Party partido;
 	
 	@Before
 	public void setUp() {
-		ArrayList<Deputados> lista = new ArrayList<Deputados>();
-		partido = new Partidos();
-		partido.setNomePartido("teste");
-		partido.setSigla("df");
-		partido.setDeputadosDoPartido(lista);
+		ArrayList<Deputies> lista = new ArrayList<Deputies>();
+		partido = new Party();
+		partido.setNameParty("teste");
+		partido.setAcronyn("df");
+		partido.setDeputiesParty(lista);
 		
-		ArrayList<Estatistica> array = new ArrayList<Estatistica>();
-		partido.setEstatisticaDosDeputados(array);
-		partido.setDeputadosSemDados(array);
+		ArrayList<Statistic> array = new ArrayList<Statistic>();
+		partido.setStatisticDeputies(array);
+		partido.setDeputiesWithoutData(array);
 		
 		
 	}
 	@Test
 	public void testGetNomePartido() {
-		assertTrue(partido.getNomePartido().equalsIgnoreCase("teste"));
+		assertTrue(partido.getNameParty().equalsIgnoreCase("teste"));
 	}
 
 	@Test
 	public void testSetNomePartido() {
-		partido.setNomePartido("testeSet");
-		assertTrue(partido.getNomePartido().equalsIgnoreCase("testeSet"));
+		partido.setNameParty("testeSet");
+		assertTrue(partido.getNameParty().equalsIgnoreCase("testeSet"));
 	}
 
 	@Test
 	public void testGetSigla() {
-		assertTrue(partido.getSigla().equalsIgnoreCase("df"));
+		assertTrue(partido.getAcronyn().equalsIgnoreCase("df"));
 	}
 
 	@Test
 	public void testSetSigla() {
-		partido.setSigla("OF");
-		assertTrue(partido.getSigla().equalsIgnoreCase("OF"));
+		partido.setAcronyn("OF");
+		assertTrue(partido.getAcronyn().equalsIgnoreCase("OF"));
 	}
 
 	@Test
 	public void testGetDeputadosDoPartido() {
-		assertTrue(partido.getDeputadosDoPartido().size() == 0);
+		assertTrue(partido.getDeputiesParty().size() == 0);
 		
 	}
 
 	@Test
 	public void testSetDeputadosDoPartido() {
-		Deputados deputado = new Deputados();
-		 partido.getDeputadosDoPartido().add(deputado);
+		Deputies deputado = new Deputies();
+		 partido.getDeputiesParty().add(deputado);
 		 
-		 assertTrue(partido.getDeputadosDoPartido().size() == 1);
+		 assertTrue(partido.getDeputiesParty().size() == 1);
 	}
 
 	@Test
 	public void testSetEstatisticaDosDeputados() {
-		Estatistica estatistica = new Estatistica();
-		partido.getEstatisticaDosDeputados().add(estatistica);
-		assertTrue(partido.getEstatisticaDosDeputados().size() == 1);
+		Statistic estatistica = new Statistic();
+		partido.getStatisticDeputies().add(estatistica);
+		assertTrue(partido.getStatisticDeputies().size() == 1);
 	}
 
 	@Test
 	public void testsetDeputadosSemDados() {
-		Estatistica estatistica = new Estatistica();
-		partido.getDeputadosSemDados().add(estatistica);
-		 assertTrue(partido.getDeputadosSemDados().size() == 1);
+		Statistic estatistica = new Statistic();
+		partido.getDeputiesWithoutData().add(estatistica);
+		 assertTrue(partido.getDeputiesWithoutData().size() == 1);
 	}
 	
 }

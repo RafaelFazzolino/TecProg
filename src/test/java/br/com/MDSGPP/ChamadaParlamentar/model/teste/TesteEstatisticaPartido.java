@@ -5,30 +5,30 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.MDSGPP.ChamadaParlamentar.model.EstatisticaPartido;
-import br.com.MDSGPP.ChamadaParlamentar.model.Partidos;
+import br.com.MDSGPP.ChamadaParlamentar.model.StatisticParty;
+import br.com.MDSGPP.ChamadaParlamentar.model.Party;
 
 public class TesteEstatisticaPartido {
 
-	EstatisticaPartido estatisticaPartido;
+	StatisticParty estatisticaPartido;
 	
 	@Before
 	public void setUp()
 	{
-		estatisticaPartido = new EstatisticaPartido();
+		estatisticaPartido = new StatisticParty();
 		
 	}
 	
 	@Test
 	public void testGetPartido() {
-		Partidos partido = new Partidos();
+		Party partido = new Party();
 		estatisticaPartido.setpoliticalParty(partido);
 		assertTrue(estatisticaPartido.getpoliticalParty().equals(partido));
 	}
 
 	@Test
 	public void testSetPartido() {
-		Partidos partido = new Partidos();
+		Party partido = new Party();
 		estatisticaPartido.setpoliticalParty(partido);
 		assertTrue(estatisticaPartido.getpoliticalParty().equals(partido));
 	}

@@ -16,7 +16,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.com.MDSGPP.ChamadaParlamentar.dao.PartidoDao;
-import br.com.MDSGPP.ChamadaParlamentar.model.Partidos;
+import br.com.MDSGPP.ChamadaParlamentar.model.Party;
 
 public class TestePartidoDao {
 	PartidoDao partidoDao;
@@ -26,14 +26,14 @@ public class TestePartidoDao {
 		partidoDao = new PartidoDao();
 	}
 	
-	public ArrayList<Partidos> criaLista() {
-		ArrayList<Partidos> lista = new ArrayList<Partidos>();
+	public ArrayList<Party> criaLista() {
+		ArrayList<Party> lista = new ArrayList<Party>();
 		
 		for(int i = 0; i<10; i++) {
-			Partidos partido = new Partidos();
+			Party partido = new Party();
 			
-			partido.setSigla("S"+i);
-			partido.setNomePartido("nome" +i);
+			partido.setAcronyn("S"+i);
+			partido.setNameParty("nome" +i);
 			lista.add(partido);
 		}
 		return lista;
@@ -50,8 +50,8 @@ public class TestePartidoDao {
 			throws MalformedURLException, UnknownHostException, 
 			SQLException, ServiceException, ClassNotFoundException {
 	
-		ArrayList<Partidos> partido = criaLista();
-		ArrayList<Partidos> listaTeste = new ArrayList<Partidos>();
+		ArrayList<Party> partido = criaLista();
+		ArrayList<Party> listaTeste = new ArrayList<Party>();
 		
 		partidoDao.adicionarPartidoNaTable(partido);
 		partidoDao.adicionarPartidoNaTable(listaTeste);
@@ -71,11 +71,11 @@ public class TestePartidoDao {
 		for(int i = 0; i<partido.size(); i++) {
 			int j;
 			for(j = 0; j<siglas.size(); j++) {
-				if(partido.get(i).getSigla().equals(siglas.get(j))) {
+				if(partido.get(i).getAcronyn().equals(siglas.get(j))) {
 					break;
 				}
 			}
-			assertTrue(partido.get(i).getSigla().equals(siglas.get(j)));
+			assertTrue(partido.get(i).getAcronyn().equals(siglas.get(j)));
 		}
 	}
 	
@@ -94,7 +94,7 @@ public class TestePartidoDao {
 	
 	@After
 	public void tearDown() throws ClassNotFoundException, SQLException {
-		ArrayList<Partidos> partido = criaLista();
+		ArrayList<Party> partido = criaLista();
 		
 		String sql = "Delete from partido where sigla = ?";
 		
@@ -102,7 +102,7 @@ public class TestePartidoDao {
 		
 		
 		for(int i = 0; i<partido.size(); i++) {
-			stmt.setString(1, partido.get(i).getSigla());
+			stmt.setString(1, partido.get(i).getAcronyn());
 			stmt.execute();
 		}
 		

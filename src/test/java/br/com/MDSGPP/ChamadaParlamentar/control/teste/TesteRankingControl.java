@@ -12,8 +12,8 @@ import br.com.MDSGPP.ChamadaParlamentar.control.RankingControl;
 import br.com.MDSGPP.ChamadaParlamentar.dao.DeputadoDao;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaRankingException;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
-import br.com.MDSGPP.ChamadaParlamentar.model.Deputados;
-import br.com.MDSGPP.ChamadaParlamentar.model.Estatistica;
+import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
+import br.com.MDSGPP.ChamadaParlamentar.model.Statistic;
 import br.com.MDSGPP.ChamadaParlamentar.model.Ranking;
 
 public class TesteRankingControl {
@@ -37,15 +37,15 @@ public class TesteRankingControl {
 						(new DeputadoDao().getDeputados()));
 
 
-		assertNotNull(ranking.getLista());
-		assertNotNull(ranking.getMelhores());
-		assertNotNull(ranking.getPiores());
-		assertNotNull(ranking.getRemovidos());
+		assertNotNull(ranking.getList());
+		assertNotNull(ranking.getBetter());
+		assertNotNull(ranking.getWorst());
+		assertNotNull(ranking.getRemoved());
 	}
 
 	@Test(expected=ListaRankingException.class)
 	public void testGerarRankingListaRankingException() throws ListaRankingException{
-		ArrayList<Estatistica> teste = new ArrayList<Estatistica>();
+		ArrayList<Statistic> teste = new ArrayList<Statistic>();
 		Ranking ranking2 = RankingControl.gerarRanking(teste);
 	}
 
@@ -58,26 +58,26 @@ public class TesteRankingControl {
 
 	@Test
 	public void testGerarListaEstatistica() throws ClassNotFoundException, SQLException, ListaRankingException, ListaVaziaException {
-		ArrayList<Estatistica> lista1 = RankingControl.gerarListaEstatistica(new DeputadoDao().getDeputados());
+		ArrayList<Statistic> lista1 = RankingControl.gerarListaEstatistica(new DeputadoDao().getDeputados());
 		assertNotNull(lista1);
 	}
 
 	@Test(expected=ListaRankingException.class)
 	public void testGerarListaEstatisticaException() throws ClassNotFoundException, SQLException, ListaRankingException, ListaVaziaException {
-		ArrayList<Deputados> listaParaParametro = new ArrayList<Deputados>();
-		ArrayList<Estatistica> lista2 = RankingControl.gerarListaEstatistica(listaParaParametro);
+		ArrayList<Deputies> listaParaParametro = new ArrayList<Deputies>();
+		ArrayList<Statistic> lista2 = RankingControl.gerarListaEstatistica(listaParaParametro);
 	}
 
 	@Test
 	public void testOrdenacao() {
-		ArrayList<Estatistica> lista = new ArrayList<Estatistica>();
+		ArrayList<Statistic> lista = new ArrayList<Statistic>();
 
-		Estatistica primeiro = new Estatistica();
-		Estatistica segundo = new Estatistica();
-		Estatistica terceiro = new Estatistica();
-		primeiro.setNumeroSessao("10");
-		segundo.setNumeroSessao("20");
-		terceiro.setNumeroSessao("15");
+		Statistic primeiro = new Statistic();
+		Statistic segundo = new Statistic();
+		Statistic terceiro = new Statistic();
+		primeiro.setNumberSession("10");
+		segundo.setNumberSession("20");
+		terceiro.setNumberSession("15");
 
 		lista.add(primeiro);
 		lista.add(segundo);
@@ -86,13 +86,13 @@ public class TesteRankingControl {
 
 		for(int i=0; i < lista.size() -1; i++)
 		{
-			assertTrue(Integer.parseInt(lista.get(i).getNumeroSessao()) > Integer.parseInt(lista.get(i+1).getNumeroSessao()));
+			assertTrue(Integer.parseInt(lista.get(i).getNumberSession()) > Integer.parseInt(lista.get(i+1).getNumberSession()));
 		}
 	}
 
 	@Test
 	public void testOrdenacaoListaNull() {
-		ArrayList<Estatistica> lista = new ArrayList<Estatistica>();
+		ArrayList<Statistic> lista = new ArrayList<Statistic>();
 		lista = RankingControl.ordenacao(lista);
 		assertTrue(lista.size() == 0 );
 	}

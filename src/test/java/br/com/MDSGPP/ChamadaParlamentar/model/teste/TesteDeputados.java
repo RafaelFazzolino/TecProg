@@ -5,16 +5,16 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
-import br.com.MDSGPP.ChamadaParlamentar.model.Deputados;
+import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 
 public class TesteDeputados {
-	Deputados deputado;
-	Deputados deputado2;
+	Deputies deputado;
+	Deputies deputado2;
 	
 	@Before
 	public void setUp() {
-		deputado = new Deputados();
-		deputado2 = new Deputados
+		deputado = new Deputies();
+		deputado2 = new Deputies
 				(123, 124, 125, "pedro", "pedrin", "masculino", 
 						"DF", "PT", "123", "2",
 						"123456789", "alguem@algumacoisa");
@@ -27,124 +27,124 @@ public class TesteDeputados {
 
 	@Test
 	public void testDeputadosIntIntIntStringStringStringStringStringStringStringStringString() {
-		Deputados deputadoTeste = new Deputados
+		Deputies deputadoTeste = new Deputies
 				(123, 124, 125, "pedro", "pedrin", "masculino", 
 						"DF", "PT", "123", "2",
 						"123456789", "alguem@algumacoisa");
 	
 		assertNotNull(deputadoTeste);
-		assertTrue(deputadoTeste.getIdDoParlamentar() == 123);
-		assertTrue(deputadoTeste.getMatricula() == 124);
-		assertTrue(deputadoTeste.getIdeCadastro()== 125);
-		assertTrue(deputadoTeste.getNomeCivilDoParlamentar().equals("pedro"));
-		assertTrue(deputadoTeste.getNomeDeTratamentoDoParlamentar().equals("pedrin"));
-		assertTrue(deputadoTeste.getSexo().equals("masculino"));
-		assertTrue(deputadoTeste.getUf().equals("DF"));
-		assertTrue(deputadoTeste.getPartido().equals("PT"));
-		assertTrue(deputadoTeste.getNumeroDoGabinete().equals("123"));
-		assertTrue(deputadoTeste.getAnexo().equals("2"));
-		assertTrue(deputadoTeste.getTelefone().equals("123456789"));
+		assertTrue(deputadoTeste.getIdDeputy() == 123);
+		assertTrue(deputadoTeste.getResgitry() == 124);
+		assertTrue(deputadoTeste.getIdRegister()== 125);
+		assertTrue(deputadoTeste.getNameCivilCongressman().equals("pedro"));
+		assertTrue(deputadoTeste.getNameTreatmentCongressman().equals("pedrin"));
+		assertTrue(deputadoTeste.getSex().equals("masculino"));
+		assertTrue(deputadoTeste.getFederativeUnit().equals("DF"));
+		assertTrue(deputadoTeste.getParty().equals("PT"));
+		assertTrue(deputadoTeste.getNumberCabinet().equals("123"));
+		assertTrue(deputadoTeste.getAnnexx().equals("2"));
+		assertTrue(deputadoTeste.getTelephone().equals("123456789"));
 		assertTrue(deputadoTeste.getEmail().equals("alguem@algumacoisa"));
 		
 	}
 
 	@Test
 	public void testGetIdDoParlamentar() {
-		assertNotNull(deputado2.getIdDoParlamentar());
+		assertNotNull(deputado2.getIdDeputy());
 	}
 
 	@Test
 	public void testSetIdDoParlamentar() {
-		deputado.setIdDoParlamentar(123);
-		assertNotNull(deputado.getIdDoParlamentar());
+		deputado.setIdDeputy(123);
+		assertNotNull(deputado.getIdDeputy());
 	}
 
 	@Test
 	public void testGetNomeCivilDoParlamentar() {
-		assertNotNull(deputado2.getNomeCivilDoParlamentar());
+		assertNotNull(deputado2.getNameCivilCongressman());
 	}
 
 	@Test
 	public void testSetNomeCivilDoParlamentar() {
-		deputado.setNomeCivilDoParlamentar("teste");
-		assertNotNull(deputado.getNomeCivilDoParlamentar());
+		deputado.setNameCivilCongressman("teste");
+		assertNotNull(deputado.getNameCivilCongressman());
 	}
 
 	@Test
 	public void testGetNomeDeTratamentoDoParlamentar() {
-		assertNotNull(deputado2.getNomeDeTratamentoDoParlamentar());
+		assertNotNull(deputado2.getNameTreatmentCongressman());
 	}
 
 	@Test
 	public void testSetNomeDeTratamentoDoParlamentar() {
-		deputado.setNomeDeTratamentoDoParlamentar("teste");;
-		assertNotNull(deputado.getNomeDeTratamentoDoParlamentar());
+		deputado.setNameTreatmentCongressman("teste");;
+		assertNotNull(deputado.getNameTreatmentCongressman());
 	}
 
 	@Test
 	public void testGetSexo() {
-		assertNotNull(deputado2.getSexo());
+		assertNotNull(deputado2.getSex());
 	}
 
 	@Test
 	public void testSetSexo() {
-		deputado.setSexo("masculino");
-		assertNotNull(deputado.getSexo());
+		deputado.setSex("masculino");
+		assertNotNull(deputado.getSex());
 	}
 
 	@Test
 	public void testGetUf() {
-		assertNotNull(deputado2.getUf());
+		assertNotNull(deputado2.getFederativeUnit());
 	}
 
 	@Test
 	public void testSetUf() {
-		deputado.setUf("df");
-		assertNotNull(deputado.getUf());
+		deputado.setFederativeUnit("df");
+		assertNotNull(deputado.getFederativeUnit());
 	}
 
 	@Test
 	public void testGetPartido() {
-		assertNotNull(deputado2.getPartido());
+		assertNotNull(deputado2.getParty());
 	}
 
 	@Test
 	public void testSetPartido() {
-		deputado.setPartido("PT");
-		assertNotNull(deputado.getPartido());
+		deputado.setParty("PT");
+		assertNotNull(deputado.getParty());
 	}
 
 	@Test
 	public void testGetNumeroDoGabinete() {
-		assertNotNull(deputado2.getNumeroDoGabinete());
+		assertNotNull(deputado2.getNumberCabinet());
 	}
 
 	@Test
 	public void testSetNumeroDoGabinete() {
-		deputado.setNumeroDoGabinete("123456");
-		assertNotNull(deputado.getNumeroDoGabinete());
+		deputado.setNumberCabinet("123456");
+		assertNotNull(deputado.getNumberCabinet());
 	}
 
 	@Test
 	public void testGetAnexo() {
-		assertNotNull(deputado2.getAnexo());
+		assertNotNull(deputado2.getAnnexx());
 	}
 
 	@Test
 	public void testSetAnexo() {
-		deputado.setAnexo("1");
-		assertNotNull(deputado.getAnexo());
+		deputado.setAnnexx("1");
+		assertNotNull(deputado.getAnnexx());
 	}
 
 	@Test
 	public void testGetTelefone() {
-		assertNotNull(deputado2.getTelefone());
+		assertNotNull(deputado2.getTelephone());
 	}
 
 	@Test
 	public void testSetTelefone() {
-		deputado.setTelefone("123456");
-		assertNotNull(deputado.getTelefone());
+		deputado.setTelephone("123456");
+		assertNotNull(deputado.getTelephone());
 	}
 
 	@Test
@@ -160,24 +160,24 @@ public class TesteDeputados {
 
 	@Test
 	public void testGetMatricula() {
-		assertNotNull(deputado2.getMatricula());
+		assertNotNull(deputado2.getResgitry());
 	}
 
 	@Test
 	public void testSetMatricula() {
-		deputado.setMatricula(123);
-		assertNotNull(deputado.getMatricula());
+		deputado.setRegsitry(123);
+		assertNotNull(deputado.getResgitry());
 	}
 
 	@Test
 	public void testGetIdeCadastro() {
-		assertNotNull(deputado2.getIdeCadastro());
+		assertNotNull(deputado2.getIdRegister());
 	}
 
 	@Test
 	public void testSetIdeCadastro() {
-		deputado.setIdeCadastro(123);
-		assertNotNull(deputado.getIdeCadastro());
+		deputado.setIdRegister(123);
+		assertNotNull(deputado.getIdRegister());
 	}
 
 }

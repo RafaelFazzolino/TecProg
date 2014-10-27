@@ -13,51 +13,51 @@ import org.junit.Test;
 
 import br.com.MDSGPP.ChamadaParlamentar.dao.ConnectionFactory;
 import br.com.MDSGPP.ChamadaParlamentar.dao.DeputadoDao;
-import br.com.MDSGPP.ChamadaParlamentar.model.Deputados;
+import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 
 public class TesteDeputadoDao {
 	
 	DeputadoDao deputadoDao;
 	
-	Deputados deputado1 = new Deputados();
-	Deputados deputado2 = new Deputados();
+	Deputies deputado1 = new Deputies();
+	Deputies deputado2 = new Deputies();
 	
 	@Before
 	public void setUp() throws ClassNotFoundException, SQLException {
 		deputadoDao = new DeputadoDao();
 	}
-	public ArrayList<Deputados> criaLista() {
-		ArrayList<Deputados> lista = new ArrayList<Deputados>();
+	public ArrayList<Deputies> criaLista() {
+		ArrayList<Deputies> lista = new ArrayList<Deputies>();
 		
 
-		deputado1.setAnexo("123");
+		deputado1.setAnnexx("123");
 
 		deputado1.setEmail("teste");
-		deputado1.setIdDoParlamentar(123);
-		deputado1.setIdeCadastro(1234);
-		deputado1.setMatricula(123);
-		deputado1.setNomeCivilDoParlamentar("nomeDeTeste");
-		deputado1.setNomeDeTratamentoDoParlamentar("NomeDeTratamentoTeste");
-		deputado1.setNumeroDoGabinete("123");
-		deputado1.setPartido("partidoTeste");
-		deputado1.setSexo("teste");
-		deputado1.setTelefone("12");
-		deputado1.setUf("Df");
+		deputado1.setIdDeputy(123);
+		deputado1.setIdRegister(1234);
+		deputado1.setRegsitry(123);
+		deputado1.setNameCivilCongressman("nomeDeTeste");
+		deputado1.setNameTreatmentCongressman("NomeDeTratamentoTeste");
+		deputado1.setNumberCabinet("123");
+		deputado1.setParty("partidoTeste");
+		deputado1.setSex("teste");
+		deputado1.setTelephone("12");
+		deputado1.setFederativeUnit("Df");
 		
 		
 		
-		deputado2.setAnexo("0");
+		deputado2.setAnnexx("0");
 		deputado2.setEmail("teste2");
-		deputado2.setIdDoParlamentar(000);
-		deputado2.setIdeCadastro(0000);
-		deputado2.setMatricula(0000);
-		deputado2.setNomeCivilDoParlamentar("nomeDeTeste2");
-		deputado2.setNomeDeTratamentoDoParlamentar("NomeDeTratamentoTeste2");
-		deputado2.setNumeroDoGabinete("00000000");
-		deputado2.setPartido("partidoTeste2");
-		deputado2.setSexo("teste2");
-		deputado2.setTelefone("00000000");
-		deputado2.setUf("Df");
+		deputado2.setIdDeputy(000);
+		deputado2.setIdRegister(0000);
+		deputado2.setRegsitry(0000);
+		deputado2.setNameCivilCongressman("nomeDeTeste2");
+		deputado2.setNameTreatmentCongressman("NomeDeTratamentoTeste2");
+		deputado2.setNumberCabinet("00000000");
+		deputado2.setParty("partidoTeste2");
+		deputado2.setSex("teste2");
+		deputado2.setTelephone("00000000");
+		deputado2.setFederativeUnit("Df");
 		
 		lista.add(deputado1);
 		lista.add(deputado2);
@@ -78,7 +78,7 @@ public class TesteDeputadoDao {
 
 	@Test
 	public void testAdicionaDeputado() throws SQLException {
-		ArrayList<Deputados> deputados = criaLista();
+		ArrayList<Deputies> deputados = criaLista();
 		deputadoDao.adicionaDeputado(deputados);
 	}
 	@Test
@@ -107,11 +107,11 @@ public class TesteDeputadoDao {
 		
 		java.sql.PreparedStatement stmt = conexao.prepareStatement(sql);
 		
-		ArrayList<Deputados> lista = criaLista();
+		ArrayList<Deputies> lista = criaLista();
 		
 		for(int i = 0; i<lista.size(); i++) {
 			
-			stmt.setString(1, lista.get(i).getNomeCivilDoParlamentar());
+			stmt.setString(1, lista.get(i).getNameCivilCongressman());
 		
 			stmt.execute();
 		}

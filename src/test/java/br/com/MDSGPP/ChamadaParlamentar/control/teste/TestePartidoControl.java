@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import br.com.MDSGPP.ChamadaParlamentar.control.PoliticalPartyControl;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
-import br.com.MDSGPP.ChamadaParlamentar.model.Partidos;
+import br.com.MDSGPP.ChamadaParlamentar.model.Party;
 
 public class TestePartidoControl {
 
@@ -86,25 +86,25 @@ public class TestePartidoControl {
 		String nomePartido2 = "PT";
 		String nomePartido3 = "partido dos trabalhadores";
 		
-		Partidos partido1 = PoliticalPartyControl.passarPartidoComDadosCompletos(nomePartido1);
-		Partidos partido2 = PoliticalPartyControl.passarPartidoComDadosCompletos(nomePartido2);
-		Partidos partido3 = PoliticalPartyControl.passarPartidoComDadosCompletos(nomePartido3);
+		Party partido1 = PoliticalPartyControl.passarPartidoComDadosCompletos(nomePartido1);
+		Party partido2 = PoliticalPartyControl.passarPartidoComDadosCompletos(nomePartido2);
+		Party partido3 = PoliticalPartyControl.passarPartidoComDadosCompletos(nomePartido3);
 		
 		assertNotNull(partido1);
-		assertTrue(partido1.getDeputadosDoPartido().size()>0);
+		assertTrue(partido1.getDeputiesParty().size()>0);
 		
 		assertNotNull(partido2);
-		assertTrue(partido2.getDeputadosDoPartido().size()>0);
+		assertTrue(partido2.getDeputiesParty().size()>0);
 		
-		assertTrue(partido1.getSigla().equalsIgnoreCase(partido2.getSigla()));
+		assertTrue(partido1.getAcronyn().equalsIgnoreCase(partido2.getAcronyn()));
 		
 		assertNotNull(partido3);
 		
-		assertTrue(partido1.getSigla().equalsIgnoreCase(partido3.getSigla()));
+		assertTrue(partido1.getAcronyn().equalsIgnoreCase(partido3.getAcronyn()));
 	}
 	
 	@Test(expected=ListaVaziaException.class)
 	public void testPassarPartidoComDadosCompletosListaVazia() throws ClassNotFoundException, SQLException, ListaVaziaException {
-		Partidos partido1 = PoliticalPartyControl.passarPartidoComDadosCompletos("nao pode passar");
+		Party partido1 = PoliticalPartyControl.passarPartidoComDadosCompletos("nao pode passar");
 	}
 }

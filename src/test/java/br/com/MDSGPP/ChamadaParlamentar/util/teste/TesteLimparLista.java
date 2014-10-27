@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
-import br.com.MDSGPP.ChamadaParlamentar.model.Estatistica;
+import br.com.MDSGPP.ChamadaParlamentar.model.Statistic;
 import br.com.MDSGPP.ChamadaParlamentar.util.LimparLista;
 
 public class TesteLimparLista {
@@ -26,30 +26,30 @@ public class TesteLimparLista {
 	
 	@Test
 	public void testLimparLista() {
-		ArrayList<Estatistica> lista = new ArrayList<Estatistica>();
+		ArrayList<Statistic> lista = new ArrayList<Statistic>();
 		for(int i = 0; i<10; i++) {
-			Estatistica estatistica = Mockito.spy(new Estatistica());
-			Mockito.when(estatistica.getNumeroSessao()).thenReturn("50");
+			Statistic estatistica = Mockito.spy(new Statistic());
+			Mockito.when(estatistica.getNumberSession()).thenReturn("50");
 			lista.add(estatistica);
 		}
 		
 		for(int i = 0; i<10; i++) {
-			Estatistica estatistica = Mockito.spy(new Estatistica());
+			Statistic estatistica = Mockito.spy(new Statistic());
 			lista.add(estatistica);
 		}
 		
-		ArrayList<ArrayList<Estatistica>> listaRecebida = LimparLista.limparLista(lista);
+		ArrayList<ArrayList<Statistic>> listaRecebida = LimparLista.limparLista(lista);
 		
 		assertNotNull(listaRecebida);
-		ArrayList<Estatistica> bons = listaRecebida.get(0);
-		ArrayList<Estatistica> ruins = listaRecebida.get(1);
+		ArrayList<Statistic> bons = listaRecebida.get(0);
+		ArrayList<Statistic> ruins = listaRecebida.get(1);
 		
 		assertNotNull(bons);
 		assertNotNull(ruins);
 		
 		for(int i = 0; i<bons.size(); i++) {
-			assertTrue(bons.get(i).getNumeroSessao().equalsIgnoreCase("50"));
-			assertTrue(ruins.get(i).getNumeroSessao() == null);
+			assertTrue(bons.get(i).getNumberSession().equalsIgnoreCase("50"));
+			assertTrue(ruins.get(i).getNumberSession() == null);
 		}
 		
 	}
