@@ -9,7 +9,7 @@ import br.com.MDSGPP.ChamadaParlamentar.exception.DataFormatoErradoException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Day;
 import br.com.MDSGPP.ChamadaParlamentar.model.SessionAndMeetings;
 
-public class DiaDao extends ConnectionFactory {
+public class DayDao extends ConnectionFactory {
 
 	private static final String DATAS = "datas";/*
 												 * This is a constant that
@@ -24,7 +24,7 @@ public class DiaDao extends ConnectionFactory {
 	 * @throws SQLException
 	 *             case the database is off.
 	 */
-	public DiaDao() throws ClassNotFoundException, SQLException {
+	public DayDao() throws ClassNotFoundException, SQLException {
 		new ConnectionFactory().getConnection();
 	}
 
@@ -38,7 +38,7 @@ public class DiaDao extends ConnectionFactory {
 	 *             case the date is wrong.
 	 */
 
-	public ArrayList<Day> buscarTodasDescricoes() throws SQLException,
+	public ArrayList<Day> searchAllDescription() throws SQLException,
 			DataFormatoErradoException {
 		ArrayList<Day> list;/* Variable that contains all days. */
 		list = new ArrayList<Day>();
@@ -52,12 +52,12 @@ public class DiaDao extends ConnectionFactory {
 		ResultSet rs;/* Variable that received the connection. */
 		rs = stmt.executeQuery();
 
-		list = criarDias(rs);
+		list = createDay(rs);
 
 		ResultSet rs2;/* Variable that received the connection. */
 		rs2 = stmt.executeQuery();
 
-		list = popularListaDia(rs2, list);
+		list = insertListDay(rs2, list);
 
 		rs.close();
 		return list;
@@ -72,7 +72,7 @@ public class DiaDao extends ConnectionFactory {
 	 * @throws SQLException
 	 *             case the dataBase is off.
 	 */
-	public static ArrayList<Day> popularListaDia(ResultSet rs,
+	public static ArrayList<Day> insertListDay(ResultSet rs,
 			ArrayList<Day> list) throws SQLException {
 		int cont;/* Variable to use on while. */
 		cont = 0;
@@ -118,7 +118,7 @@ public class DiaDao extends ConnectionFactory {
 	 *             case the date is wrong.
 	 */
 
-	public static ArrayList<Day> criarDias(ResultSet rs) throws SQLException,
+	public static ArrayList<Day> createDay(ResultSet rs) throws SQLException,
 			DataFormatoErradoException {
 		ArrayList<Day> list;/* Is an array that received the days. */
 		list = new ArrayList<Day>();

@@ -3,7 +3,7 @@ package br.com.MDSGPP.ChamadaParlamentar.control;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import br.com.MDSGPP.ChamadaParlamentar.dao.DiaDao;
+import br.com.MDSGPP.ChamadaParlamentar.dao.DayDao;
 import br.com.MDSGPP.ChamadaParlamentar.dao.SessoesEReunioesDao;
 import br.com.MDSGPP.ChamadaParlamentar.exception.DataFormatoErradoException;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
@@ -27,13 +27,13 @@ public final class DayControl {
 	public static ArrayList<Day> getDias() throws ClassNotFoundException,
 			SQLException, DataFormatoErradoException {
 		ArrayList<Day> list;/* Variable that contains the days. */
-		DiaDao diaDao;/*
+		DayDao diaDao;/*
 					 * Variable that create the connection with dataBase to get
 					 * days.
 					 */
-		diaDao = new DiaDao();
+		diaDao = new DayDao();
 
-		list = diaDao.buscarTodasDescricoes();
+		list = diaDao.searchAllDescription();
 
 		ArrayList<Day> listaInverter;/*
 									 * Variable that contains the list of the
