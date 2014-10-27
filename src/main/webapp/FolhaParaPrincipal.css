@@ -1,19 +1,18 @@
 @CHARSET "ISO-8859-1";
 
-#principal{
+#principal {
 	float: left;
-	width:50%;
+	width: 50%;
 	margin-left: 5%;
 	margin-top: 4.7%;
-
 }
 
-#principal h1{
+#principal h1 {
 	font-size: 250%;
 	font-family: "Century Gothic";
 }
 
-#principal p{
+#principal p {
 	font-size: 100%;
 }
 

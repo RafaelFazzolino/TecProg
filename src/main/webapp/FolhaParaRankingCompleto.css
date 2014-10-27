@@ -1,7 +1,8 @@
 @CHARSET "ISO-8859-1";
 
-#principal{
-	background: -webkit-gradient(linear, left top, left bottom, from(#32CD32), to(#B22222)) repeat-X;
+#principal {
+	background: -webkit-gradient(linear, left top, left bottom, from(#32CD32),
+		to(#B22222)) repeat-X;
 	background: -moz-linear-gradient(top, #4169E1, #990000) repeat-X;
 	float: left;
 	width: auto;
@@ -10,16 +11,17 @@
 	margin-top: 10%;
 }
 
-#principal h2{
+#principal h2 {
 	text-align: center;
 }
 
-#principal p{
+#principal p {
 	margin-left: 2%;
 }
 
-#auxiliar{
-	background: -webkit-gradient(linear, left top, right top, from(#E6E8FA), to(#666666)) repeat-X;
+#auxiliar {
+	background: -webkit-gradient(linear, left top, right top, from(#E6E8FA),
+		to(#666666)) repeat-X;
 	background: -moz-linear-gradient(left, #E6E8FA, #666666) repeat-X;
 	float: right;
 	width: auto;
@@ -27,12 +29,12 @@
 	margin-top: 10%;
 }
 
-#auxiliar h1{
+#auxiliar h1 {
 	font-size: 130%;
 	text-align: center;
 	margin-left: 2%;
 }
 
-#auxiliar p{
+#auxiliar p {
 	margin-left: 2%;
 }
