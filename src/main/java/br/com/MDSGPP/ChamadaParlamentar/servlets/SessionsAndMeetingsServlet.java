@@ -14,7 +14,7 @@ import br.com.MDSGPP.ChamadaParlamentar.control.DayControl;
 import br.com.MDSGPP.ChamadaParlamentar.exception.DataFormatoErradoException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Day;
 
-public class SessoesEReunioesServlet extends HttpServlet {
+public class SessionsAndMeetingsServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 
@@ -25,27 +25,27 @@ public class SessoesEReunioesServlet extends HttpServlet {
 		RequestDispatcher rd = null;
 		
 		try {		
-			int pagina = 1;
-			int datasPorPagina = 10;
+			int page = 1;
+			int datesByPage = 10;
 			
 			
 			if( request.getParameter("pagina") != null ) {
-				pagina = Integer.parseInt(request.getParameter("pagina"));
+				page = Integer.parseInt(request.getParameter("pagina"));
 			}
 			
-			ArrayList<Day> dia = DayControl.getDias();
+			ArrayList<Day> day = DayControl.getDias();
 				
-			int numeroDatas = dia.size();	
+			int numberDate = day.size();	
 							
-			int noDePaginas = ((int) Math.ceil(numeroDatas * 1.0 / datasPorPagina))-1;
+			int numberPages = ((int) Math.ceil(numberDate * 1.0 / datesByPage))-1;
 			
-			ArrayList<Day> diaPassar = DayControl.getListaCerta(pagina-1, datasPorPagina, dia);
+			ArrayList<Day> dayNext = DayControl.getListaCerta(page-1, datesByPage, day);
 			
 			
-			request.setAttribute("noDePaginas", noDePaginas);
-			request.setAttribute("paginaAtual", pagina);
-			request.setAttribute("dias", diaPassar);
-			request.setAttribute("diasAuto", dia);
+			request.setAttribute("noDePaginas", numberPages);
+			request.setAttribute("paginaAtual", page);
+			request.setAttribute("dias", dayNext);
+			request.setAttribute("diasAuto", day);
 					
 			rd = request.getRequestDispatcher("AcompanharSessao.jsp");
 		} catch (ClassNotFoundException e) {
