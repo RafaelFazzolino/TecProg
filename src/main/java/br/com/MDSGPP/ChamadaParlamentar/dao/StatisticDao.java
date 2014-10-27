@@ -5,9 +5,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class EstatisticaDao extends ConnectionFactory {
+public class StatisticDao extends ConnectionFactory {
 
-	public EstatisticaDao() throws ClassNotFoundException, SQLException {
+	public StatisticDao() throws ClassNotFoundException, SQLException {
 		new ConnectionFactory().getConnection();
 	}
 
@@ -20,7 +20,7 @@ public class EstatisticaDao extends ConnectionFactory {
 	 * @throws SQLException
 	 *             if miss spelled SQL is entered.
 	 */
-	public ArrayList<String> getEstatisticaDeputados(String name)
+	public ArrayList<String> getStatisticDeputies(String name)
 			throws SQLException {
 		String sql;/* Variable that contains the code of database. */
 		sql = "select * from sessao where deputadoPresente LIKE ?";

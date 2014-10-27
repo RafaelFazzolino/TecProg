@@ -16,7 +16,7 @@ import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-import br.com.MDSGPP.ChamadaParlamentar.dao.EstatisticaDao;
+import br.com.MDSGPP.ChamadaParlamentar.dao.StatisticDao;
 import br.com.MDSGPP.ChamadaParlamentar.dao.SessoesEReunioesDao;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
@@ -43,8 +43,8 @@ public final class EstatisticaControl {
 		Statistic estatistica;/*Variable that contains the statistic.*/
 		estatistica = new Statistic();
 		
-		EstatisticaDao dao;/*Variable that create the connection with dataBase.*/
-		dao = new EstatisticaDao();	
+		StatisticDao dao;/*Variable that create the connection with dataBase.*/
+		dao = new StatisticDao();	
 		
 		SessoesEReunioesDao sessions;/*Variable that create the connection with dataBase.*/
 		sessions = new SessoesEReunioesDao();
@@ -52,7 +52,7 @@ public final class EstatisticaControl {
 		int numeroTotalSessao;/*Variable that contains the number of all sessions.*/
 		numeroTotalSessao = sessions.passarNumeroDeSessoes();
 
-		estatistica.setLista(dao.getEstatisticaDeputados(nome));
+		estatistica.setLista(dao.getStatisticDeputies(nome));
 
 		estatistica.setName(nome);
 
@@ -83,13 +83,13 @@ public final class EstatisticaControl {
 		Statistic estatistica;/*Variable that contains the statistic.*/
 		estatistica = new Statistic();
 		
-		EstatisticaDao dao;/*Variable that create the connection with dataBase.*/
-		dao = new EstatisticaDao();	
+		StatisticDao dao;/*Variable that create the connection with dataBase.*/
+		dao = new StatisticDao();	
 		
 		SessoesEReunioesDao sessions;/*Variable that create the connection with dataBase.*/
 		sessions = new SessoesEReunioesDao();
 
-		estatistica.setLista(dao.getEstatisticaDeputados(nome));
+		estatistica.setLista(dao.getStatisticDeputies(nome));
 
 		estatistica.setName(nome);
 
