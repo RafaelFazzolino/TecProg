@@ -5,7 +5,6 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
-import br.com.MDSGPP.ChamadaParlamentar.model.Deputados;
 
 public class TesteDeputados {
 	Deputados deputado;
