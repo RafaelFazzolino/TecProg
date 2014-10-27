@@ -1,6 +1,6 @@
 package br.com.MDSGPP.ChamadaParlamentar.model;
 
-public class EstatisticaPartido {
+public class StatisticParty {
 
 	private Partidos politicalParty;
 	private int numberOfSessions;

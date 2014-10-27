@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
-import br.com.MDSGPP.ChamadaParlamentar.model.EstatisticaPartido;
+import br.com.MDSGPP.ChamadaParlamentar.model.StatisticParty;
 import br.com.MDSGPP.ChamadaParlamentar.model.Partidos;
 
 public final class StatisticsPoliticalPartyControl {
@@ -24,13 +24,13 @@ public final class StatisticsPoliticalPartyControl {
 	 *             is case an error occurs with the list.
 	 */
 
-	public static EstatisticaPartido gerarEstatisticaPartido(String nome)
+	public static StatisticParty gerarEstatisticaPartido(String nome)
 			throws ClassNotFoundException, SQLException, ListaVaziaException {
-		EstatisticaPartido statistical;/*
+		StatisticParty statistical;/*
 										 * Variable that contains the
 										 * statistical of the political party.
 										 */
-		statistical = new EstatisticaPartido();
+		statistical = new StatisticParty();
 
 		Partidos partido;/* Variable that contains the political party. */
 		partido = PoliticalPartyControl.passarPartidoComDadosCompletos(nome);
