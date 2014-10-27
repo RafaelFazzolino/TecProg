@@ -11,14 +11,13 @@ import br.com.MDSGPP.ChamadaParlamentar.model.Party;
 public class TesteEstatisticaPartido {
 
 	StatisticParty estatisticaPartido;
-	
+
 	@Before
-	public void setUp()
-	{
+	public void setUp() {
 		estatisticaPartido = new StatisticParty();
-		
+
 	}
-	
+
 	@Test
 	public void testGetPartido() {
 		Party partido = new Party();
@@ -45,7 +44,7 @@ public class TesteEstatisticaPartido {
 		int testQuantidade = 9;
 		estatisticaPartido.setnumberOfSessions(testQuantidade);
 		assertTrue(estatisticaPartido.getnumberOfSessions() == testQuantidade);
-		
+
 	}
 
 	@Test
@@ -65,14 +64,16 @@ public class TesteEstatisticaPartido {
 	public void testGetPorcentagem() {
 		String testString = "teste";
 		estatisticaPartido.setpercentage(testString);
-		assertTrue(estatisticaPartido.getpercentage().equalsIgnoreCase(testString));
+		assertTrue(estatisticaPartido.getpercentage().equalsIgnoreCase(
+				testString));
 	}
 
 	@Test
 	public void testSetPorcentagem() {
 		String testString = "teste";
 		estatisticaPartido.setpercentage(testString);
-		assertTrue(estatisticaPartido.getpercentage().equalsIgnoreCase(testString));
+		assertTrue(estatisticaPartido.getpercentage().equalsIgnoreCase(
+				testString));
 	}
 
 }

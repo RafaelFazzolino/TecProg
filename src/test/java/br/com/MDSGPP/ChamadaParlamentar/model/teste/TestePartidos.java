@@ -14,7 +14,7 @@ import br.com.MDSGPP.ChamadaParlamentar.model.Party;
 public class TestePartidos {
 
 	Party partido;
-	
+
 	@Before
 	public void setUp() {
 		ArrayList<Deputies> lista = new ArrayList<Deputies>();
@@ -22,13 +22,13 @@ public class TestePartidos {
 		partido.setNameParty("teste");
 		partido.setAcronyn("df");
 		partido.setDeputiesParty(lista);
-		
+
 		ArrayList<Statistic> array = new ArrayList<Statistic>();
 		partido.setStatisticDeputies(array);
 		partido.setDeputiesWithoutData(array);
-		
-		
+
 	}
+
 	@Test
 	public void testGetNomePartido() {
 		assertTrue(partido.getNameParty().equalsIgnoreCase("teste"));
@@ -54,15 +54,15 @@ public class TestePartidos {
 	@Test
 	public void testGetDeputadosDoPartido() {
 		assertTrue(partido.getDeputiesParty().size() == 0);
-		
+
 	}
 
 	@Test
 	public void testSetDeputadosDoPartido() {
 		Deputies deputado = new Deputies();
-		 partido.getDeputiesParty().add(deputado);
-		 
-		 assertTrue(partido.getDeputiesParty().size() == 1);
+		partido.getDeputiesParty().add(deputado);
+
+		assertTrue(partido.getDeputiesParty().size() == 1);
 	}
 
 	@Test
@@ -76,7 +76,7 @@ public class TestePartidos {
 	public void testsetDeputadosSemDados() {
 		Statistic estatistica = new Statistic();
 		partido.getDeputiesWithoutData().add(estatistica);
-		 assertTrue(partido.getDeputiesWithoutData().size() == 1);
+		assertTrue(partido.getDeputiesWithoutData().size() == 1);
 	}
-	
+
 }
