@@ -10,16 +10,17 @@ import org.junit.Test;
 import br.com.MDSGPP.ChamadaParlamentar.control.DeputiesControl;
 
 public class TesteDeputadosControl {
-	DeputiesControl deputados;
+	DeputiesControl deputies;
 
 	@Before
 	public void setUp() {
-		deputados = new DeputiesControl();
+		deputies = new DeputiesControl();
 	}
 
 	@Test
+	/* Test that verify the object deputies. */
 	public void testDeputadosControl() {
-		assertNotNull(deputados);
+		assertNotNull(deputies);
 	}
 
 	@Test
@@ -28,7 +29,9 @@ public class TesteDeputadosControl {
 	}
 
 	@Test
-	public void testVerificaExistencia() throws ClassNotFoundException, SQLException {
+	/* Test that verify the existence of deputy. */
+	public void testVerificaExistencia() throws ClassNotFoundException,
+			SQLException {
 		String nome1 = "naoVaiPassar";
 		String nome2 = "tiririca";
 		String nome3 = "JOSÉ AUGUSTO MAIA";
