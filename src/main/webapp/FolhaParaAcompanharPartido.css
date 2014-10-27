@@ -1,8 +1,9 @@
 @CHARSET "ISO-8859-1";
 
-#autoComplete{
+#autoComplete {
 	margin-top: 8%;
 }
-#autoComplete p{
+
+#autoComplete p {
 	font-size: 120%;
 }
