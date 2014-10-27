@@ -24,7 +24,7 @@ import javax.xml.rpc.ServiceException;
 import org.apache.axis.message.MessageElement;
 import org.w3c.dom.NodeList;
 
-import br.com.MDSGPP.ChamadaParlamentar.dao.DeputadoDao;
+import br.com.MDSGPP.ChamadaParlamentar.dao.DeputiesDao;
 import br.gov.camara.www.SitCamaraWS.SessoesReunioes.ListarPresencasParlamentarResponseListarPresencasParlamentarResult;
 import br.gov.camara.www.SitCamaraWS.SessoesReunioes.SessoesReunioesLocator;
 import br.gov.camara.www.SitCamaraWS.SessoesReunioes.SessoesReunioesSoapStub;
@@ -122,11 +122,11 @@ public class ConnectionWithWsSessions {
 		ArrayList<Integer> list;
 		list = new ArrayList<Integer>();
 
-		DeputadoDao conectionDeputy;/*
+		DeputiesDao conectionDeputy;/*
 									 * Variable that create the connection with
 									 * deputies.
 									 */
-		conectionDeputy = new DeputadoDao();
+		conectionDeputy = new DeputiesDao();
 
 		list = conectionDeputy.getMatriculaDeputados();
 

@@ -13,7 +13,7 @@ import javax.xml.rpc.ServiceException;
 import br.com.MDSGPP.ChamadaParlamentar.classesDeConexao.ConnectionWithWsSessions;
 import br.com.MDSGPP.ChamadaParlamentar.control.RankingControl;
 import br.com.MDSGPP.ChamadaParlamentar.dao.Dao;
-import br.com.MDSGPP.ChamadaParlamentar.dao.DeputadoDao;
+import br.com.MDSGPP.ChamadaParlamentar.dao.DeputiesDao;
 import br.com.MDSGPP.ChamadaParlamentar.dao.RankingDao;
 import br.com.MDSGPP.ChamadaParlamentar.dao.SessoesEReunioesDao;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaRankingException;
@@ -110,8 +110,8 @@ public class UpdateDataBase {
 				Ranking ranking;/* This variable is the ranking done. */
 				ranking = RankingControl
 						.gerarRanking(RankingControl
-								.gerarListaEstatistica(new DeputadoDao()
-										.getDeputados()));
+								.gerarListaEstatistica(new DeputiesDao()
+										.getDeputies()));
 
 				rankingDao.adicionarRankingNaTable(ranking);
 

@@ -12,19 +12,19 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.com.MDSGPP.ChamadaParlamentar.dao.ConnectionFactory;
-import br.com.MDSGPP.ChamadaParlamentar.dao.DeputadoDao;
+import br.com.MDSGPP.ChamadaParlamentar.dao.DeputiesDao;
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 
 public class TesteDeputadoDao {
 	
-	DeputadoDao deputadoDao;
+	DeputiesDao deputadoDao;
 	
 	Deputies deputado1 = new Deputies();
 	Deputies deputado2 = new Deputies();
 	
 	@Before
 	public void setUp() throws ClassNotFoundException, SQLException {
-		deputadoDao = new DeputadoDao();
+		deputadoDao = new DeputiesDao();
 	}
 	public ArrayList<Deputies> criaLista() {
 		ArrayList<Deputies> lista = new ArrayList<Deputies>();
@@ -79,7 +79,7 @@ public class TesteDeputadoDao {
 	@Test
 	public void testAdicionaDeputado() throws SQLException {
 		ArrayList<Deputies> deputados = criaLista();
-		deputadoDao.adicionaDeputado(deputados);
+		deputadoDao.addDeputy(deputados);
 	}
 	@Test
 	public void testInstancia1() throws SQLException {

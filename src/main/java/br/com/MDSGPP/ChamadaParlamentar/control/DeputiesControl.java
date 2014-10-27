@@ -3,7 +3,7 @@ package br.com.MDSGPP.ChamadaParlamentar.control;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import br.com.MDSGPP.ChamadaParlamentar.dao.DeputadoDao;
+import br.com.MDSGPP.ChamadaParlamentar.dao.DeputiesDao;
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 
 public final class DeputiesControl {
@@ -17,14 +17,14 @@ public final class DeputiesControl {
 	public static ArrayList<String> getDeputados()
 			throws ClassNotFoundException, SQLException {
 
-		DeputadoDao deputy;/* Variable that contains the deputies. */
-		deputy = new DeputadoDao();
+		DeputiesDao deputy;/* Variable that contains the deputies. */
+		deputy = new DeputiesDao();
 
 		ArrayList<String> nameDeputy; /*
 									 * Variable that will contains the name of
 									 * all deputies.
 									 */
-		nameDeputy = deputy.getNomesDeputados();
+		nameDeputy = deputy.getNamesDeputies();
 
 		return nameDeputy;
 	}
@@ -44,13 +44,13 @@ public final class DeputiesControl {
 		Deputies deputy;/* Variable that contains the deputies. */
 		deputy = null;
 
-		DeputadoDao deputadoDao;/*
+		DeputiesDao deputadoDao;/*
 								 * Variable that create connection with dataBase
 								 * to get deputies.
 								 */
-		deputadoDao = new DeputadoDao();
+		deputadoDao = new DeputiesDao();
 		ArrayList<Deputies> list;/* Variable that contains all deputies. */
-		list = deputadoDao.getDeputados();
+		list = deputadoDao.getDeputies();
 
 		int sizeList;/* Variable that contains the size of the list. */
 		sizeList = list.size();

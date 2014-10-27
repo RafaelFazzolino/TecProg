@@ -16,7 +16,7 @@ import br.com.MDSGPP.ChamadaParlamentar.exception.ExceptionSqlInjection;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Day;
 
-public class SessoesPorData extends HttpServlet {
+public class SessionByDate extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	/**
@@ -26,20 +26,20 @@ public class SessoesPorData extends HttpServlet {
 		RequestDispatcher rd = null;
 
 
-		String data = request.getParameter("datas");
-		if( ExceptionSqlInjection.testeSqlInjection(data) ) {
+		String date = request.getParameter("datas");
+		if( ExceptionSqlInjection.testeSqlInjection(date) ) {
 			try {
 				new DayControl();
-				Day dia = DayControl.passarData(data);
+				Day day = DayControl.passarData(date);
 
 				try {
-					dia.getListSessions().size();
+					day.getListSessions().size();
 				} catch (NullPointerException e1) {
 					throw new DataNaoEncontradaException();
 				}
 
 
-				request.setAttribute("dia", dia);
+				request.setAttribute("dia", day);
 				rd = request.getRequestDispatcher("/MostrarDia.jsp");
 
 

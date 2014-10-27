@@ -3,7 +3,7 @@ package br.com.MDSGPP.ChamadaParlamentar.control;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import br.com.MDSGPP.ChamadaParlamentar.dao.DeputadoDao;
+import br.com.MDSGPP.ChamadaParlamentar.dao.DeputiesDao;
 import br.com.MDSGPP.ChamadaParlamentar.dao.PartidoDao;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
@@ -93,7 +93,7 @@ public final class PoliticalPartyControl {
 		politicalPartyName = verificaExistencia(nomePartido);
 
 		ArrayList<Deputies> allDeputies;/* Array that contains all deputies. */
-		allDeputies = new DeputadoDao().getDeputados();
+		allDeputies = new DeputiesDao().getDeputies();
 
 		ArrayList<Deputies> deputadosDoPartido;/*
 												 * ArrayList that contains all

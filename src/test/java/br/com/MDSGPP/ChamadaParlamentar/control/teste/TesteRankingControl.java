@@ -10,7 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.com.MDSGPP.ChamadaParlamentar.control.RankingControl;
-import br.com.MDSGPP.ChamadaParlamentar.dao.DeputadoDao;
+import br.com.MDSGPP.ChamadaParlamentar.dao.DeputiesDao;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaRankingException;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
@@ -34,7 +34,7 @@ public class TesteRankingControl {
 	public void testGerarRanking() throws ClassNotFoundException, SQLException,
 			ListaRankingException, ListaVaziaException {
 		Ranking ranking = RankingControl.gerarRanking(RankingControl
-				.gerarListaEstatistica(new DeputadoDao().getDeputados()));
+				.gerarListaEstatistica(new DeputiesDao().getDeputies()));
 
 		assertNotNull(ranking.getList());
 		assertNotNull(ranking.getBetter());
@@ -60,7 +60,7 @@ public class TesteRankingControl {
 	public void testGerarListaEstatistica() throws ClassNotFoundException,
 			SQLException, ListaRankingException, ListaVaziaException {
 		ArrayList<Statistic> lista1 = RankingControl
-				.gerarListaEstatistica(new DeputadoDao().getDeputados());
+				.gerarListaEstatistica(new DeputiesDao().getDeputies());
 		assertNotNull(lista1);
 	}
 

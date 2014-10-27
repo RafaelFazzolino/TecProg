@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 
-public class DeputadoDao extends ConnectionFactory {
+public class DeputiesDao extends ConnectionFactory {
 
 	private static final int ONE = 1;/* Constant which takes the value 1. */
 	private static final int TWO = 2;/* Constant which takes the value 2. */
@@ -30,7 +30,7 @@ public class DeputadoDao extends ConnectionFactory {
 	 * @throws SQLException
 	 *             case occurs an error with database.
 	 */
-	public DeputadoDao() throws ClassNotFoundException, SQLException {
+	public DeputiesDao() throws ClassNotFoundException, SQLException {
 		new ConnectionFactory().getConnection();
 	}
 
@@ -43,7 +43,7 @@ public class DeputadoDao extends ConnectionFactory {
 	 *             case the dataBase is off.
 	 */
 
-	public void adicionaDeputado(ArrayList<Deputies> deputies)
+	public void addDeputy(ArrayList<Deputies> deputies)
 			throws SQLException {
 		String sql;/*
 					 * Variable that received the code to add deputies on
@@ -93,7 +93,7 @@ public class DeputadoDao extends ConnectionFactory {
 	 *             case the dataBase is off.
 	 */
 
-	public ArrayList<String> getNomesDeputados() throws SQLException {
+	public ArrayList<String> getNamesDeputies() throws SQLException {
 		String sql;/* Variable that contains the code to database. */
 		sql = "Select * from deputado";
 
@@ -184,7 +184,7 @@ public class DeputadoDao extends ConnectionFactory {
 	 *             is case occurs an error with dataBase.
 	 */
 
-	public ArrayList<Deputies> getDeputados() throws SQLException {
+	public ArrayList<Deputies> getDeputies() throws SQLException {
 		String sql;/* Variable that received the code of database. */
 		sql = "Select * from deputado";
 
