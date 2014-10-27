@@ -31,12 +31,10 @@ public class TesteRankingControl {
 	}
 
 	@Test
-	public void testGerarRanking()
-			throws ClassNotFoundException, SQLException, ListaRankingException, ListaVaziaException {
-		Ranking ranking = RankingControl.gerarRanking
-				(RankingControl.gerarListaEstatistica
-						(new DeputadoDao().getDeputados()));
-
+	public void testGerarRanking() throws ClassNotFoundException, SQLException,
+			ListaRankingException, ListaVaziaException {
+		Ranking ranking = RankingControl.gerarRanking(RankingControl
+				.gerarListaEstatistica(new DeputadoDao().getDeputados()));
 
 		assertNotNull(ranking.getList());
 		assertNotNull(ranking.getBetter());
@@ -44,29 +42,35 @@ public class TesteRankingControl {
 		assertNotNull(ranking.getRemoved());
 	}
 
-	@Test(expected=ListaRankingException.class)
-	public void testGerarRankingListaRankingException() throws ListaRankingException{
+	@Test(expected = ListaRankingException.class)
+	public void testGerarRankingListaRankingException()
+			throws ListaRankingException {
 		ArrayList<Statistic> teste = new ArrayList<Statistic>();
 		Ranking ranking2 = RankingControl.gerarRanking(teste);
 	}
 
-	@Test(expected=ListaRankingException.class)
-	public void testGerarRankingListaComParametroNull() throws ListaRankingException {
+	@Test(expected = ListaRankingException.class)
+	public void testGerarRankingListaComParametroNull()
+			throws ListaRankingException {
 
 		Ranking ranking3 = RankingControl.gerarRanking(null);
 	}
 
-
 	@Test
-	public void testGerarListaEstatistica() throws ClassNotFoundException, SQLException, ListaRankingException, ListaVaziaException {
-		ArrayList<Statistic> lista1 = RankingControl.gerarListaEstatistica(new DeputadoDao().getDeputados());
+	public void testGerarListaEstatistica() throws ClassNotFoundException,
+			SQLException, ListaRankingException, ListaVaziaException {
+		ArrayList<Statistic> lista1 = RankingControl
+				.gerarListaEstatistica(new DeputadoDao().getDeputados());
 		assertNotNull(lista1);
 	}
 
-	@Test(expected=ListaRankingException.class)
-	public void testGerarListaEstatisticaException() throws ClassNotFoundException, SQLException, ListaRankingException, ListaVaziaException {
+	@Test(expected = ListaRankingException.class)
+	public void testGerarListaEstatisticaException()
+			throws ClassNotFoundException, SQLException, ListaRankingException,
+			ListaVaziaException {
 		ArrayList<Deputies> listaParaParametro = new ArrayList<Deputies>();
-		ArrayList<Statistic> lista2 = RankingControl.gerarListaEstatistica(listaParaParametro);
+		ArrayList<Statistic> lista2 = RankingControl
+				.gerarListaEstatistica(listaParaParametro);
 	}
 
 	@Test
@@ -85,9 +89,9 @@ public class TesteRankingControl {
 		lista.add(terceiro);
 		lista = RankingControl.ordenacao(lista);
 
-		for(int i=0; i < lista.size() -1; i++)
-		{
-			assertTrue(Integer.parseInt(lista.get(i).getNumberSession()) > Integer.parseInt(lista.get(i+1).getNumberSession()));
+		for (int i = 0; i < lista.size() - 1; i++) {
+			assertTrue(Integer.parseInt(lista.get(i).getNumberSession()) > Integer
+					.parseInt(lista.get(i + 1).getNumberSession()));
 		}
 	}
 
@@ -95,7 +99,7 @@ public class TesteRankingControl {
 	public void testOrdenacaoListaNull() {
 		ArrayList<Statistic> lista = new ArrayList<Statistic>();
 		lista = RankingControl.ordenacao(lista);
-		assertTrue(lista.size() == 0 );
+		assertTrue(lista.size() == 0);
 	}
 
 }
