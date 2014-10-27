@@ -8,9 +8,11 @@
 package br.gov.camara.www.SitCamaraWS.Deputados;
 
 public interface Deputies extends javax.xml.rpc.Service {
-    public java.lang.String getDeputadosSoapAddress();
+	public java.lang.String getDeputadosSoapAddress();
 
-    public br.gov.camara.www.SitCamaraWS.Deputados.DeputadosSoap getDeputadosSoap() throws javax.xml.rpc.ServiceException;
+	public br.gov.camara.www.SitCamaraWS.Deputados.DeputadosSoap getDeputadosSoap()
+			throws javax.xml.rpc.ServiceException;
 
-    public br.gov.camara.www.SitCamaraWS.Deputados.DeputadosSoap getDeputadosSoap(java.net.URL portAddress) throws javax.xml.rpc.ServiceException;
+	public br.gov.camara.www.SitCamaraWS.Deputados.DeputadosSoap getDeputadosSoap(
+			java.net.URL portAddress) throws javax.xml.rpc.ServiceException;
 }
