@@ -7,13 +7,13 @@
 
 package br.gov.camara.www.SitCamaraWS.Deputados;
 
-public class ObterDeputadosResponseObterDeputadosResult  implements java.io.Serializable, org.apache.axis.encoding.AnyContentType, org.apache.axis.encoding.MixedContentType {
+public class ObtainDeputiesResponseObtainDeputiesResult  implements java.io.Serializable, org.apache.axis.encoding.AnyContentType, org.apache.axis.encoding.MixedContentType {
     private org.apache.axis.message.MessageElement [] _any;
 
-    public ObterDeputadosResponseObterDeputadosResult() {
+    public ObtainDeputiesResponseObtainDeputiesResult() {
     }
 
-    public ObterDeputadosResponseObterDeputadosResult(
+    public ObtainDeputiesResponseObtainDeputiesResult(
            org.apache.axis.message.MessageElement [] _any) {
            this._any = _any;
     }
@@ -40,8 +40,8 @@ public class ObterDeputadosResponseObterDeputadosResult  implements java.io.Seri
 
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof ObterDeputadosResponseObterDeputadosResult)) return false;
-        ObterDeputadosResponseObterDeputadosResult other = (ObterDeputadosResponseObterDeputadosResult) obj;
+        if (!(obj instanceof ObtainDeputiesResponseObtainDeputiesResult)) return false;
+        ObtainDeputiesResponseObtainDeputiesResult other = (ObtainDeputiesResponseObtainDeputiesResult) obj;
         if (obj == null) return false;
         if (this == obj) return true;
         if (__equalsCalc != null) {
@@ -81,7 +81,7 @@ public class ObterDeputadosResponseObterDeputadosResult  implements java.io.Seri
 
     // Type metadata
     private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(ObterDeputadosResponseObterDeputadosResult.class, true);
+        new org.apache.axis.description.TypeDesc(ObtainDeputiesResponseObtainDeputiesResult.class, true);
 
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("http://www.camara.gov.br/SitCamaraWS/Deputados", ">>ObterDeputadosResponse>ObterDeputadosResult"));

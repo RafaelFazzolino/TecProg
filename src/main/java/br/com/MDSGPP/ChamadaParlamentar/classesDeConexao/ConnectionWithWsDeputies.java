@@ -16,7 +16,7 @@ import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 import br.com.MDSGPP.ChamadaParlamentar.model.Party;
 import br.gov.camara.www.SitCamaraWS.Deputados.DeputadosLocator;
 import br.gov.camara.www.SitCamaraWS.Deputados.DeputadosSoapStub;
-import br.gov.camara.www.SitCamaraWS.Deputados.ObterDeputadosResponseObterDeputadosResult;
+import br.gov.camara.www.SitCamaraWS.Deputados.ObtainDeputiesResponseObtainDeputiesResult;
 import br.gov.camara.www.SitCamaraWS.Deputados.ObterPartidosCDResponseObterPartidosCDResult;
 
 public class ConnectionWithWsDeputies {
@@ -40,7 +40,7 @@ public class ConnectionWithWsDeputies {
 	 *             knownHostException
 	 */
 
-	public static DeputadosSoapStub obterConexao()
+	public static DeputadosSoapStub obtainConnction()
 			throws MalformedURLException, ServiceException,
 			UnknownHostException {
 		URL url;/* Variable used to receive the site of the webservice. */
@@ -61,12 +61,12 @@ public class ConnectionWithWsDeputies {
 	 * @return returns the connection to the classes of the webService
 	 */
 
-	public static ObterDeputadosResponseObterDeputadosResult receberElementDeputados(
+	public static ObtainDeputiesResponseObtainDeputiesResult receberElementDeputados(
 			DeputadosSoapStub service) {
 
 		/* connection created, now call the class of ws. */
 		try {
-			ObterDeputadosResponseObterDeputadosResult deputies;
+			ObtainDeputiesResponseObtainDeputiesResult deputies;
 			deputies = service.obterDeputados();
 
 			return deputies;
@@ -91,10 +91,10 @@ public class ConnectionWithWsDeputies {
 			ServiceException {
 		ArrayList<Deputies> lista;/* Receive a list of deputies. */
 		lista = new ArrayList<Deputies>();
-		ObterDeputadosResponseObterDeputadosResult deputados;
+		ObtainDeputiesResponseObtainDeputiesResult deputados;
 
 		deputados = ConnectionWithWsDeputies
-				.receberElementDeputados(ConnectionWithWsDeputies.obterConexao());
+				.receberElementDeputados(ConnectionWithWsDeputies.obtainConnction());
 		NodeList nome;/* Receives the attribute name of the Member. */
 		nome = deputados.get_any()[0].getElementsByTagName("nome");
 
@@ -312,7 +312,7 @@ public class ConnectionWithWsDeputies {
 
 		ObterPartidosCDResponseObterPartidosCDResult partidos;
 
-		partidos = receberElementPartido(obterConexao());
+		partidos = receberElementPartido(obtainConnction());
 
 		NodeList nomePartido;/*
 							 * Variable to received the name of the political

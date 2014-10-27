@@ -26,7 +26,7 @@ public class DeputadosSoapStub extends org.apache.axis.client.Stub implements br
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("ObterDeputados");
         oper.setReturnType(new javax.xml.namespace.QName("http://www.camara.gov.br/SitCamaraWS/Deputados", ">>ObterDeputadosResponse>ObterDeputadosResult"));
-        oper.setReturnClass(br.gov.camara.www.SitCamaraWS.Deputados.ObterDeputadosResponseObterDeputadosResult.class);
+        oper.setReturnClass(br.gov.camara.www.SitCamaraWS.Deputados.ObtainDeputiesResponseObtainDeputiesResult.class);
         oper.setReturnQName(new javax.xml.namespace.QName("http://www.camara.gov.br/SitCamaraWS/Deputados", "ObterDeputadosResult"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -113,7 +113,7 @@ public class DeputadosSoapStub extends org.apache.axis.client.Stub implements br
             java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
             qName = new javax.xml.namespace.QName("http://www.camara.gov.br/SitCamaraWS/Deputados", ">>ObterDeputadosResponse>ObterDeputadosResult");
             cachedSerQNames.add(qName);
-            cls = br.gov.camara.www.SitCamaraWS.Deputados.ObterDeputadosResponseObterDeputadosResult.class;
+            cls = br.gov.camara.www.SitCamaraWS.Deputados.ObtainDeputiesResponseObtainDeputiesResult.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
@@ -268,7 +268,7 @@ public class DeputadosSoapStub extends org.apache.axis.client.Stub implements br
         }
     }
 
-    public br.gov.camara.www.SitCamaraWS.Deputados.ObterDeputadosResponseObterDeputadosResult obterDeputados() throws java.rmi.RemoteException {
+    public br.gov.camara.www.SitCamaraWS.Deputados.ObtainDeputiesResponseObtainDeputiesResult obterDeputados() throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -292,9 +292,9 @@ public class DeputadosSoapStub extends org.apache.axis.client.Stub implements br
         else {
             extractAttachments(_call);
             try {
-                return (br.gov.camara.www.SitCamaraWS.Deputados.ObterDeputadosResponseObterDeputadosResult) _resp;
+                return (br.gov.camara.www.SitCamaraWS.Deputados.ObtainDeputiesResponseObtainDeputiesResult) _resp;
             } catch (java.lang.Exception _exception) {
-                return (br.gov.camara.www.SitCamaraWS.Deputados.ObterDeputadosResponseObterDeputadosResult) org.apache.axis.utils.JavaUtils.convert(_resp, br.gov.camara.www.SitCamaraWS.Deputados.ObterDeputadosResponseObterDeputadosResult.class);
+                return (br.gov.camara.www.SitCamaraWS.Deputados.ObtainDeputiesResponseObtainDeputiesResult) org.apache.axis.utils.JavaUtils.convert(_resp, br.gov.camara.www.SitCamaraWS.Deputados.ObtainDeputiesResponseObtainDeputiesResult.class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {

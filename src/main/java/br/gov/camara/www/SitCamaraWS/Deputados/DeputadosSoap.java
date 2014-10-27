@@ -8,7 +8,7 @@
 package br.gov.camara.www.SitCamaraWS.Deputados;
 
 public interface DeputadosSoap extends java.rmi.Remote {
-    public br.gov.camara.www.SitCamaraWS.Deputados.ObterDeputadosResponseObterDeputadosResult obterDeputados() throws java.rmi.RemoteException;
+    public br.gov.camara.www.SitCamaraWS.Deputados.ObtainDeputiesResponseObtainDeputiesResult obterDeputados() throws java.rmi.RemoteException;
     public br.gov.camara.www.SitCamaraWS.Deputados.ObterPartidosCDResponseObterPartidosCDResult obterPartidosCD() throws java.rmi.RemoteException;
     public br.gov.camara.www.SitCamaraWS.Deputados.ObterPartidosBlocoCDResponseObterPartidosBlocoCDResult obterPartidosBlocoCD(java.lang.String idBloco, java.lang.String numLegislatura) throws java.rmi.RemoteException;
     public br.gov.camara.www.SitCamaraWS.Deputados.ObterDetalhesDeputadoResponseObterDetalhesDeputadoResult obterDetalhesDeputado(java.lang.String ideCadastro, java.lang.String numLegislatura) throws java.rmi.RemoteException;

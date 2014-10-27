@@ -44,7 +44,7 @@ public class DeputadosSoapProxy implements br.gov.camara.www.SitCamaraWS.Deputad
     return deputadosSoap;
   }
   
-  public br.gov.camara.www.SitCamaraWS.Deputados.ObterDeputadosResponseObterDeputadosResult obterDeputados() throws java.rmi.RemoteException{
+  public br.gov.camara.www.SitCamaraWS.Deputados.ObtainDeputiesResponseObtainDeputiesResult obterDeputados() throws java.rmi.RemoteException{
     if (deputadosSoap == null)
       _initDeputadosSoapProxy();
     return deputadosSoap.obterDeputados();
