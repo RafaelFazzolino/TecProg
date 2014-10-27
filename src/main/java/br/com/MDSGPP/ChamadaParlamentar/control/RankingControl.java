@@ -197,7 +197,7 @@ public final class RankingControl {
 		rankingDao = new RankingDao();
 
 		Ranking ranking;/* Variable that contains all features of the ranking. */
-		ranking = rankingDao.retornaRanking();
+		ranking = rankingDao.returnRanking();
 
 		ArrayList<Statistic> bests;/*
 									 * Variable used to store the best deputies,
@@ -297,7 +297,7 @@ public final class RankingControl {
 							 */
 		rankingDao = new RankingDao();
 		Ranking ranking;/* Variable that contains all features of the ranking. */
-		ranking = rankingDao.retornaRanking();
+		ranking = rankingDao.returnRanking();
 
 		ranking.setList(ordenacao(ranking.getList()));
 

@@ -113,7 +113,7 @@ public class UpdateDataBase {
 								.gerarListaEstatistica(new DeputiesDao()
 										.getDeputies()));
 
-				rankingDao.adicionarRankingNaTable(ranking);
+				rankingDao.addRankingInTable(ranking);
 
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block

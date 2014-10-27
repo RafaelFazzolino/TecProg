@@ -22,7 +22,7 @@ public class RankingDao extends ConnectionFactory {
 	 * @throws SQLException case the dataBase is off.
 	 */
 	
-	public void adicionarRankingNaTable(Ranking ranking) throws SQLException {
+	public void addRankingInTable(Ranking ranking) throws SQLException {
 		String sql =  "insert into ranking(nomeParlamentar, porcentagem, numeroSessoes)values (?, ?, ?)";
 		PreparedStatement stmt = ConnectionFactory.getConexao().prepareStatement(sql);
 
@@ -51,7 +51,7 @@ public class RankingDao extends ConnectionFactory {
 	 * @return ranking complete.
 	 * @throws SQLException case the dataBase is off.
 	 */
-	public Ranking retornaRanking () throws SQLException {
+	public Ranking returnRanking () throws SQLException {
 		Ranking ranking = new Ranking();
 		ArrayList<Statistic> deleted = new ArrayList<Statistic>();
 		ArrayList<Statistic> list = new ArrayList<Statistic>();
