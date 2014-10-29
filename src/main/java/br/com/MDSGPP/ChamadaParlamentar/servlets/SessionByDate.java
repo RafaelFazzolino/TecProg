@@ -19,15 +19,17 @@ import br.com.MDSGPP.ChamadaParlamentar.model.Day;
 public class SessionByDate extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
+
 	/**
-	 * This method is to create a link between the view and the control of sessoePorDia.
+	 * This method is to create a link between the view and the control of
+	 * sessoePorDia.
 	 */
-	protected void service (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = null;
 
-
 		String date = request.getParameter("datas");
-		if( ExceptionSqlInjection.testeSqlInjection(date) ) {
+		if (ExceptionSqlInjection.testeSqlInjection(date)) {
 			try {
 				new DayControl();
 				Day day = DayControl.passarData(date);
@@ -38,10 +40,8 @@ public class SessionByDate extends HttpServlet {
 					throw new DataNaoEncontradaException();
 				}
 
-
 				request.setAttribute("dia", day);
 				rd = request.getRequestDispatcher("/MostrarDia.jsp");
-
 
 			} catch (ClassNotFoundException e) {
 				rd = request.getRequestDispatcher("/Erro.jsp");
@@ -54,8 +54,7 @@ public class SessionByDate extends HttpServlet {
 			} catch (ListaVaziaException e) {
 				rd = request.getRequestDispatcher("/DataNaoEncontrada.jsp");
 			}
-		}
-		else {
+		} else {
 			rd = request.getRequestDispatcher("SqlDetectado.jsp");
 		}
 

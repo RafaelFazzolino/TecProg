@@ -14,26 +14,28 @@ import br.com.MDSGPP.ChamadaParlamentar.control.PoliticalPartyControl;
 public class PartyAutoCompleteServlet extends javax.servlet.http.HttpServlet {
 
 	private static final long serialVersionUID = 1L;
+
 	/**
 	 * This method is to create the auto-complete of parties.
 	 */
-	protected void service (HttpServletRequest request, HttpServletResponse response) 
-			throws ServletException, IOException {
+	protected void service(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = null;
-		
+
 		try {
-			ArrayList<ArrayList<String>> listAutoComplete = PoliticalPartyControl.passarListaPartidos();
-			
+			ArrayList<ArrayList<String>> listAutoComplete = PoliticalPartyControl
+					.passarListaPartidos();
+
 			request.setAttribute("lista", listAutoComplete);
-			
+
 			rd = request.getRequestDispatcher("AcompanharPartido.jsp");
-		
+
 		} catch (ClassNotFoundException e) {
 			rd = request.getRequestDispatcher("Erro.jsp");
 		} catch (SQLException e) {
 			rd = request.getRequestDispatcher("Erro.jsp");
 		}
-		
+
 		rd.forward(request, response);
 	}
 }

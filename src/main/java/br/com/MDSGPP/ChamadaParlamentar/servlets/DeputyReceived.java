@@ -16,57 +16,59 @@ import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 import br.com.MDSGPP.ChamadaParlamentar.model.Statistic;
 
-
 public class DeputyReceived extends javax.servlet.http.HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * This method is to get the deputy.
 	 */
-	protected void service (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		String name = request.getParameter("nome");
 
 		Deputies deputy = null;
 		RequestDispatcher rd = null;
 
-		if( ExceptionSqlInjection.testeSqlInjection(name) ) {
+		if (ExceptionSqlInjection.testeSqlInjection(name)) {
 			try {
 				int page = 1;
 				int sessionForPage = 15;
 
-				if( request.getParameter("pagina") != null ) {
+				if (request.getParameter("pagina") != null) {
 					page = Integer.parseInt(request.getParameter("pagina"));
 					name = name.split("-")[0];
 				}
 				deputy = DeputiesControl.verificaExistencia(name);
 
-				if( deputy != null ) {
+				if (deputy != null) {
 					ArrayList<String> list = DeputiesControl.getDeputados();
-					Statistic statistic = EstatisticaControl.
-							gerarEstatisticas(EstatisticaControl.
-									arrumarNomePesquisa(deputy));
+					Statistic statistic = EstatisticaControl
+							.gerarEstatisticas(EstatisticaControl
+									.arrumarNomePesquisa(deputy));
 
 					int numberOfSessions = statistic.getLista().size();
-					int numberOfPage = ((int) Math.ceil(numberOfSessions * 1.0 / sessionForPage))-1;
+					int numberOfPage = ((int) Math.ceil(numberOfSessions * 1.0
+							/ sessionForPage)) - 1;
 
-					double presence = Math.ceil(((Double.parseDouble(statistic.getNumberSession())) / (Double.parseDouble(statistic.getTotalSession())))*100);
+					double presence = Math.ceil(((Double.parseDouble(statistic
+							.getNumberSession())) / (Double
+							.parseDouble(statistic.getTotalSession()))) * 100);
 					String presenceNext = Double.toString(presence);
-					
 
-					
-					
-					statistic.setLista(EstatisticaControl.passarListaCerta(page-1, sessionForPage, statistic.getLista()));
+					statistic.setLista(EstatisticaControl.passarListaCerta(
+							page - 1, sessionForPage, statistic.getLista()));
 
 					request.setAttribute("presenca", presenceNext);
 					request.setAttribute("noDePaginas", numberOfPage);
 					request.setAttribute("paginaAtual", page);
 					request.setAttribute("lista", list);
 					request.setAttribute("estatistica", statistic);
-					rd = request.getRequestDispatcher("/MostrarEstatisticaDeputado.jsp");
+					rd = request
+							.getRequestDispatcher("/MostrarEstatisticaDeputado.jsp");
 
-				}
-				else {
-					rd = request.getRequestDispatcher("/DeputadoNaoEncontrado.jsp");
+				} else {
+					rd = request
+							.getRequestDispatcher("/DeputadoNaoEncontrado.jsp");
 				}
 			} catch (ClassNotFoundException e1) {
 				rd = request.getRequestDispatcher("/Erro.jsp");
@@ -74,16 +76,15 @@ public class DeputyReceived extends javax.servlet.http.HttpServlet {
 				rd = request.getRequestDispatcher("/Erro.jsp");
 			} catch (IndexOutOfBoundsException e) {
 				rd = request.getRequestDispatcher("/DeputadoNaoEncontrado.jsp");
-			}  catch (NumberFormatException e) {
+			} catch (NumberFormatException e) {
 				rd = request.getRequestDispatcher("/DadosNaoDisponiveis.jsp");
 			} catch (ListaVaziaException e) {
 				rd = request.getRequestDispatcher("/DadosNaoDisponiveis.jsp");
 			}
-		}
-		else {
+		} else {
 			rd = request.getRequestDispatcher("SqlDetectado.jsp");
 		}
 
 		rd.forward(request, response);
-	}        
+	}
 }

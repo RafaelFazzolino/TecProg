@@ -18,25 +18,24 @@ public class RankingComplete extends HttpServlet {
 	/**
 	 * This method is to get the complete ranking.
 	 */
-	protected void service (HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void service(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		Ranking ranking = null;
 		RequestDispatcher rd = null;
 
 		try {
 			ranking = RankingControl.nextRankingComplete();
 			request.setAttribute("ranking", ranking);
-			rd= request.getRequestDispatcher("/RankingCompleto.jsp");
+			rd = request.getRequestDispatcher("/RankingCompleto.jsp");
 
 		} catch (ClassNotFoundException e) {
-			rd= request.getRequestDispatcher("/Erro.jsp");
+			rd = request.getRequestDispatcher("/Erro.jsp");
 			e.printStackTrace();
 		} catch (SQLException e) {
-			rd= request.getRequestDispatcher("/Erro.jsp");
+			rd = request.getRequestDispatcher("/Erro.jsp");
 			e.printStackTrace();
 		}
 
 		rd.forward(request, response);
 	}
 }
-

@@ -1,6 +1,5 @@
 package br.com.MDSGPP.ChamadaParlamentar.servlets;
 
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -25,34 +24,36 @@ public class PartyReceivedServlet extends HttpServlet {
 	/**
 	 * This method is to get the political party.
 	 */
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = null;
 
 		String nameParty = request.getParameter("nome");
 
-		if( ExceptionSqlInjection.testeSqlInjection(nameParty) ) {
+		if (ExceptionSqlInjection.testeSqlInjection(nameParty)) {
 			try {
 				/**
 				 * This variable will receive statistical party
 				 * */
-				StatisticParty statistic = 
-						StatisticsPoliticalPartyControl.gerarEstatisticaPartido(nameParty);
+				StatisticParty statistic = StatisticsPoliticalPartyControl
+						.gerarEstatisticaPartido(nameParty);
 				/**
 				 * This Array will receive all deputy with no data
 				 * */
-				ArrayList<Statistic> noData = statistic.getpoliticalParty().getDeputiesWithoutData();
-				
+				ArrayList<Statistic> noData = statistic.getpoliticalParty()
+						.getDeputiesWithoutData();
+
 				/**
 				 * This variable will receive party
 				 * */
 				Party party = statistic.getpoliticalParty();
-				
+
 				/**
 				 * This variable used to know how many deputy whitout data
 				 * */
-				
+
 				int howManyNoData = party.getDeputiesWithoutData().size();
-								
+
 				request.setAttribute("numeroSemDados", howManyNoData);
 				request.setAttribute("semDados", noData);
 				request.setAttribute("estatisticaPartido", statistic);
@@ -69,8 +70,7 @@ public class PartyReceivedServlet extends HttpServlet {
 				rd = request.getRequestDispatcher("PartidoNaoEncontrado.jsp");
 				e.printStackTrace();
 			}
-		}
-		else {
+		} else {
 			rd = request.getRequestDispatcher("SqlDetectado.jsp");
 		}
 

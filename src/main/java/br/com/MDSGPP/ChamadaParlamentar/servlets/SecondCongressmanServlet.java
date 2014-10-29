@@ -24,83 +24,96 @@ public class SecondCongressmanServlet extends HttpServlet {
 	/**
 	 * This method is to get the second deputy.
 	 */
-	protected void service (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
+	protected void service(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+
 		/**
 		 * This variable will receive the name of first congressman
 		 * */
-		String nameFirstCongressman = request.getParameter("primeiroParlamentar");
+		String nameFirstCongressman = request
+				.getParameter("primeiroParlamentar");
 		nameFirstCongressman = nameFirstCongressman.split("-")[0];
 
 		/**
-		 * This variable will receive thw name of second Congressman 
+		 * This variable will receive thw name of second Congressman
 		 * */
 		String nameSecondCongressman = request.getParameter("nome");
 		/**
 		 * This variable will receive feature of first congressman
 		 * 
 		 * */
-		
+
 		Deputies firstCongressman = null;
 		/**
 		 * This variable will receive feature of second congressman
 		 * 
 		 * */
-		
+
 		Deputies secondCongressman = null;
 		RequestDispatcher rd = null;
 
-		if( ExceptionSqlInjection.testeSqlInjection(nameSecondCongressman) ) {
+		if (ExceptionSqlInjection.testeSqlInjection(nameSecondCongressman)) {
 			try {
-				firstCongressman = DeputiesControl.verificaExistencia(nameFirstCongressman);
-				secondCongressman = DeputiesControl.verificaExistencia(nameSecondCongressman);
+				firstCongressman = DeputiesControl
+						.verificaExistencia(nameFirstCongressman);
+				secondCongressman = DeputiesControl
+						.verificaExistencia(nameSecondCongressman);
 
-
-				if( secondCongressman != null ) {
+				if (secondCongressman != null) {
 					/**
 					 * This variable will receive statistic of first congressman
 					 * 
 					 * */
-					Statistic statisticFirst = EstatisticaControl.
-							gerarEstatisticas(EstatisticaControl.
-									arrumarNomePesquisa(firstCongressman));
+					Statistic statisticFirst = EstatisticaControl
+							.gerarEstatisticas(EstatisticaControl
+									.arrumarNomePesquisa(firstCongressman));
 					/**
-					 * This variable will receive statistic of second congressman
+					 * This variable will receive statistic of second
+					 * congressman
 					 * 
-					 * */	
-					Statistic statisticSecond = EstatisticaControl.
-							gerarEstatisticas(EstatisticaControl.
-									arrumarNomePesquisa(secondCongressman));
+					 * */
+					Statistic statisticSecond = EstatisticaControl
+							.gerarEstatisticas(EstatisticaControl
+									.arrumarNomePesquisa(secondCongressman));
 					ArrayList<Statistic> lista = new ArrayList<Statistic>();
 					lista.add(statisticFirst);
 					lista.add(statisticSecond);
-					
+
 					/**
-					 * This variable will receive percent of miss of first congressman
+					 * This variable will receive percent of miss of first
+					 * congressman
 					 * 
 					 * */
-					double presenceFirst = Math.ceil(((Double.parseDouble(statisticFirst.getNumberSession())) / (Double.parseDouble(statisticFirst.getTotalSession())))*100);
-					
+					double presenceFirst = Math
+							.ceil(((Double.parseDouble(statisticFirst
+									.getNumberSession())) / (Double
+									.parseDouble(statisticFirst
+											.getTotalSession()))) * 100);
+
 					/**
-					 * This variable will receive percent of miss of first congressman in format string
+					 * This variable will receive percent of miss of first
+					 * congressman in format string
 					 * 
 					 * */
 					String presenceNext1 = Double.toString(presenceFirst);
-					
-					
+
 					/**
-					 * This variable will receive percent of miss of second congressman
+					 * This variable will receive percent of miss of second
+					 * congressman
 					 * 
 					 * */
-					double presenceSecond = Math.ceil(((Double.parseDouble(statisticSecond.getNumberSession())) / (Double.parseDouble(statisticSecond.getTotalSession())))*100);
+					double presenceSecond = Math
+							.ceil(((Double.parseDouble(statisticSecond
+									.getNumberSession())) / (Double
+									.parseDouble(statisticSecond
+											.getTotalSession()))) * 100);
 					/**
-					 * This variable will receive percent of miss of first congressman in format string
+					 * This variable will receive percent of miss of first
+					 * congressman in format string
 					 * 
 					 * */
 					String presenceNext2 = Double.toString(presenceSecond);
-					
-					
+
 					/**
 					 * List of names of congressman
 					 * 
@@ -110,18 +123,20 @@ public class SecondCongressmanServlet extends HttpServlet {
 					listNames.add(statisticFirst.getName());
 					listNames.add(statisticSecond.getName());
 					listNames.add("Total");
-					
+
 					request.setAttribute("lista", listNames);
-					request.setAttribute("nomePrimeiro", statisticFirst.getName());
+					request.setAttribute("nomePrimeiro",
+							statisticFirst.getName());
 					request.setAttribute("presencaPrimeiro", presenceNext1);
 					request.setAttribute("presencaSegundo", presenceNext2);
 					request.setAttribute("estatisticaPrimeiro", statisticFirst);
 					request.setAttribute("estatisticaSegundo", statisticSecond);
-					
-					rd = request.getRequestDispatcher("/MostrarComparacaoDeputados.jsp");
-				}
-				else {
-					rd = request.getRequestDispatcher("/DeputadoNaoEncontrado.jsp");
+
+					rd = request
+							.getRequestDispatcher("/MostrarComparacaoDeputados.jsp");
+				} else {
+					rd = request
+							.getRequestDispatcher("/DeputadoNaoEncontrado.jsp");
 				}
 			} catch (ClassNotFoundException e1) {
 				rd = request.getRequestDispatcher("/Erro.jsp");
@@ -132,8 +147,7 @@ public class SecondCongressmanServlet extends HttpServlet {
 			} catch (ListaVaziaException e) {
 				rd = request.getRequestDispatcher("/DadosNaoDisponiveis.jsp");
 			}
-		}
-		else {
+		} else {
 			rd = request.getRequestDispatcher("SqlDetectado.jsp");
 		}
 
