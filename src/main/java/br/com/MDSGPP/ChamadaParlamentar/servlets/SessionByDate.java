@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.MDSGPP.ChamadaParlamentar.control.DayControl;
 import br.com.MDSGPP.ChamadaParlamentar.exception.WrongDateFormatException;
-import br.com.MDSGPP.ChamadaParlamentar.exception.DataNaoEncontradaException;
+import br.com.MDSGPP.ChamadaParlamentar.exception.DataNotFoundException;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ExceptionSqlInjection;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Day;
@@ -37,7 +37,7 @@ public class SessionByDate extends HttpServlet {
 				try {
 					day.getListSessions().size();
 				} catch (NullPointerException e1) {
-					throw new DataNaoEncontradaException();
+					throw new DataNotFoundException();
 				}
 
 				request.setAttribute("dia", day);
@@ -49,7 +49,7 @@ public class SessionByDate extends HttpServlet {
 				rd = request.getRequestDispatcher("/Erro.jsp");
 			} catch (WrongDateFormatException e) {
 				rd = request.getRequestDispatcher("/FormatoErrado.jsp");
-			} catch (DataNaoEncontradaException e) {
+			} catch (DataNotFoundException e) {
 				rd = request.getRequestDispatcher("/DataNaoEncontrada.jsp");
 			} catch (ListaVaziaException e) {
 				rd = request.getRequestDispatcher("/DataNaoEncontrada.jsp");
