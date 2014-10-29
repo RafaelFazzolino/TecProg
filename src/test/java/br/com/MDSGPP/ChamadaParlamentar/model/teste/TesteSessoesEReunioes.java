@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.MDSGPP.ChamadaParlamentar.exception.DataFormatoErradoException;
+import br.com.MDSGPP.ChamadaParlamentar.exception.WrongDateFormatException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 import br.com.MDSGPP.ChamadaParlamentar.model.SessionAndMeetings;
 
@@ -18,7 +18,7 @@ public class TesteSessoesEReunioes {
 	SessionAndMeetings sessoesTeste;
 
 	@Before
-	public void setUp() throws DataFormatoErradoException {
+	public void setUp() throws WrongDateFormatException {
 		ArrayList<Deputies> listaTeste = new ArrayList<Deputies>();
 		sessoes = new SessionAndMeetings();
 		sessoesTeste = new SessionAndMeetings("11/12/2012", "descricaoDeTeste",
@@ -27,7 +27,7 @@ public class TesteSessoesEReunioes {
 
 	@Test
 	public void testSessoesEReunioesStringStringArrayListOfDeputados()
-			throws DataFormatoErradoException {
+			throws WrongDateFormatException {
 		ArrayList<Deputies> lista = new ArrayList<Deputies>();
 		SessionAndMeetings sessoes2 = new SessionAndMeetings("11/12/2012",
 				"descricaoDeTeste", lista, "descricaoTeste");
@@ -35,9 +35,9 @@ public class TesteSessoesEReunioes {
 		assertNotNull(sessoes2);
 	}
 
-	@Test(expected = DataFormatoErradoException.class)
+	@Test(expected = WrongDateFormatException.class)
 	public void testSessoesEReunioesComException()
-			throws DataFormatoErradoException {
+			throws WrongDateFormatException {
 		ArrayList<Deputies> lista = new ArrayList<Deputies>();
 		SessionAndMeetings sessoes3 = new SessionAndMeetings("oioi",
 				"não pode passar", lista, "descricaoTeste");
@@ -54,13 +54,13 @@ public class TesteSessoesEReunioes {
 	}
 
 	@Test
-	public void testSetData() throws DataFormatoErradoException {
+	public void testSetData() throws WrongDateFormatException {
 		sessoes.setData("11/12/2012");
 		assertTrue(sessoes.getData().equals("11/12/2012"));
 	}
 
-	@Test(expected = DataFormatoErradoException.class)
-	public void testSetDataFormatoErrado() throws DataFormatoErradoException {
+	@Test(expected = WrongDateFormatException.class)
+	public void testSetDataFormatoErrado() throws WrongDateFormatException {
 		sessoes.setData("nao deve passar");
 	}
 

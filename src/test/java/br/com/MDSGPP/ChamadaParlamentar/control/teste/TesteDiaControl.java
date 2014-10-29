@@ -10,7 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.com.MDSGPP.ChamadaParlamentar.control.DayControl;
-import br.com.MDSGPP.ChamadaParlamentar.exception.DataFormatoErradoException;
+import br.com.MDSGPP.ChamadaParlamentar.exception.WrongDateFormatException;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Day;
 
@@ -40,7 +40,7 @@ public class TesteDiaControl {
 
 	@Test
 	public void testGetDias() throws ClassNotFoundException, SQLException,
-			DataFormatoErradoException {
+			WrongDateFormatException {
 		ArrayList<Day> dias = DayControl.getDias();
 
 		assertNotNull(dias);
@@ -49,7 +49,7 @@ public class TesteDiaControl {
 
 	@Test
 	public void testReverseList() throws ClassNotFoundException, SQLException,
-			DataFormatoErradoException {
+			WrongDateFormatException {
 		ArrayList<Day> listaInverter = new ArrayList<Day>();
 		assertNotNull(listaInverter);
 	}
@@ -93,20 +93,20 @@ public class TesteDiaControl {
 
 	@Test(expected = ListaVaziaException.class)
 	public void testPassarDataListaVazia() throws ClassNotFoundException,
-			SQLException, DataFormatoErradoException, ListaVaziaException {
+			SQLException, WrongDateFormatException, ListaVaziaException {
 		Day dia1 = DayControl.passarData("20/11/2011");
 	}
 
 	@Test
 	public void testePassarDataNormal() throws ClassNotFoundException,
-			SQLException, DataFormatoErradoException, ListaVaziaException {
+			SQLException, WrongDateFormatException, ListaVaziaException {
 		Day dia2 = DayControl.passarData("22/11/2011");
 		assertTrue(dia2.getListSessions().size() > 0);
 	}
 
-	@Test(expected = DataFormatoErradoException.class)
+	@Test(expected = WrongDateFormatException.class)
 	public void testePassarDataFormatoErrado() throws ClassNotFoundException,
-			SQLException, DataFormatoErradoException, ListaVaziaException {
+			SQLException, WrongDateFormatException, ListaVaziaException {
 		Day dia3 = DayControl.passarData("nao deve passar"); // esse espera uma
 																// data null
 	}

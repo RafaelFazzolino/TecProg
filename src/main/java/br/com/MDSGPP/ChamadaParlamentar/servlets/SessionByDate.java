@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.MDSGPP.ChamadaParlamentar.control.DayControl;
-import br.com.MDSGPP.ChamadaParlamentar.exception.DataFormatoErradoException;
+import br.com.MDSGPP.ChamadaParlamentar.exception.WrongDateFormatException;
 import br.com.MDSGPP.ChamadaParlamentar.exception.DataNaoEncontradaException;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ExceptionSqlInjection;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
@@ -47,7 +47,7 @@ public class SessionByDate extends HttpServlet {
 				rd = request.getRequestDispatcher("/Erro.jsp");
 			} catch (SQLException e) {
 				rd = request.getRequestDispatcher("/Erro.jsp");
-			} catch (DataFormatoErradoException e) {
+			} catch (WrongDateFormatException e) {
 				rd = request.getRequestDispatcher("/FormatoErrado.jsp");
 			} catch (DataNaoEncontradaException e) {
 				rd = request.getRequestDispatcher("/DataNaoEncontrada.jsp");

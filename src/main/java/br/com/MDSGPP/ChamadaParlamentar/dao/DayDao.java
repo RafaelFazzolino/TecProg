@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import br.com.MDSGPP.ChamadaParlamentar.exception.DataFormatoErradoException;
+import br.com.MDSGPP.ChamadaParlamentar.exception.WrongDateFormatException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Day;
 import br.com.MDSGPP.ChamadaParlamentar.model.SessionAndMeetings;
 
@@ -39,7 +39,7 @@ public class DayDao extends ConnectionFactory {
 	 */
 
 	public ArrayList<Day> searchAllDescription() throws SQLException,
-			DataFormatoErradoException {
+			WrongDateFormatException {
 		ArrayList<Day> list;/* Variable that contains all days. */
 		list = new ArrayList<Day>();
 
@@ -72,8 +72,8 @@ public class DayDao extends ConnectionFactory {
 	 * @throws SQLException
 	 *             case the dataBase is off.
 	 */
-	public static ArrayList<Day> insertListDay(ResultSet rs,
-			ArrayList<Day> list) throws SQLException {
+	public static ArrayList<Day> insertListDay(ResultSet rs, ArrayList<Day> list)
+			throws SQLException {
 		int cont;/* Variable to use on while. */
 		cont = 0;
 
@@ -119,7 +119,7 @@ public class DayDao extends ConnectionFactory {
 	 */
 
 	public static ArrayList<Day> createDay(ResultSet rs) throws SQLException,
-			DataFormatoErradoException {
+			WrongDateFormatException {
 		ArrayList<Day> list;/* Is an array that received the days. */
 		list = new ArrayList<Day>();
 

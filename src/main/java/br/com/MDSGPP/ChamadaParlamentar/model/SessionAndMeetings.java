@@ -1,7 +1,7 @@
 package br.com.MDSGPP.ChamadaParlamentar.model;
 
 import java.util.ArrayList;
-import br.com.MDSGPP.ChamadaParlamentar.exception.DataFormatoErradoException;
+import br.com.MDSGPP.ChamadaParlamentar.exception.WrongDateFormatException;
 import br.com.MDSGPP.ChamadaParlamentar.util.VerificarData;
 
 public class SessionAndMeetings {
@@ -15,10 +15,10 @@ public class SessionAndMeetings {
 
 	public SessionAndMeetings(String data, String description,
 			ArrayList<Deputies> deputies, String fullDescription)
-			throws DataFormatoErradoException {
+			throws WrongDateFormatException {
 
 		if (!VerificarData.verificaData(data)) {
-			throw new DataFormatoErradoException();
+			throw new WrongDateFormatException();
 		}
 
 		this.data = data;
@@ -36,9 +36,9 @@ public class SessionAndMeetings {
 		return data;
 	}
 
-	public void setData(String data) throws DataFormatoErradoException {
+	public void setData(String data) throws WrongDateFormatException {
 		if (!VerificarData.verificaData(data)) {
-			throw new DataFormatoErradoException();
+			throw new WrongDateFormatException();
 		}
 
 		this.data = data;

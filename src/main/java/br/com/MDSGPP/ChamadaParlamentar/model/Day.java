@@ -1,7 +1,7 @@
 package br.com.MDSGPP.ChamadaParlamentar.model;
 
 import java.util.ArrayList;
-import br.com.MDSGPP.ChamadaParlamentar.exception.DataFormatoErradoException;
+import br.com.MDSGPP.ChamadaParlamentar.exception.WrongDateFormatException;
 import br.com.MDSGPP.ChamadaParlamentar.util.VerificarData;
 
 public class Day {
@@ -22,9 +22,9 @@ public class Day {
 	 * @param data is to new value to be added.
 	 * @throws DataFormatoErradoException if the date is in formed unknown.
 	 */
-	public void setData(String date) throws DataFormatoErradoException {
+	public void setData(String date) throws WrongDateFormatException {
 		if( !VerificarData.verificaData(date) ) {
-			throw new DataFormatoErradoException();
+			throw new WrongDateFormatException();
 		}
 		
 		this.date = date;

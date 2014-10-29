@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.MDSGPP.ChamadaParlamentar.exception.DataFormatoErradoException;
+import br.com.MDSGPP.ChamadaParlamentar.exception.WrongDateFormatException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Day;
 import br.com.MDSGPP.ChamadaParlamentar.model.SessionAndMeetings;
 
@@ -16,7 +16,7 @@ public class TesteDia {
 	Day dia2;
 
 	@Before
-	public void setUp() throws DataFormatoErradoException {
+	public void setUp() throws WrongDateFormatException {
 		dia = new Day();
 		dia.setData("10/10/2010");
 		ArrayList<SessionAndMeetings> lista = new ArrayList<SessionAndMeetings>();
@@ -34,13 +34,13 @@ public class TesteDia {
 	}
 
 	@Test
-	public void testSetData() throws DataFormatoErradoException {
+	public void testSetData() throws WrongDateFormatException {
 		dia2.setData("10/10/2010");
 		assertNotNull(dia2.getData());
 	}
 
-	@Test(expected = DataFormatoErradoException.class)
-	public void testSetDataFormatoErrado() throws DataFormatoErradoException {
+	@Test(expected = WrongDateFormatException.class)
+	public void testSetDataFormatoErrado() throws WrongDateFormatException {
 		dia2.setData("naoVaiPassar");
 	}
 

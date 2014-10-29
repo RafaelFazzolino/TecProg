@@ -74,7 +74,7 @@ public class UpdateDataBase {
 	/**
 	 * Method to stop the execution of tasks.
 	 */
-	public void parar() {
+	public void stop() {
 		timer.cancel();
 	}
 
