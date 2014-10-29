@@ -8,7 +8,8 @@ import java.util.ArrayList;
 
 import javax.xml.rpc.ServiceException;
 
-import br.com.MDSGPP.ChamadaParlamentar.exception.WrongDateFormatException;
+import org.apache.xml.utils.WrongParserException;
+
 import br.com.MDSGPP.ChamadaParlamentar.model.Day;
 import br.com.MDSGPP.ChamadaParlamentar.model.SessionAndMeetings;
 
@@ -94,7 +95,7 @@ public class SessionsAndMeetingsDao extends ConnectionFactory {
 	 * @throws SQLException is case occurs an error with dataBase.
 	 * @throws DataFormatoErradoException is case occurs an error with the Date.
 	 */
-	public ArrayList<SessionAndMeetings> catchSessions() throws SQLException, WrongDateFormatException {
+	public ArrayList<SessionAndMeetings> catchSessions() throws SQLException, WrongParserException {
 		String sql = "Select * from datas";
 		
 		PreparedStatement stmt = ConnectionFactory.getConexao().prepareStatement(sql);

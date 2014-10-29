@@ -3,9 +3,10 @@ package br.com.MDSGPP.ChamadaParlamentar.control;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import org.apache.xml.utils.WrongParserException;
+
 import br.com.MDSGPP.ChamadaParlamentar.dao.DayDao;
 import br.com.MDSGPP.ChamadaParlamentar.dao.SessionsAndMeetingsDao;
-import br.com.MDSGPP.ChamadaParlamentar.exception.WrongDateFormatException;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Day;
 
@@ -25,7 +26,7 @@ public final class DayControl {
 	 *             case to come up with wrong date format.
 	 */
 	public static ArrayList<Day> getDias() throws ClassNotFoundException,
-			SQLException, WrongDateFormatException {
+			SQLException, WrongParserException {
 		ArrayList<Day> list;/* Variable that contains the days. */
 		DayDao diaDao;/*
 					 * Variable that create the connection with dataBase to get
@@ -118,7 +119,7 @@ public final class DayControl {
 	 *             is case the list came empty.
 	 */
 	public static Day passarData(String data) throws ClassNotFoundException,
-			SQLException, WrongDateFormatException, ListaVaziaException {
+			SQLException, WrongParserException, ListaVaziaException {
 
 		Day dia;/* Variable that contains the day. */
 		dia = null;

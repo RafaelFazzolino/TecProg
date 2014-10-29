@@ -1,13 +1,14 @@
 package br.com.MDSGPP.ChamadaParlamentar.model.teste;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
+import org.apache.xml.utils.WrongParserException;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.MDSGPP.ChamadaParlamentar.exception.WrongDateFormatException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Day;
 import br.com.MDSGPP.ChamadaParlamentar.model.SessionAndMeetings;
 
@@ -16,7 +17,7 @@ public class TesteDia {
 	Day dia2;
 
 	@Before
-	public void setUp() throws WrongDateFormatException {
+	public void setUp() throws WrongParserException {
 		dia = new Day();
 		dia.setData("10/10/2010");
 		ArrayList<SessionAndMeetings> lista = new ArrayList<SessionAndMeetings>();
@@ -34,13 +35,13 @@ public class TesteDia {
 	}
 
 	@Test
-	public void testSetData() throws WrongDateFormatException {
+	public void testSetData() throws WrongParserException {
 		dia2.setData("10/10/2010");
 		assertNotNull(dia2.getData());
 	}
 
-	@Test(expected = WrongDateFormatException.class)
-	public void testSetDataFormatoErrado() throws WrongDateFormatException {
+	@Test(expected = WrongParserException.class)
+	public void testSetDataFormatoErrado() throws WrongParserException {
 		dia2.setData("naoVaiPassar");
 	}
 

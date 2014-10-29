@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.xml.utils.WrongParserException;
+
 import br.com.MDSGPP.ChamadaParlamentar.control.DayControl;
-import br.com.MDSGPP.ChamadaParlamentar.exception.WrongDateFormatException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Day;
 
 public class SessionsAndMeetingsServlet extends HttpServlet {
@@ -52,7 +53,7 @@ public class SessionsAndMeetingsServlet extends HttpServlet {
 			rd = request.getRequestDispatcher("Erro.jsp");
 		} catch (SQLException e) {
 			rd = request.getRequestDispatcher("Erro.jsp");
-		} catch (WrongDateFormatException e) {
+		} catch (WrongParserException e) {
 			rd = request.getRequestDispatcher("FormatoErrado.jsp");
 		}
 

@@ -5,7 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import br.com.MDSGPP.ChamadaParlamentar.exception.WrongDateFormatException;
+import org.apache.xml.utils.WrongParserException;
+
 import br.com.MDSGPP.ChamadaParlamentar.model.Day;
 import br.com.MDSGPP.ChamadaParlamentar.model.SessionAndMeetings;
 
@@ -39,7 +40,7 @@ public class DayDao extends ConnectionFactory {
 	 */
 
 	public ArrayList<Day> searchAllDescription() throws SQLException,
-			WrongDateFormatException {
+			WrongParserException {
 		ArrayList<Day> list;/* Variable that contains all days. */
 		list = new ArrayList<Day>();
 
@@ -119,7 +120,7 @@ public class DayDao extends ConnectionFactory {
 	 */
 
 	public static ArrayList<Day> createDay(ResultSet rs) throws SQLException,
-			WrongDateFormatException {
+			WrongParserException {
 		ArrayList<Day> list;/* Is an array that received the days. */
 		list = new ArrayList<Day>();
 

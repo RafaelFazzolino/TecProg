@@ -2,6 +2,7 @@ package br.com.MDSGPP.ChamadaParlamentar.servlets;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.zip.DataFormatException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,9 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.xml.utils.WrongParserException;
+
 import br.com.MDSGPP.ChamadaParlamentar.control.DayControl;
-import br.com.MDSGPP.ChamadaParlamentar.exception.WrongDateFormatException;
-import br.com.MDSGPP.ChamadaParlamentar.exception.DataNotFoundException;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ExceptionSqlInjection;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Day;
@@ -37,7 +38,12 @@ public class SessionByDate extends HttpServlet {
 				try {
 					day.getListSessions().size();
 				} catch (NullPointerException e1) {
-					throw new DataNotFoundException();
+					try {
+						throw new Exception();
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 
 				request.setAttribute("dia", day);
@@ -47,10 +53,8 @@ public class SessionByDate extends HttpServlet {
 				rd = request.getRequestDispatcher("/Erro.jsp");
 			} catch (SQLException e) {
 				rd = request.getRequestDispatcher("/Erro.jsp");
-			} catch (WrongDateFormatException e) {
+			} catch (WrongParserException e) {
 				rd = request.getRequestDispatcher("/FormatoErrado.jsp");
-			} catch (DataNotFoundException e) {
-				rd = request.getRequestDispatcher("/DataNaoEncontrada.jsp");
 			} catch (ListaVaziaException e) {
 				rd = request.getRequestDispatcher("/DataNaoEncontrada.jsp");
 			}
