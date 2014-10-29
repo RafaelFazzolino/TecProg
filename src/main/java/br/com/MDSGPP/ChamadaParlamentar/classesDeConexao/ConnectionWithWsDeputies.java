@@ -11,7 +11,6 @@ import javax.xml.rpc.ServiceException;
 import org.apache.axis.message.MessageElement;
 import org.w3c.dom.NodeList;
 
-
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 import br.com.MDSGPP.ChamadaParlamentar.model.Party;
 import br.gov.camara.www.SitCamaraWS.Deputados.DeputadosLocator;
@@ -86,15 +85,15 @@ public class ConnectionWithWsDeputies {
 	 * @return returns the connection to the classes of the webService.
 	 */
 
-	public static ArrayList<Deputies> criaLista()
-			throws MalformedURLException, UnknownHostException,
-			ServiceException {
+	public static ArrayList<Deputies> criaLista() throws MalformedURLException,
+			UnknownHostException, ServiceException {
 		ArrayList<Deputies> lista;/* Receive a list of deputies. */
 		lista = new ArrayList<Deputies>();
 		ObtainDeputiesResponseObtainDeputiesResult deputados;
 
 		deputados = ConnectionWithWsDeputies
-				.receberElementDeputados(ConnectionWithWsDeputies.obtainConnction());
+				.receberElementDeputados(ConnectionWithWsDeputies
+						.obtainConnction());
 		NodeList nome;/* Receives the attribute name of the Member. */
 		nome = deputados.get_any()[0].getElementsByTagName("nome");
 

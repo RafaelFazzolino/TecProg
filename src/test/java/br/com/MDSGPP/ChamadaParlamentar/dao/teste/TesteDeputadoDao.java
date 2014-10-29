@@ -17,9 +17,8 @@ import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 
 public class TesteDeputadoDao {
 
-	
 	DeputiesDao deputadoDao;
-	
+
 	Deputies deputado1 = new Deputies();
 	Deputies deputado2 = new Deputies();
 

@@ -88,11 +88,12 @@ public class UpdateDataBase {
 				Dao.truncateTables();
 
 				SessionsAndMeetingsDao sessionsDao;/*
-												 * This variable controls the
-												 * connection to the database,
-												 * specific to the table
-												 * sessions and meetings.
-												 */
+													 * This variable controls
+													 * the connection to the
+													 * database, specific to the
+													 * table sessions and
+													 * meetings.
+													 */
 				sessionsDao = new SessionsAndMeetingsDao();
 
 				sessionsDao.addDateInTable(ConnectionWithWsSessions
@@ -108,10 +109,8 @@ public class UpdateDataBase {
 				rankingDao = new RankingDao();
 
 				Ranking ranking;/* This variable is the ranking done. */
-				ranking = RankingControl
-						.createRanking(RankingControl
-								.createListEstatistic(new DeputiesDao()
-										.getDeputies()));
+				ranking = RankingControl.createRanking(RankingControl
+						.createListEstatistic(new DeputiesDao().getDeputies()));
 
 				rankingDao.addRankingInTable(ranking);
 
