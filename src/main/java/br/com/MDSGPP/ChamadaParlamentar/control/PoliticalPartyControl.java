@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import br.com.MDSGPP.ChamadaParlamentar.dao.DeputiesDao;
 import br.com.MDSGPP.ChamadaParlamentar.dao.PartyDao;
-import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
+import br.com.MDSGPP.ChamadaParlamentar.exception.EmptyListException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 import br.com.MDSGPP.ChamadaParlamentar.model.Statistic;
 import br.com.MDSGPP.ChamadaParlamentar.model.Party;
@@ -140,13 +140,13 @@ public final class PoliticalPartyControl {
 	 */
 
 	public static Party gerarEstatisticaDoPartido(String nome)
-			throws ClassNotFoundException, SQLException, ListaVaziaException {
+			throws ClassNotFoundException, SQLException, EmptyListException {
 		Party partido = passarPartido(nome);
 
 		ArrayList<Statistic> estatisticas;/*
-											 * Variable that contains the
-											 * statistics.
-											 */
+										 * Variable that contains the
+										 * statistics.
+										 */
 		estatisticas = new ArrayList<Statistic>();
 
 		int sizeDeputiesOfParty;/*
@@ -158,24 +158,24 @@ public final class PoliticalPartyControl {
 		try {
 			for (int i = 0; i < sizeDeputiesOfParty; i++) {
 				Statistic estatistica;/*
-										 * Variable that contains all features
-										 * of statistics.
-										 */
+									 * Variable that contains all features of
+									 * statistics.
+									 */
 				estatistica = new Statistic();
 				try {
 					estatistica = EstatisticaControl
 							.gerarEstatisticas(EstatisticaControl
 									.arrumarNomePesquisa(partido
 											.getDeputiesParty().get(i)));
-				} catch (ListaVaziaException e) {
+				} catch (EmptyListException e) {
 					estatistica.setName(EstatisticaControl
-							.arrumarNomePesquisa(partido
-									.getDeputiesParty().get(i)));
+							.arrumarNomePesquisa(partido.getDeputiesParty()
+									.get(i)));
 				}
 				estatisticas.add(estatistica);
 			}
 		} catch (NullPointerException e) {
-			throw new ListaVaziaException();
+			throw new EmptyListException();
 		}
 
 		partido.setStatisticDeputies(estatisticas);
@@ -197,21 +197,19 @@ public final class PoliticalPartyControl {
 	 *             case an error occurs with the list.
 	 */
 	public static Party passarPartidoComDadosCompletos(String nome)
-			throws ClassNotFoundException, SQLException, ListaVaziaException {
+			throws ClassNotFoundException, SQLException, EmptyListException {
 
 		Party partido;/*
-						 * Variable that contains all features of the political
-						 * party.
-						 */
+					 * Variable that contains all features of the political
+					 * party.
+					 */
 		partido = gerarEstatisticaDoPartido(nome);
 
 		ArrayList<ArrayList<Statistic>> listaRecebida;/*
-														 * Variable that
-														 * contains the received
-														 * list.
-														 */
-		listaRecebida = LimparLista.limparLista(partido
-				.getStatisticDeputies());
+													 * Variable that contains
+													 * the received list.
+													 */
+		listaRecebida = LimparLista.limparLista(partido.getStatisticDeputies());
 
 		partido.setStatisticDeputies(listaRecebida.get(0));
 		partido.setDeputiesWithoutData(listaRecebida.get(1));

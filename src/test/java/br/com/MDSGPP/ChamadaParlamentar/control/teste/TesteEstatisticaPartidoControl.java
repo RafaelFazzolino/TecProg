@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import br.com.MDSGPP.ChamadaParlamentar.control.PoliticalPartyControl;
 import br.com.MDSGPP.ChamadaParlamentar.control.StatisticsPoliticalPartyControl;
-import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
+import br.com.MDSGPP.ChamadaParlamentar.exception.EmptyListException;
 import br.com.MDSGPP.ChamadaParlamentar.model.StatisticParty;
 
 public class TesteEstatisticaPartidoControl {
@@ -28,7 +28,7 @@ public class TesteEstatisticaPartidoControl {
 
 	@Test
 	public void testGerarEstatisticaPartido() throws ClassNotFoundException,
-			SQLException, ListaVaziaException {
+			SQLException, EmptyListException {
 		String nomePassar = "PT";
 
 		StatisticParty estatistica = StatisticsPoliticalPartyControl
@@ -37,9 +37,9 @@ public class TesteEstatisticaPartidoControl {
 		assertNotNull(estatistica);
 	}
 
-	@Test(expected = ListaVaziaException.class)
+	@Test(expected = EmptyListException.class)
 	public void testGerarEstatisticaPartidoListaVazia()
-			throws ClassNotFoundException, SQLException, ListaVaziaException {
+			throws ClassNotFoundException, SQLException, EmptyListException {
 		String nomePassar = "nao deve passar";
 		StatisticParty estatistica = StatisticsPoliticalPartyControl
 				.gerarEstatisticaPartido(nomePassar);

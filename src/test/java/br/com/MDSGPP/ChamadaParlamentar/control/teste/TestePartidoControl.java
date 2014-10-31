@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 import br.com.MDSGPP.ChamadaParlamentar.control.PoliticalPartyControl;
-import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
+import br.com.MDSGPP.ChamadaParlamentar.exception.EmptyListException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Party;
 
 public class TestePartidoControl {
@@ -78,22 +78,22 @@ public class TestePartidoControl {
 
 	@Test
 	public void testGerarEstatisticasdoPartidoCerto()
-			throws ClassNotFoundException, SQLException, ListaVaziaException {
+			throws ClassNotFoundException, SQLException, EmptyListException {
 		String nomePartido = "pt";
 		assertNotNull(PoliticalPartyControl
 				.gerarEstatisticaDoPartido(nomePartido));
 	}
 
-	@Test(expected = ListaVaziaException.class)
+	@Test(expected = EmptyListException.class)
 	public void testGerarEstatisticasdoPartidoCertoListaVazia()
-			throws ClassNotFoundException, SQLException, ListaVaziaException {
+			throws ClassNotFoundException, SQLException, EmptyListException {
 		String nomePartido = "NaoEPraPassar";
 		PoliticalPartyControl.gerarEstatisticaDoPartido(nomePartido);
 	}
 
 	@Test
 	public void testPassarPartidoComDadosCompletos()
-			throws ClassNotFoundException, SQLException, ListaVaziaException {
+			throws ClassNotFoundException, SQLException, EmptyListException {
 		String nomePartido1 = "pt";
 		String nomePartido2 = "PT";
 		String nomePartido3 = "partido dos trabalhadores";
@@ -120,9 +120,9 @@ public class TestePartidoControl {
 				.equalsIgnoreCase(partido3.getAcronyn()));
 	}
 
-	@Test(expected = ListaVaziaException.class)
+	@Test(expected = EmptyListException.class)
 	public void testPassarPartidoComDadosCompletosListaVazia()
-			throws ClassNotFoundException, SQLException, ListaVaziaException {
+			throws ClassNotFoundException, SQLException, EmptyListException {
 		Party partido1 = PoliticalPartyControl
 				.passarPartidoComDadosCompletos("nao pode passar");
 	}

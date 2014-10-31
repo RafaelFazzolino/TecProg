@@ -12,7 +12,7 @@ import org.junit.Test;
 import br.com.MDSGPP.ChamadaParlamentar.control.RankingControl;
 import br.com.MDSGPP.ChamadaParlamentar.dao.DeputiesDao;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaRankingException;
-import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
+import br.com.MDSGPP.ChamadaParlamentar.exception.EmptyListException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 import br.com.MDSGPP.ChamadaParlamentar.model.Ranking;
 import br.com.MDSGPP.ChamadaParlamentar.model.Statistic;
@@ -32,7 +32,7 @@ public class TesteRankingControl {
 
 	@Test
 	public void testGerarRanking() throws ClassNotFoundException, SQLException,
-			ListaRankingException, ListaVaziaException {
+			ListaRankingException, EmptyListException {
 		Ranking ranking = RankingControl.createRanking(RankingControl
 				.createListEstatistic(new DeputiesDao().getDeputies()));
 
@@ -58,7 +58,7 @@ public class TesteRankingControl {
 
 	@Test
 	public void testGerarListaEstatistica() throws ClassNotFoundException,
-			SQLException, ListaRankingException, ListaVaziaException {
+			SQLException, ListaRankingException, EmptyListException {
 		ArrayList<Statistic> lista1 = RankingControl
 				.createListEstatistic(new DeputiesDao().getDeputies());
 		assertNotNull(lista1);
@@ -67,7 +67,7 @@ public class TesteRankingControl {
 	@Test(expected = ListaRankingException.class)
 	public void testGerarListaEstatisticaException()
 			throws ClassNotFoundException, SQLException, ListaRankingException,
-			ListaVaziaException {
+			EmptyListException {
 		ArrayList<Deputies> listaParaParametro = new ArrayList<Deputies>();
 		ArrayList<Statistic> lista2 = RankingControl
 				.createListEstatistic(listaParaParametro);

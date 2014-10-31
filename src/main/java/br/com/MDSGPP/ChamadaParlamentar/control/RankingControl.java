@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 import br.com.MDSGPP.ChamadaParlamentar.dao.RankingDao;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaRankingException;
-import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
+import br.com.MDSGPP.ChamadaParlamentar.exception.EmptyListException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 import br.com.MDSGPP.ChamadaParlamentar.model.Statistic;
 import br.com.MDSGPP.ChamadaParlamentar.model.Ranking;
@@ -49,18 +49,18 @@ public final class RankingControl {
 		ranking = new Ranking();
 		try {
 			ArrayList<ArrayList<Statistic>> received;/*
-														 * It is an array that
-														 * receives all the
-														 * statistics for each
-														 * deputy.
-														 */
+													 * It is an array that
+													 * receives all the
+													 * statistics for each
+													 * deputy.
+													 */
 			received = LimparLista.limparLista(list);
 
 			ArrayList<Statistic> deleted;/*
-											 * It is an array that receives all
-											 * Members removed by mistake in
-											 * webService.
-											 */
+										 * It is an array that receives all
+										 * Members removed by mistake in
+										 * webService.
+										 */
 			deleted = received.get(1);
 
 			ArrayList<Statistic> bests;/*
@@ -78,9 +78,9 @@ public final class RankingControl {
 			worst = new ArrayList<Statistic>();
 
 			ArrayList<Statistic> receivedList;/*
-												 * It is an array that receives
-												 * the list of statistics.
-												 */
+											 * It is an array that receives the
+											 * list of statistics.
+											 */
 			receivedList = received.get(0);
 
 			int sizeReceived;/* Variable that contains the size of the received. */
@@ -90,10 +90,9 @@ public final class RankingControl {
 				throw new ListaRankingException();
 			}
 			ArrayList<Statistic> orderedList;/*
-												 * Um array is to receive all
-												 * the sorted list of
-												 * statistics.
-												 */
+											 * Um array is to receive all the
+											 * sorted list of statistics.
+											 */
 			orderedList = ordenation(receivedList);
 
 			for (int i = 0; i < SIZE_RANKINGS; i++) {
@@ -135,13 +134,13 @@ public final class RankingControl {
 
 	public static ArrayList<Statistic> createListEstatistic(
 			ArrayList<Deputies> lista) throws ClassNotFoundException,
-			SQLException, ListaRankingException, ListaVaziaException {
+			SQLException, ListaRankingException, EmptyListException {
 
 		try {
 			ArrayList<Statistic> devolver;/*
-											 * Variable that will return the
-											 * result of the method.
-											 */
+										 * Variable that will return the result
+										 * of the method.
+										 */
 			devolver = new ArrayList<Statistic>();
 
 			String name;/* Variable that contains the name of the deputy. */
@@ -161,11 +160,11 @@ public final class RankingControl {
 				try {
 					devolver.add(EstatisticaControl.gerarEstatisticas(name,
 							allSession));
-				} catch (ListaVaziaException e) {
+				} catch (EmptyListException e) {
 					Statistic estatistica;/*
-											 * Variable that contains all
-											 * features of the statistics.
-											 */
+										 * Variable that contains all features
+										 * of the statistics.
+										 */
 					estatistica = new Statistic();
 
 					estatistica.setName(name);
@@ -230,8 +229,8 @@ public final class RankingControl {
 	 * 
 	 * @param lista
 	 *            {@link ArrayList} of {@link Statistic}, unsorted list.
-	 * @return returns an {@link ArrayList} of {@link Statistic} with the
-	 *         sorted list.
+	 * @return returns an {@link ArrayList} of {@link Statistic} with the sorted
+	 *         list.
 	 */
 
 	public static ArrayList<Statistic> ordenation(ArrayList<Statistic> list) {
@@ -254,7 +253,8 @@ public final class RankingControl {
 							 * Variable that stores the fewest for the
 							 * ordination.
 							 */
-					first = Integer.parseInt(list.get(i - 1).getNumberSession());
+					first = Integer
+							.parseInt(list.get(i - 1).getNumberSession());
 					int second;/*
 								 * Variable that stores the highest number for
 								 * the ordination.

@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
-import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
+import br.com.MDSGPP.ChamadaParlamentar.exception.EmptyListException;
 import br.com.MDSGPP.ChamadaParlamentar.model.StatisticParty;
 import br.com.MDSGPP.ChamadaParlamentar.model.Party;
 
@@ -25,11 +25,11 @@ public final class StatisticsPoliticalPartyControl {
 	 */
 
 	public static StatisticParty gerarEstatisticaPartido(String nome)
-			throws ClassNotFoundException, SQLException, ListaVaziaException {
+			throws ClassNotFoundException, SQLException, EmptyListException {
 		StatisticParty statistical;/*
-										 * Variable that contains the
-										 * statistical of the political party.
-										 */
+									 * Variable that contains the statistical of
+									 * the political party.
+									 */
 		statistical = new StatisticParty();
 
 		Party partido;/* Variable that contains the political party. */
@@ -54,11 +54,11 @@ public final class StatisticsPoliticalPartyControl {
 		for (int i = 0; i < sizeStatisticalParty; i++) {
 
 			numberOfSessions = numberOfSessions
-					+ Integer.parseInt(partido.getStatisticDeputies()
-							.get(i).getTotalSession());
+					+ Integer.parseInt(partido.getStatisticDeputies().get(i)
+							.getTotalSession());
 			numberOfSessionsAttended = numberOfSessionsAttended
-					+ Integer.parseInt(partido.getStatisticDeputies()
-							.get(i).getNumberSession());
+					+ Integer.parseInt(partido.getStatisticDeputies().get(i)
+							.getNumberSession());
 		}
 
 		double percentage;/*

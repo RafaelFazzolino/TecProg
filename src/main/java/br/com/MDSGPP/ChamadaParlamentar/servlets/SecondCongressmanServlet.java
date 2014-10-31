@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.MDSGPP.ChamadaParlamentar.control.DeputiesControl;
 import br.com.MDSGPP.ChamadaParlamentar.control.EstatisticaControl;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ExceptionSqlInjection;
-import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
+import br.com.MDSGPP.ChamadaParlamentar.exception.EmptyListException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 import br.com.MDSGPP.ChamadaParlamentar.model.Statistic;
 
@@ -144,7 +144,7 @@ public class SecondCongressmanServlet extends HttpServlet {
 				rd = request.getRequestDispatcher("/Erro.jsp");
 			} catch (NumberFormatException e) {
 				rd = request.getRequestDispatcher("/DadosNaoDisponiveis.jsp");
-			} catch (ListaVaziaException e) {
+			} catch (EmptyListException e) {
 				rd = request.getRequestDispatcher("/DadosNaoDisponiveis.jsp");
 			}
 		} else {

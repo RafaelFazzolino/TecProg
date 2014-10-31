@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.com.MDSGPP.ChamadaParlamentar.control.DayControl;
-import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
+import br.com.MDSGPP.ChamadaParlamentar.exception.EmptyListException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Day;
 
 public class TesteDiaControl {
@@ -91,22 +91,22 @@ public class TesteDiaControl {
 
 	}
 
-	@Test(expected = ListaVaziaException.class)
+	@Test(expected = EmptyListException.class)
 	public void testPassarDataListaVazia() throws ClassNotFoundException,
-			SQLException, WrongParserException, ListaVaziaException {
+			SQLException, WrongParserException, EmptyListException {
 		Day dia1 = DayControl.passarData("20/11/2011");
 	}
 
 	@Test
 	public void testePassarDataNormal() throws ClassNotFoundException,
-			SQLException, WrongParserException, ListaVaziaException {
+			SQLException, WrongParserException, EmptyListException {
 		Day dia2 = DayControl.passarData("22/11/2011");
 		assertTrue(dia2.getListSessions().size() > 0);
 	}
 
 	@Test(expected = WrongParserException.class)
 	public void testePassarDataFormatoErrado() throws ClassNotFoundException,
-			SQLException, WrongParserException, ListaVaziaException {
+			SQLException, WrongParserException, EmptyListException {
 		Day dia3 = DayControl.passarData("nao deve passar"); // esse espera uma
 																// data null
 	}

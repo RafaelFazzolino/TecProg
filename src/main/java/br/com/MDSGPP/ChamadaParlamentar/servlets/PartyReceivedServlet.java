@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.MDSGPP.ChamadaParlamentar.control.StatisticsPoliticalPartyControl;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ExceptionSqlInjection;
-import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
+import br.com.MDSGPP.ChamadaParlamentar.exception.EmptyListException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Statistic;
 import br.com.MDSGPP.ChamadaParlamentar.model.StatisticParty;
 import br.com.MDSGPP.ChamadaParlamentar.model.Party;
@@ -66,7 +66,7 @@ public class PartyReceivedServlet extends HttpServlet {
 				rd = request.getRequestDispatcher("Erro.jp");
 			} catch (NullPointerException e) {
 				rd = request.getRequestDispatcher("PartidoNaoEncontrado.jsp");
-			} catch (ListaVaziaException e) {
+			} catch (EmptyListException e) {
 				rd = request.getRequestDispatcher("PartidoNaoEncontrado.jsp");
 				e.printStackTrace();
 			}

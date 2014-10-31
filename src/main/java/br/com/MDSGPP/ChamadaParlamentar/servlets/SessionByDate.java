@@ -14,7 +14,7 @@ import org.apache.xml.utils.WrongParserException;
 
 import br.com.MDSGPP.ChamadaParlamentar.control.DayControl;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ExceptionSqlInjection;
-import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
+import br.com.MDSGPP.ChamadaParlamentar.exception.EmptyListException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Day;
 
 public class SessionByDate extends HttpServlet {
@@ -55,7 +55,7 @@ public class SessionByDate extends HttpServlet {
 				rd = request.getRequestDispatcher("/Erro.jsp");
 			} catch (WrongParserException e) {
 				rd = request.getRequestDispatcher("/FormatoErrado.jsp");
-			} catch (ListaVaziaException e) {
+			} catch (EmptyListException e) {
 				rd = request.getRequestDispatcher("/DataNaoEncontrada.jsp");
 			}
 		} else {

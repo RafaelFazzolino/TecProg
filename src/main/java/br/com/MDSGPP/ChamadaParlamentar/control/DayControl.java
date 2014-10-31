@@ -7,9 +7,8 @@ import org.apache.xml.utils.WrongParserException;
 
 import br.com.MDSGPP.ChamadaParlamentar.dao.DayDao;
 import br.com.MDSGPP.ChamadaParlamentar.dao.SessionsAndMeetingsDao;
-import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
+import br.com.MDSGPP.ChamadaParlamentar.exception.EmptyListException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Day;
-
 
 public final class DayControl {
 
@@ -119,7 +118,7 @@ public final class DayControl {
 	 *             is case the list came empty.
 	 */
 	public static Day passarData(String data) throws ClassNotFoundException,
-			SQLException, WrongParserException, ListaVaziaException {
+			SQLException, WrongParserException, EmptyListException {
 
 		Day dia;/* Variable that contains the day. */
 		dia = null;
@@ -133,7 +132,7 @@ public final class DayControl {
 		sizeListOfSessions = dia.getListSessions().size();
 
 		if (sizeListOfSessions == 0) {
-			throw new ListaVaziaException();
+			throw new EmptyListException();
 		}
 
 		return dia;

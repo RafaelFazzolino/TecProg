@@ -10,7 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.com.MDSGPP.ChamadaParlamentar.control.EstatisticaControl;
-import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
+import br.com.MDSGPP.ChamadaParlamentar.exception.EmptyListException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 import br.com.MDSGPP.ChamadaParlamentar.model.Statistic;
 
@@ -30,7 +30,7 @@ public class TesteEstatisticaControl {
 
 	@Test
 	public void testGerarEstatisticas() throws ClassNotFoundException,
-			SQLException, ListaVaziaException {
+			SQLException, EmptyListException {
 		Statistic estatisticaTeste2 = null;
 		Statistic estatisticaTeste3 = null;
 
@@ -43,16 +43,16 @@ public class TesteEstatisticaControl {
 		assertTrue(estatisticaTeste3 != null);
 	}
 
-	@Test(expected = ListaVaziaException.class)
+	@Test(expected = EmptyListException.class)
 	public void testGerarEstatisticasListaVazia()
-			throws ClassNotFoundException, SQLException, ListaVaziaException {
+			throws ClassNotFoundException, SQLException, EmptyListException {
 		Statistic estatisticaTeste1 = EstatisticaControl
 				.gerarEstatisticas("naoDevePassar");
 	}
 
 	@Test
 	public void testGerarEstatisticasComDoisParametros()
-			throws ClassNotFoundException, SQLException, ListaVaziaException {
+			throws ClassNotFoundException, SQLException, EmptyListException {
 		Statistic estatisticaTeste2 = null;
 		Statistic estatisticaTeste3 = null;
 
@@ -67,9 +67,9 @@ public class TesteEstatisticaControl {
 				estatisticaTeste3.getName()));
 	}
 
-	@Test(expected = ListaVaziaException.class)
+	@Test(expected = EmptyListException.class)
 	public void testGerarEstatisticasComDoisParametrosListaVazia()
-			throws ClassNotFoundException, SQLException, ListaVaziaException {
+			throws ClassNotFoundException, SQLException, EmptyListException {
 		Statistic estatisticaTeste1 = EstatisticaControl.gerarEstatisticas(
 				"naoDevePassar", 3);
 	}

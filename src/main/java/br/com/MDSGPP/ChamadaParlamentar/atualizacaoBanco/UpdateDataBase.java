@@ -17,7 +17,7 @@ import br.com.MDSGPP.ChamadaParlamentar.dao.DeputiesDao;
 import br.com.MDSGPP.ChamadaParlamentar.dao.RankingDao;
 import br.com.MDSGPP.ChamadaParlamentar.dao.SessionsAndMeetingsDao;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaRankingException;
-import br.com.MDSGPP.ChamadaParlamentar.exception.ListaVaziaException;
+import br.com.MDSGPP.ChamadaParlamentar.exception.EmptyListException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Ranking;
 
 public class UpdateDataBase {
@@ -129,7 +129,7 @@ public class UpdateDataBase {
 			} catch (ListaRankingException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			} catch (ListaVaziaException e) {
+			} catch (EmptyListException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
