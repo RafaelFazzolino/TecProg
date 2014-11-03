@@ -1,12 +1,3 @@
-/**
- * License: This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * 
- * This class is responsible to establish a connection to the webService Deputados 
- * from the Deputy chamber, and return data.
- */
 package br.com.MDSGPP.ChamadaParlamentar.classesDeConexao;
 
 import java.net.MalformedURLException;
@@ -174,6 +165,15 @@ public class ConnectionWithWsSessions {
 		return passar;
 	}
 
+	/**
+	 * This method is to get actual text for session.
+	 * @param foi is an Array that contains all texts.
+	 * @param sessao is the session.
+	 * @param descricaoTemp is a variable temporary that contains the description.
+	 * @param presencaTemp contains the precense.
+	 * @param k is used of the 'for'.
+	 * @return foi.
+	 */
 	private static ArrayList<String> getActualTextForSession(
 			ArrayList<String> foi,
 			ListPresencesCongressmanResponseListPresencesCongressmanResult sessao,
@@ -192,23 +192,42 @@ public class ConnectionWithWsSessions {
 		return foi;
 	}
 
+	/**
+	 * This method is to show the progress.
+	 * @param placeOnArray
+	 * @param total
+	 */
 	private static void showProgress(final int placeOnArray, final int total) {
 		double porcentagem = (((double) (placeOnArray) / (double) total) * 100.0);
 
 		System.out.println(placeOnArray + "- " + porcentagem + "%");
 	}
 
+	/**
+	 * This method is to get all days.
+	 * @param foi is an Array that contains all days.
+	 * @param dias contains the dates.
+	 * @param sessao is the session.
+	 * @return foi.
+	 */
 	private static ArrayList<String> getNoListsOfDias(
 			ArrayList<String> foi,
 			NodeList dias,
 			ListPresencesCongressmanResponseListPresencesCongressmanResult sessao) {
-		for (int j = 0; j < dias.getLength(); j++) {
+		
+		int sizeDays;
+		sizeDays = dias.getLength();
+		
+		for (int j = 0; j < sizeDays ; j++) {
 
 			MessageElement diasTemp = (MessageElement) dias.item(j);
 			NodeList descricaoTemp = diasTemp.getElementsByTagName("descricao");
 			NodeList presencaTemp = diasTemp.getElementsByTagName("frequencia");
 
-			for (int k = 0; k < descricaoTemp.getLength(); k++) {
+			int sizeDescription;
+			sizeDescription = descricaoTemp.getLength();
+			
+			for (int k = 0; k < sizeDescription ; k++) {
 				foi = getActualTextForSession(foi, sessao, descricaoTemp,
 						presencaTemp, k);
 
@@ -217,9 +236,17 @@ public class ConnectionWithWsSessions {
 		return foi;
 	}
 
+	/**
+	 * This method is to get the date.
+	 * @param lista is an array that contains all dates.
+	 * @param foi
+	 * @param data
+	 * @return foi.
+	 */
 	private static ArrayList<String> getDateFromWs(ArrayList<Integer> lista,
-			ArrayList<String> foi, String data) {
-		int size = lista.size();
+		ArrayList<String> foi, String data) {
+		int size;
+		size = lista.size();
 		for (int i = 0; i < size; i++) {
 			showProgress(i, size);
 
