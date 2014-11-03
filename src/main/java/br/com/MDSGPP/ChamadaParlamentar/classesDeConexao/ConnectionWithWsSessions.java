@@ -167,11 +167,17 @@ public class ConnectionWithWsSessions {
 
 	/**
 	 * This method is to get actual text for session.
-	 * @param foi is an Array that contains all texts.
-	 * @param sessao is the session.
-	 * @param descricaoTemp is a variable temporary that contains the description.
-	 * @param presencaTemp contains the precense.
-	 * @param k is used of the 'for'.
+	 * 
+	 * @param foi
+	 *            is an Array that contains all texts.
+	 * @param sessao
+	 *            is the session.
+	 * @param descricaoTemp
+	 *            is a variable temporary that contains the description.
+	 * @param presencaTemp
+	 *            contains the precense.
+	 * @param k
+	 *            is used of the 'for'.
 	 * @return foi.
 	 */
 	private static ArrayList<String> getActualTextForSession(
@@ -194,6 +200,7 @@ public class ConnectionWithWsSessions {
 
 	/**
 	 * This method is to show the progress.
+	 * 
 	 * @param placeOnArray
 	 * @param total
 	 */
@@ -205,20 +212,24 @@ public class ConnectionWithWsSessions {
 
 	/**
 	 * This method is to get all days.
-	 * @param foi is an Array that contains all days.
-	 * @param dias contains the dates.
-	 * @param sessao is the session.
+	 * 
+	 * @param foi
+	 *            is an Array that contains all days.
+	 * @param dias
+	 *            contains the dates.
+	 * @param sessao
+	 *            is the session.
 	 * @return foi.
 	 */
 	private static ArrayList<String> getNoListsOfDias(
 			ArrayList<String> foi,
 			NodeList dias,
 			ListPresencesCongressmanResponseListPresencesCongressmanResult sessao) {
-		
+
 		int sizeDays;
 		sizeDays = dias.getLength();
-		
-		for (int j = 0; j < sizeDays ; j++) {
+
+		for (int j = 0; j < sizeDays; j++) {
 
 			MessageElement diasTemp = (MessageElement) dias.item(j);
 			NodeList descricaoTemp = diasTemp.getElementsByTagName("descricao");
@@ -226,8 +237,8 @@ public class ConnectionWithWsSessions {
 
 			int sizeDescription;
 			sizeDescription = descricaoTemp.getLength();
-			
-			for (int k = 0; k < sizeDescription ; k++) {
+
+			for (int k = 0; k < sizeDescription; k++) {
 				foi = getActualTextForSession(foi, sessao, descricaoTemp,
 						presencaTemp, k);
 
@@ -238,13 +249,15 @@ public class ConnectionWithWsSessions {
 
 	/**
 	 * This method is to get the date.
-	 * @param lista is an array that contains all dates.
+	 * 
+	 * @param lista
+	 *            is an array that contains all dates.
 	 * @param foi
 	 * @param data
 	 * @return foi.
 	 */
 	private static ArrayList<String> getDateFromWs(ArrayList<Integer> lista,
-		ArrayList<String> foi, String data) {
+			ArrayList<String> foi, String data) {
 		int size;
 		size = lista.size();
 		for (int i = 0; i < size; i++) {
