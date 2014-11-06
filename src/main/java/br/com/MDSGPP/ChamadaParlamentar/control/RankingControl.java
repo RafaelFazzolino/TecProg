@@ -133,32 +133,32 @@ public final class RankingControl {
 	 */
 
 	public static ArrayList<Statistic> createListEstatistic(
-			ArrayList<Deputies> lista) throws ClassNotFoundException,
+			ArrayList<Deputies> list) throws ClassNotFoundException,
 			SQLException, ListaRankingException, EmptyListException {
 
 		try {
-			ArrayList<Statistic> devolver;/*
+			ArrayList<Statistic> backList;/*
 										 * Variable that will return the result
 										 * of the method.
 										 */
-			devolver = new ArrayList<Statistic>();
+			backList = new ArrayList<Statistic>();
 
 			String name;/* Variable that contains the name of the deputy. */
-			name = EstatisticaControl.arrumarNomePesquisa(lista.get(0));
+			name = EstatisticaControl.arrumarNomePesquisa(list.get(0));
 
-			devolver.add(EstatisticaControl.gerarEstatisticas(name));
+			backList.add(EstatisticaControl.gerarEstatisticas(name));
 
 			int allSession;/* Variable that contains the number of sessions. */
-			allSession = Integer.parseInt(devolver.get(0).getTotalSession());
+			allSession = Integer.parseInt(backList.get(0).getTotalSession());
 
 			int sizeList;/* Variable that contains the size of the list. */
-			sizeList = lista.size();
+			sizeList = list.size();
 
 			for (int i = 0; i < sizeList; i++) {
-				name = EstatisticaControl.arrumarNomePesquisa(lista.get(i));
+				name = EstatisticaControl.arrumarNomePesquisa(list.get(i));
 
 				try {
-					devolver.add(EstatisticaControl.gerarEstatisticas(name,
+					backList.add(EstatisticaControl.gerarEstatisticas(name,
 							allSession));
 				} catch (EmptyListException e) {
 					Statistic estatistica;/*
@@ -168,10 +168,10 @@ public final class RankingControl {
 					estatistica = new Statistic();
 
 					estatistica.setName(name);
-					devolver.add(estatistica);
+					backList.add(estatistica);
 				}
 			}
-			return devolver;
+			return backList;
 		} catch (IndexOutOfBoundsException e2) {
 			throw new ListaRankingException();
 		}

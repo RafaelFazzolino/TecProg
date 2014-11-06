@@ -24,7 +24,7 @@ public final class StatisticsPoliticalPartyControl {
 	 *             is case an error occurs with the list.
 	 */
 
-	public static StatisticParty gerarEstatisticaPartido(String nome)
+	public static StatisticParty gerarEstatisticaPartido(String name)
 			throws ClassNotFoundException, SQLException, EmptyListException {
 		StatisticParty statistical;/*
 									 * Variable that contains the statistical of
@@ -32,9 +32,9 @@ public final class StatisticsPoliticalPartyControl {
 									 */
 		statistical = new StatisticParty();
 
-		Party partido;/* Variable that contains the political party. */
-		partido = PoliticalPartyControl.passarPartidoComDadosCompletos(nome);
-		statistical.setpoliticalParty(partido);
+		Party party;/* Variable that contains the political party. */
+		party = PoliticalPartyControl.passarPartidoComDadosCompletos(name);
+		statistical.setpoliticalParty(party);
 
 		int numberOfSessions = 0;/*
 								 * Variable that contains the number of
@@ -49,15 +49,15 @@ public final class StatisticsPoliticalPartyControl {
 								 * Variable that contains the size of
 								 * statistical party.
 								 */
-		sizeStatisticalParty = partido.getStatisticDeputies().size();
+		sizeStatisticalParty = party.getStatisticDeputies().size();
 
 		for (int i = 0; i < sizeStatisticalParty; i++) {
 
 			numberOfSessions = numberOfSessions
-					+ Integer.parseInt(partido.getStatisticDeputies().get(i)
+					+ Integer.parseInt(party.getStatisticDeputies().get(i)
 							.getTotalSession());
 			numberOfSessionsAttended = numberOfSessionsAttended
-					+ Integer.parseInt(partido.getStatisticDeputies().get(i)
+					+ Integer.parseInt(party.getStatisticDeputies().get(i)
 							.getNumberSession());
 		}
 
@@ -67,10 +67,10 @@ public final class StatisticsPoliticalPartyControl {
 						 */
 		percentage = (((double) (numberOfSessionsAttended)) / ((double) numberOfSessions)) * 100.0;
 
-		String porcentagemAPassar;/* Variable that contains the final percentage. */
-		porcentagemAPassar = formatarNumeroDouble(percentage);
+		String passPercentage;/* Variable that contains the final percentage. */
+		passPercentage = formatarNumeroDouble(percentage);
 
-		statistical.setpercentage(porcentagemAPassar);
+		statistical.setpercentage(passPercentage);
 		statistical.setnumberOfSessions(numberOfSessions);
 		statistical.setassistedSessions(numberOfSessionsAttended);
 

@@ -96,9 +96,10 @@ public final class PoliticalPartyControl {
 		allDeputies = new DeputiesDao().getDeputies();
 
 		ArrayList<Deputies> deputiesOfThePoliticalParty;/*
-												 * ArrayList that contains all
-												 * deputies of the party.
-												 */
+														 * ArrayList that
+														 * contains all deputies
+														 * of the party.
+														 */
 		deputiesOfThePoliticalParty = new ArrayList<Deputies>();
 
 		if (politicalPartyName != null) {

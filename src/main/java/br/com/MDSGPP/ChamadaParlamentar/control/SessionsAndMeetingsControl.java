@@ -20,21 +20,21 @@ public final class SessionsAndMeetingsControl {
 	 *             if miss spelled SQL is entered.
 	 */
 
-	public static SessionAndMeetings nextSession(String descricao)
+	public static SessionAndMeetings nextSession(String description)
 			throws ClassNotFoundException, SQLException {
 		SessionsAndMeetingsDao dao;/*
-								 * Variable that create the connection with
-								 * dataBase.
-								 */
+									 * Variable that create the connection with
+									 * dataBase.
+									 */
 		dao = new SessionsAndMeetingsDao();
 
 		ArrayList<String> list;/* Variable that contains the list of sessions. */
-		list = dao.searchSession(descricao);
+		list = dao.searchSession(description);
 
 		SessionAndMeetings pass;/* Variable that contains the final list. */
 		pass = new SessionAndMeetings();
 		pass.setDeputiesPresence(list);
-		pass.setDescription(descricao);
+		pass.setDescription(description);
 
 		return pass;
 	}
@@ -49,21 +49,24 @@ public final class SessionsAndMeetingsControl {
 	 */
 
 	public static ArrayList<String> organizeListDeputy(int page,
-			int deputadosPorPagina, ArrayList<String> deputadosPresentes) {
+			int deputiesForPage, ArrayList<String> presentDeputies) {
 		ArrayList<String> passList;/* Variable that contains the final list. */
 		passList = new ArrayList<String>();
 
-		for (int i = 0; i < deputadosPorPagina; i++) {
+		for (int i = 0; i < deputiesForPage; i++) {
 			if (page == 0) {
-				passList.add(deputadosPresentes.get(i));
+				passList.add(presentDeputies.get(i));
 			} else {
-				
-				int numberOfPresentsDeputy;/*Variable that contains the number of present deputies.*/
-				numberOfPresentsDeputy = deputadosPresentes.size();
-				
-				if (i + (page * deputadosPorPagina) < numberOfPresentsDeputy) {
-					passList.add(deputadosPresentes.get(i
-							+ (page * deputadosPorPagina)));
+
+				int numberOfPresentsDeputy;/*
+											 * Variable that contains the number
+											 * of present deputies.
+											 */
+				numberOfPresentsDeputy = presentDeputies.size();
+
+				if (i + (page * deputiesForPage) < numberOfPresentsDeputy) {
+					passList.add(presentDeputies.get(i
+							+ (page * deputiesForPage)));
 				}
 			}
 		}
