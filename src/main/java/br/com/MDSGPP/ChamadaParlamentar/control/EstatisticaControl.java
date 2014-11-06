@@ -40,11 +40,11 @@ public final class EstatisticaControl {
 	 *             is case an error occurs with the list.
 	 */
 
-	public static Statistic gerarEstatisticas(String nome)
+	public static Statistic gerarEstatisticas(String name)
 			throws ClassNotFoundException, SQLException, EmptyListException {
 
-		Statistic estatistica;/* Variable that contains the statistic. */
-		estatistica = new Statistic();
+		Statistic statistic;/* Variable that contains the statistic. */
+		statistic = new Statistic();
 
 		StatisticDao dao;/* Variable that create the connection with dataBase. */
 		dao = new StatisticDao();
@@ -61,15 +61,15 @@ public final class EstatisticaControl {
 							 */
 		numeroTotalSessao = sessions.nextNumberSession();
 
-		estatistica.setLista(dao.getStatisticDeputies(nome));
+		statistic.setLista(dao.getStatisticDeputies(name));
 
-		estatistica.setName(nome);
+		statistic.setName(name);
 
-		estatistica = calcularEstatistica(estatistica, sessions,
+		statistic = calcularEstatistica(statistic, sessions,
 				numeroTotalSessao);
-		estatistica.setTotalSession(Integer.toString(numeroTotalSessao));
+		statistic.setTotalSession(Integer.toString(numeroTotalSessao));
 
-		return estatistica;
+		return statistic;
 	}
 
 	/**
@@ -89,11 +89,11 @@ public final class EstatisticaControl {
 	 *             is case an error occurs with the list.
 	 */
 
-	public static Statistic gerarEstatisticas(String nome, int numeroTotalSessao)
+	public static Statistic gerarEstatisticas(String name, int numberOfSessions)
 			throws ClassNotFoundException, SQLException, EmptyListException {
 
-		Statistic estatistica;/* Variable that contains the statistic. */
-		estatistica = new Statistic();
+		Statistic statistic;/* Variable that contains the statistic. */
+		statistic = new Statistic();
 
 		StatisticDao dao;/* Variable that create the connection with dataBase. */
 		dao = new StatisticDao();
@@ -104,16 +104,16 @@ public final class EstatisticaControl {
 										 */
 		sessions = new SessionsAndMeetingsDao();
 
-		estatistica.setLista(dao.getStatisticDeputies(nome));
+		statistic.setLista(dao.getStatisticDeputies(name));
 
-		estatistica.setName(nome);
+		statistic.setName(name);
 
-		estatistica = calcularEstatistica(estatistica, sessions,
-				numeroTotalSessao);
+		statistic = calcularEstatistica(statistic, sessions,
+				numberOfSessions);
 
-		estatistica.setTotalSession(Integer.toString(numeroTotalSessao));
+		statistic.setTotalSession(Integer.toString(numberOfSessions));
 
-		return estatistica;
+		return statistic;
 
 	}
 
@@ -132,17 +132,17 @@ public final class EstatisticaControl {
 	 * @throws ListaVaziaException
 	 */
 
-	public static Statistic calcularEstatistica(Statistic estatistica,
-			SessionsAndMeetingsDao sessoes, int numeroTotalSessao)
+	public static Statistic calcularEstatistica(Statistic statistic,
+			SessionsAndMeetingsDao sessions, int numberOfSessions)
 			throws EmptyListException {
 
 		int sizeList;/* Variable that contains the size of List. */
-		sizeList = estatistica.getLista().size();
+		sizeList = statistic.getLista().size();
 
 		if (sizeList == 0) {
 			throw new EmptyListException();
 		}
-		estatistica.setNumberSession(Integer.toString(sizeList));
+		statistic.setNumberSession(Integer.toString(sizeList));
 
 		DecimalFormat df;/*
 						 * Variable that contains the decimal format of the
@@ -150,12 +150,12 @@ public final class EstatisticaControl {
 						 */
 		df = new DecimalFormat("###.00");
 
-		estatistica.setPercentagem(df
-				.format((((double) sizeList) / ((double) numeroTotalSessao))
+		statistic.setPercentagem(df
+				.format((((double) sizeList) / ((double) numberOfSessions))
 						* PASS_PERCENTAGE)
 				+ "%");
 
-		return estatistica;
+		return statistic;
 	}
 
 	/**
@@ -167,11 +167,11 @@ public final class EstatisticaControl {
 	 * @return returns a String with the name based on the data base pattern.
 	 */
 
-	public static String arrumarNomePesquisa(Deputies deputado) {
+	public static String arrumarNomePesquisa(Deputies deputy) {
 
 		String montar;/* Variable that contains the new name. */
-		montar = deputado.getNameTreatmentCongressman() + "-"
-				+ deputado.getParty() + "/" + deputado.getFederativeUnit();
+		montar = deputy.getNameTreatmentCongressman() + "-"
+				+ deputy.getParty() + "/" + deputy.getFederativeUnit();
 		String montarFinal;/* Variable that contains the final name. */
 		montarFinal = montar.toUpperCase();
 
@@ -193,8 +193,8 @@ public final class EstatisticaControl {
 	 *         sessions that must be on the page.
 	 */
 
-	public static ArrayList<String> passarListaCerta(int pagina,
-			int sessoesPorPagina, ArrayList<String> listaPassada) {
+	public static ArrayList<String> passarListaCerta(int page,
+			int sessionsForPage, ArrayList<String> listaPassada) {
 		ArrayList<String> listPass;/*
 									 * Variable that contains the final list of
 									 * statistics.
@@ -212,12 +212,12 @@ public final class EstatisticaControl {
 		if (sizeList == 0) {
 			throw new IndexOutOfBoundsException();
 		}
-		for (int i = 0; i < sessoesPorPagina; i++) {
-			if (pagina == 0) {
+		for (int i = 0; i < sessionsForPage; i++) {
+			if (page == 0) {
 				listPass.add(list.get(i));
 			} else {
-				if (i + (pagina * sessoesPorPagina) < sizeList) {
-					listPass.add(list.get(i + (pagina * sessoesPorPagina)));
+				if (i + (page * sessionsForPage) < sizeList) {
+					listPass.add(list.get(i + (page * sessionsForPage)));
 				}
 			}
 		}
@@ -234,14 +234,14 @@ public final class EstatisticaControl {
 	 *         correct order.
 	 */
 
-	public static ArrayList<String> ordenarLista(ArrayList<String> lista) {
+	public static ArrayList<String> ordenarLista(ArrayList<String> list) {
 		ArrayList<String> ordenada = new ArrayList<String>();
 
 		int sizeList;/* Variable that contains the size of list. */
-		sizeList = lista.size();
+		sizeList = list.size();
 
 		for (int i = 0; i < sizeList; i++) {
-			ordenada.add(lista.get(sizeList - 1 - i));
+			ordenada.add(list.get(sizeList - 1 - i));
 		}
 
 		return ordenada;

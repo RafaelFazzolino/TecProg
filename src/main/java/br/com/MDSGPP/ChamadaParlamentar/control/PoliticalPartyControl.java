@@ -43,24 +43,24 @@ public final class PoliticalPartyControl {
 	 * @throws SQLException
 	 *             case an error occurs with dataBase.
 	 */
-	public static ArrayList<String> verificaExistencia(String partido)
+	public static ArrayList<String> verificaExistencia(String party)
 			throws ClassNotFoundException, SQLException {
 
-		ArrayList<ArrayList<String>> listaComDados;/*
+		ArrayList<ArrayList<String>> listWithDatas;/*
 													 * Variable that contains
 													 * all data of the parties.
 													 */
-		listaComDados = passarListaPartidos();
+		listWithDatas = passarListaPartidos();
 
 		int sizeListWithData;/* Variable that contains the size of the list. */
-		sizeListWithData = listaComDados.size();
+		sizeListWithData = listWithDatas.size();
 
 		for (int i = 0; i < sizeListWithData; i++) {
 
-			if (listaComDados.get(i).get(0).equalsIgnoreCase(partido)
-					|| listaComDados.get(i).get(1).equalsIgnoreCase(partido)) {
+			if (listWithDatas.get(i).get(0).equalsIgnoreCase(party)
+					|| listWithDatas.get(i).get(1).equalsIgnoreCase(party)) {
 
-				return listaComDados.get(i);
+				return listWithDatas.get(i);
 			}
 		}
 		return null;
@@ -79,27 +79,27 @@ public final class PoliticalPartyControl {
 	 *             case an error occurs with dataBase.
 	 */
 
-	public static Party passarPartido(String nomePartido)
+	public static Party passarPartido(String nameParty)
 			throws ClassNotFoundException, SQLException {
 
-		Party partido;/* Variable that contains all features of the party. */
-		partido = new Party();
-		partido.setDeputiesParty(null);
+		Party party;/* Variable that contains all features of the party. */
+		party = new Party();
+		party.setDeputiesParty(null);
 
 		ArrayList<String> politicalPartyName;/*
 											 * Variable that contains the right
 											 * political party.
 											 */
-		politicalPartyName = verificaExistencia(nomePartido);
+		politicalPartyName = verificaExistencia(nameParty);
 
 		ArrayList<Deputies> allDeputies;/* Array that contains all deputies. */
 		allDeputies = new DeputiesDao().getDeputies();
 
-		ArrayList<Deputies> deputadosDoPartido;/*
+		ArrayList<Deputies> deputiesOfThePoliticalParty;/*
 												 * ArrayList that contains all
 												 * deputies of the party.
 												 */
-		deputadosDoPartido = new ArrayList<Deputies>();
+		deputiesOfThePoliticalParty = new ArrayList<Deputies>();
 
 		if (politicalPartyName != null) {
 
@@ -112,16 +112,16 @@ public final class PoliticalPartyControl {
 			for (int i = 0; i < sizeAllDeputies; i++) {
 				if (politicalPartyName.get(0).equalsIgnoreCase(
 						allDeputies.get(i).getParty())) {
-					deputadosDoPartido.add(allDeputies.get(i));
+					deputiesOfThePoliticalParty.add(allDeputies.get(i));
 				}
 			}
 
-			partido.setAcronyn(politicalPartyName.get(0));
-			partido.setNameParty(politicalPartyName.get(1));
-			partido.setDeputiesParty(deputadosDoPartido);
+			party.setAcronyn(politicalPartyName.get(0));
+			party.setNameParty(politicalPartyName.get(1));
+			party.setDeputiesParty(deputiesOfThePoliticalParty);
 		}
 
-		return partido;
+		return party;
 	}
 
 	/**
@@ -139,48 +139,49 @@ public final class PoliticalPartyControl {
 	 *             case an error occurs with the list.
 	 */
 
-	public static Party gerarEstatisticaDoPartido(String nome)
+	public static Party gerarEstatisticaDoPartido(String name)
 			throws ClassNotFoundException, SQLException, EmptyListException {
-		Party partido = passarPartido(nome);
+		Party party;
+		party = passarPartido(name);
 
-		ArrayList<Statistic> estatisticas;/*
+		ArrayList<Statistic> statistics;/*
 										 * Variable that contains the
 										 * statistics.
 										 */
-		estatisticas = new ArrayList<Statistic>();
+		statistics = new ArrayList<Statistic>();
 
 		int sizeDeputiesOfParty;/*
 								 * Variable that contains the size of list with
 								 * all deputies of the party.
 								 */
-		sizeDeputiesOfParty = partido.getDeputiesParty().size();
+		sizeDeputiesOfParty = party.getDeputiesParty().size();
 
 		try {
 			for (int i = 0; i < sizeDeputiesOfParty; i++) {
-				Statistic estatistica;/*
+				Statistic statistic;/*
 									 * Variable that contains all features of
 									 * statistics.
 									 */
-				estatistica = new Statistic();
+				statistic = new Statistic();
 				try {
-					estatistica = EstatisticaControl
+					statistic = EstatisticaControl
 							.gerarEstatisticas(EstatisticaControl
-									.arrumarNomePesquisa(partido
+									.arrumarNomePesquisa(party
 											.getDeputiesParty().get(i)));
 				} catch (EmptyListException e) {
-					estatistica.setName(EstatisticaControl
-							.arrumarNomePesquisa(partido.getDeputiesParty()
+					statistic.setName(EstatisticaControl
+							.arrumarNomePesquisa(party.getDeputiesParty()
 									.get(i)));
 				}
-				estatisticas.add(estatistica);
+				statistics.add(statistic);
 			}
 		} catch (NullPointerException e) {
 			throw new EmptyListException();
 		}
 
-		partido.setStatisticDeputies(estatisticas);
+		party.setStatisticDeputies(statistics);
 
-		return partido;
+		return party;
 	}
 
 	/**
@@ -196,24 +197,24 @@ public final class PoliticalPartyControl {
 	 * @throws ListaVaziaException
 	 *             case an error occurs with the list.
 	 */
-	public static Party passarPartidoComDadosCompletos(String nome)
+	public static Party passarPartidoComDadosCompletos(String name)
 			throws ClassNotFoundException, SQLException, EmptyListException {
 
-		Party partido;/*
+		Party party;/*
 					 * Variable that contains all features of the political
 					 * party.
 					 */
-		partido = gerarEstatisticaDoPartido(nome);
+		party = gerarEstatisticaDoPartido(name);
 
-		ArrayList<ArrayList<Statistic>> listaRecebida;/*
+		ArrayList<ArrayList<Statistic>> receivedList;/*
 													 * Variable that contains
 													 * the received list.
 													 */
-		listaRecebida = LimparLista.limparLista(partido.getStatisticDeputies());
+		receivedList = LimparLista.limparLista(party.getStatisticDeputies());
 
-		partido.setStatisticDeputies(listaRecebida.get(0));
-		partido.setDeputiesWithoutData(listaRecebida.get(1));
+		party.setStatisticDeputies(receivedList.get(0));
+		party.setDeputiesWithoutData(receivedList.get(1));
 
-		return partido;
+		return party;
 	}
 }

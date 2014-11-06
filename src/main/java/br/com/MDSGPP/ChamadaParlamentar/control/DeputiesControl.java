@@ -44,13 +44,13 @@ public final class DeputiesControl {
 		Deputies deputy;/* Variable that contains the deputies. */
 		deputy = null;
 
-		DeputiesDao deputadoDao;/*
-								 * Variable that create connection with dataBase
-								 * to get deputies.
-								 */
-		deputadoDao = new DeputiesDao();
+		DeputiesDao deputyDao;/*
+							 * Variable that create connection with dataBase to
+							 * get deputies.
+							 */
+		deputyDao = new DeputiesDao();
 		ArrayList<Deputies> list;/* Variable that contains all deputies. */
-		list = deputadoDao.getDeputies();
+		list = deputyDao.getDeputies();
 
 		int sizeList;/* Variable that contains the size of the list. */
 		sizeList = list.size();
