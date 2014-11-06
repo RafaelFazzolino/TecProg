@@ -1,8 +1,8 @@
 package br.com.MDSGPP.ChamadaParlamentar.model;
 
 public class Deputies {
-	
-	/*Atributs to our class.*/
+
+	/* Atributs to our class. */
 	private int idCongressman;
 	private int registry;
 	private int idRegister;
@@ -16,15 +16,16 @@ public class Deputies {
 	private String telephone;
 	private String email;
 
-	/*Constructor to our class.*/
+	/* Constructor to our class. */
 	public Deputies() {
-		
+
 	}
-	
-	public Deputies(int idParlamentar, int matricula, int ideCadastro, String nomeCivil,
-			String nomeTratamento, String sexo, String uf, String partido, String numeroGabinete,
-			String anexo, String telefone, String email) {
-		
+
+	public Deputies(int idParlamentar, int matricula, int ideCadastro,
+			String nomeCivil, String nomeTratamento, String sexo, String uf,
+			String partido, String numeroGabinete, String anexo,
+			String telefone, String email) {
+
 		this.idCongressman = idParlamentar;
 		this.registry = matricula;
 		this.idRegister = ideCadastro;
@@ -39,7 +40,7 @@ public class Deputies {
 		this.email = email;
 	}
 
-	/*Geters and setters.*/
+	/* Geters and setters. */
 	public int getIdDeputy() {
 		return idCongressman;
 	}
@@ -60,8 +61,7 @@ public class Deputies {
 		return nameTreamentCOngressman;
 	}
 
-	public void setNameTreatmentCongressman(
-			String nomeDeTratamentoDoParlamentar) {
+	public void setNameTreatmentCongressman(String nomeDeTratamentoDoParlamentar) {
 		this.nameTreamentCOngressman = nomeDeTratamentoDoParlamentar;
 	}
 

@@ -1,8 +1,7 @@
 package br.com.MDSGPP.ChamadaParlamentar.exception;
 
-/* exception para quando o ranking tiver algum problema *
- * ao ser gerado *
- */
+/*Exception for when the ranking have a problem being generated.*/
+
 public class ListaRankingException extends Exception {
 
 	private static final long serialVersionUID = 1L;

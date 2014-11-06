@@ -124,8 +124,8 @@ public class DayDao extends ConnectionFactory {
 		ArrayList<Day> list;/* Is an array that received the days. */
 		list = new ArrayList<Day>();
 
-		int controle;/* This variable is to control the while. */
-		controle = 0;
+		int controll;/* This variable is to control the while. */
+		controll = 0;
 
 		while (rs.next()) {
 			if (list.size() == 0) {
@@ -134,14 +134,14 @@ public class DayDao extends ConnectionFactory {
 				dia.setData(rs.getString(DATAS));
 				list.add(dia);
 			} else {
-				boolean teste = list.get(controle).getData()
+				boolean teste = list.get(controll).getData()
 						.equals(rs.getString(DATAS));
 				if (!teste) {
 					Day diaAux;/* Temporary variable that contains the day. */
 					diaAux = new Day();
 					diaAux.setData(rs.getString(DATAS));
 					list.add(diaAux);
-					controle++;
+					controll++;
 				}
 			}
 		}

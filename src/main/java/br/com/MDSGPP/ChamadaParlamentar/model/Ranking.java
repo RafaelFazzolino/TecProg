@@ -22,8 +22,8 @@ public class Ranking {
 	/**
 	 * This method is to change the variable lista.
 	 */
-	public void setList(ArrayList<Statistic> lista) {
-		this.list = lista;
+	public void setList(ArrayList<Statistic> list) {
+		this.list = list;
 	}
 
 	/**
@@ -36,8 +36,8 @@ public class Ranking {
 	/**
 	 * This method is to change the variable removidos.
 	 */
-	public void setRemoved(ArrayList<Statistic> removidos) {
-		this.removed = removidos;
+	public void setRemoved(ArrayList<Statistic> removed) {
+		this.removed = removed;
 	}
 
 	/**
@@ -50,8 +50,8 @@ public class Ranking {
 	/**
 	 * This method is to change the variable melhores.
 	 */
-	public void setBetter(ArrayList<Statistic> melhores) {
-		this.better = melhores;
+	public void setBetter(ArrayList<Statistic> bests) {
+		this.better = bests;
 	}
 
 	/**
@@ -64,7 +64,7 @@ public class Ranking {
 	/**
 	 * This method is to change the variable piores.
 	 */
-	public void setWorst(ArrayList<Statistic> piores) {
-		this.worst = piores;
+	public void setWorst(ArrayList<Statistic> worst) {
+		this.worst = worst;
 	}
 }

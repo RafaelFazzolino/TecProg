@@ -24,10 +24,14 @@ public class DeputyReceived extends javax.servlet.http.HttpServlet {
 	 */
 	protected void service(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		String name = request.getParameter("nome");
+		String name;
+		name = request.getParameter("nome");
 
-		Deputies deputy = null;
-		RequestDispatcher rd = null;
+		Deputies deputy;
+		deputy = null;
+
+		RequestDispatcher rd;
+		rd = null;
 
 		if (ExceptionSqlInjection.testeSqlInjection(name)) {
 			try {
@@ -53,7 +57,8 @@ public class DeputyReceived extends javax.servlet.http.HttpServlet {
 					double presence = Math.ceil(((Double.parseDouble(statistic
 							.getNumberSession())) / (Double
 							.parseDouble(statistic.getTotalSession()))) * 100);
-					String presenceNext = Double.toString(presence);
+					String presenceNext;
+					presenceNext = Double.toString(presence);
 
 					statistic.setLista(EstatisticaControl.passarListaCerta(
 							page - 1, sessionForPage, statistic.getLista()));

@@ -13,47 +13,60 @@ public class Day {
 
 	/**
 	 * This method is to get the date.
+	 * 
 	 * @return date.
 	 */
 	public String getData() {
 		return date;
 	}
-	
+
 	/**
 	 * This method is to change the value of the variable data.
-	 * @param data is to new value to be added.
-	 * @throws DataFormatoErradoException if the date is in formed unknown.
+	 * 
+	 * @param data
+	 *            is to new value to be added.
+	 * @throws DataFormatoErradoException
+	 *             if the date is in formed unknown.
 	 */
 	public void setData(String date) throws WrongParserException {
-		if( !VerificarData.verificaData(date) ) {
+		if (!VerificarData.verificaData(date)) {
 			throw new WrongParserException(date);
 		}
-		
+
 		this.date = date;
 	}
+
 	/**
-	 * This method is to get the Array listaSessoes containing all sessions at this day.
-	 * @return listaSessoes what is an array containing all sessions at this day.
+	 * This method is to get the Array listaSessoes containing all sessions at
+	 * this day.
+	 * 
+	 * @return listaSessoes what is an array containing all sessions at this
+	 *         day.
 	 */
 	public ArrayList<SessionAndMeetings> getListSessions() {
 		return listOfSessions;
 	}
+
 	/**
 	 * This method is to change the array listaSessoes.
-	 * @param listaSessoes is an array containing all sessions at this day.
+	 * 
+	 * @param listaSessoes
+	 *            is an array containing all sessions at this day.
 	 */
 	public void setListSesssions(ArrayList<SessionAndMeetings> listOfSessions) {
 		this.listOfSessions = listOfSessions;
-		if( listOfSessions != null ) {
+		if (listOfSessions != null) {
 			this.numberOfSessions = listOfSessions.size();
-		}
-		else {
+		} else {
 			this.numberOfSessions = 0;
 		}
 	}
+
 	/**
 	 * This method is to get the number of sessions.
-	 * @return numeroSessoes what is a variable containing the number of sessions.
+	 * 
+	 * @return numeroSessoes what is a variable containing the number of
+	 *         sessions.
 	 */
 	public int getNumberSessions() {
 		return numberOfSessions;

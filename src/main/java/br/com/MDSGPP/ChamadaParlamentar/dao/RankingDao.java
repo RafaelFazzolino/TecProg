@@ -15,29 +15,37 @@ public class RankingDao extends ConnectionFactory {
 	public RankingDao() throws ClassNotFoundException, SQLException {
 		new ConnectionFactory().getConnection();
 	}
-	
+
 	/**
 	 * This method add the Ranking in the DB table.
-	 * @param ranking is a Ranking contains all features of the ranking.
-	 * @throws SQLException case the dataBase is off.
+	 * 
+	 * @param ranking
+	 *            is a Ranking contains all features of the ranking.
+	 * @throws SQLException
+	 *             case the dataBase is off.
 	 */
-	
-	public void addRankingInTable(Ranking ranking) throws SQLException {
-		String sql =  "insert into ranking(nomeParlamentar, porcentagem, numeroSessoes)values (?, ?, ?)";
-		PreparedStatement stmt = ConnectionFactory.getConexao().prepareStatement(sql);
 
-		for( int i = 0; i < ranking.getList().size(); i++ ) {
+	public void addRankingInTable(Ranking ranking) throws SQLException {
+		String sql;
+		sql = "insert into ranking(nomeParlamentar, porcentagem, numeroSessoes)values (?, ?, ?)";
+		PreparedStatement stmt;
+		stmt = ConnectionFactory.getConexao().prepareStatement(sql);
+
+		int sizeRanking;/* Variable that contains the size of ranking. */
+		sizeRanking = ranking.getList().size();
+
+		for (int i = 0; i < sizeRanking; i++) {
 			try {
 				stmt.setString(1, ranking.getList().get(i).getName());
 				stmt.setString(2, ranking.getList().get(i).getPercentagem());
 				stmt.setString(3, ranking.getList().get(i).getNumberSession());
-				
+
 				stmt.execute();
 			} catch (MySQLIntegrityConstraintViolationException e) {
 				System.out.println(ranking.getList().get(i).getName());
 			}
 		}
-		for( int i = 0; i < ranking.getRemoved().size(); i++ ) {
+		for (int i = 0; i < ranking.getRemoved().size(); i++) {
 			stmt.setString(1, ranking.getRemoved().get(i).getName());
 			stmt.setString(2, "semDados");
 			stmt.execute();
@@ -45,39 +53,53 @@ public class RankingDao extends ConnectionFactory {
 
 		stmt.close();
 	}
-	
+
 	/**
 	 * This method returns a refreshed status of the Ranking
+	 * 
 	 * @return ranking complete.
-	 * @throws SQLException case the dataBase is off.
+	 * @throws SQLException
+	 *             case the dataBase is off.
 	 */
-	public Ranking returnRanking () throws SQLException {
-		Ranking ranking = new Ranking();
-		ArrayList<Statistic> deleted = new ArrayList<Statistic>();
-		ArrayList<Statistic> list = new ArrayList<Statistic>();
-		
+	public Ranking returnRanking() throws SQLException {
+
+		Ranking ranking;/* Variable that contains the ranking. */
+		ranking = new Ranking();
+
+		ArrayList<Statistic> deleted;/*
+									 * Variable that contains all deputies
+									 * deleted.
+									 */
+		deleted = new ArrayList<Statistic>();
+
+		ArrayList<Statistic> list;/* Variable that contains all deputies. */
+		list = new ArrayList<Statistic>();
+
 		String sql = "Select * from ranking";
-		
-		PreparedStatement stmt = ConnectionFactory.getConexao().prepareStatement(sql);
-		ResultSet rs = stmt.executeQuery();
-		
-		while( rs.next() ) {
-			Statistic statistic = new Statistic();
+
+		PreparedStatement stmt;
+		stmt = ConnectionFactory.getConexao().prepareStatement(sql);
+
+		ResultSet rs;
+		rs = stmt.executeQuery();
+
+		while (rs.next()) {
+			Statistic statistic;
+			statistic = new Statistic();
+
 			statistic.setName(rs.getString("nomeParlamentar"));
-			if( rs.getString("porcentagem").equalsIgnoreCase("semDados") ) {
+			if (rs.getString("porcentagem").equalsIgnoreCase("semDados")) {
 				deleted.add(statistic);
-			} 
-			else {
+			} else {
 				statistic.setPercentagem(rs.getString("porcentagem"));
 				statistic.setNumberSession(rs.getString("numeroSessoes"));
 				list.add(statistic);
 			}
 		}
-		
+
 		ranking.setList(list);
 		ranking.setRemoved(deleted);
 		return ranking;
 	}
-
 
 }

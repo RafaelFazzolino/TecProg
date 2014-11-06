@@ -21,15 +21,19 @@ public class PartyDao extends ConnectionFactory {
 	 * @param lista is a Array containing all parties.
 	 * @throws SQLException is for case some SQL exceptions happen.
 	 */
-	public void addPartyInTable (ArrayList<Party> lista)
+	public void addPartyInTable (ArrayList<Party> list)
 			throws SQLException {
 		String sql = "insert into partido(sigla, nomePartido)values(?, ?)";
 
-		PreparedStatement stmt = getConexao().prepareStatement(sql);
+		PreparedStatement stmt;
+		stmt = getConexao().prepareStatement(sql);
 
-		for( int i = 0; i < lista.size(); i++ ) {
-			stmt.setString(UM, lista.get(i).getAcronyn());
-			stmt.setString(DOIS, lista.get(i).getNameParty());
+		int sizeList;/*Variable that contains the size of list.*/
+		sizeList = list.size();
+		
+		for( int i = 0; i < sizeList; i++ ) {
+			stmt.setString(UM, list.get(i).getAcronyn());
+			stmt.setString(DOIS, list.get(i).getNameParty());
 
 			stmt.execute();
 		}
@@ -44,22 +48,25 @@ public class PartyDao extends ConnectionFactory {
 	 */
 	public ArrayList<ArrayList<String>> catchParty() throws SQLException {
 		
-		ArrayList<ArrayList<String>> listaPassar = new ArrayList<ArrayList<String>>();
+		ArrayList<ArrayList<String>> listPass;
+		listPass = new ArrayList<ArrayList<String>>();
 		
 		String sql = "Select * from partido";
 		
-		PreparedStatement stmt = getConexao().prepareStatement(sql);
+		PreparedStatement stmt;
+		stmt = getConexao().prepareStatement(sql);
 		
-		ResultSet rs = stmt.executeQuery();
+		ResultSet rs;
+		rs = stmt.executeQuery();
 		
 		while( rs.next() ) {
-			ArrayList<String> adicionar = new ArrayList<String>();
-			adicionar.add(rs.getString("sigla"));
-			adicionar.add(rs.getString("nomePartido"));
-			listaPassar.add(adicionar);
+			ArrayList<String> adding = new ArrayList<String>();
+			adding.add(rs.getString("sigla"));
+			adding.add(rs.getString("nomePartido"));
+			listPass.add(adding);
 		}
 		
-		return listaPassar;
+		return listPass;
 	}
 	
 	

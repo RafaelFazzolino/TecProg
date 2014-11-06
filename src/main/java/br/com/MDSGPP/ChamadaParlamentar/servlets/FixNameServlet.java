@@ -23,7 +23,9 @@ public class FixNameServlet extends HttpServlet {
 		/**
 		 * This variable received name Deputy and fix possible wrong
 		 * */
-		String name = request.getParameter("nome");
+		String name;
+		name = request.getParameter("nome");
+
 		name = name.split("-")[0];
 
 		rd = request.getRequestDispatcher("parlamentarRecebido?nome=" + name);
