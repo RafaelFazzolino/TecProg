@@ -24,7 +24,8 @@ public class SessionsAndMeetingsServlet extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request,
 			HttpServletResponse response) {
-		RequestDispatcher rd = null;
+		RequestDispatcher rd;
+		rd = null;
 
 		try {
 			int page = 1;
@@ -34,14 +35,17 @@ public class SessionsAndMeetingsServlet extends HttpServlet {
 				page = Integer.parseInt(request.getParameter("pagina"));
 			}
 
-			ArrayList<Day> day = DayControl.getDias();
+			ArrayList<Day> day;/* This is an Array that contains all days. */
+			day = DayControl.getDias();
 
-			int numberDate = day.size();
+			int numberDate;/* This variable contains the number of dates. */
+			numberDate = day.size();
 
-			int numberPages = ((int) Math.ceil(numberDate * 1.0 / datesByPage)) - 1;
+			int numberPages;/* This variable contains the number of pages. */
+			numberPages = ((int) Math.ceil(numberDate * 1.0 / datesByPage)) - 1;
 
-			ArrayList<Day> dayNext = DayControl.getListaCerta(page - 1,
-					datesByPage, day);
+			ArrayList<Day> dayNext;/* Variable that contains the next day. */
+			dayNext = DayControl.getListaCerta(page - 1, datesByPage, day);
 
 			request.setAttribute("noDePaginas", numberPages);
 			request.setAttribute("paginaAtual", page);

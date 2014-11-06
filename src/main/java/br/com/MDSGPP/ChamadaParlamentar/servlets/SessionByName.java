@@ -24,9 +24,11 @@ public class SessionByName extends HttpServlet {
 	protected void service(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = null;
-		SessionAndMeetings session = new SessionAndMeetings();
+		SessionAndMeetings session;
+		session = new SessionAndMeetings();
 
-		String description = request.getParameter("descricao");
+		String description;
+		description = request.getParameter("descricao");
 		try {
 			int page = 1;
 			int deputiesForPage = 20;
@@ -38,8 +40,11 @@ public class SessionByName extends HttpServlet {
 
 			if (session.getDeputiesPresence().size() != 0) {
 
-				int numberDeputies = session.getDeputiesPresence().size();
-				int numberPages = ((int) Math.ceil(numberDeputies * 1.0
+				int numberDeputies;
+				numberDeputies = session.getDeputiesPresence().size();
+
+				int numberPages;
+				numberPages = ((int) Math.ceil(numberDeputies * 1.0
 						/ deputiesForPage)) - 1;
 
 				session.setDeputiesPresence(SessionsAndMeetingsControl

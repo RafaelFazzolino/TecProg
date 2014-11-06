@@ -15,7 +15,8 @@ public final class VerificarData {
 	 */
 
 	public static boolean verificaData(String data) {
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY");
+		SimpleDateFormat sdf;
+		sdf = new SimpleDateFormat("dd/MM/YYYY");
 		sdf.setLenient(false);
 
 		try {

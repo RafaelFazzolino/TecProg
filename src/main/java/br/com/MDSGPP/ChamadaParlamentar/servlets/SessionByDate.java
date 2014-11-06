@@ -27,13 +27,16 @@ public class SessionByDate extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = null;
+		RequestDispatcher rd;
+		rd = null;
 
-		String date = request.getParameter("datas");
+		String date;
+		date = request.getParameter("datas");
 		if (ExceptionSqlInjection.testeSqlInjection(date)) {
 			try {
 				new DayControl();
-				Day day = DayControl.passarData(date);
+				Day day;
+				day = DayControl.passarData(date);
 
 				try {
 					day.getListSessions().size();
