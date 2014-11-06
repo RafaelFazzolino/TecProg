@@ -41,7 +41,7 @@ public class ConnectionWithWsSessions {
 	 */
 	public static SessoesReunioesSoapStub obterConexao()
 			throws MalformedURLException, ServiceException {
-		URL url;
+		URL url;/* Variable that contains the link of the WS. */
 		url = new URL(
 				"http://www.camara.gov.br/SitCamaraWS/SessoesReunioes.asmx");
 
@@ -68,12 +68,13 @@ public class ConnectionWithWsSessions {
 			SessoesReunioesSoapStub service, String inicio, String fim,
 			String matricula) {
 
-		// conexao criada, agora chamaremos a classe do ws
+		/* connection created, now get the class of WS. */
 		try {
-			ListPresencesCongressmanResponseListPresencesCongressmanResult sessoes = service
-					.listarPresencasParlamentar(inicio, fim, matricula);
+			ListPresencesCongressmanResponseListPresencesCongressmanResult sessions;
+			sessions = service.listarPresencasParlamentar(inicio, fim,
+					matricula);
 
-			return sessoes;
+			return sessions;
 
 		} catch (RemoteException e) {
 
@@ -101,13 +102,13 @@ public class ConnectionWithWsSessions {
 			throws SQLException, ClassNotFoundException, MalformedURLException,
 			ServiceException {
 		ArrayList<String> foi = new ArrayList<String>();
-		ArrayList<Integer> lista = new ArrayList<Integer>();
+		ArrayList<Integer> list = new ArrayList<Integer>();
 
 		DeputiesDao conexaoDeputado = new DeputiesDao();
 
-		lista = conexaoDeputado.getMatriculaDeputados();
+		list = conexaoDeputado.getMatriculaDeputados();
 
-		foi = getDateFromWs(lista, foi, data);
+		foi = getDateFromWs(list, foi, data);
 
 		return foi;
 	}
@@ -130,20 +131,20 @@ public class ConnectionWithWsSessions {
 	public static ArrayList<String> adcionarDataNaTable(String data,
 			String matricula) throws SQLException, MalformedURLException,
 			ServiceException {
-		ArrayList<String> passar = new ArrayList<String>();
+		ArrayList<String> pass = new ArrayList<String>();
 
-		ListPresencesCongressmanResponseListPresencesCongressmanResult sessao;
+		ListPresencesCongressmanResponseListPresencesCongressmanResult session;
 
 		Calendar hoje = new GregorianCalendar();
 
 		SimpleDateFormat df = new SimpleDateFormat();
 		df.applyPattern("dd/MM/yyyy");
 
-		sessao = ConnectionWithWsSessions.receberElementPresenca(
+		session = ConnectionWithWsSessions.receberElementPresenca(
 				ConnectionWithWsSessions.obterConexao(), data,
 				df.format(hoje.getTime()), matricula);
 
-		NodeList dias = sessao.get_any()[0].getElementsByTagName("dia");
+		NodeList dias = session.get_any()[0].getElementsByTagName("dia");
 
 		for (int i = 0; i < dias.getLength(); i++) {
 			MessageElement diaTemp = (MessageElement) dias.item(i);
@@ -153,16 +154,22 @@ public class ConnectionWithWsSessions {
 
 			MessageElement dataText = (MessageElement) dataTemp.item(0);
 
-			for (int j = 0; j < descricaoTemp.getLength(); j++) {
+			int sizeDescription;/*
+								 * Variable that contains the size of
+								 * description.
+								 */
+			sizeDescription = descricaoTemp.getLength();
+
+			for (int j = 0; j < sizeDescription; j++) {
 				MessageElement descricaoText = (MessageElement) descricaoTemp
 						.item(j);
 
 				System.out.println(dataText.getFirstChild().getNodeValue());
-				passar.add(dataText.getFirstChild().getNodeValue());
-				passar.add(descricaoText.getFirstChild().getNodeValue());
+				pass.add(dataText.getFirstChild().getNodeValue());
+				pass.add(descricaoText.getFirstChild().getNodeValue());
 			}
 		}
-		return passar;
+		return pass;
 	}
 
 	/**
@@ -205,9 +212,9 @@ public class ConnectionWithWsSessions {
 	 * @param total
 	 */
 	private static void showProgress(final int placeOnArray, final int total) {
-		double porcentagem = (((double) (placeOnArray) / (double) total) * 100.0);
+		double percentage = (((double) (placeOnArray) / (double) total) * 100.0);
 
-		System.out.println(placeOnArray + "- " + porcentagem + "%");
+		System.out.println(placeOnArray + "- " + percentage + "%");
 	}
 
 	/**
@@ -223,19 +230,22 @@ public class ConnectionWithWsSessions {
 	 */
 	private static ArrayList<String> getNoListsOfDias(
 			ArrayList<String> foi,
-			NodeList dias,
+			NodeList days,
 			ListPresencesCongressmanResponseListPresencesCongressmanResult sessao) {
 
 		int sizeDays;
-		sizeDays = dias.getLength();
+		sizeDays = days.getLength();
 
 		for (int j = 0; j < sizeDays; j++) {
 
-			MessageElement diasTemp = (MessageElement) dias.item(j);
+			MessageElement diasTemp = (MessageElement) days.item(j);
 			NodeList descricaoTemp = diasTemp.getElementsByTagName("descricao");
 			NodeList presencaTemp = diasTemp.getElementsByTagName("frequencia");
 
-			int sizeDescription;
+			int sizeDescription;/*
+								 * Variable that contains the size of
+								 * Description.
+								 */
 			sizeDescription = descricaoTemp.getLength();
 
 			for (int k = 0; k < sizeDescription; k++) {
@@ -258,29 +268,32 @@ public class ConnectionWithWsSessions {
 	 */
 	private static ArrayList<String> getDateFromWs(ArrayList<Integer> lista,
 			ArrayList<String> foi, String data) {
-		int size;
-		size = lista.size();
-		for (int i = 0; i < size; i++) {
-			showProgress(i, size);
+		int sizeList; /* Variable that contains the size of List. */
+		sizeList = lista.size();
+		for (int i = 0; i < sizeList; i++) {
+			showProgress(i, sizeList);
 
-			ListPresencesCongressmanResponseListPresencesCongressmanResult sessao;
+			ListPresencesCongressmanResponseListPresencesCongressmanResult session;
 			try {
 
-				Calendar hoje = new GregorianCalendar();
+				Calendar today;/* Variable that contains the date of today. */
+				today = new GregorianCalendar();
 
-				SimpleDateFormat df = new SimpleDateFormat();
+				SimpleDateFormat df;/* Contains the simple Date format. */
+				df = new SimpleDateFormat();
 				df.applyPattern("dd/MM/yyyy");
 
-				SessoesReunioesSoapStub service = ConnectionWithWsSessions
-						.obterConexao();
+				SessoesReunioesSoapStub service;
+				service = ConnectionWithWsSessions.obterConexao();
 
-				sessao = ConnectionWithWsSessions.receberElementPresenca(
-						service, data, df.format(hoje.getTime()),
+				session = ConnectionWithWsSessions.receberElementPresenca(
+						service, data, df.format(today.getTime()),
 						Integer.toString(lista.get(i)));
 
-				NodeList dias = sessao.get_any()[0].getElementsByTagName("dia");
+				NodeList days;/* Variable that contains all days. */
+				days = session.get_any()[0].getElementsByTagName("dia");
 
-				foi = getNoListsOfDias(foi, dias, sessao);
+				foi = getNoListsOfDias(foi, days, session);
 
 			} catch (Exception e) {
 				e.printStackTrace();
