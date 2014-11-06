@@ -26,9 +26,11 @@ public class PartyReceivedServlet extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = null;
+		RequestDispatcher rd;
+		rd = null;
 
-		String nameParty = request.getParameter("nome");
+		String nameParty;
+		nameParty = request.getParameter("nome");
 
 		if (ExceptionSqlInjection.testeSqlInjection(nameParty)) {
 			try {

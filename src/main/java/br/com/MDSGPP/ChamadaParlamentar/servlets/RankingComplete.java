@@ -20,8 +20,11 @@ public class RankingComplete extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		Ranking ranking = null;
-		RequestDispatcher rd = null;
+		Ranking ranking;
+		ranking = null;
+
+		RequestDispatcher rd;
+		rd = null;
 
 		try {
 			ranking = RankingControl.nextRankingComplete();

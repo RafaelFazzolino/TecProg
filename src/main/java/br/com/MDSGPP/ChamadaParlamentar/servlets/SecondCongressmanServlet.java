@@ -30,27 +30,32 @@ public class SecondCongressmanServlet extends HttpServlet {
 		/**
 		 * This variable will receive the name of first congressman
 		 * */
-		String nameFirstCongressman = request
-				.getParameter("primeiroParlamentar");
+		String nameFirstCongressman;
+		nameFirstCongressman = request.getParameter("primeiroParlamentar");
 		nameFirstCongressman = nameFirstCongressman.split("-")[0];
 
 		/**
 		 * This variable will receive thw name of second Congressman
 		 * */
-		String nameSecondCongressman = request.getParameter("nome");
+		String nameSecondCongressman;
+		nameSecondCongressman = request.getParameter("nome");
 		/**
 		 * This variable will receive feature of first congressman
 		 * 
 		 * */
 
-		Deputies firstCongressman = null;
+		Deputies firstCongressman;
+		firstCongressman = null;
 		/**
 		 * This variable will receive feature of second congressman
 		 * 
 		 * */
 
-		Deputies secondCongressman = null;
-		RequestDispatcher rd = null;
+		Deputies secondCongressman;
+		secondCongressman = null;
+
+		RequestDispatcher rd;
+		rd = null;
 
 		if (ExceptionSqlInjection.testeSqlInjection(nameSecondCongressman)) {
 			try {
@@ -64,7 +69,8 @@ public class SecondCongressmanServlet extends HttpServlet {
 					 * This variable will receive statistic of first congressman
 					 * 
 					 * */
-					Statistic statisticFirst = EstatisticaControl
+					Statistic statisticFirst;
+					statisticFirst = EstatisticaControl
 							.gerarEstatisticas(EstatisticaControl
 									.arrumarNomePesquisa(firstCongressman));
 					/**
@@ -72,19 +78,22 @@ public class SecondCongressmanServlet extends HttpServlet {
 					 * congressman
 					 * 
 					 * */
-					Statistic statisticSecond = EstatisticaControl
+					Statistic statisticSecond;
+					statisticSecond = EstatisticaControl
 							.gerarEstatisticas(EstatisticaControl
 									.arrumarNomePesquisa(secondCongressman));
-					ArrayList<Statistic> lista = new ArrayList<Statistic>();
-					lista.add(statisticFirst);
-					lista.add(statisticSecond);
+					ArrayList<Statistic> list;
+					list = new ArrayList<Statistic>();
+					list.add(statisticFirst);
+					list.add(statisticSecond);
 
 					/**
 					 * This variable will receive percent of miss of first
 					 * congressman
 					 * 
 					 * */
-					double presenceFirst = Math
+					double presenceFirst;
+					presenceFirst = Math
 							.ceil(((Double.parseDouble(statisticFirst
 									.getNumberSession())) / (Double
 									.parseDouble(statisticFirst
@@ -95,14 +104,16 @@ public class SecondCongressmanServlet extends HttpServlet {
 					 * congressman in format string
 					 * 
 					 * */
-					String presenceNext1 = Double.toString(presenceFirst);
+					String presenceNext1;
+					presenceNext1 = Double.toString(presenceFirst);
 
 					/**
 					 * This variable will receive percent of miss of second
 					 * congressman
 					 * 
 					 * */
-					double presenceSecond = Math
+					double presenceSecond;
+					presenceSecond = Math
 							.ceil(((Double.parseDouble(statisticSecond
 									.getNumberSession())) / (Double
 									.parseDouble(statisticSecond
@@ -112,14 +123,17 @@ public class SecondCongressmanServlet extends HttpServlet {
 					 * congressman in format string
 					 * 
 					 * */
-					String presenceNext2 = Double.toString(presenceSecond);
+					String presenceNext2;
+					presenceNext2 = Double.toString(presenceSecond);
 
 					/**
 					 * List of names of congressman
 					 * 
 					 * 
 					 * */
-					ArrayList<String> listNames = new ArrayList<String>();
+					ArrayList<String> listNames;
+					listNames = new ArrayList<String>();
+
 					listNames.add(statisticFirst.getName());
 					listNames.add(statisticSecond.getName());
 					listNames.add("Total");
