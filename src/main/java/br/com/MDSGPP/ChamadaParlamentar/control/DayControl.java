@@ -81,25 +81,25 @@ public final class DayControl {
 	 * @return listaPassar is the arrayList contains all days.
 	 */
 
-	public static ArrayList<Day> getListaCerta(int pagina, int datasPorPagina,
+	public static ArrayList<Day> getListaCerta(int page, int datasPorPagina,
 			ArrayList<Day> dia) {
-		ArrayList<Day> listaPassar;/* Variable that contains all days. */
-		listaPassar = new ArrayList<Day>();
+		ArrayList<Day> listPass;/* Variable that contains all days. */
+		listPass = new ArrayList<Day>();
 
 		for (int i = 0; i < datasPorPagina; i++) {
-			if (pagina == 0) {
-				listaPassar.add(dia.get(i));
+			if (page == 0) {
+				listPass.add(dia.get(i));
 			} else {
 				int sizeDay;/* Variable that contains the size of the Day. */
 				sizeDay = dia.size();
 
-				if (i + (pagina * datasPorPagina) < sizeDay) {
-					listaPassar.add(dia.get(i + (pagina * datasPorPagina)));
+				if (i + (page * datasPorPagina) < sizeDay) {
+					listPass.add(dia.get(i + (page * datasPorPagina)));
 				}
 			}
 		}
 
-		return listaPassar;
+		return listPass;
 	}
 
 	/**
@@ -120,21 +120,21 @@ public final class DayControl {
 	public static Day passarData(String data) throws ClassNotFoundException,
 			SQLException, WrongParserException, EmptyListException {
 
-		Day dia;/* Variable that contains the day. */
-		dia = null;
-		dia = new SessionsAndMeetingsDao().searchDay(data);
-		dia.setData(data);
+		Day day;/* Variable that contains the day. */
+		day = null;
+		day = new SessionsAndMeetingsDao().searchDay(data);
+		day.setData(data);
 
 		int sizeListOfSessions;/*
 								 * Variable that contains the size of the list
 								 * of sessions.
 								 */
-		sizeListOfSessions = dia.getListSessions().size();
+		sizeListOfSessions = day.getListSessions().size();
 
 		if (sizeListOfSessions == 0) {
 			throw new EmptyListException();
 		}
 
-		return dia;
+		return day;
 	}
 }

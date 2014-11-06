@@ -94,8 +94,8 @@ public class ConnectionWithWsDeputies {
 		deputados = ConnectionWithWsDeputies
 				.receberElementDeputados(ConnectionWithWsDeputies
 						.obtainConnction());
-		NodeList nome;/* Receives the attribute name of the Member. */
-		nome = deputados.get_any()[0].getElementsByTagName("nome");
+		NodeList name;/* Receives the attribute name of the Member. */
+		name = deputados.get_any()[0].getElementsByTagName("nome");
 
 		NodeList nomeTratamento;/* Is called the treatment of a deputy. */
 		nomeTratamento = deputados.get_any()[0]
@@ -120,8 +120,8 @@ public class ConnectionWithWsDeputies {
 		NodeList uf;/* Receives the acronym of the federative Unit that Deputy. */
 		uf = deputados.get_any()[0].getElementsByTagName("uf");
 
-		NodeList partido;/* Receives the political party of the deputy. */
-		partido = deputados.get_any()[0].getElementsByTagName("partido");
+		NodeList party;/* Receives the political party of the deputy. */
+		party = deputados.get_any()[0].getElementsByTagName("partido");
 
 		NodeList gabinete;/* Receives the current cabinet of deputy. */
 		gabinete = deputados.get_any()[0].getElementsByTagName("gabinete");
@@ -136,7 +136,7 @@ public class ConnectionWithWsDeputies {
 		email = deputados.get_any()[0].getElementsByTagName("email");
 
 		int sizeName; /* Receive the size of the name. */
-		sizeName = nome.getLength();
+		sizeName = name.getLength();
 
 		for (int i = 0; i < sizeName; i++) {
 
@@ -147,7 +147,7 @@ public class ConnectionWithWsDeputies {
 			nomeTratamentoTemp = (MessageElement) nomeTratamento.item(i);
 
 			MessageElement nomeTemp;/* Temporary variable for message name on. */
-			nomeTemp = (MessageElement) nome.item(i);
+			nomeTemp = (MessageElement) name.item(i);
 
 			MessageElement idTemp;/* Temporary variable for message id on. */
 			idTemp = (MessageElement) id.item(i);
@@ -175,7 +175,7 @@ public class ConnectionWithWsDeputies {
 										 * Temporary variable message to
 										 * Political Party.
 										 */
-			partidoTemp = (MessageElement) partido.item(i);
+			partidoTemp = (MessageElement) party.item(i);
 
 			MessageElement gabineteTemp;/*
 										 * Temporary variable message to the
@@ -307,37 +307,38 @@ public class ConnectionWithWsDeputies {
 	public static ArrayList<Party> criaListaPartidos()
 			throws MalformedURLException, UnknownHostException,
 			ServiceException {
-		ArrayList<Party> lista = new ArrayList<Party>();
+		ArrayList<Party> list = new ArrayList<Party>();
 
-		ObterPartidosCDResponseObterPartidosCDResult partidos;
+		ObterPartidosCDResponseObterPartidosCDResult politicalParties;
 
-		partidos = receberElementPartido(obtainConnction());
+		politicalParties = receberElementPartido(obtainConnction());
 
-		NodeList nomePartido;/*
+		NodeList nameParty;/*
 							 * Variable to received the name of the political
 							 * party.
 							 */
-		nomePartido = partidos.get_any()[0].getElementsByTagName("nomePartido");
+		nameParty = politicalParties.get_any()[0]
+				.getElementsByTagName("nomePartido");
 
 		NodeList siglaPartido;/* Variable that receives the symbol of the party. */
-		siglaPartido = partidos.get_any()[0]
+		siglaPartido = politicalParties.get_any()[0]
 				.getElementsByTagName("siglaPartido");
 
 		int sizeNameParty;/*
 						 * Variable that receives the size of name from
 						 * political party.
 						 */
-		sizeNameParty = nomePartido.getLength();
+		sizeNameParty = nameParty.getLength();
 
 		for (int i = 0; i < sizeNameParty; i++) {
-			MessageElement nomePartidoTemp;
-			nomePartidoTemp = (MessageElement) nomePartido.item(i);
+			MessageElement namePartyTemp;
+			namePartyTemp = (MessageElement) nameParty.item(i);
 
 			MessageElement siglaPartidoTemp;
 			siglaPartidoTemp = (MessageElement) siglaPartido.item(i);
 
-			String nomePartidoText;
-			nomePartidoText = nomePartidoTemp.getFirstChild().getNodeValue();
+			String namePartyText;
+			namePartyText = namePartyTemp.getFirstChild().getNodeValue();
 			String siglaPartidoText;
 			siglaPartidoText = siglaPartidoTemp.getFirstChild().getNodeValue();
 
@@ -347,15 +348,15 @@ public class ConnectionWithWsDeputies {
 			} catch (NullPointerException e) {
 				Party partidoAdicionar = new Party();
 				partidoAdicionar.setAcronyn(siglaPartidoText);
-				partidoAdicionar.setNameParty(nomePartidoText);
+				partidoAdicionar.setNameParty(namePartyText);
 
 				/* If this expression is false. */
-				if (!nomePartidoText.equalsIgnoreCase("sem partido")) {
-					lista.add(partidoAdicionar);
+				if (!namePartyText.equalsIgnoreCase("sem partido")) {
+					list.add(partidoAdicionar);
 				}
 			}
 		}
 
-		return lista;
+		return list;
 	}
 }
