@@ -1,3 +1,9 @@
+/** 
+ * Class: SqlInjectionException. 
+ * 
+ * Class that detects some bad input on the view layer of SQLinjection.
+ */
+
 package br.com.MDSGPP.ChamadaParlamentar.exception;
 
 /*Although not an exception itself, this method controls the insertion of sql,

@@ -1,3 +1,9 @@
+/**
+ * Class: DateWrongFormatException.
+ * 
+ * Exception that check whether the date was entered correctly by user
+ */
+
 package br.com.MDSGPP.ChamadaParlamentar.exception;
 
 /*This exception is to check whether the date was entered correctly by the User.
