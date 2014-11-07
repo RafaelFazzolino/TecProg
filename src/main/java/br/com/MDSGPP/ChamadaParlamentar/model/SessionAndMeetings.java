@@ -1,3 +1,10 @@
+/**
+ * Class: SessionAndMeeting
+ * 
+ * This class is the class that will hold all the attributes of Sessions
+ * and meetings.
+ */
+
 package br.com.MDSGPP.ChamadaParlamentar.model;
 
 import java.util.ArrayList;

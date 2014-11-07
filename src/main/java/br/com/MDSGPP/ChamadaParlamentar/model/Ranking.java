@@ -1,3 +1,9 @@
+/**
+ * Class: Ranking
+ * 
+ * This class is the class that will hold all the attributes of Ranking.
+ */
+
 package br.com.MDSGPP.ChamadaParlamentar.model;
 
 import java.util.ArrayList;

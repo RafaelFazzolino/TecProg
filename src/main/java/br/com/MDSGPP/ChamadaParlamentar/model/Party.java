@@ -1,3 +1,10 @@
+/**
+ * Class: Party
+ * 
+ * This class is the class that will hold all the attributes of the
+ *political parties.
+ */
+
 package br.com.MDSGPP.ChamadaParlamentar.model;
 
 import java.util.ArrayList;

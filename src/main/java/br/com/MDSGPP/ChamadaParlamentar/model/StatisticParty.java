@@ -1,3 +1,10 @@
+/**
+ * Class: StatisticParty
+ *
+ * This class is the class that will hold all the attributes of percentage
+ * of political parties.
+ */
+
 package br.com.MDSGPP.ChamadaParlamentar.model;
 
 public class StatisticParty {

@@ -1,3 +1,9 @@
+/**
+ * Class: UpdateDataBase
+ * 
+ * This class is the class that will hold all the attributes of Dia.
+ */
+
 package br.com.MDSGPP.ChamadaParlamentar.model;
 
 import java.util.ArrayList;

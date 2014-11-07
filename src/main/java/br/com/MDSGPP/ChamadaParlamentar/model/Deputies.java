@@ -1,3 +1,9 @@
+/**
+ * Class: Deputies
+ * 
+ * This class is the class that will hold all the attributes of Deputies.
+ */
+
 package br.com.MDSGPP.ChamadaParlamentar.model;
 
 public class Deputies {

@@ -1,3 +1,10 @@
+/**
+ * Class: Statistic
+ * 
+ * This class is the class that will hold all the attributes of
+ * Statistic.
+ */
+
 package br.com.MDSGPP.ChamadaParlamentar.model;
 
 import java.util.ArrayList;
