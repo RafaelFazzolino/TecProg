@@ -1,3 +1,15 @@
+/**
+ * Class: ConnectionWithWSDeputados
+ * 
+ * License: This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This class is responsible to establish a connection to the webService Deputados 
+ * from the Deputy chamber, and return data.
+ */
+
 package br.com.MDSGPP.ChamadaParlamentar.classesDeConexao;
 
 import java.net.MalformedURLException;

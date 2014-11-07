@@ -1,6 +1,5 @@
 /**
  * Class: StatisticsControl
- * Date: march 26 2014.
  * 
  * License: This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -65,8 +64,7 @@ public final class EstatisticaControl {
 
 		statistic.setName(name);
 
-		statistic = calcularEstatistica(statistic, sessions,
-				numeroTotalSessao);
+		statistic = calcularEstatistica(statistic, sessions, numeroTotalSessao);
 		statistic.setTotalSession(Integer.toString(numeroTotalSessao));
 
 		return statistic;
@@ -108,8 +106,7 @@ public final class EstatisticaControl {
 
 		statistic.setName(name);
 
-		statistic = calcularEstatistica(statistic, sessions,
-				numberOfSessions);
+		statistic = calcularEstatistica(statistic, sessions, numberOfSessions);
 
 		statistic.setTotalSession(Integer.toString(numberOfSessions));
 
@@ -170,8 +167,8 @@ public final class EstatisticaControl {
 	public static String arrumarNomePesquisa(Deputies deputy) {
 
 		String montar;/* Variable that contains the new name. */
-		montar = deputy.getNameTreatmentCongressman() + "-"
-				+ deputy.getParty() + "/" + deputy.getFederativeUnit();
+		montar = deputy.getNameTreatmentCongressman() + "-" + deputy.getParty()
+				+ "/" + deputy.getFederativeUnit();
 		String montarFinal;/* Variable that contains the final name. */
 		montarFinal = montar.toUpperCase();
 

@@ -1,3 +1,15 @@
+/**
+ * Class: UpdateDataBase
+ * 
+ * License: This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This class is the class that is going to update the data base with
+ * the data provided from the deputy chamber, every day at 6 AM.
+ */
+
 package br.com.MDSGPP.ChamadaParlamentar.atualizacaoBanco;
 
 import java.net.MalformedURLException;
