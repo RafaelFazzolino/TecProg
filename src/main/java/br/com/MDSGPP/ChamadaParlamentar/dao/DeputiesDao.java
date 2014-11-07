@@ -1,3 +1,15 @@
+/**
+ * Class: DeputiesDao
+ * 
+ * License: This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This class is to gather information from the table deputy of the database and
+ * treat it to return to the system.
+ */
+
 package br.com.MDSGPP.ChamadaParlamentar.dao;
 
 import java.sql.PreparedStatement;
@@ -43,8 +55,7 @@ public class DeputiesDao extends ConnectionFactory {
 	 *             case the dataBase is off.
 	 */
 
-	public void addDeputy(ArrayList<Deputies> deputies)
-			throws SQLException {
+	public void addDeputy(ArrayList<Deputies> deputies) throws SQLException {
 		String sql;/*
 					 * Variable that received the code to add deputies on
 					 * database.
@@ -69,8 +80,7 @@ public class DeputiesDao extends ConnectionFactory {
 			stmt.setInt(TWO, deputies.get(i).getResgitry());
 			stmt.setInt(THREE, deputies.get(i).getIdRegister());
 			stmt.setString(FOUR, deputies.get(i).getNameCivilCongressman());
-			stmt.setString(FIVE, deputies.get(i)
-					.getNameTreatmentCongressman());
+			stmt.setString(FIVE, deputies.get(i).getNameTreatmentCongressman());
 			stmt.setString(SIX, deputies.get(i).getSex());
 			stmt.setString(SEVEN, deputies.get(i).getFederativeUnit());
 			stmt.setString(EIGHT, deputies.get(i).getParty());
@@ -208,8 +218,7 @@ public class DeputiesDao extends ConnectionFactory {
 			deputy.setRegsitry(rs.getInt("matricula"));
 			deputy.setIdRegister(rs.getInt("ideCadastro"));
 			deputy.setNameCivilCongressman(rs.getString("nomeCivil"));
-			deputy.setNameTreatmentCongressman(rs
-					.getString("nomeDeTratamento"));
+			deputy.setNameTreatmentCongressman(rs.getString("nomeDeTratamento"));
 			deputy.setSex(rs.getString("sexo"));
 			deputy.setFederativeUnit(rs.getString("uf"));
 			deputy.setParty(rs.getString("partido"));
