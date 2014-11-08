@@ -1,3 +1,16 @@
+/**
+ * Class: SecondCongressmanServlet.
+ * 
+ * License: This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This class is the servlet responsible to gather information for the user to compare
+ * two different deputies, the first comes from the last jsp page, and the other
+ * the system got to calculate using the name.
+ */
+
 package br.com.MDSGPP.ChamadaParlamentar.servlets;
 
 import java.io.IOException;

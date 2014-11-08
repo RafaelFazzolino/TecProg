@@ -1,3 +1,16 @@
+/**
+ * Class: SessionsAndMeetingsServlet
+ * 
+ * License: This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This class is the servlet that is going call for all days and return then
+ * on a {@link ArrayList} of {@link Dia} to the jsp page or it is going to
+ * trigger the error page.
+ */
+
 package br.com.MDSGPP.ChamadaParlamentar.servlets;
 
 import java.io.IOException;

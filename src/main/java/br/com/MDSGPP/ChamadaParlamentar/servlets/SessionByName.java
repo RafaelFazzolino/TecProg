@@ -1,3 +1,15 @@
+/**
+ * Class: SessionsByNameServlet.
+ * 
+ * License: This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This class is the servlet that is going call for a specific session that
+ * matches with the name given, and then redirects to the right jsp page.
+ */
+
 package br.com.MDSGPP.ChamadaParlamentar.servlets;
 
 import java.io.IOException;
