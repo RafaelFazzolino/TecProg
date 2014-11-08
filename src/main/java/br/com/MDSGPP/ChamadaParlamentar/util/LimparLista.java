@@ -1,3 +1,15 @@
+/**
+ * Class: CleanList
+ * 
+ * License: This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This class is the based to wipe the deputies that have no data of how many
+ * sessions have attended to. 
+ */
+
 package br.com.MDSGPP.ChamadaParlamentar.util;
 
 import java.util.ArrayList;
