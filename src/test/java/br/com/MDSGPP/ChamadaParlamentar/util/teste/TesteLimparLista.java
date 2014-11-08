@@ -9,15 +9,15 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 import br.com.MDSGPP.ChamadaParlamentar.model.Statistic;
-import br.com.MDSGPP.ChamadaParlamentar.util.LimparLista;
+import br.com.MDSGPP.ChamadaParlamentar.util.CleanList;
 
 public class TesteLimparLista {
 
-	LimparLista limpar;
+	CleanList limpar;
 
 	@Before
 	public void setUp() {
-		limpar = new LimparLista();
+		limpar = new CleanList();
 	}
 
 	@Test
@@ -39,8 +39,8 @@ public class TesteLimparLista {
 			lista.add(estatistica);
 		}
 
-		ArrayList<ArrayList<Statistic>> listaRecebida = LimparLista
-				.limparLista(lista);
+		ArrayList<ArrayList<Statistic>> listaRecebida = CleanList
+				.cleanList(lista);
 
 		assertNotNull(listaRecebida);
 		ArrayList<Statistic> bons = listaRecebida.get(0);

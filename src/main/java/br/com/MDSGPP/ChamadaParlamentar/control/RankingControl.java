@@ -20,7 +20,7 @@ import br.com.MDSGPP.ChamadaParlamentar.exception.EmptyListException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 import br.com.MDSGPP.ChamadaParlamentar.model.Statistic;
 import br.com.MDSGPP.ChamadaParlamentar.model.Ranking;
-import br.com.MDSGPP.ChamadaParlamentar.util.LimparLista;
+import br.com.MDSGPP.ChamadaParlamentar.util.CleanList;
 
 public final class RankingControl {
 	private static final int SIZE_RANKINGS = 5;/*
@@ -52,7 +52,7 @@ public final class RankingControl {
 													 * statistics for each
 													 * deputy.
 													 */
-			received = LimparLista.limparLista(list);
+			received = CleanList.cleanList(list);
 
 			ArrayList<Statistic> deleted;/*
 										 * It is an array that receives all

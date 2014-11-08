@@ -20,7 +20,7 @@ import br.com.MDSGPP.ChamadaParlamentar.exception.EmptyListException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 import br.com.MDSGPP.ChamadaParlamentar.model.Statistic;
 import br.com.MDSGPP.ChamadaParlamentar.model.Party;
-import br.com.MDSGPP.ChamadaParlamentar.util.LimparLista;
+import br.com.MDSGPP.ChamadaParlamentar.util.CleanList;
 
 public final class PoliticalPartyControl {
 	/**
@@ -222,7 +222,7 @@ public final class PoliticalPartyControl {
 													 * Variable that contains
 													 * the received list.
 													 */
-		receivedList = LimparLista.limparLista(party.getStatisticDeputies());
+		receivedList = CleanList.cleanList(party.getStatisticDeputies());
 
 		party.setStatisticDeputies(receivedList.get(0));
 		party.setDeputiesWithoutData(receivedList.get(1));

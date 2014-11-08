@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import org.apache.xml.utils.WrongParserException;
 
-import br.com.MDSGPP.ChamadaParlamentar.util.VerificarData;
+import br.com.MDSGPP.ChamadaParlamentar.util.DateVerification;
 
 public class Day {
 	private String date;
@@ -35,7 +35,7 @@ public class Day {
 	 *             if the date is in formed unknown.
 	 */
 	public void setData(String date) throws WrongParserException {
-		if (!VerificarData.verificaData(date)) {
+		if (!DateVerification.dateVerification(date)) {
 			throw new WrongParserException(date);
 		}
 

@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 import br.com.MDSGPP.ChamadaParlamentar.model.Statistic;
 
-public final class LimparLista {
+public final class CleanList {
 
 	/**
 	 * This method is to clear the list of statistics of the deputies.
@@ -25,7 +25,7 @@ public final class LimparLista {
 	 *            is an Array contains all deputies.
 	 * @return passar what is the clean list.
 	 */
-	public static ArrayList<ArrayList<Statistic>> limparLista(
+	public static ArrayList<ArrayList<Statistic>> cleanList(
 			ArrayList<Statistic> list) {
 		ArrayList<ArrayList<Statistic>> pass;
 		pass = new ArrayList<ArrayList<Statistic>>();

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 import org.apache.xml.utils.WrongParserException;
 
-import br.com.MDSGPP.ChamadaParlamentar.util.VerificarData;
+import br.com.MDSGPP.ChamadaParlamentar.util.DateVerification;
 
 public class SessionAndMeetings {
 
@@ -26,7 +26,7 @@ public class SessionAndMeetings {
 			ArrayList<Deputies> deputies, String fullDescription)
 			throws WrongParserException {
 
-		if (!VerificarData.verificaData(date)) {
+		if (!DateVerification.dateVerification(date)) {
 			throw new WrongParserException(fullDescription);
 		}
 
@@ -52,7 +52,7 @@ public class SessionAndMeetings {
 	 * This method is to change the date.
 	 */
 	public void setData(String data) throws WrongParserException {
-		if (!VerificarData.verificaData(data)) {
+		if (!DateVerification.dateVerification(data)) {
 			throw new WrongParserException(data);
 		}
 

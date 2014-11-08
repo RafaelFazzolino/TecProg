@@ -14,7 +14,7 @@ package br.com.MDSGPP.ChamadaParlamentar.util;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-public final class VerificarData {
+public final class DateVerification {
 
 	/**
 	 * This method is to validate a date, if it's not in the in the format it
@@ -25,7 +25,7 @@ public final class VerificarData {
 	 * @return false if give parse error in, and true if not.
 	 */
 
-	public static boolean verificaData(String data) {
+	public static boolean dateVerification(String data) {
 		SimpleDateFormat sdf;
 		sdf = new SimpleDateFormat("dd/MM/YYYY");
 		sdf.setLenient(false);
