@@ -7,7 +7,8 @@
 
 package br.com.MDSGPP.ChamadaParlamentar.exception;
 
-/* This exception is to verify that the deputy has valid data or not.
+/**
+ * This exception is to verify that the deputy has valid data or not.
  */
 public class EmptyListException extends Exception {
 

@@ -7,7 +7,9 @@
 
 package br.com.MDSGPP.ChamadaParlamentar.exception;
 
-/*Exception for when the ranking have a problem being generated.*/
+/**
+ * Exception for when the ranking have a problem being generated.
+ */
 
 public class ListaRankingException extends Exception {
 

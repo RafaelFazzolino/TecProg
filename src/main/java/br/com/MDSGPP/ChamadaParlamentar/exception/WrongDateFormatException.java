@@ -6,7 +6,9 @@
 
 package br.com.MDSGPP.ChamadaParlamentar.exception;
 
-/*This exception is to check whether the date was entered correctly by the User.
+/**
+ * This exception is to check whether the date was entered correctly by the
+ * User.
  */
 public class WrongDateFormatException extends Exception {
 

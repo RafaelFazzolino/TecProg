@@ -6,8 +6,10 @@
 
 package br.com.MDSGPP.ChamadaParlamentar.exception;
 
-/*Although not an exception itself, this method controls the insertion of sql,
- *something of extreme importance.*/
+/**
+ * Although not an exception itself, this method controls the insertion of sql,
+ * something of extreme importance.
+ */
 public final class ExceptionSqlInjection {
 	public static boolean testeSqlInjection(String aTestar) {
 

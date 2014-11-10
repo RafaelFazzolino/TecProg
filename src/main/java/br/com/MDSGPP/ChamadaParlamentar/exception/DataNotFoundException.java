@@ -9,7 +9,7 @@ package br.com.MDSGPP.ChamadaParlamentar.exception;
 public class DataNotFoundException extends Exception {
 
 	/**
-	 * 
+	 * This exception is to verify if the data is not found.
 	 */
 	private static final long serialVersionUID = 1L;
 
