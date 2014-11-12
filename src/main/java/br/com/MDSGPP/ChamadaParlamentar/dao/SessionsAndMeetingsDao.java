@@ -49,15 +49,15 @@ public class SessionsAndMeetingsDao extends ConnectionFactory {
 		int sizeInsert;// Variable that contains the size of insert.
 		sizeInsert = insert.size();
 
-		for (int i = 0; i < sizeInsert; i = i + 2) {
+		for (int countSQL = 0; countSQL < sizeInsert; countSQL = countSQL + 2) {
 			String sql;
 			sql = "insert into datas(datas, sessao) values(?, ?)";
 
 			PreparedStatement stmt;
 
 			stmt = getConexao().prepareStatement(sql);
-			stmt.setString(1, insert.get(i));
-			stmt.setString(2, insert.get(i + 1));
+			stmt.setString(1, insert.get(countSQL));
+			stmt.setString(2, insert.get(countSQL + 1));
 
 			stmt.execute();
 			stmt.close();
@@ -91,9 +91,9 @@ public class SessionsAndMeetingsDao extends ConnectionFactory {
 		int sizeInsert;// Variable that contains the size of insert.
 		sizeInsert = insert.size();
 
-		for (int i = 0; i < sizeInsert; i = i + 2) {
-			stmt.setString(1, insert.get(i));
-			stmt.setString(2, insert.get(i + 1));
+		for (int countInset = 0; countInset < sizeInsert; countInset = countInset + 2) {
+			stmt.setString(1, insert.get(countInset));
+			stmt.setString(2, insert.get(countInset + 1));
 
 			stmt.execute();
 		}
@@ -117,14 +117,14 @@ public class SessionsAndMeetingsDao extends ConnectionFactory {
 
 		ResultSet rs;
 		rs = stmt.executeQuery();
-		int i = 0;
+		int countQuery = 0;
 
 		while (rs.next()) {
-			i++;
+			countQuery++;
 		}
 
 		rs.close();
-		return i;
+		return countQuery;
 	}
 
 	/**
@@ -199,7 +199,7 @@ public class SessionsAndMeetingsDao extends ConnectionFactory {
 	 */
 
 	public Day searchDay(String data) throws SQLException {
-		Day dia = new Day();
+		Day day = new Day();
 		String sql = "select * from datas where datas LIKE ?";
 
 		PreparedStatement stmt = getConexao().prepareStatement(sql);
@@ -214,8 +214,8 @@ public class SessionsAndMeetingsDao extends ConnectionFactory {
 			lista.add(sessoes);
 		}
 
-		dia.setListSesssions(lista);
+		day.setListSesssions(lista);
 		rs.close();
-		return dia;
+		return day;
 	}
 }

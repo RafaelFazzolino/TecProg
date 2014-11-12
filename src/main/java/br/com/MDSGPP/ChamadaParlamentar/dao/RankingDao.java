@@ -46,19 +46,22 @@ public class RankingDao extends ConnectionFactory {
 		int sizeRanking;// Variable that contains the size of ranking.
 		sizeRanking = ranking.getList().size();
 
-		for (int i = 0; i < sizeRanking; i++) {
+		for (int countRanking = 0; countRanking < sizeRanking; countRanking++) {
 			try {
-				stmt.setString(1, ranking.getList().get(i).getName());
-				stmt.setString(2, ranking.getList().get(i).getPercentagem());
-				stmt.setString(3, ranking.getList().get(i).getNumberSession());
+				stmt.setString(1, ranking.getList().get(countRanking).getName());
+				stmt.setString(2, ranking.getList().get(countRanking)
+						.getPercentagem());
+				stmt.setString(3, ranking.getList().get(countRanking)
+						.getNumberSession());
 
 				stmt.execute();
 			} catch (MySQLIntegrityConstraintViolationException e) {
-				System.out.println(ranking.getList().get(i).getName());
+				System.out.println(ranking.getList().get(countRanking)
+						.getName());
 			}
 		}
-		for (int i = 0; i < ranking.getRemoved().size(); i++) {
-			stmt.setString(1, ranking.getRemoved().get(i).getName());
+		for (int countName = 0; countName < ranking.getRemoved().size(); countName++) {
+			stmt.setString(1, ranking.getRemoved().get(countName).getName());
 			stmt.setString(2, "semDados");
 			stmt.execute();
 		}

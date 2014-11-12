@@ -87,8 +87,8 @@ public class DayDao extends ConnectionFactory {
 	 */
 	public static ArrayList<Day> insertListDay(ResultSet rs, ArrayList<Day> list)
 			throws SQLException {
-		int cont;// Variable to use on while.
-		cont = 0;
+		int contDate;// Variable to use on while.
+		contDate = 0;
 
 		while (rs.next()) {
 			String descricao;// Variable that received the description.
@@ -99,11 +99,11 @@ public class DayDao extends ConnectionFactory {
 			descricao = descricao.split(" -")[0];
 
 			boolean teste;// Variable for test the table of database.
-			teste = list.get(cont).getData()
+			teste = list.get(contDate).getData()
 					.equalsIgnoreCase(rs.getString(DATAS));
 
 			if (!teste) {
-				cont++;
+				contDate++;
 			}
 
 			SessionAndMeetings passar;/*
@@ -113,7 +113,7 @@ public class DayDao extends ConnectionFactory {
 			passar = new SessionAndMeetings();
 			passar.setDescription(descricao);
 			passar.setFullDescription(descAux);
-			list.get(cont).getListSessions().add(passar);
+			list.get(contDate).getListSessions().add(passar);
 		}
 
 		rs.close();
@@ -136,8 +136,8 @@ public class DayDao extends ConnectionFactory {
 		ArrayList<Day> list;// Is an array that received the days.
 		list = new ArrayList<Day>();
 
-		int controll;// This variable is to control the while.
-		controll = 0;
+		int controllDay;// This variable is to control the while.
+		controllDay = 0;
 
 		while (rs.next()) {
 			if (list.size() == 0) {
@@ -146,14 +146,14 @@ public class DayDao extends ConnectionFactory {
 				dia.setData(rs.getString(DATAS));
 				list.add(dia);
 			} else {
-				boolean teste = list.get(controll).getData()
+				boolean teste = list.get(controllDay).getData()
 						.equals(rs.getString(DATAS));
 				if (!teste) {
 					Day diaAux;// Temporary variable that contains the day.
 					diaAux = new Day();
 					diaAux.setData(rs.getString(DATAS));
 					list.add(diaAux);
-					controll++;
+					controllDay++;
 				}
 			}
 		}

@@ -33,21 +33,23 @@ public class Dao extends ConnectionFactory {
 	public static void truncateTables() throws SQLException,
 			ClassNotFoundException {
 
-		String sql1 = "truncate table datas";
-		String sql2 = "truncate table ranking";
-		String sql3 = "truncate table sessao";
+		String sqlDate = "truncate table datas";
+		String sqlRanking = "truncate table ranking";
+		String sqlSession = "truncate table sessao";
 
-		PreparedStatement stmt1;// This variable received the connection.
-		stmt1 = ConnectionFactory.getConexao().prepareStatement(sql1);
+		PreparedStatement stmtDate;// This variable received the connection.
+		stmtDate = ConnectionFactory.getConexao().prepareStatement(sqlDate);
 
-		PreparedStatement stmt2;// This variable received the connection.
-		stmt2 = ConnectionFactory.getConexao().prepareStatement(sql2);
+		PreparedStatement stmtRanking;// This variable received the connection.
+		stmtRanking = ConnectionFactory.getConexao().prepareStatement(
+				sqlRanking);
 
-		PreparedStatement stmt3;// This variable received the connection.
-		stmt3 = ConnectionFactory.getConexao().prepareStatement(sql3);
+		PreparedStatement stmtSession;// This variable received the connection.
+		stmtSession = ConnectionFactory.getConexao().prepareStatement(
+				sqlSession);
 
-		stmt1.execute();
-		stmt2.execute();
-		stmt3.execute();
+		stmtDate.execute();
+		stmtRanking.execute();
+		stmtSession.execute();
 	}
 }

@@ -20,8 +20,8 @@ import br.com.MDSGPP.ChamadaParlamentar.model.Party;
 
 public class PartyDao extends ConnectionFactory {
 
-	private final int UM = 1;
-	private final int DOIS = 2;
+	private final int UM = 1;// Constant which takes the value 1.
+	private final int DOIS = 2; // Constant which takes the value 2.
 
 	public PartyDao() throws ClassNotFoundException, SQLException {
 		new ConnectionFactory().getConnection();
@@ -44,9 +44,9 @@ public class PartyDao extends ConnectionFactory {
 		int sizeList;// Variable that contains the size of list.
 		sizeList = list.size();
 
-		for (int i = 0; i < sizeList; i++) {
-			stmt.setString(UM, list.get(i).getAcronyn());
-			stmt.setString(DOIS, list.get(i).getNameParty());
+		for (int countParty = 0; countParty < sizeList; countParty++) {
+			stmt.setString(UM, list.get(countParty).getAcronyn());
+			stmt.setString(DOIS, list.get(countParty).getNameParty());
 
 			stmt.execute();
 		}
