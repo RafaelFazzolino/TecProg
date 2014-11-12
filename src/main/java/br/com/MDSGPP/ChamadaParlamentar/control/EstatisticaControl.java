@@ -42,10 +42,10 @@ public final class EstatisticaControl {
 	public static Statistic gerarEstatisticas(String name)
 			throws ClassNotFoundException, SQLException, EmptyListException {
 
-		Statistic statistic;/* Variable that contains the statistic. */
+		Statistic statistic;// Variable that contains the statistic.
 		statistic = new Statistic();
 
-		StatisticDao dao;/* Variable that create the connection with dataBase. */
+		StatisticDao dao;// Variable that create the connection with dataBase.
 		dao = new StatisticDao();
 
 		SessionsAndMeetingsDao sessions;/*
@@ -90,10 +90,10 @@ public final class EstatisticaControl {
 	public static Statistic gerarEstatisticas(String name, int numberOfSessions)
 			throws ClassNotFoundException, SQLException, EmptyListException {
 
-		Statistic statistic;/* Variable that contains the statistic. */
+		Statistic statistic;// Variable that contains the statistic.
 		statistic = new Statistic();
 
-		StatisticDao dao;/* Variable that create the connection with dataBase. */
+		StatisticDao dao;// Variable that create the connection with dataBase.
 		dao = new StatisticDao();
 
 		SessionsAndMeetingsDao sessions;/*
@@ -133,7 +133,7 @@ public final class EstatisticaControl {
 			SessionsAndMeetingsDao sessions, int numberOfSessions)
 			throws EmptyListException {
 
-		int sizeList;/* Variable that contains the size of List. */
+		int sizeList;// Variable that contains the size of List.
 		sizeList = statistic.getLista().size();
 
 		if (sizeList == 0) {
@@ -166,10 +166,10 @@ public final class EstatisticaControl {
 
 	public static String arrumarNomePesquisa(Deputies deputy) {
 
-		String montar;/* Variable that contains the new name. */
+		String montar;// Variable that contains the new name.
 		montar = deputy.getNameTreatmentCongressman() + "-" + deputy.getParty()
 				+ "/" + deputy.getFederativeUnit();
-		String montarFinal;/* Variable that contains the final name. */
+		String montarFinal;// Variable that contains the final name.
 		montarFinal = montar.toUpperCase();
 
 		return montarFinal;
@@ -203,7 +203,7 @@ public final class EstatisticaControl {
 								 */
 		list = ordenarLista(listaPassada);
 
-		int sizeList;/* Variable that contains the size of list. */
+		int sizeList;// Variable that contains the size of list.
 		sizeList = list.size();
 
 		if (sizeList == 0) {
@@ -234,7 +234,7 @@ public final class EstatisticaControl {
 	public static ArrayList<String> ordenarLista(ArrayList<String> list) {
 		ArrayList<String> ordenada = new ArrayList<String>();
 
-		int sizeList;/* Variable that contains the size of list. */
+		int sizeList;// Variable that contains the size of list.
 		sizeList = list.size();
 
 		for (int i = 0; i < sizeList; i++) {

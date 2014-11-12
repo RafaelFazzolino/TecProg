@@ -48,7 +48,7 @@ public class SessionByDate extends HttpServlet {
 			try {
 				new DayControl();
 				Day day;
-				day = DayControl.passarData(date);
+				day = DayControl.passDate(date);
 
 				try {
 					day.getListSessions().size();

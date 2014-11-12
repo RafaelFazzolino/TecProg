@@ -27,34 +27,34 @@ public final class DayControl {
 	 * This method creates a list and returns the days that the deputy was in a
 	 * session.
 	 * 
-	 * @return listaInverter what is the new list of days.
+	 * @return listInverter what is the new list of days.
 	 * @throws ClassNotFoundException
 	 *             if the class is not found.
 	 * @throws SQLException
 	 *             if an error occurs with dataBase.
-	 * @throws DataFormatoErradoException
+	 * @throws DateWrongFormatException
 	 *             case to come up with wrong date format.
 	 */
 	public static ArrayList<Day> getDias() throws ClassNotFoundException,
 			SQLException, WrongParserException {
-		ArrayList<Day> list;/* Variable that contains the days. */
-		DayDao diaDao;/*
+		ArrayList<Day> list;// Variable that contains the days.
+		DayDao dayDao;/*
 					 * Variable that create the connection with dataBase to get
 					 * days.
 					 */
-		diaDao = new DayDao();
+		dayDao = new DayDao();
 
-		list = diaDao.searchAllDescription();
+		list = dayDao.searchAllDescription();
 
-		ArrayList<Day> listaInverter;/*
+		ArrayList<Day> listInverter;/*
 									 * Variable that contains the list of the
 									 * days.
 									 */
-		listaInverter = new ArrayList<Day>();
+		listInverter = new ArrayList<Day>();
 
-		listaInverter = ReverseList(listaInverter, list);
+		listInverter = ReverseList(listInverter, list);
 
-		return listaInverter;
+		return listInverter;
 	}
 
 	/**
@@ -64,48 +64,48 @@ public final class DayControl {
 	 *            is an Array that contains the clear list.
 	 * @param list
 	 *            variable that contains the list.
-	 * @return listaInverter that is the inverted list.
+	 * @return listInverter that is the inverted list.
 	 */
-	public static ArrayList<Day> ReverseList(ArrayList<Day> listaInverter,
+	public static ArrayList<Day> ReverseList(ArrayList<Day> listInverter,
 			ArrayList<Day> list) {
-		listaInverter = new ArrayList<Day>();
+		listInverter = new ArrayList<Day>();
 
-		int sizeList;/* Variable that contains the size of the list. */
+		int sizeList;// Variable that contains the size of the list.
 		sizeList = list.size();
 
-		for (int i = 0; i < sizeList; i++) {
-			listaInverter.add(list.get(sizeList - 1 - i));
+		for (int countList = 0; countList < sizeList; countList++) {
+			listInverter.add(list.get(sizeList - 1 - countList));
 		}
-		return listaInverter;
+		return listInverter;
 	}
 
 	/**
 	 * This method creates a list based on the days and dates per pages and
 	 * returns a list.
 	 * 
-	 * @param pagina
+	 * @param page
 	 *            is the number of pages.
-	 * @param datasPorPagina
+	 * @param datesPerPage
 	 *            is a variable that contains the number of dates for page.
-	 * @param dia
+	 * @param day
 	 *            is the day that is being analyzed.
 	 * @return listaPassar is the arrayList contains all days.
 	 */
 
-	public static ArrayList<Day> getListaCerta(int page, int datasPorPagina,
-			ArrayList<Day> dia) {
-		ArrayList<Day> listPass;/* Variable that contains all days. */
+	public static ArrayList<Day> getListaCerta(int page, int datesPerPage,
+			ArrayList<Day> day) {
+		ArrayList<Day> listPass;// Variable that contains all days.
 		listPass = new ArrayList<Day>();
 
-		for (int i = 0; i < datasPorPagina; i++) {
+		for (int countListPage = 0; countListPage < datesPerPage; countListPage++) {
 			if (page == 0) {
-				listPass.add(dia.get(i));
+				listPass.add(day.get(countListPage));
 			} else {
-				int sizeDay;/* Variable that contains the size of the Day. */
-				sizeDay = dia.size();
+				int sizeDay;// Variable that contains the size of the Day.
+				sizeDay = day.size();
 
-				if (i + (page * datasPorPagina) < sizeDay) {
-					listPass.add(dia.get(i + (page * datasPorPagina)));
+				if (countListPage + (page * datesPerPage) < sizeDay) {
+					listPass.add(day.get(countListPage + (page * datesPerPage)));
 				}
 			}
 		}
@@ -128,13 +128,13 @@ public final class DayControl {
 	 * @throws ListaVaziaException
 	 *             is case the list came empty.
 	 */
-	public static Day passarData(String data) throws ClassNotFoundException,
+	public static Day passDate(String date) throws ClassNotFoundException,
 			SQLException, WrongParserException, EmptyListException {
 
-		Day day;/* Variable that contains the day. */
+		Day day;// Variable that contains the day.
 		day = null;
-		day = new SessionsAndMeetingsDao().searchDay(data);
-		day.setData(data);
+		day = new SessionsAndMeetingsDao().searchDay(date);
+		day.setData(date);
 
 		int sizeListOfSessions;/*
 								 * Variable that contains the size of the list

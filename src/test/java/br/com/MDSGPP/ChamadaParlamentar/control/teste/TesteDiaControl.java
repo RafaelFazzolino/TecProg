@@ -94,20 +94,20 @@ public class TesteDiaControl {
 	@Test(expected = EmptyListException.class)
 	public void testPassarDataListaVazia() throws ClassNotFoundException,
 			SQLException, WrongParserException, EmptyListException {
-		Day dia1 = DayControl.passarData("20/11/2011");
+		Day dia1 = DayControl.passDate("20/11/2011");
 	}
 
 	@Test
 	public void testePassarDataNormal() throws ClassNotFoundException,
 			SQLException, WrongParserException, EmptyListException {
-		Day dia2 = DayControl.passarData("22/11/2011");
+		Day dia2 = DayControl.passDate("22/11/2011");
 		assertTrue(dia2.getListSessions().size() > 0);
 	}
 
 	@Test(expected = WrongParserException.class)
 	public void testePassarDataFormatoErrado() throws ClassNotFoundException,
 			SQLException, WrongParserException, EmptyListException {
-		Day dia3 = DayControl.passarData("nao deve passar"); // esse espera uma
-																// data null
+		Day dia3 = DayControl.passDate("nao deve passar"); // esse espera uma
+															// data null
 	}
 }

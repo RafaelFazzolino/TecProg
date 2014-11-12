@@ -46,7 +46,7 @@ public class SessionsAndMeetingsDao extends ConnectionFactory {
 	public void addDateInTable(ArrayList<String> insert) throws SQLException,
 			MalformedURLException, ServiceException {
 
-		int sizeInsert;/* Variable that contains the size of insert. */
+		int sizeInsert;// Variable that contains the size of insert.
 		sizeInsert = insert.size();
 
 		for (int i = 0; i < sizeInsert; i = i + 2) {
@@ -88,7 +88,7 @@ public class SessionsAndMeetingsDao extends ConnectionFactory {
 		PreparedStatement stmt;
 		stmt = getConexao().prepareStatement(sql);
 
-		int sizeInsert;/* Variable that contains the size of insert. */
+		int sizeInsert;// Variable that contains the size of insert.
 		sizeInsert = insert.size();
 
 		for (int i = 0; i < sizeInsert; i = i + 2) {
@@ -109,7 +109,7 @@ public class SessionsAndMeetingsDao extends ConnectionFactory {
 	 */
 
 	public int nextNumberSession() throws SQLException {
-		String sql;/* Variable that contains the code. */
+		String sql;// Variable that contains the code.
 		sql = "select * from datas";
 
 		PreparedStatement stmt;

@@ -43,7 +43,7 @@ public final class RankingControl {
 	public static Ranking createRanking(ArrayList<Statistic> list)
 			throws ListaRankingException {
 
-		Ranking ranking;/* Variable that contains all features of the ranking. */
+		Ranking ranking;// Variable that contains all features of the ranking.
 		ranking = new Ranking();
 		try {
 			ArrayList<ArrayList<Statistic>> received;/*
@@ -81,7 +81,7 @@ public final class RankingControl {
 											 */
 			receivedList = received.get(0);
 
-			int sizeReceived;/* Variable that contains the size of the received. */
+			int sizeReceived;// Variable that contains the size of the received.
 			sizeReceived = receivedList.size();
 
 			if (sizeReceived == 0) {
@@ -141,15 +141,15 @@ public final class RankingControl {
 										 */
 			backList = new ArrayList<Statistic>();
 
-			String name;/* Variable that contains the name of the deputy. */
+			String name;// Variable that contains the name of the deputy.
 			name = EstatisticaControl.arrumarNomePesquisa(list.get(0));
 
 			backList.add(EstatisticaControl.gerarEstatisticas(name));
 
-			int allSession;/* Variable that contains the number of sessions. */
+			int allSession;// Variable that contains the number of sessions.
 			allSession = Integer.parseInt(backList.get(0).getTotalSession());
 
-			int sizeList;/* Variable that contains the size of the list. */
+			int sizeList;// Variable that contains the size of the list.
 			sizeList = list.size();
 
 			for (int i = 0; i < sizeList; i++) {
@@ -193,7 +193,7 @@ public final class RankingControl {
 							 */
 		rankingDao = new RankingDao();
 
-		Ranking ranking;/* Variable that contains all features of the ranking. */
+		Ranking ranking;// Variable that contains all features of the ranking.
 		ranking = rankingDao.returnRanking();
 
 		ArrayList<Statistic> bests;/*
@@ -232,11 +232,11 @@ public final class RankingControl {
 	 */
 
 	public static ArrayList<Statistic> ordenation(ArrayList<Statistic> list) {
-		/* Insertion Sort. */
+		// Insertion Sort.
 
 		int i = 1, j = 1;
 
-		int sizeList;/* Variable that contains the size of the list. */
+		int sizeList;// Variable that contains the size of the list.
 		sizeList = list.size();
 
 		if (sizeList > 0) {
@@ -294,7 +294,7 @@ public final class RankingControl {
 							 * dataBase.
 							 */
 		rankingDao = new RankingDao();
-		Ranking ranking;/* Variable that contains all features of the ranking. */
+		Ranking ranking;// Variable that contains all features of the ranking.
 		ranking = rankingDao.returnRanking();
 
 		ranking.setList(ordenation(ranking.getList()));

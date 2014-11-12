@@ -53,21 +53,21 @@ public class DayDao extends ConnectionFactory {
 
 	public ArrayList<Day> searchAllDescription() throws SQLException,
 			WrongParserException {
-		ArrayList<Day> list;/* Variable that contains all days. */
+		ArrayList<Day> list;// Variable that contains all days.
 		list = new ArrayList<Day>();
 
-		String sql;/* Variable that contains the code of database. */
+		String sql;// Variable that contains the code of database.
 		sql = "Select * from datas";
 
-		PreparedStatement stmt;/* Variable that create the connection. */
+		PreparedStatement stmt;// Variable that create the connection.
 		stmt = ConnectionFactory.getConexao().prepareStatement(sql);
 
-		ResultSet rs;/* Variable that received the connection. */
+		ResultSet rs;// Variable that received the connection.
 		rs = stmt.executeQuery();
 
 		list = createDay(rs);
 
-		ResultSet rs2;/* Variable that received the connection. */
+		ResultSet rs2;// Variable that received the connection.
 		rs2 = stmt.executeQuery();
 
 		list = insertListDay(rs2, list);
@@ -87,18 +87,18 @@ public class DayDao extends ConnectionFactory {
 	 */
 	public static ArrayList<Day> insertListDay(ResultSet rs, ArrayList<Day> list)
 			throws SQLException {
-		int cont;/* Variable to use on while. */
+		int cont;// Variable to use on while.
 		cont = 0;
 
 		while (rs.next()) {
-			String descricao;/* Variable that received the description. */
+			String descricao;// Variable that received the description.
 			descricao = rs.getString("sessao");
 
-			String descAux;/* Temporary variable that received the description. */
+			String descAux;// Temporary variable that received the description.
 			descAux = descricao;
 			descricao = descricao.split(" -")[0];
 
-			boolean teste;/* Variable for test the table of database. */
+			boolean teste;// Variable for test the table of database.
 			teste = list.get(cont).getData()
 					.equalsIgnoreCase(rs.getString(DATAS));
 
@@ -133,15 +133,15 @@ public class DayDao extends ConnectionFactory {
 
 	public static ArrayList<Day> createDay(ResultSet rs) throws SQLException,
 			WrongParserException {
-		ArrayList<Day> list;/* Is an array that received the days. */
+		ArrayList<Day> list;// Is an array that received the days.
 		list = new ArrayList<Day>();
 
-		int controll;/* This variable is to control the while. */
+		int controll;// This variable is to control the while.
 		controll = 0;
 
 		while (rs.next()) {
 			if (list.size() == 0) {
-				Day dia;/* Variable that contains the day. */
+				Day dia;// Variable that contains the day.
 				dia = new Day();
 				dia.setData(rs.getString(DATAS));
 				list.add(dia);
@@ -149,7 +149,7 @@ public class DayDao extends ConnectionFactory {
 				boolean teste = list.get(controll).getData()
 						.equals(rs.getString(DATAS));
 				if (!teste) {
-					Day diaAux;/* Temporary variable that contains the day. */
+					Day diaAux;// Temporary variable that contains the day.
 					diaAux = new Day();
 					diaAux.setData(rs.getString(DATAS));
 					list.add(diaAux);

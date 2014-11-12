@@ -63,7 +63,7 @@ public final class PoliticalPartyControl {
 													 */
 		listWithDatas = passarListaPartidos();
 
-		int sizeListWithData;/* Variable that contains the size of the list. */
+		int sizeListWithData;// Variable that contains the size of the list.
 		sizeListWithData = listWithDatas.size();
 
 		for (int i = 0; i < sizeListWithData; i++) {
@@ -93,7 +93,7 @@ public final class PoliticalPartyControl {
 	public static Party passarPartido(String nameParty)
 			throws ClassNotFoundException, SQLException {
 
-		Party party;/* Variable that contains all features of the party. */
+		Party party;// Variable that contains all features of the party.
 		party = new Party();
 		party.setDeputiesParty(null);
 
@@ -103,7 +103,7 @@ public final class PoliticalPartyControl {
 											 */
 		politicalPartyName = verificaExistencia(nameParty);
 
-		ArrayList<Deputies> allDeputies;/* Array that contains all deputies. */
+		ArrayList<Deputies> allDeputies;// Array that contains all deputies.
 		allDeputies = new DeputiesDao().getDeputies();
 
 		ArrayList<Deputies> deputiesOfThePoliticalParty;/*

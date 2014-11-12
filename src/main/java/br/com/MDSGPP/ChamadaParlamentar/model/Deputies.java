@@ -8,7 +8,7 @@ package br.com.MDSGPP.ChamadaParlamentar.model;
 
 public class Deputies {
 
-	/* Atributs to our class. */
+	// Atributs to our class. 
 	private int idCongressman;
 	private int registry;
 	private int idRegister;
@@ -22,7 +22,7 @@ public class Deputies {
 	private String telephone;
 	private String email;
 
-	/* Constructor to our class. */
+	// Constructor to our class. 
 	public Deputies() {
 
 	}

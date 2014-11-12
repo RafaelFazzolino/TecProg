@@ -37,13 +37,13 @@ public class Dao extends ConnectionFactory {
 		String sql2 = "truncate table ranking";
 		String sql3 = "truncate table sessao";
 
-		PreparedStatement stmt1;/* This variable received the connection. */
+		PreparedStatement stmt1;// This variable received the connection.
 		stmt1 = ConnectionFactory.getConexao().prepareStatement(sql1);
 
-		PreparedStatement stmt2;/* This variable received the connection. */
+		PreparedStatement stmt2;// This variable received the connection.
 		stmt2 = ConnectionFactory.getConexao().prepareStatement(sql2);
 
-		PreparedStatement stmt3;/* This variable received the connection. */
+		PreparedStatement stmt3;// This variable received the connection.
 		stmt3 = ConnectionFactory.getConexao().prepareStatement(sql3);
 
 		stmt1.execute();

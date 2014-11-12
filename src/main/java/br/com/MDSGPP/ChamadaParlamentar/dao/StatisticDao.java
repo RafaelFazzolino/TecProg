@@ -32,17 +32,17 @@ public class StatisticDao extends ConnectionFactory {
 	 */
 	public ArrayList<String> getStatisticDeputies(String name)
 			throws SQLException {
-		String sql;/* Variable that contains the code of database. */
+		String sql;// Variable that contains the code of database.
 		sql = "select * from sessao where deputadoPresente LIKE ?";
 
-		ArrayList<String> list;/* Variable that contains the statistics. */
+		ArrayList<String> list;// Variable that contains the statistics.
 		list = new ArrayList<String>();
 
-		PreparedStatement stmt;/* Variable that create the connection. */
+		PreparedStatement stmt;// Variable that create the connection.
 		stmt = ConnectionFactory.getConexao().prepareStatement(sql);
 		stmt.setString(1, name);
 
-		ResultSet rs;/* Variable that received the connection. */
+		ResultSet rs;// Variable that received the connection.
 		rs = stmt.executeQuery();
 
 		while (rs.next()) {

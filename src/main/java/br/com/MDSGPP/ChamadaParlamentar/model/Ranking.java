@@ -40,7 +40,7 @@ public class Ranking {
 	}
 
 	/**
-	 * This method is to change the variable removidos.
+	 * This method is to change the variable deleted.
 	 */
 	public void setRemoved(ArrayList<Statistic> removed) {
 		this.removed = removed;
@@ -54,7 +54,7 @@ public class Ranking {
 	}
 
 	/**
-	 * This method is to change the variable melhores.
+	 * This method is to change the variable better.
 	 */
 	public void setBetter(ArrayList<Statistic> bests) {
 		this.better = bests;
@@ -68,7 +68,7 @@ public class Ranking {
 	}
 
 	/**
-	 * This method is to change the variable piores.
+	 * This method is to change the variable worst.
 	 */
 	public void setWorst(ArrayList<Statistic> worst) {
 		this.worst = worst;

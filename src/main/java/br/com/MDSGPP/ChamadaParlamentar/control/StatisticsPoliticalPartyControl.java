@@ -41,7 +41,7 @@ public final class StatisticsPoliticalPartyControl {
 									 */
 		statistical = new StatisticParty();
 
-		Party party;/* Variable that contains the political party. */
+		Party party;// Variable that contains the political party.
 		party = PoliticalPartyControl.passarPartidoComDadosCompletos(name);
 		statistical.setpoliticalParty(party);
 
@@ -76,7 +76,7 @@ public final class StatisticsPoliticalPartyControl {
 						 */
 		percentage = (((double) (numberOfSessionsAttended)) / ((double) numberOfSessions)) * 100.0;
 
-		String passPercentage;/* Variable that contains the final percentage. */
+		String passPercentage;// Variable that contains the final percentage.
 		passPercentage = formatarNumeroDouble(percentage);
 
 		statistical.setpercentage(passPercentage);

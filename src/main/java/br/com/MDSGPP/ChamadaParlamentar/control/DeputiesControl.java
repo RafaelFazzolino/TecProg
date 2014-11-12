@@ -28,7 +28,7 @@ public final class DeputiesControl {
 	public static ArrayList<String> getDeputados()
 			throws ClassNotFoundException, SQLException {
 
-		DeputiesDao deputy;/* Variable that contains the deputies. */
+		DeputiesDao deputy;// Variable that contains the deputies.
 		deputy = new DeputiesDao();
 
 		ArrayList<String> nameDeputy; /*
@@ -52,7 +52,7 @@ public final class DeputiesControl {
 
 	public static Deputies verificaExistencia(String nome)
 			throws ClassNotFoundException, SQLException {
-		Deputies deputy;/* Variable that contains the deputies. */
+		Deputies deputy;// Variable that contains the deputies.
 		deputy = null;
 
 		DeputiesDao deputyDao;/*
@@ -60,20 +60,20 @@ public final class DeputiesControl {
 							 * get deputies.
 							 */
 		deputyDao = new DeputiesDao();
-		ArrayList<Deputies> list;/* Variable that contains all deputies. */
+		ArrayList<Deputies> list;// Variable that contains all deputies.
 		list = deputyDao.getDeputies();
 
-		int sizeList;/* Variable that contains the size of the list. */
+		int sizeList;// Variable that contains the size of the list.
 		sizeList = list.size();
 
-		for (int countingAux = 0; countingAux < sizeList; countingAux++) {
+		for (int countAux = 0; countAux < sizeList; countAux++) {
 
-			if ((list.get(countingAux).getNameCivilCongressman()
+			if ((list.get(countAux).getNameCivilCongressman()
 					.equalsIgnoreCase(nome))
-					|| list.get(countingAux).getNameTreatmentCongressman()
+					|| list.get(countAux).getNameTreatmentCongressman()
 							.equalsIgnoreCase(nome)) {
 
-				deputy = list.get(countingAux);
+				deputy = list.get(countAux);
 			}
 		}
 

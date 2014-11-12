@@ -21,18 +21,18 @@ import br.com.MDSGPP.ChamadaParlamentar.model.Deputies;
 
 public class DeputiesDao extends ConnectionFactory {
 
-	private static final int ONE = 1;/* Constant which takes the value 1. */
-	private static final int TWO = 2;/* Constant which takes the value 2. */
-	private static final int THREE = 3;/* Constant which takes the value 3. */
-	private static final int FOUR = 4;/* Constant which takes the value 4. */
-	private static final int FIVE = 5;/* Constant which takes the value 5. */
-	private static final int SIX = 6;/* Constant which takes the value 6. */
-	private static final int SEVEN = 7;/* Constant which takes the value 7. */
-	private static final int EIGHT = 8;/* Constant which takes the value 8. */
-	private static final int NINE = 9;/* Constant which takes the value 9. */
-	private static final int TEN = 10;/* Constant which takes the value 10. */
-	private static final int ELEVEN = 11;/* Constant which takes the value 11. */
-	private static final int TWELVE = 12;/* Constant which takes the value 12. */
+	private static final int ONE = 1;// Constant which takes the value 1.
+	private static final int TWO = 2;// Constant which takes the value 2.
+	private static final int THREE = 3;// Constant which takes the value 3.
+	private static final int FOUR = 4;// Constant which takes the value 4.
+	private static final int FIVE = 5;// Constant which takes the value 5.
+	private static final int SIX = 6;// Constant which takes the value 6.
+	private static final int SEVEN = 7;// Constant which takes the value 7.
+	private static final int EIGHT = 8;// Constant which takes the value 8.
+	private static final int NINE = 9;// Constant which takes the value 9.
+	private static final int TEN = 10;// Constant which takes the value 10.
+	private static final int ELEVEN = 11;// Constant which takes the value 11.
+	private static final int TWELVE = 12;// Constant which takes the value 12.
 
 	/**
 	 * This method is to create the instance of ConnectionFactory.
@@ -71,7 +71,7 @@ public class DeputiesDao extends ConnectionFactory {
 								 */
 		stmt = getConexao().prepareStatement(sql);
 
-		int sizeDeputies;/* Variable that contains the size of deputies. */
+		int sizeDeputies;// Variable that contains the size of deputies.
 		sizeDeputies = deputies.size();
 
 		for (int i = 0; i < sizeDeputies; i++) {
@@ -104,10 +104,10 @@ public class DeputiesDao extends ConnectionFactory {
 	 */
 
 	public ArrayList<String> getNamesDeputies() throws SQLException {
-		String sql;/* Variable that contains the code to database. */
+		String sql;// Variable that contains the code to database.
 		sql = "Select * from deputado";
 
-		ArrayList<String> list;/* This is an Array that contains all deputies. */
+		ArrayList<String> list;// This is an Array that contains all deputies.
 		list = new ArrayList<String>();
 
 		PreparedStatement stmt;/*
@@ -116,7 +116,7 @@ public class DeputiesDao extends ConnectionFactory {
 								 */
 		stmt = ConnectionFactory.getConexao().prepareStatement(sql);
 
-		ResultSet rs;/* Variable that received the connection. */
+		ResultSet rs;// Variable that received the connection.
 		rs = stmt.executeQuery();
 
 		while (rs.next()) {
@@ -157,10 +157,10 @@ public class DeputiesDao extends ConnectionFactory {
 		 * Creates the SQL command search how to look for an specific line.
 		 */
 
-		String sql;/* Variable that received the code of database. */
+		String sql;// Variable that received the code of database.
 		sql = "Select * from deputado";
 
-		ArrayList<Integer> list;/* This is an array that contains all deputies. */
+		ArrayList<Integer> list;// This is an array that contains all deputies.
 		list = new ArrayList<Integer>();
 
 		/**
@@ -175,7 +175,7 @@ public class DeputiesDao extends ConnectionFactory {
 		 * Execute the STMT to search the data.
 		 */
 
-		ResultSet rs;/* Variable that received the connection. */
+		ResultSet rs;// Variable that received the connection.
 		rs = stmt.executeQuery();
 
 		while (rs.next()) {
@@ -195,16 +195,16 @@ public class DeputiesDao extends ConnectionFactory {
 	 */
 
 	public ArrayList<Deputies> getDeputies() throws SQLException {
-		String sql;/* Variable that received the code of database. */
+		String sql;// Variable that received the code of database.
 		sql = "Select * from deputado";
 
-		ArrayList<Deputies> list;/* This is an array that contains all deputies. */
+		ArrayList<Deputies> list;// This is an array that contains all deputies.
 		list = new ArrayList<Deputies>();
 
-		PreparedStatement stmt;/* Variable that create the connection. */
+		PreparedStatement stmt;// Variable that create the connection.
 		stmt = ConnectionFactory.getConexao().prepareStatement(sql);
 
-		ResultSet rs;/* Variable that received the connection. */
+		ResultSet rs;// Variable that received the connection.
 		rs = stmt.executeQuery();
 
 		while (rs.next()) {

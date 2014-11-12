@@ -43,7 +43,7 @@ public class RankingDao extends ConnectionFactory {
 		PreparedStatement stmt;
 		stmt = ConnectionFactory.getConexao().prepareStatement(sql);
 
-		int sizeRanking;/* Variable that contains the size of ranking. */
+		int sizeRanking;// Variable that contains the size of ranking.
 		sizeRanking = ranking.getList().size();
 
 		for (int i = 0; i < sizeRanking; i++) {
@@ -75,7 +75,7 @@ public class RankingDao extends ConnectionFactory {
 	 */
 	public Ranking returnRanking() throws SQLException {
 
-		Ranking ranking;/* Variable that contains the ranking. */
+		Ranking ranking;// Variable that contains the ranking.
 		ranking = new Ranking();
 
 		ArrayList<Statistic> deleted;/*
@@ -84,7 +84,7 @@ public class RankingDao extends ConnectionFactory {
 									 */
 		deleted = new ArrayList<Statistic>();
 
-		ArrayList<Statistic> list;/* Variable that contains all deputies. */
+		ArrayList<Statistic> list;// Variable that contains all deputies.
 		list = new ArrayList<Statistic>();
 
 		String sql = "Select * from ranking";

@@ -39,10 +39,10 @@ public final class SessionsAndMeetingsControl {
 									 */
 		dao = new SessionsAndMeetingsDao();
 
-		ArrayList<String> list;/* Variable that contains the list of sessions. */
+		ArrayList<String> list;// Variable that contains the list of sessions.
 		list = dao.searchSession(description);
 
-		SessionAndMeetings pass;/* Variable that contains the final list. */
+		SessionAndMeetings pass;// Variable that contains the final list.
 		pass = new SessionAndMeetings();
 		pass.setDeputiesPresence(list);
 		pass.setDescription(description);
@@ -61,7 +61,7 @@ public final class SessionsAndMeetingsControl {
 
 	public static ArrayList<String> organizeListDeputy(int page,
 			int deputiesForPage, ArrayList<String> presentDeputies) {
-		ArrayList<String> passList;/* Variable that contains the final list. */
+		ArrayList<String> passList;// Variable that contains the final list.
 		passList = new ArrayList<String>();
 
 		for (int i = 0; i < deputiesForPage; i++) {

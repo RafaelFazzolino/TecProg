@@ -51,7 +51,7 @@ public class ConnectionWithWsSessions {
 	 */
 	public static SessoesReunioesSoapStub obterConexao()
 			throws MalformedURLException, ServiceException {
-		URL url;/* Variable that contains the link of the WS. */
+		URL url;// Variable that contains the link of the WS.
 		url = new URL(
 				"http://www.camara.gov.br/SitCamaraWS/SessoesReunioes.asmx");
 
@@ -78,7 +78,7 @@ public class ConnectionWithWsSessions {
 			SessoesReunioesSoapStub service, String inicio, String fim,
 			String matricula) {
 
-		/* connection created, now get the class of WS. */
+		// connection created, now get the class of WS.
 		try {
 			ListPresencesCongressmanResponseListPresencesCongressmanResult sessions;
 			sessions = service.listarPresencasParlamentar(inicio, fim,
@@ -278,7 +278,7 @@ public class ConnectionWithWsSessions {
 	 */
 	private static ArrayList<String> getDateFromWs(ArrayList<Integer> lista,
 			ArrayList<String> foi, String data) {
-		int sizeList; /* Variable that contains the size of List. */
+		int sizeList; // Variable that contains the size of List.
 		sizeList = lista.size();
 		for (int i = 0; i < sizeList; i++) {
 			showProgress(i, sizeList);
@@ -286,10 +286,10 @@ public class ConnectionWithWsSessions {
 			ListPresencesCongressmanResponseListPresencesCongressmanResult session;
 			try {
 
-				Calendar today;/* Variable that contains the date of today. */
+				Calendar today;// Variable that contains the date of today.
 				today = new GregorianCalendar();
 
-				SimpleDateFormat df;/* Contains the simple Date format. */
+				SimpleDateFormat df;// Contains the simple Date format.
 				df = new SimpleDateFormat();
 				df.applyPattern("dd/MM/yyyy");
 
@@ -300,7 +300,7 @@ public class ConnectionWithWsSessions {
 						service, data, df.format(today.getTime()),
 						Integer.toString(lista.get(i)));
 
-				NodeList days;/* Variable that contains all days. */
+				NodeList days;// Variable that contains all days.
 				days = session.get_any()[0].getElementsByTagName("dia");
 
 				foi = getNoListsOfDias(foi, days, session);

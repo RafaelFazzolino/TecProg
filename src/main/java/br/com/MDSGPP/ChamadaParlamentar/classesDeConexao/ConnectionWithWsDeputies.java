@@ -32,9 +32,7 @@ import br.gov.camara.www.SitCamaraWS.Deputados.ObterPartidosCDResponseObterParti
 
 public class ConnectionWithWsDeputies {
 
-	/**
-	 * Empty constructor.
-	 */
+	// Empty constructor.
 
 	public ConnectionWithWsDeputies() {
 
@@ -75,7 +73,7 @@ public class ConnectionWithWsDeputies {
 	public static ObtainDeputiesResponseObtainDeputiesResult receberElementDeputados(
 			DeputadosSoapStub service) {
 
-		/* connection created, now call the class of ws. */
+		// connection created, now call the class of ws.
 		try {
 			ObtainDeputiesResponseObtainDeputiesResult deputies;
 			deputies = service.obterDeputados();
@@ -99,24 +97,24 @@ public class ConnectionWithWsDeputies {
 
 	public static ArrayList<Deputies> criaLista() throws MalformedURLException,
 			UnknownHostException, ServiceException {
-		ArrayList<Deputies> lista;/* Receive a list of deputies. */
+		ArrayList<Deputies> lista;// Receive a list of deputies.
 		lista = new ArrayList<Deputies>();
 		ObtainDeputiesResponseObtainDeputiesResult deputados;
 
 		deputados = ConnectionWithWsDeputies
 				.receberElementDeputados(ConnectionWithWsDeputies
 						.obtainConnction());
-		NodeList name;/* Receives the attribute name of the Member. */
+		NodeList name;// Receives the attribute name of the Member.
 		name = deputados.get_any()[0].getElementsByTagName("nome");
 
-		NodeList nomeTratamento;/* Is called the treatment of a deputy. */
+		NodeList nomeTratamento;// Is called the treatment of a deputy.
 		nomeTratamento = deputados.get_any()[0]
 				.getElementsByTagName("nomeParlamentar");
 
-		NodeList id;/* Receives the identification number of deputy. */
+		NodeList id;// Receives the identification number of deputy.
 		id = deputados.get_any()[0].getElementsByTagName("ideCadastro");
 
-		NodeList matricula;/* Receives tuition from deputy. */
+		NodeList matricula;// Receives tuition from deputy.
 		matricula = deputados.get_any()[0].getElementsByTagName("matricula");
 
 		NodeList idParlamentar;/*
@@ -126,28 +124,28 @@ public class ConnectionWithWsDeputies {
 		idParlamentar = deputados.get_any()[0]
 				.getElementsByTagName("idParlamentar");
 
-		NodeList sexo;/* Receive sex of deputy. */
+		NodeList sexo;// Receive sex of deputy.
 		sexo = deputados.get_any()[0].getElementsByTagName("sexo");
 
-		NodeList uf;/* Receives the acronym of the federative Unit that Deputy. */
+		NodeList uf;// Receives the acronym of the federative Unit that Deputy.
 		uf = deputados.get_any()[0].getElementsByTagName("uf");
 
-		NodeList party;/* Receives the political party of the deputy. */
+		NodeList party;// Receives the political party of the deputy.
 		party = deputados.get_any()[0].getElementsByTagName("partido");
 
-		NodeList gabinete;/* Receives the current cabinet of deputy. */
+		NodeList gabinete;// Receives the current cabinet of deputy.
 		gabinete = deputados.get_any()[0].getElementsByTagName("gabinete");
 
-		NodeList anexo;/* Receive the attachment from deputy. */
+		NodeList anexo;// Receive the attachment from deputy.
 		anexo = deputados.get_any()[0].getElementsByTagName("anexo");
 
-		NodeList fone;/* Receive the phone from deputy. */
+		NodeList fone;// Receive the phone from deputy.
 		fone = deputados.get_any()[0].getElementsByTagName("fone");
 
-		NodeList email;/* Receive the e-mail from deputy. */
+		NodeList email;// Receive the e-mail from deputy.
 		email = deputados.get_any()[0].getElementsByTagName("email");
 
-		int sizeName; /* Receive the size of the name. */
+		int sizeName; // Receive the size of the name.
 		sizeName = name.getLength();
 
 		for (int i = 0; i < sizeName; i++) {
@@ -158,10 +156,10 @@ public class ConnectionWithWsDeputies {
 											 */
 			nomeTratamentoTemp = (MessageElement) nomeTratamento.item(i);
 
-			MessageElement nomeTemp;/* Temporary variable for message name on. */
+			MessageElement nomeTemp;// Temporary variable for message name on.
 			nomeTemp = (MessageElement) name.item(i);
 
-			MessageElement idTemp;/* Temporary variable for message id on. */
+			MessageElement idTemp;// Temporary variable for message id on.
 			idTemp = (MessageElement) id.item(i);
 
 			MessageElement matriculaTemp;/*
@@ -177,10 +175,10 @@ public class ConnectionWithWsDeputies {
 											 */
 			idParlamentarTemp = (MessageElement) idParlamentar.item(i);
 
-			MessageElement sexoTemp;/* Temporary variable for message about sex. */
+			MessageElement sexoTemp;// Temporary variable for message about sex.
 			sexoTemp = (MessageElement) sexo.item(i);
 
-			MessageElement ufTemp;/* Variable for temporary federal facility. */
+			MessageElement ufTemp;// Variable for temporary federal facility.
 			ufTemp = (MessageElement) uf.item(i);
 
 			MessageElement partidoTemp;/*
@@ -195,16 +193,17 @@ public class ConnectionWithWsDeputies {
 										 */
 			gabineteTemp = (MessageElement) gabinete.item(i);
 
-			MessageElement anexoTemp;/* Temporary variable message to the annex. */
+			MessageElement anexoTemp;// Temporary variable message to the annex.
 			anexoTemp = (MessageElement) anexo.item(i);
 
-			MessageElement foneTemp;/* Temporary variable message to the phone. */
+			MessageElement foneTemp;// Temporary variable message to the phone.
 			foneTemp = (MessageElement) fone.item(i);
 
-			MessageElement emailTemp;/* Temporary variable message to the e-mail. */
+			MessageElement emailTemp;// Temporary variable message to the
+										// e-mail.
 			emailTemp = (MessageElement) email.item(i);
 
-			int idInt;/* Variable to received the integer value of id. */
+			int idInt;// Variable to received the integer value of id.
 			idInt = Integer.parseInt(idTemp.getFirstChild().getNodeValue());
 
 			int matriculaInt;/*
@@ -221,7 +220,7 @@ public class ConnectionWithWsDeputies {
 			idParlamentarInt = Integer.parseInt(idParlamentarTemp
 					.getFirstChild().getNodeValue());
 
-			String nomeText;/* variable to received the text of the name. */
+			String nomeText;// variable to received the text of the name.
 			nomeText = nomeTemp.getFirstChild().getNodeValue();
 
 			String nomeTratamentoText;/*
@@ -231,10 +230,10 @@ public class ConnectionWithWsDeputies {
 			nomeTratamentoText = nomeTratamentoTemp.getFirstChild()
 					.getNodeValue();
 
-			String sexoText;/* Variable to received the text of the sex. */
+			String sexoText;// Variable to received the text of the sex.
 			sexoText = sexoTemp.getFirstChild().getNodeValue();
 
-			String ufText;/* Variable to received the text of the UF. */
+			String ufText;// Variable to received the text of the UF.
 			ufText = ufTemp.getFirstChild().getNodeValue();
 
 			String partidoText;/*
@@ -264,10 +263,10 @@ public class ConnectionWithWsDeputies {
 
 			}
 
-			String emailText;/* Variable to received the text of the e-mail. */
+			String emailText;// Variable to received the text of the e-mail.
 			emailText = emailTemp.getFirstChild().getNodeValue();
 
-			Deputies deputadoNovo;/* Variable to received the new deputy. */
+			Deputies deputadoNovo;// Variable to received the new deputy.
 			deputadoNovo = new Deputies(idParlamentarInt, matriculaInt, idInt,
 					nomeText, nomeTratamentoText, sexoText, ufText,
 					partidoText, gabineteText, anexoText, foneText, emailText);
@@ -287,7 +286,7 @@ public class ConnectionWithWsDeputies {
 
 	public static ObterPartidosCDResponseObterPartidosCDResult receberElementPartido(
 			DeputadosSoapStub service) {
-		/* Connection created, now call the class of ws. */
+		// Connection created, now call the class of ws.
 		try {
 			ObterPartidosCDResponseObterPartidosCDResult partidos;/*
 																 * Variable to
@@ -332,7 +331,7 @@ public class ConnectionWithWsDeputies {
 		nameParty = politicalParties.get_any()[0]
 				.getElementsByTagName("nomePartido");
 
-		NodeList siglaPartido;/* Variable that receives the symbol of the party. */
+		NodeList siglaPartido;// Variable that receives the symbol of the party.
 		siglaPartido = politicalParties.get_any()[0]
 				.getElementsByTagName("siglaPartido");
 
@@ -354,7 +353,7 @@ public class ConnectionWithWsDeputies {
 			String siglaPartidoText;
 			siglaPartidoText = siglaPartidoTemp.getFirstChild().getNodeValue();
 
-			/* Try catch this is to pull the parties that have not exist. */
+			// Try catch this is to pull the parties that have not exist.
 			try {
 
 			} catch (NullPointerException e) {
@@ -362,7 +361,7 @@ public class ConnectionWithWsDeputies {
 				partidoAdicionar.setAcronyn(siglaPartidoText);
 				partidoAdicionar.setNameParty(namePartyText);
 
-				/* If this expression is false. */
+				// If this expression is false.
 				if (!namePartyText.equalsIgnoreCase("sem partido")) {
 					list.add(partidoAdicionar);
 				}

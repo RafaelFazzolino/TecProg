@@ -41,7 +41,7 @@ public class PartyDao extends ConnectionFactory {
 		PreparedStatement stmt;
 		stmt = getConexao().prepareStatement(sql);
 
-		int sizeList;/* Variable that contains the size of list. */
+		int sizeList;// Variable that contains the size of list.
 		sizeList = list.size();
 
 		for (int i = 0; i < sizeList; i++) {

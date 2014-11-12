@@ -33,7 +33,7 @@ import br.com.MDSGPP.ChamadaParlamentar.exception.EmptyListException;
 import br.com.MDSGPP.ChamadaParlamentar.model.Ranking;
 
 public class UpdateDataBase {
-	Timer timer;/* Variable used to control the time of updating the database. */
+	Timer timer;// Variable used to control the time of updating the database.
 
 	/**
 	 * Method to start the execution of tasks. From this method will update the
@@ -42,7 +42,7 @@ public class UpdateDataBase {
 	public UpdateDataBase() {
 
 		timer = new Timer();
-		/* Executes the task every day 6am. */
+		// Executes the task every day 6am.
 		System.out.println("ENTROU INICIAR");
 		timer.schedule(new tarefasDiarias(), getAmanha6Am(), delayDiario);
 	}
@@ -83,16 +83,14 @@ public class UpdateDataBase {
 		new UpdateDataBase();
 	}
 
-	/**
-	 * Method to stop the execution of tasks.
-	 */
+	// Method to stop the execution of tasks.
+
 	public void stop() {
 		timer.cancel();
 	}
 
-	/**
-	 * Method that contains the scheduled tasks that will be performed.
-	 */
+	// Method that contains the scheduled tasks that will be performed.
+
 	class tarefasDiarias extends TimerTask {
 		public void run() {
 			try {
@@ -120,7 +118,7 @@ public class UpdateDataBase {
 									 */
 				rankingDao = new RankingDao();
 
-				Ranking ranking;/* This variable is the ranking done. */
+				Ranking ranking;// This variable is the ranking done.
 				ranking = RankingControl.createRanking(RankingControl
 						.createListEstatistic(new DeputiesDao().getDeputies()));
 
