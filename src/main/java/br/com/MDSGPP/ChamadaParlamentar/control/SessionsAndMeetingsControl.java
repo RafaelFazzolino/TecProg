@@ -64,9 +64,9 @@ public final class SessionsAndMeetingsControl {
 		ArrayList<String> passList;// Variable that contains the final list.
 		passList = new ArrayList<String>();
 
-		for (int i = 0; i < deputiesForPage; i++) {
+		for (int countDeputies = 0; countDeputies < deputiesForPage; countDeputies++) {
 			if (page == 0) {
-				passList.add(presentDeputies.get(i));
+				passList.add(presentDeputies.get(countDeputies));
 			} else {
 
 				int numberOfPresentsDeputy;/*
@@ -75,8 +75,8 @@ public final class SessionsAndMeetingsControl {
 											 */
 				numberOfPresentsDeputy = presentDeputies.size();
 
-				if (i + (page * deputiesForPage) < numberOfPresentsDeputy) {
-					passList.add(presentDeputies.get(i
+				if (countDeputies + (page * deputiesForPage) < numberOfPresentsDeputy) {
+					passList.add(presentDeputies.get(countDeputies
 							+ (page * deputiesForPage)));
 				}
 			}

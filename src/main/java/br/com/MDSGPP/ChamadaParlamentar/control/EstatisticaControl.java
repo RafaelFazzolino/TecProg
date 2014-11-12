@@ -209,12 +209,13 @@ public final class EstatisticaControl {
 		if (sizeList == 0) {
 			throw new IndexOutOfBoundsException();
 		}
-		for (int i = 0; i < sessionsForPage; i++) {
+		for (int countSession = 0; countSession < sessionsForPage; countSession++) {
 			if (page == 0) {
-				listPass.add(list.get(i));
+				listPass.add(list.get(countSession));
 			} else {
-				if (i + (page * sessionsForPage) < sizeList) {
-					listPass.add(list.get(i + (page * sessionsForPage)));
+				if (countSession + (page * sessionsForPage) < sizeList) {
+					listPass.add(list.get(countSession
+							+ (page * sessionsForPage)));
 				}
 			}
 		}
@@ -237,8 +238,8 @@ public final class EstatisticaControl {
 		int sizeList;// Variable that contains the size of list.
 		sizeList = list.size();
 
-		for (int i = 0; i < sizeList; i++) {
-			ordenada.add(list.get(sizeList - 1 - i));
+		for (int countList = 0; countList < sizeList; countList++) {
+			ordenada.add(list.get(sizeList - 1 - countList));
 		}
 
 		return ordenada;

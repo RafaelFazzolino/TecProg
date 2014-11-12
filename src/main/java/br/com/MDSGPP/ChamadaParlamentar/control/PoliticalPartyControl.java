@@ -66,12 +66,13 @@ public final class PoliticalPartyControl {
 		int sizeListWithData;// Variable that contains the size of the list.
 		sizeListWithData = listWithDatas.size();
 
-		for (int i = 0; i < sizeListWithData; i++) {
+		for (int countDate = 0; countDate < sizeListWithData; countDate++) {
 
-			if (listWithDatas.get(i).get(0).equalsIgnoreCase(party)
-					|| listWithDatas.get(i).get(1).equalsIgnoreCase(party)) {
+			if (listWithDatas.get(countDate).get(0).equalsIgnoreCase(party)
+					|| listWithDatas.get(countDate).get(1)
+							.equalsIgnoreCase(party)) {
 
-				return listWithDatas.get(i);
+				return listWithDatas.get(countDate);
 			}
 		}
 		return null;
@@ -121,10 +122,11 @@ public final class PoliticalPartyControl {
 								 */
 			sizeAllDeputies = allDeputies.size();
 
-			for (int i = 0; i < sizeAllDeputies; i++) {
+			for (int countDeputies = 0; countDeputies < sizeAllDeputies; countDeputies++) {
 				if (politicalPartyName.get(0).equalsIgnoreCase(
-						allDeputies.get(i).getParty())) {
-					deputiesOfThePoliticalParty.add(allDeputies.get(i));
+						allDeputies.get(countDeputies).getParty())) {
+					deputiesOfThePoliticalParty.add(allDeputies
+							.get(countDeputies));
 				}
 			}
 
@@ -169,7 +171,7 @@ public final class PoliticalPartyControl {
 		sizeDeputiesOfParty = party.getDeputiesParty().size();
 
 		try {
-			for (int i = 0; i < sizeDeputiesOfParty; i++) {
+			for (int countParty = 0; countParty < sizeDeputiesOfParty; countParty++) {
 				Statistic statistic;/*
 									 * Variable that contains all features of
 									 * statistics.
@@ -179,11 +181,11 @@ public final class PoliticalPartyControl {
 					statistic = EstatisticaControl
 							.gerarEstatisticas(EstatisticaControl
 									.arrumarNomePesquisa(party
-											.getDeputiesParty().get(i)));
+											.getDeputiesParty().get(countParty)));
 				} catch (EmptyListException e) {
 					statistic.setName(EstatisticaControl
-							.arrumarNomePesquisa(party.getDeputiesParty()
-									.get(i)));
+							.arrumarNomePesquisa(party.getDeputiesParty().get(
+									countParty)));
 				}
 				statistics.add(statistic);
 			}

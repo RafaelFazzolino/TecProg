@@ -93,9 +93,9 @@ public final class RankingControl {
 											 */
 			orderedList = ordenation(receivedList);
 
-			for (int i = 0; i < SIZE_RANKINGS; i++) {
-				bests.add(list.get(i));
-				worst.add(list.get(list.size() - 1 - i));
+			for (int countRanking = 0; countRanking < SIZE_RANKINGS; countRanking++) {
+				bests.add(list.get(countRanking));
+				worst.add(list.get(list.size() - 1 - countRanking));
 			}
 
 			ranking.setBetter(bests);
@@ -152,8 +152,9 @@ public final class RankingControl {
 			int sizeList;// Variable that contains the size of the list.
 			sizeList = list.size();
 
-			for (int i = 0; i < sizeList; i++) {
-				name = EstatisticaControl.arrumarNomePesquisa(list.get(i));
+			for (int countName = 0; countName < sizeList; countName++) {
+				name = EstatisticaControl.arrumarNomePesquisa(list
+						.get(countName));
 
 				try {
 					backList.add(EstatisticaControl.gerarEstatisticas(name,
@@ -212,9 +213,10 @@ public final class RankingControl {
 
 		ranking.setList(ordenation(ranking.getList()));
 
-		for (int i = 0; i < SIZE_RANKINGS; i++) {
-			bests.add(ranking.getList().get(i));
-			worst.add(ranking.getList().get(ranking.getList().size() - 1 - i));
+		for (int countRanking = 0; countRanking < SIZE_RANKINGS; countRanking++) {
+			bests.add(ranking.getList().get(countRanking));
+			worst.add(ranking.getList().get(
+					ranking.getList().size() - 1 - countRanking));
 		}
 		ranking.setBetter(bests);
 		ranking.setWorst(worst);
@@ -234,44 +236,46 @@ public final class RankingControl {
 	public static ArrayList<Statistic> ordenation(ArrayList<Statistic> list) {
 		// Insertion Sort.
 
-		int i = 1, j = 1;
+		int firstCountOrganize = 1, secondCountOrganize = 1;
 
 		int sizeList;// Variable that contains the size of the list.
 		sizeList = list.size();
 
 		if (sizeList > 0) {
 
-			while (j < sizeList) {
+			while (secondCountOrganize < sizeList) {
 
-				i = j;
+				firstCountOrganize = secondCountOrganize;
 
-				while (i > 0) {
+				while (firstCountOrganize > 0) {
 
-					int first;/*
-							 * Variable that stores the fewest for the
-							 * ordination.
-							 */
-					first = Integer
-							.parseInt(list.get(i - 1).getNumberSession());
-					int second;/*
-								 * Variable that stores the highest number for
-								 * the ordination.
-								 */
-					second = Integer.parseInt(list.get(i).getNumberSession());
+					int firstNumberSession;/*
+											 * Variable that stores the fewest
+											 * for the ordination.
+											 */
+					firstNumberSession = Integer.parseInt(list.get(
+							firstCountOrganize - 1).getNumberSession());
+					int secondNumberSession;/*
+											 * Variable that stores the highest
+											 * number for the ordination.
+											 */
+					secondNumberSession = Integer.parseInt(list.get(
+							firstCountOrganize).getNumberSession());
 
-					if (first < second) {
-						Statistic temp;
+					if (firstNumberSession < secondNumberSession) {
+						Statistic organize;
 
-						temp = list.get(i - 1);
+						organize = list.get(firstCountOrganize - 1);
 
-						list.set(i - 1, list.get(i));
-						list.set(i, temp);
-						i--;
+						list.set(firstCountOrganize - 1,
+								list.get(firstCountOrganize));
+						list.set(firstCountOrganize, organize);
+						firstCountOrganize--;
 					} else {
 						break;
 					}
 				}
-				j++;
+				secondCountOrganize++;
 			}
 		}
 		return list;

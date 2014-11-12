@@ -60,14 +60,14 @@ public final class StatisticsPoliticalPartyControl {
 								 */
 		sizeStatisticalParty = party.getStatisticDeputies().size();
 
-		for (int i = 0; i < sizeStatisticalParty; i++) {
+		for (int countStatisticalParty = 0; countStatisticalParty < sizeStatisticalParty; countStatisticalParty++) {
 
 			numberOfSessions = numberOfSessions
-					+ Integer.parseInt(party.getStatisticDeputies().get(i)
-							.getTotalSession());
+					+ Integer.parseInt(party.getStatisticDeputies()
+							.get(countStatisticalParty).getTotalSession());
 			numberOfSessionsAttended = numberOfSessionsAttended
-					+ Integer.parseInt(party.getStatisticDeputies().get(i)
-							.getNumberSession());
+					+ Integer.parseInt(party.getStatisticDeputies()
+							.get(countStatisticalParty).getNumberSession());
 		}
 
 		double percentage;/*
