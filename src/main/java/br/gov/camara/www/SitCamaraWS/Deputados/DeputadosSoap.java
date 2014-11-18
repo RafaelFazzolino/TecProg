@@ -7,6 +7,11 @@
 
 package br.gov.camara.www.SitCamaraWS.Deputados;
 
+/**
+ * 
+ * @author WService Camara.
+ * 
+ */
 public interface DeputadosSoap extends java.rmi.Remote {
 	public br.gov.camara.www.SitCamaraWS.Deputados.ObtainDeputiesResponseObtainDeputiesResult obterDeputados()
 			throws java.rmi.RemoteException;
