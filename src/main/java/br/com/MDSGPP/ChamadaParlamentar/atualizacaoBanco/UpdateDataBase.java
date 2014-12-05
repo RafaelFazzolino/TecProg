@@ -63,20 +63,22 @@ public class UpdateDataBase {
 
 	private static Date getAmanha6Am() {
 		System.out.println("entrou");
-		Calendar tomorrow;/*
-						 * Variable used to save the day that the update should
-						 * be done.
-						 */
-		tomorrow = new GregorianCalendar();
+		Calendar tomorrow = new GregorianCalendar();/*
+													 * Variable used to save the
+													 * day that the update
+													 * should be done.
+													 */
 		tomorrow.add(Calendar.DATE, fONE_DAY);
-		Calendar result;/*
-						 * Saves the time that the method should update the
-						 * system.
-						 */
-		result = new GregorianCalendar(tomorrow.get(Calendar.YEAR),
+		Calendar result = new GregorianCalendar(tomorrow.get(Calendar.YEAR),
 				tomorrow.get(Calendar.MONTH), tomorrow.get(Calendar.DATE),
 				fFOUR_AM, fZERO_MINUTES);
-		return result.getTime();
+
+		Date time = result.getTime();/*
+									 * Saves the time that the method should
+									 * update the system.
+									 */
+
+		return time;
 	}
 
 	public static void main(String[] args) {
@@ -111,18 +113,20 @@ public class UpdateDataBase {
 				sessionsDao.addSessionInTable(ConnectionWithWsSessions
 						.adcionarSessaoNaTable("20/11/2011"));
 
-				RankingDao rankingDao;/*
-									 * This variable controls the connection to
-									 * the database, specific to the ranking
-									 * table.
-									 */
-				rankingDao = new RankingDao();
-
-				Ranking ranking;// This variable is the ranking done.
-				ranking = RankingControl.createRanking(RankingControl
+				RankingDao rankingDao = new RankingDao();/*
+														 * This variable
+														 * controls the
+														 * connection to the
+														 * database, specific to
+														 * the ranking table.
+														 */
+				Ranking ranking = RankingControl.createRanking(RankingControl
 						.createListEstatistic(new DeputiesDao().getDeputies()));
 
-				rankingDao.addRankingInTable(ranking);
+				rankingDao.addRankingInTable(ranking);/*
+													 * This variable is the
+													 * ranking done.
+													 */
 
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block

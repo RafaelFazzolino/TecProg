@@ -39,18 +39,41 @@ public final class CleanList {
 		int sizeList;/* Variable that contains the size of list. */
 		sizeList = list.size();
 
-		for (int i = 0; i < sizeList; i++) {
-			try {
-				Integer.parseInt(list.get(i).getNumberSession());
-			} catch (NumberFormatException e) {
-				removed.add(list.get(i));
-				list.remove(i);
-				i--;
-			}
+		for (int count = 0; count < sizeList; count++) {
+
+			count = anlyseOneItem(list, pass, removed, count);
+
 		}
 
 		pass.add(list);
 		pass.add(removed);
 		return pass;
+	}
+
+	/**
+	 * This method analyze to see if one item must go to removed or to the list.
+	 * 
+	 * @param lista
+	 *            it is the list with all the statistics.
+	 * @param pass
+	 *            it is the list of the ones that are ok.
+	 * @param removed
+	 *            it is the list of the ones that has no data.
+	 * @param i
+	 *            it is the place where to search the statistic.
+	 * @return returns the i to control where it is.
+	 */
+	private static int anlyseOneItem(ArrayList<Statistic> list,
+			ArrayList<ArrayList<Statistic>> pass, ArrayList<Statistic> removed,
+			int count) {
+		try {
+			Integer.parseInt(list.get(count).getNumberSession());
+		} catch (NumberFormatException e) {
+			removed.add(list.get(count));
+			list.remove(count);
+			count--;
+		}
+		return count;
+
 	}
 }
