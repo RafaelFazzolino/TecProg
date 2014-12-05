@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
+import br.com.MDSGPP.ChamadaParlamentar.control.EstatisticaControl;
 import br.com.MDSGPP.ChamadaParlamentar.control.RankingControl;
 import br.com.MDSGPP.ChamadaParlamentar.dao.DeputiesDao;
 import br.com.MDSGPP.ChamadaParlamentar.exception.ListaRankingException;
@@ -92,6 +93,68 @@ public class TesteRankingControl {
 		for (int i = 0; i < lista.size() - 1; i++) {
 			assertTrue(Integer.parseInt(lista.get(i).getNumberSession()) > Integer
 					.parseInt(lista.get(i + 1).getNumberSession()));
+		}
+	}
+
+	@Test
+	public void testMergeFirstFull() {
+		ArrayList<EstatisticaControl> firstList = new ArrayList<EstatisticaControl>();
+		ArrayList<EstatisticaControl> secondList = new ArrayList<EstatisticaControl>();
+
+		for (int i = 10; i > 0; i--) {
+			EstatisticaControl estatistica = new EstatisticaControl();
+			estatistica.setNumberSession(Integer.toString(i));
+			firstList.add(estatistica);
+		}
+
+		ArrayList<EstatisticaControl> listToTest = RankingControl.merge(
+				firstList, secondList);
+
+		assertNotNull(listToTest);
+	}
+
+	@Test
+	public void testMergeSecondFull() {
+		ArrayList<EstatisticaControl> firstList = new ArrayList<EstatisticaControl>();
+		ArrayList<EstatisticaControl> secondList = new ArrayList<EstatisticaControl>();
+
+		for (int i = 10; i > 0; i--) {
+			EstatisticaControl estatistica = new EstatisticaControl();
+			estatistica.setNumberSession(Integer.toString(i));
+			secondList.add(estatistica);
+		}
+
+		ArrayList<EstatisticaControl> listToTest = RankingControl.merge(
+				firstList, secondList);
+
+		assertNotNull(listToTest);
+	}
+
+	@Test
+	public void testMergeBothFull() {
+		ArrayList<EstatisticaControl> firstList = new ArrayList<EstatisticaControl>();
+		ArrayList<EstatisticaControl> secondList = new ArrayList<EstatisticaControl>();
+
+		for (int i = 10; i > 0; i--) {
+			EstatisticaControl estatistica = new EstatisticaControl();
+			estatistica.setNumberSession(Integer.toString(i));
+			firstList.add(estatistica);
+		}
+
+		for (int i = 20; i < 30; i++) {
+			EstatisticaControl estatistica = new EstatisticaControl();
+			estatistica.setNumberSession(Integer.toString(i));
+			secondList.add(estatistica);
+		}
+
+		ArrayList<EstatisticaControl> listToTest = RankingControl.merge(
+				firstList, secondList);
+
+		for (int i = 1; i < listToTest.size(); i++) {
+			int first = Integer.parseInt(listToTest.get(i - 1)
+					.getNumberSession());
+			int second = Integer.parseInt(listToTest.get(i).getNumberSession());
+			System.out.println(first);
 		}
 	}
 

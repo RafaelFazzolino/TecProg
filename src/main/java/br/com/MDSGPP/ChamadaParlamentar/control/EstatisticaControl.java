@@ -244,4 +244,14 @@ public final class EstatisticaControl {
 
 		return ordenada;
 	}
+
+	public void setNumberSession(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getNumberSession() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -305,4 +305,11 @@ public final class RankingControl {
 
 		return ranking;
 	}
+
+	public static ArrayList<EstatisticaControl> merge(
+			ArrayList<EstatisticaControl> firstList,
+			ArrayList<EstatisticaControl> secondList) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
