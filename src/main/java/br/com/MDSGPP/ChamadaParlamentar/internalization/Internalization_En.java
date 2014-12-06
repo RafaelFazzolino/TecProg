@@ -38,6 +38,12 @@ public class Internalization_En extends ListResourceBundle {
 
 			{ "TrackParty.InsertPartysName", "Enter the name of your party." },
 
+			{ "DataNotAvailable.SearchOtherDeputys", "to search other deputys." },
+			{ "DataNotAvailable.click", "Click" },
+			{ "DataNotAvailable.Here", "here" },
+			{ "DataNotAvailable.NoData",
+					"Sorry the data for this deputy is not available." },
+
 	};
 
 }
