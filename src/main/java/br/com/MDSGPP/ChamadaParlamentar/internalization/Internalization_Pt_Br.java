@@ -33,6 +33,10 @@ public class Internalization_Pt_Br extends ListResourceBundle {
 			{ "menu.Ranking", "Ranking" },
 			{ "menu.RankingTop5", "5 melhores do Ranking" },
 			{ "menu.CompleteRanking", "Ranking Completo" },
+			
+			{ "TrackDeputy.InsertDeputysName", "Digite o nome do deputado" },
+
+			{ "TrackParty.InsertPartysName", "Digite o nome do partido" },
 
 	};
 }

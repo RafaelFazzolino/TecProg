@@ -34,7 +34,10 @@ public class Internalization_En extends ListResourceBundle {
 			{ "menu.RankingTop5", "Top 5 Ranking" },
 			{ "menu.CompleteRanking", "Complete Ranking" },
 
-			
+			{ "TrackDeputy.InsertDeputysName", "Enter the name of the deputy" },
+
+			{ "TrackParty.InsertPartysName", "Enter the name of your party." },
+
 	};
 
 }
