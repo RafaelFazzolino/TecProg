@@ -44,6 +44,9 @@ public class Internalization_En extends ListResourceBundle {
 			{ "DataNotAvailable.NoData",
 					"Sorry the data for this deputy is not available." },
 
+			{ "TrackSession.InsertDay", "Enter the day" },
+			{ "TrackSession.Page", "Page" }, { "TrackSession.Date", "Date" },
+
 	};
 
 }

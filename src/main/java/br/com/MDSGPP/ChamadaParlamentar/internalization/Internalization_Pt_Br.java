@@ -45,5 +45,8 @@ public class Internalization_Pt_Br extends ListResourceBundle {
 			{ "DataNotAvailable.NoData",
 					"Desculpe, os dados para este deputado não estão disponíveis." },
 
+			{ "TrackSession.InsertDay", "Digite o dia" },
+			{ "TrackSession.Page", "Página" }, { "TrackSession.Date", "Data" },
+
 	};
 }
