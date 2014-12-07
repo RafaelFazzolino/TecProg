@@ -45,7 +45,22 @@ public class Internalization_En extends ListResourceBundle {
 					"Sorry the data for this deputy is not available." },
 
 			{ "TrackSession.InsertDay", "Enter the day" },
-			{ "TrackSession.Page", "Page" }, { "TrackSession.Date", "Date" },
+			{ "TrackSession.Page", "Page" },
+			{ "TrackSession.Date", "Date" },
+
+			{ "DateNotFound.DateNotFound", "Date not found" },
+			{ "DateNotFound.TryAgain", "Want to try again?" },
+
+			{ "DeputyNotFound.DeputyNotFound", "Deputy Not Found!" },
+			{ "DeputyNotFound.TryAgain", "Want to try again?" },
+
+			{ "Error.CorrectedError", "Sorry, this error will be corrected." },
+
+			{ "Footer.WhoWeAre", "Who We Are" },
+			{ "Error.CorrectedError", "Sorry, this error will be corrected." },
+
+			{ "WrongFormat.WrongDate",
+					"Sorry, but the date entered by you is not correct." },
 
 	};
 

@@ -46,7 +46,22 @@ public class Internalization_Pt_Br extends ListResourceBundle {
 					"Desculpe, os dados para este deputado não estão disponíveis." },
 
 			{ "TrackSession.InsertDay", "Digite o dia" },
-			{ "TrackSession.Page", "Página" }, { "TrackSession.Date", "Data" },
+			{ "TrackSession.Page", "Página" },
+			{ "TrackSession.Date", "Data" },
+
+			{ "DateNotFound.DateNotFound", "Data não encontrada." },
+			{ "DateNotFound.TryAgain", "Deseja tentar novamente?" },
+
+			{ "DeputyNotFound.DeputyNotFound", "Deputado não encontrado!" },
+			{ "DeputyNotFound.TryAgain", "Deseja tentar novamente?" },
+
+			{ "Error.CorrectedError", "Desculpe, esse erro será corrigido." },
+
+			{ "Footer.WhoWeAre", "Quem nós somos" },
+			{ "Error.CorrectedError", "Desculpe, esse erro será corrigido." },
+
+			{ "WrongFormat.WrongDate",
+					"Desculpe, mas a data que você digitou está incorreta." },
 
 	};
 }
