@@ -63,5 +63,11 @@ public class Internalization_Pt_Br extends ListResourceBundle {
 			{ "WrongFormat.WrongDate",
 					"Desculpe, mas a data que você digitou está incorreta." },
 
+			{ "ShowComparisonDeputy.Name", "Nome:" },
+			{ "ShowComparisonDeputy.SessionsWhatched", "Sessões Assistidas:" },
+			{ "ShowComparisonDeputy.TotalNumberSessions", "Número de sessões:" },
+			{ "ShowComparisonDeputy.Percent", "Percentual:" },
+			{ "ShowComparisonDeputy.Sessions", "Sessões:" },
+
 	};
 }

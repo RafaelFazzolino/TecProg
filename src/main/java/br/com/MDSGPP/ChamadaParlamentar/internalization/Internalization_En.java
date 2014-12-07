@@ -62,6 +62,12 @@ public class Internalization_En extends ListResourceBundle {
 			{ "WrongFormat.WrongDate",
 					"Sorry, but the date entered by you is not correct." },
 
+			{ "ShowComparisonDeputy.Name", "Name:" },
+			{ "ShowComparisonDeputy.SessionsWhatched", "Sessions Whatched:" },
+			{ "ShowComparisonDeputy.TotalNumberSessions", "Number of sessions:" },
+			{ "ShowComparisonDeputy.Percent", "Percent:" },
+			{ "ShowComparisonDeputy.Sessions", "Sessions:" },
+
 	};
 
 }
